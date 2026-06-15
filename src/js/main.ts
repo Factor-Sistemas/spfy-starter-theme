@@ -2,6 +2,7 @@ import Alpine from 'alpinejs';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiendaAprendizaje from './classes/TiendaAprendizaje';
+import ProductRequestForm from './classes/ProductRequestForm';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 // Arrancar Alpine.js
 Alpine.start();
 
-// Inicializar nuestra clase principal
+// Inicializar nuestras clases principales
 document.addEventListener("DOMContentLoaded", () => {
   new TiendaAprendizaje();
+  new ProductRequestForm();
 });
