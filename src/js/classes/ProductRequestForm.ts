@@ -14,24 +14,49 @@ export default class ProductRequestForm {
   }
 
   /**
-   * Persiste el parámetro utm_source de la URL en la sesión
+   * Obtiene el valor de una cookie por su nombre
+   */
+  private getCookie(name: string): string {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+      return parts.pop()?.split(';').shift() || '';
+    }
+    return '';
+  }
+
+  /**
+   * Crea o actualiza una cookie con una duración en días
+   */
+  private setCookie(name: string, value: string, days: number): void {
+    let expires = '';
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = `; expires=${date.toUTCString()}`;
+    }
+    document.cookie = `${name}=${value || ''}${expires}; path=/; SameSite=Lax; Secure`;
+  }
+
+  /**
+   * Persiste el parámetro utm_source de la URL en una cookie por 30 días
    */
   private persistUtmSource(): void {
     const urlParams = new URLSearchParams(window.location.search);
     const utmSource = urlParams.get('utm_source');
     if (utmSource) {
-      sessionStorage.setItem('utm_source', utmSource);
+      this.setCookie('utm_source', utmSource, 30);
     }
   }
 
   /**
-   * Carga el teléfono dinámico de la API Proxy según el utm_source
+   * Carga el teléfono dinámico de la API Proxy según la cookie utm_source
    */
   private async loadDynamicPhone(): void {
     const phoneElements = document.querySelectorAll(this.phoneSelector);
     if (phoneElements.length === 0) return;
 
-    const utmSource = sessionStorage.getItem('utm_source') || '';
+    const utmSource = this.getCookie('utm_source');
     
     try {
       const response = await fetch(`${this.apiBaseUrl}/telefono?utm_source=${encodeURIComponent(utmSource)}`);
