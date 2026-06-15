@@ -1,0 +1,9 @@
+/* Clases precompiladas para grillas u otros elementos dinámicos */
+grid-cols-1
+grid-cols-2
+md:grid-cols-2
+md:grid-cols-3
+md:grid-cols-4
+lg:grid-cols-3
+lg:grid-cols-4
+lg:grid-cols-6

@@ -1,0 +1,23 @@
+/*
+  =============================================================================
+  CATEGORÍA: Tokens de Diseño (Settings & Variables)
+  =============================================================================
+  Aquí defines todas las variables personalizadas, fuentes, colores y tamaños
+  del tema mediante la directiva @theme de Tailwind v4.
+*/
+
+@theme {
+  /* Tipografía fluida (escala automáticamente según el ancho de la pantalla) */
+  --text-fluid-h1: clamp(1rem, 1.6rem, 2rem);
+  --text-fluid-h2: clamp(1.75rem, 3vw + 1rem, 3.5rem);
+  --text-fluid-body: clamp(1rem, 0.5vw + 0.8rem, 1.25rem);
+
+  /* Espaciados y márgenes fluidos */
+  --spacing-fluid-gap: clamp(1rem, 2vw, 3rem);
+  --spacing-fluid-padding: clamp(1rem, 3vw, 5rem);
+
+  /* Colores personalizados del tema */
+  --color-brand-primary: #111111;
+  --color-brand-secondary: #f4f4f4;
+  --color-brand-accent: #ff3366;
+}

@@ -1,0 +1,21 @@
+/*
+  =============================================================================
+  CATEGORÍA: Utilidades (Utilities)
+  =============================================================================
+  Clases de utilidad muy específicas y puntuales creadas a mano.
+  Utiliza esto únicamente como última opción si no puedes resolverlo
+  mediante las clases utilitarias de Tailwind o configurando el @theme.
+*/
+
+/* Ejemplo de utilidad: texto con degradado */
+.text-gradient {
+  background: linear-gradient(to right, var(--color-brand-primary), var(--color-brand-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ejemplo de utilidad: forzar hardware acceleration en animaciones */
+.will-animate {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}

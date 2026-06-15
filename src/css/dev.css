@@ -1,0 +1,55 @@
+/* BREAKPOINT HELPER (Solo para desarrollo) */
+body {
+  overflow-x: hidden;
+}
+
+body::before {
+  display: block;
+  width: 40px;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 5px 10px;
+  font-family: 'Montserrat', Arial, sans-serif !important;
+  z-index: 1000;
+}
+
+@media (max-width: 639px) {
+  body::before {
+    content: 'XS';
+    background: #cc8e21;
+  }
+}
+@media (min-width: 640px) {
+  body::before {
+    content: 'SM';
+    background: #8521cc;
+  }
+}
+@media (min-width: 768px) {
+  body::before {
+    content: 'MD';
+    background: #21a2cc;
+  }
+}
+@media (min-width: 1024px) {
+  body::before {
+    content: 'LG';
+    background: #871a1a;
+  }
+}
+@media (min-width: 1280px) {
+  body::before {
+    content: 'XL';
+    background: #d800ff;
+  }
+}
+@media (min-width: 1536px) {
+  body::before {
+    content: '2XL';
+    background: #42caa8;
+  }
+}
