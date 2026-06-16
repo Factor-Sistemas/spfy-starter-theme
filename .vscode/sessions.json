@@ -1,0 +1,51 @@
+{
+          "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v11/terminal-keeper.json",
+          "theme": "neon",
+          "active": "default",
+          "activateOnStartup": true,
+          "keepExistingTerminals": false,
+          "sessions": {
+                    "default": [
+                              [
+                                        {
+                                                  "name": "shopify",
+                                                  "color": "terminal.ansiGreen",
+                                                  "icon": "globe",
+                                                  "commands": [
+                                                            ""
+                                                  ]
+                                        }
+                              ],
+                              [
+                                        {
+                                                  "name": "Vite",
+                                                  "icon": "console",
+                                                  "color": "terminal.ansiBlue",
+                                                  "commands": [
+                                                            "npm run watch"
+                                                  ]
+                                        }
+                              ],
+                              [
+                                        {
+                                                  "name": "git",
+                                                  "icon": "github",
+                                                  "color": "terminal.ansiRed",
+                                                  "commands": [
+                                                            ""
+                                                  ]
+                                        }
+                              ],
+                              [
+                                        {
+                                                  "name": "clean",
+                                                  "icon": "tools",
+                                                  "color": "terminal.ansiYellow",
+                                                  "commands": [
+                                                            ""
+                                                  ]
+                                        }
+                              ]
+                    ]
+          }
+}

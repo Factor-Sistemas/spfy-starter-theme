@@ -1,0 +1,72 @@
+/*
+  =============================================================================
+  COMPONENTE: CSS View Transitions API & Base Behaviors
+  =============================================================================
+  Este componente activa y personaliza las transiciones de página nativas
+  y los comportamientos base del documento.
+*/
+
+/* 1. COMPORTAMIENTO DE DESPLAZAMIENTO SUAVE (SMOOTH SCROLL) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respetar la accesibilidad para usuarios que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* 2. ACTIVACIÓN DE LA TRANSICIÓN GLOBAL */
+@view-transition {
+  navigation: auto;
+}
+
+/* 3. NOMBRES DE TRANSICIÓN (ASIGNACIÓN DE ROLES) */
+header {
+  view-transition-name: main-header;
+}
+
+main {
+  view-transition-name: main-content;
+}
+
+footer {
+  view-transition-name: main-footer;
+}
+
+/* 4. PERSONALIZACIÓN DE ANIMACIONES */
+::view-transition-group(main-content) {
+  animation-duration: 500ms;
+  animation-timing-function: ease;
+}
+
+::view-transition-old(main-content) {
+  animation: 500ms ease both slide-out;
+}
+
+::view-transition-new(main-content) {
+  mix-blend-mode: normal; /* Evita que el fondo se vuelva transparente en la transición */
+  animation: 500ms ease both slide-in-up;
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateX(250vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

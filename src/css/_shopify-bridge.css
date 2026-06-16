@@ -1,0 +1,35 @@
+/*
+  =============================================================================
+  SHOPIFY TO TAILWIND BRIDGE (PREFLIGHT)
+  =============================================================================
+  Este archivo mapea las variables de Shopify (impresas por Liquid en theme.liquid)
+  a tokens de Tailwind v4. Iremos rellenando este archivo según sea necesario.
+*/
+
+@theme {
+  /* Fuentes oficiales de Shopify */
+  --font-body: var(--font-body-family);
+  --font-heading: var(--font-heading-family);
+
+  /* Colores del esquema activo (adaptativos según el Customizer) */
+  --color-scheme-bg: rgb(var(--color-background));
+  --color-scheme-text: rgb(var(--color-foreground));
+  --color-scheme-button: rgb(var(--color-button));
+  --color-scheme-button-text: rgb(var(--color-button-text));
+  --color-scheme-link: rgb(var(--color-link));
+  --color-scheme-shadow: rgb(var(--color-shadow));
+
+  /* Dimensiones globales de la tienda */
+  --page-width: var(--page-width);
+}
+
+/* Reset base inicial para armonizar Tailwind y el tema de Shopify */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-scheme-bg);
+  color: var(--color-scheme-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

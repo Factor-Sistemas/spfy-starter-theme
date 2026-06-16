@@ -42,6 +42,9 @@
 
   if media.media_type == 'image'
     assign image_class = 'image-magnify-' | append: section.settings.image_zoom
+    if position == 1 or position == '1'
+      assign image_class = image_class | append: ' pdp-img-' | append: product.id
+    endif
   endif
 -%}
 
@@ -77,6 +80,13 @@
       {% endcase %}
     </span>
     {%- render 'loading-spinner' -%}
+    {%- if position == 1 or position == '1' -%}
+      {% style %}
+        .pdp-img-{{ product.id }} {
+          view-transition-name: product-image-{{ product.id }};
+        }
+      {% endstyle %}
+    {%- endif -%}
     <div class="product__media media media--transparent">
       {{
         media.preview_image
