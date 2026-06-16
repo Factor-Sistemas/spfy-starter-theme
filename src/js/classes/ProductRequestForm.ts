@@ -52,7 +52,7 @@ export default class ProductRequestForm {
   /**
    * Carga el teléfono dinámico de la API Proxy según la cookie utm_source
    */
-  private async loadDynamicPhone(): void {
+  private async loadDynamicPhone(): Promise<void> {
     const phoneElements = document.querySelectorAll(this.phoneSelector);
     if (phoneElements.length === 0) return;
 
