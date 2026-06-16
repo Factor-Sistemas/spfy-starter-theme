@@ -144,7 +144,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.email-signup-banner.name",
+  "name": "Suscripción newsletter",
   "tag": "section",
   "class": "section",
   "enabled_on": {
@@ -153,18 +153,18 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "t:sections.email-signup-banner.settings.paragraph.content"
+      "content": "Suscriptores agregados [perfiles de clientes](https://help.shopify.com/manual/customers/manage-customers)"
     },
     {
       "type": "checkbox",
       "id": "show_background_image",
-      "label": "t:sections.email-signup-banner.settings.show_background_image.label",
+      "label": "Mostrar imagen de fondo",
       "default": true
     },    
     {
       "type": "image_picker",
       "id": "image",
-      "label": "t:sections.email-signup-banner.settings.image.label"
+      "label": "Imagen de fondo"
     },
     {
       "type": "range",
@@ -173,7 +173,7 @@
       "max": 100,
       "step": 10,
       "unit": "%",
-      "label": "t:sections.email-signup-banner.settings.image_overlay_opacity.label",
+      "label": "Opacidad de sobreposición",
       "default": 0
     },
     {
@@ -182,27 +182,27 @@
       "options": [
         {
           "value": "adapt-image",
-          "label": "t:sections.email-signup-banner.settings.image_height.options__1.label"
+          "label": "Adaptar a la imagen"
         },
         {
           "value": "small",
-          "label": "t:sections.email-signup-banner.settings.image_height.options__2.label"
+          "label": "Pequeña"
         },
         {
           "value": "medium",
-          "label": "t:sections.email-signup-banner.settings.image_height.options__3.label"
+          "label": "Mediana"
         },
         {
           "value": "large",
-          "label": "t:sections.email-signup-banner.settings.image_height.options__4.label"
+          "label": "Grande"
         }
       ],
       "default": "medium",
-      "label": "t:sections.email-signup-banner.settings.image_height.label"
+      "label": "Altura"
     },
     {
       "type": "header",
-      "content": "t:sections.email-signup-banner.settings.content_header.content"
+      "content": "Contenido"
     },    
     {
       "type": "select",
@@ -210,43 +210,43 @@
       "options": [
         {
           "value": "top-left",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__1.label"
+          "label": "Arriba a la izquierda"
         },
         {
           "value": "top-center",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__2.label"
+          "label": "Arriba en el centro"
         },
         {
           "value": "top-right",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__3.label"
+          "label": "Arriba a la derecha"
         },
         {
           "value": "middle-left",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__4.label"
+          "label": "Centrado a la izquierda"
         },
         {
           "value": "middle-center",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__5.label"
+          "label": "Centrado en el medio"
         },
         {
           "value": "middle-right",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__6.label"
+          "label": "Centrado a la derecha"
         },
         {
           "value": "bottom-left",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__7.label"
+          "label": "Abajo a la izquierda"
         },
         {
           "value": "bottom-center",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__8.label"
+          "label": "Abajo en el centro"
         },
         {
           "value": "bottom-right",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_position.options__9.label"
+          "label": "Abajo a la derecha"
         }
       ],
       "default": "middle-center",
-      "label": "t:sections.email-signup-banner.settings.desktop_content_position.label"
+      "label": "Posición"
     },
     {
       "type": "select",
@@ -254,36 +254,36 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__1.label"
+          "label": "Izquierda"
         },
         {
           "value": "center",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__2.label"
+          "label": "Centro"
         },
         {
           "value": "right",
-          "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.options__3.label"
+          "label": "Derecha"
         }
       ],
       "default": "center",
-      "label": "t:sections.email-signup-banner.settings.desktop_content_alignment.label"
+      "label": "Alineación"
     },    
     {
       "type": "checkbox",
       "id": "show_text_box",
       "default": true,
-      "label": "t:sections.email-signup-banner.settings.show_text_box.label"
+      "label": "Contenedor"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.email-signup-banner.settings.color_scheme.info",
+      "label": "Esquema de colores",
+      "info": "Visible cuando se muestre el contenedor.",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.email-signup-banner.settings.header.content"
+      "content": "Diseño móvil"
     },
     {
       "type": "select",
@@ -291,38 +291,38 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__1.label"
+          "label": "Izquierda"
         },
         {
           "value": "center",
-          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__2.label"
+          "label": "Centro"
         },
         {
           "value": "right",
-          "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.options__3.label"
+          "label": "Derecha"
         }
       ],
       "default": "center",
-      "label": "t:sections.email-signup-banner.settings.mobile_content_alignment.label"
+      "label": "Alineación"
     },
     {
       "type": "checkbox",
       "id": "show_text_below",
       "default": true,
-      "label": "t:sections.email-signup-banner.settings.show_text_below.label"
+      "label": "Apilar el texto debajo de la imagen"
     }
   ],
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.email-signup-banner.blocks.heading.name",
+      "name": "Título",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "heading",
-          "default": "t:sections.email-signup-banner.blocks.heading.settings.heading.default",
-          "label": "t:sections.email-signup-banner.blocks.heading.settings.heading.label"
+          "default": "Apertura próximamente",
+          "label": "Título"
         },
         {
           "type": "select",
@@ -330,40 +330,40 @@
           "options": [
             {
               "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
+              "label": "Pequeño"
             },
             {
               "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
+              "label": "Mediano"
             },
             {
               "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
+              "label": "Grande"
             },
             {
               "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
+              "label": "Extra grande"
             },
             {
               "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
+              "label": "Superextragrande"
             }
           ],
           "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+          "label": "Tamaño del título"
         }
       ]
     },
     {
       "type": "paragraph",
-      "name": "t:sections.email-signup-banner.blocks.paragraph.name",
+      "name": "Texto",
       "limit": 1,
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "default": "t:sections.email-signup-banner.blocks.paragraph.settings.paragraph.default",
-          "label": "t:sections.email-signup-banner.blocks.paragraph.settings.paragraph.label"
+          "default": "<p>Entérate de nuestros lanzamientos antes que los demás.</p>",
+          "label": "Texto"
         },
         {
           "type": "select",
@@ -371,27 +371,27 @@
           "options": [
             {
               "value": "body",
-              "label": "t:sections.email-signup-banner.blocks.paragraph.settings.text_style.options__1.label"
+              "label": "Cuerpo"
             },
             {
               "value": "subtitle",
-              "label": "t:sections.email-signup-banner.blocks.paragraph.settings.text_style.options__2.label"
+              "label": "Subtítulo"
             }
           ],
           "default": "body",
-          "label": "t:sections.email-signup-banner.blocks.paragraph.settings.text_style.label"
+          "label": "Estilo"
         }
       ]
     },
     {
       "type": "email_form",
-      "name": "t:sections.email-signup-banner.blocks.email_form.name",
+      "name": "Formulario",
       "limit": 1
     }
   ],
   "presets": [
     {
-      "name": "t:sections.email-signup-banner.presets.name",
+      "name": "Suscripción newsletter",
       "blocks": [
         {
           "type": "heading"

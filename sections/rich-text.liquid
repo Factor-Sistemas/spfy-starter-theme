@@ -1,23 +1,7 @@
-{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
-<div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
-  <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
-    <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
-      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+<div class="isolate page-width">
+  <div class="rich-text content-container bg-canvas text-body py-12 md:py-16">
+    <div class="rich-text__wrapper rich-text__wrapper--center page-width">
+      <div class="rich-text__blocks text-center mx-auto">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
@@ -96,101 +80,24 @@
 
 {% schema %}
 {
-  "name": "t:sections.rich-text.name",
+  "name": "Texto enriquecido",
   "tag": "section",
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "settings": [
-    {
-      "type": "select",
-      "id": "desktop_content_position",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.rich-text.settings.desktop_content_position.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.rich-text.settings.desktop_content_position.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.rich-text.settings.desktop_content_position.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.rich-text.settings.desktop_content_position.label"
-    },
-    {
-      "type": "select",
-      "id": "content_alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.rich-text.settings.content_alignment.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.rich-text.settings.content_alignment.options__2.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.rich-text.settings.content_alignment.options__3.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.rich-text.settings.content_alignment.label"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "t:sections.rich-text.settings.full_width.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 40
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 52
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.rich-text.blocks.heading.name",
+      "name": "Título",
       "limit": 3,
       "settings": [
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "t:sections.rich-text.blocks.heading.settings.heading.default",
-          "label": "t:sections.rich-text.blocks.heading.settings.heading.label"
+          "default": "Coméntanos sobre tu marca",
+          "label": "Título"
         },
         {
           "type": "select",
@@ -198,40 +105,40 @@
           "options": [
             {
               "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
+              "label": "Pequeño"
             },
             {
               "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
+              "label": "Mediano"
             },
             {
               "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
+              "label": "Grande"
             },
             {
               "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
+              "label": "Extra grande"
             },
             {
               "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
+              "label": "Superextragrande"
             }
           ],
           "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+          "label": "Tamaño del título"
         }
       ]
     },
     {
       "type": "caption",
-      "name": "t:sections.rich-text.blocks.caption.name",
+      "name": "Leyenda",
       "limit": 3,
       "settings": [
         {
           "type": "text",
           "id": "caption",
-          "default": "t:sections.rich-text.blocks.caption.settings.text.default",
-          "label": "t:sections.rich-text.blocks.caption.settings.text.label"
+          "default": "Agregar un eslogan",
+          "label": "Texto"
         },
         {
           "type": "select",
@@ -239,15 +146,15 @@
           "options": [
             {
               "value": "subtitle",
-              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__1.label"
+              "label": "Subtítulo"
             },
             {
               "value": "caption-with-letter-spacing",
-              "label": "t:sections.rich-text.blocks.caption.settings.text_style.options__2.label"
+              "label": "Mayúscula"
             }
           ],
           "default": "caption-with-letter-spacing",
-          "label": "t:sections.rich-text.blocks.caption.settings.text_style.label"
+          "label": "Estilo"
         },
         {
           "type": "select",
@@ -255,89 +162,89 @@
           "options": [
             {
               "value": "small",
-              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__1.label"
+              "label": "Pequeño"
             },
             {
               "value": "medium",
-              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__2.label"
+              "label": "Mediano"
             },
             {
               "value": "large",
-              "label": "t:sections.rich-text.blocks.caption.settings.caption_size.options__3.label"
+              "label": "Grande"
             }
           ],
           "default": "medium",
-          "label": "t:sections.rich-text.blocks.caption.settings.caption_size.label"
+          "label": "Talla"
         }
       ]
     },
     {
       "type": "text",
-      "name": "t:sections.rich-text.blocks.text.name",
+      "name": "Texto",
       "limit": 3,
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "default": "t:sections.rich-text.blocks.text.settings.text.default",
-          "label": "t:sections.rich-text.blocks.text.settings.text.label"
+          "default": "<p>Comparte información sobre tu marca con los clientes. Describe un producto, comparte anuncios o da la bienvenida a los clientes a tu tienda.</p>",
+          "label": "Texto"
         }
       ]
     },
     {
       "type": "button",
-      "name": "t:sections.rich-text.blocks.buttons.name",
+      "name": "Botones",
       "limit": 2,
       "settings": [
         {
          "type": "header",
-         "content": "t:sections.rich-text.blocks.buttons.settings.header_button1.content"
+         "content": "Botón 1"
         },        
         {
           "type": "text",
           "id": "button_label",
-          "default": "t:sections.rich-text.blocks.buttons.settings.button_label_1.default",
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_1.label",
-          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_1.info"
+          "default": "Etiqueta de botón",
+          "label": "Etiqueta",
+          "info": "Dejar en blanco para ocultar"
         },
         {
           "type": "url",
           "id": "button_link",
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_1.label"
+          "label": "Enlace"
         },
         {
           "type": "checkbox",
           "id": "button_style_secondary",
           "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_1.label"
+          "label": "Estilo de contorno"
         },
         {
          "type": "header",
-         "content": "t:sections.rich-text.blocks.buttons.settings.header_button2.content"
+         "content": "Botón 2"
         },          
         {
           "type": "text",
           "id": "button_label_2",
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_2.label",
-          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_2.info"
+          "label": "Etiqueta",
+          "info": "Deja la etiqueta en blanco para ocultar"
         },
         {
           "type": "url",
           "id": "button_link_2",
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_2.label"
+          "label": "Enlace"
         },
         {
           "type": "checkbox",
           "id": "button_style_secondary_2",
           "default": false,
-          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+          "label": "Estilo de contorno"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.rich-text.presets.name",
+      "name": "Texto enriquecido",
       "blocks": [
         {
           "type": "heading"

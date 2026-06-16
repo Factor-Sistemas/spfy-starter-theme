@@ -135,18 +135,18 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-cart-footer.name",
+  "name": "Subtotal",
   "class": "cart__footer-wrapper",
   "settings": [
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },    
     {
       "type": "range",
@@ -155,7 +155,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 40
     },
     {
@@ -165,19 +165,19 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 40
     }
   ],
   "blocks": [
     {
       "type": "subtotal",
-      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "name": "Precio subtotal",
       "limit": 1
     },
     {
       "type": "buttons",
-      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "name": "Botón de pago",
       "limit": 1
     },
     {

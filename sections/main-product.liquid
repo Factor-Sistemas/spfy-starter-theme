@@ -740,7 +740,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-product.name",
+  "name": "Información de producto",
   "tag": "section",
   "class": "section",
   "blocks": [
@@ -749,13 +749,13 @@
     },
     {
       "type": "text",
-      "name": "t:sections.main-product.blocks.text.name",
+      "name": "Texto",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "text",
-          "default": "t:sections.main-product.blocks.text.settings.text.default",
-          "label": "t:sections.main-product.blocks.text.settings.text.label"
+          "default": "Bloque de texto",
+          "label": "Texto"
         },
         {
           "type": "select",
@@ -763,35 +763,35 @@
           "options": [
             {
               "value": "body",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
+              "label": "Cuerpo"
             },
             {
               "value": "subtitle",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
+              "label": "Subtítulo"
             },
             {
               "value": "uppercase",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
+              "label": "Mayúscula"
             }
           ],
           "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+          "label": "Estilo"
         }
       ]
     },
     {
       "type": "title",
-      "name": "t:sections.main-product.blocks.title.name",
+      "name": "Título",
       "limit": 1
     },
     {
       "type": "price",
-      "name": "t:sections.main-product.blocks.price.name",
+      "name": "Precio",
       "limit": 1
     },
     {
       "type": "sku",
-      "name": "t:sections.main-product.blocks.sku.name",
+      "name": "SKU",
       "limit": 1,
       "settings": [
         {
@@ -800,25 +800,25 @@
           "options": [
             {
               "value": "body",
-              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__1.label"
+              "label": "Cuerpo"
             },
             {
               "value": "subtitle",
-              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__2.label"
+              "label": "Subtítulo"
             },
             {
               "value": "uppercase",
-              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__3.label"
+              "label": "Mayúscula"
             }
           ],
           "default": "body",
-          "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
+          "label": "Estilo de texto"
         }
       ]
     },
     {
       "type": "inventory",
-      "name": "t:sections.main-product.blocks.inventory.name",
+      "name": "Estado del inventario",
       "limit": 1,
       "settings": [
         {
@@ -827,24 +827,24 @@
           "options": [
             {
               "value": "body",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+              "label": "Cuerpo"
             },
             {
               "value": "subtitle",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+              "label": "Subtítulo"
             },
             {
               "value": "uppercase",
-              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+              "label": "Mayúscula"
             }
           ],
           "default": "body",
-          "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+          "label": "Estilo de texto"
         },
         {
           "type": "range",
           "id": "inventory_threshold",
-          "label": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.label",
+          "label": "Umbral de inventario bajo",
           "min": 0,
           "max": 100,
           "step": 1,
@@ -853,19 +853,19 @@
         {
           "type": "checkbox",
           "id": "show_inventory_quantity",
-          "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
+          "label": "Recuento de inventario",
           "default": true
         }
       ]
     },
     {
       "type": "quantity_selector",
-      "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "name": "Selector de cantidad",
       "limit": 1
     },
     {
       "type": "variant_picker",
-      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "name": "Selector de variante",
       "limit": 1,
       "settings": [
         {
@@ -874,33 +874,33 @@
           "options": [
             {
               "value": "dropdown",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+              "label": "Desplegable"
             },
             {
               "value": "button",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+              "label": "Miniaturas"
             }
           ],
           "default": "button",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+          "label": "Estilo"
         },
         {
           "id": "swatch_shape",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.label",
+          "label": "Muestra",
           "type": "select",
-          "info": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.info",
+          "info": "Obtén más información acerca de las [muestras](https://help.shopify.com/en/manual/online-store/themes/theme-structure/theme-settings#options-with-swatches) en las opciones de producto",
           "options": [
             {
               "value": "circle",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__1.label"
+              "label": "Círculo"
             },
             {
               "value": "square",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__2.label"
+              "label": "Cuadrado"
             },
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
+              "label": "Ninguna"
             }
           ],
           "default": "circle"
@@ -909,64 +909,64 @@
     },
     {
       "type": "buy_buttons",
-      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "name": "Botones de compras",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "show_dynamic_checkout",
           "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+          "label": "Botones de pago dinámico",
+          "info": "Los clientes verán su opción de pago preferida. [Más información](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
         },
         {
           "type": "checkbox",
           "id": "show_gift_card_recipient",
           "default": true,
-          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
-          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+          "label": " Opciones de envío de tarjeta de regalo",
+          "info": "Los clientes pueden agregar un mensaje personal y programar la fecha de envío. [Más información](https://help.shopify.com/manual/online-store/themes/customizing-themes/add-gift-card-recipient-fields)"
         }
       ]
     },
     {
       "type": "description",
-      "name": "t:sections.main-product.blocks.description.name",
+      "name": "Descripción",
       "limit": 1
     },
     {
       "type": "share",
-      "name": "t:sections.main-product.blocks.share.name",
+      "name": "Compartir",
       "limit": 1,
       "settings": [
         {
           "type": "text",
           "id": "share_label",
-          "label": "t:sections.main-product.blocks.share.settings.text.label",
-          "default": "t:sections.main-product.blocks.share.settings.text.default"
+          "label": "texto",
+          "default": "Compartir"
         }
       ]
     },
     {
       "type": "custom_liquid",
-      "name": "t:sections.custom-liquid.name",
+      "name": "Liquid personalizado",
       "settings": [
         {
           "type": "liquid",
           "id": "custom_liquid",
-          "label": "t:sections.custom-liquid.settings.custom_liquid.label",
-          "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+          "label": "Código de Liquid",
+          "info": "Agrega fragmentos de la aplicación u otros códigos para crear personalizaciones avanzadas. [Más información](https://shopify.dev/docs/api/liquid)"
         }
       ]
     },
     {
       "type": "collapsible_tab",
-      "name": "t:sections.main-product.blocks.collapsible_tab.name",
+      "name": "Fila desplegable",
       "settings": [
         {
           "type": "text",
           "id": "heading",
-          "default": "t:sections.main-product.blocks.collapsible_tab.settings.heading.default",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
+          "default": "Fila desplegable",
+          "label": "Título"
         },
         {
           "type": "select",
@@ -974,244 +974,244 @@
           "options": [
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+              "label": "Ninguno"
             },
             {
               "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+              "label": "Manzana"
             },
             {
               "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+              "label": "Plátano"
             },
             {
               "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+              "label": "Biberón"
             },
             {
               "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+              "label": "Apartado postal"
             },
             {
               "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+              "label": "Zanahoria"
             },
             {
               "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+              "label": "Globo de chat"
             },
             {
               "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+              "label": "Marca de verificación"
             },
             {
               "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+              "label": "Portapapeles"
             },
             {
               "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+              "label": "Lácteos"
             },
             {
               "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+              "label": "Libre de lácteos"
             },
             {
               "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+              "label": "Secador"
             },
             {
               "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+              "label": "Ojo"
             },
             {
               "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+              "label": "Fuego"
             },
             {
               "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+              "label": "Libre de gluten"
             },
             {
               "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+              "label": "Corazón"
             },
             {
               "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+              "label": "Plancha"
             },
             {
               "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+              "label": "Hoja"
             },
             {
               "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+              "label": "Cuero"
             },
             {
               "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+              "label": "Relámpago"
             },
             {
               "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+              "label": "Lápiz labial"
             },
             {
               "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+              "label": "Candado"
             },
             {
               "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+              "label": "Alfiler en mapa"
             },
             {
               "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+              "label": "Libre de nueces"
             },
             {
               "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+              "label": "Pantalones"
             },
             {
               "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+              "label": "Huella de pata"
             },
             {
               "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+              "label": "Pimienta"
             },
             {
               "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+              "label": "Perfume"
             },
             {
               "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+              "label": "Avión"
             },
             {
               "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+              "label": "Planta"
             },
             {
               "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+              "label": "Etiqueta de precio"
             },
             {
               "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+              "label": "Signo de interrogación"
             },
             {
               "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+              "label": "Reciclar"
             },
             {
               "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+              "label": "Devolución"
             },
             {
               "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+              "label": "Regla"
             },
             {
               "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+              "label": "Plato de servir"
             },
             {
               "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+              "label": "Camisa"
             },
             {
               "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+              "label": "Zapato"
             },
             {
               "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+              "label": "Silueta"
             },
             {
               "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+              "label": "Copo de nieve"
             },
             {
               "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+              "label": "Estrella"
             },
             {
               "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+              "label": "Cronómetro"
             },
             {
               "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+              "label": "Camión"
             },
             {
               "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+              "label": "Lavado"
             }
           ],
           "default": "check_mark",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+          "label": "Ícono"
         },
         {
           "type": "richtext",
           "id": "content",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+          "label": "Contenido de fila"
         },
         {
           "type": "page",
           "id": "page",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+          "label": "Contenido de fila de la página"
         }
       ]
     },
     {
       "type": "popup",
-      "name": "t:sections.main-product.blocks.popup.name",
+      "name": "Ventana emergente",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "default": "t:sections.main-product.blocks.popup.settings.link_label.default",
-          "label": "t:sections.main-product.blocks.popup.settings.link_label.label"
+          "default": "Texto del enlace emergente",
+          "label": "Vincular etiqueta"
         },
         {
           "id": "page",
           "type": "page",
-          "label": "t:sections.main-product.blocks.popup.settings.page.label"
+          "label": "Página"
         }
       ]
     },
     {
       "type": "rating",
-      "name": "t:sections.main-product.blocks.rating.name",
+      "name": "Calificación",
       "limit": 1,
       "settings": [
         {
           "type": "paragraph",
-          "content": "t:sections.main-product.blocks.rating.settings.paragraph.content"
+          "content": "Requiere app externa"
         }
       ]
     },
     {
       "type": "complementary",
-      "name": "t:sections.main-product.blocks.complementary_products.name",
+      "name": "Productos complementarios",
       "limit": 1,
       "settings": [
         {
           "type": "paragraph",
-          "content": "t:sections.main-product.blocks.complementary_products.settings.paragraph.content"
+          "content": "Gestiona complementarios en Search & Discovery"
         },
         {
           "type": "text",
           "id": "block_heading",
-          "default": "t:sections.main-product.blocks.complementary_products.settings.heading.default",
-          "label": "t:sections.main-product.blocks.complementary_products.settings.heading.label"
+          "default": "Combina bien con",
+          "label": "Encabezado"
         },
         {
           "type": "checkbox",
           "id": "make_collapsible_row",
           "default": false,
-          "label": "t:sections.main-product.blocks.complementary_products.settings.make_collapsible_row.label"
+          "label": "Fila desplegable"
         },
         {
           "type": "select",
@@ -1219,184 +1219,184 @@
           "options": [
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+              "label": "Ninguno"
             },
             {
               "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+              "label": "Manzana"
             },
             {
               "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+              "label": "Plátano"
             },
             {
               "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+              "label": "Biberón"
             },
             {
               "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+              "label": "Apartado postal"
             },
             {
               "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+              "label": "Zanahoria"
             },
             {
               "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+              "label": "Globo de chat"
             },
             {
               "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+              "label": "Marca de verificación"
             },
             {
               "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+              "label": "Portapapeles"
             },
             {
               "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+              "label": "Lácteos"
             },
             {
               "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+              "label": "Libre de lácteos"
             },
             {
               "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+              "label": "Secador"
             },
             {
               "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+              "label": "Ojo"
             },
             {
               "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+              "label": "Fuego"
             },
             {
               "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+              "label": "Libre de gluten"
             },
             {
               "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+              "label": "Corazón"
             },
             {
               "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+              "label": "Plancha"
             },
             {
               "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+              "label": "Hoja"
             },
             {
               "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+              "label": "Cuero"
             },
             {
               "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+              "label": "Relámpago"
             },
             {
               "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+              "label": "Lápiz labial"
             },
             {
               "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+              "label": "Candado"
             },
             {
               "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+              "label": "Alfiler en mapa"
             },
             {
               "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+              "label": "Libre de nueces"
             },
             {
               "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+              "label": "Pantalones"
             },
             {
               "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+              "label": "Huella de pata"
             },
             {
               "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+              "label": "Pimienta"
             },
             {
               "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+              "label": "Perfume"
             },
             {
               "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+              "label": "Avión"
             },
             {
               "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+              "label": "Planta"
             },
             {
               "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+              "label": "Etiqueta de precio"
             },
             {
               "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+              "label": "Signo de interrogación"
             },
             {
               "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+              "label": "Reciclar"
             },
             {
               "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+              "label": "Devolución"
             },
             {
               "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+              "label": "Regla"
             },
             {
               "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+              "label": "Plato de servir"
             },
             {
               "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+              "label": "Camisa"
             },
             {
               "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+              "label": "Zapato"
             },
             {
               "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+              "label": "Silueta"
             },
             {
               "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+              "label": "Copo de nieve"
             },
             {
               "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+              "label": "Estrella"
             },
             {
               "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+              "label": "Cronómetro"
             },
             {
               "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+              "label": "Camión"
             },
             {
               "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+              "label": "Lavado"
             }
           ],
           "default": "price_tag",
-          "info": "t:sections.main-product.blocks.complementary_products.settings.icon.info",
-          "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.label"
+          "info": "Se muestra cuando se selecciona una fila desplegable",
+          "label": "Ícono"
         },
         {
           "type": "range",
@@ -1405,7 +1405,7 @@
           "max": 10,
           "step": 1,
           "default": 10,
-          "label": "t:sections.main-product.blocks.complementary_products.settings.product_list_limit.label"
+          "label": "Recuento de productos"
         },
         {
           "type": "range",
@@ -1414,7 +1414,7 @@
           "max": 4,
           "step": 1,
           "default": 3,
-          "label": "t:sections.main-product.blocks.complementary_products.settings.products_per_page.label"
+          "label": "Productos por página"
         },
         {
           "type": "select",
@@ -1422,23 +1422,23 @@
           "options": [
             {
               "value": "dots",
-              "label": "t:sections.main-product.blocks.complementary_products.settings.pagination_style.options.option_1"
+              "label": "Puntos"
             },
             {
               "value": "counter",
-              "label": "t:sections.main-product.blocks.complementary_products.settings.pagination_style.options.option_2"
+              "label": "Contador"
             },
             {
               "value": "numbers",
-              "label": "t:sections.main-product.blocks.complementary_products.settings.pagination_style.options.option_3"
+              "label": "Números"
             }
           ],
-          "label": "t:sections.main-product.blocks.complementary_products.settings.pagination_style.label",
+          "label": "Paginación",
           "default": "counter"
         },
         {
           "type": "header",
-          "content": "t:sections.main-product.blocks.complementary_products.settings.product_card.heading"
+          "content": "Tarjeta de producto"
         },
         {
           "type": "select",
@@ -1446,27 +1446,27 @@
           "options": [
             {
               "value": "portrait",
-              "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_1"
+              "label": "Retrato"
             },
             {
               "value": "square",
-              "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_2"
+              "label": "Cuadrado"
             }
           ],
-          "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.label",
+          "label": "Relación de aspecto de imagen",
           "default": "square"
         },
         {
           "type": "checkbox",
           "id": "enable_quick_add",
-          "label": "t:sections.main-product.blocks.complementary_products.settings.enable_quick_add.label",
+          "label": "Agregado rápido",
           "default": false
         }
       ]
     },
     {
       "type": "icon-with-text",
-      "name": "t:sections.main-product.blocks.icon_with_text.name",
+      "name": "Ícono con texto",
       "settings": [
         {
           "type": "select",
@@ -1474,20 +1474,20 @@
           "options": [
             {
               "value": "horizontal",
-              "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.options__1.label"
+              "label": "Horizontal"
             },
             {
               "value": "vertical",
-              "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.options__2.label"
+              "label": "Vertical"
             }
           ],
           "default": "horizontal",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.layout.label"
+          "label": "Diseño"
         },
         {
           "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_1.label",
-          "info": "t:sections.main-product.blocks.icon_with_text.settings.pairing_1.info"
+          "content": "Emparejamiento 1",
+          "info": "Elegir un ícono o agregar una imagen para cada emparejamiento"
         },
         {
           "type": "select",
@@ -1495,199 +1495,199 @@
           "options": [
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+              "label": "Ninguno"
             },
             {
               "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+              "label": "Manzana"
             },
             {
               "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+              "label": "Plátano"
             },
             {
               "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+              "label": "Biberón"
             },
             {
               "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+              "label": "Apartado postal"
             },
             {
               "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+              "label": "Zanahoria"
             },
             {
               "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+              "label": "Globo de chat"
             },
             {
               "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+              "label": "Marca de verificación"
             },
             {
               "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+              "label": "Portapapeles"
             },
             {
               "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+              "label": "Lácteos"
             },
             {
               "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+              "label": "Libre de lácteos"
             },
             {
               "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+              "label": "Secador"
             },
             {
               "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+              "label": "Ojo"
             },
             {
               "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+              "label": "Fuego"
             },
             {
               "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+              "label": "Libre de gluten"
             },
             {
               "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+              "label": "Corazón"
             },
             {
               "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+              "label": "Plancha"
             },
             {
               "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+              "label": "Hoja"
             },
             {
               "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+              "label": "Cuero"
             },
             {
               "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+              "label": "Relámpago"
             },
             {
               "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+              "label": "Lápiz labial"
             },
             {
               "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+              "label": "Candado"
             },
             {
               "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+              "label": "Alfiler en mapa"
             },
             {
               "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+              "label": "Libre de nueces"
             },
             {
               "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+              "label": "Pantalones"
             },
             {
               "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+              "label": "Huella de pata"
             },
             {
               "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+              "label": "Pimienta"
             },
             {
               "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+              "label": "Perfume"
             },
             {
               "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+              "label": "Avión"
             },
             {
               "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+              "label": "Planta"
             },
             {
               "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+              "label": "Etiqueta de precio"
             },
             {
               "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+              "label": "Signo de interrogación"
             },
             {
               "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+              "label": "Reciclar"
             },
             {
               "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+              "label": "Devolución"
             },
             {
               "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+              "label": "Regla"
             },
             {
               "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+              "label": "Plato de servir"
             },
             {
               "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+              "label": "Camisa"
             },
             {
               "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+              "label": "Zapato"
             },
             {
               "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+              "label": "Silueta"
             },
             {
               "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+              "label": "Copo de nieve"
             },
             {
               "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+              "label": "Estrella"
             },
             {
               "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+              "label": "Cronómetro"
             },
             {
               "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+              "label": "Camión"
             },
             {
               "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+              "label": "Lavado"
             }
           ],
           "default": "heart",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.icon_1.label"
+          "label": "Ícono"
         },
         {
           "type": "image_picker",
           "id": "image_1",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.image_1.label"
+          "label": "Imagen"
         },
         {
           "type": "inline_richtext",
           "id": "heading_1",
-          "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_1.default",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_1.label",
-          "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+          "default": "Encabezado",
+          "label": "Encabezado",
+          "info": "Dejar en blanco para ocultar este emparejamiento"
         },
         {
           "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
+          "content": "Emparejamiento 2"
         },
         {
           "type": "select",
@@ -1695,199 +1695,199 @@
           "options": [
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+              "label": "Ninguno"
             },
             {
               "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+              "label": "Manzana"
             },
             {
               "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+              "label": "Plátano"
             },
             {
               "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+              "label": "Biberón"
             },
             {
               "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+              "label": "Apartado postal"
             },
             {
               "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+              "label": "Zanahoria"
             },
             {
               "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+              "label": "Globo de chat"
             },
             {
               "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+              "label": "Marca de verificación"
             },
             {
               "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+              "label": "Portapapeles"
             },
             {
               "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+              "label": "Lácteos"
             },
             {
               "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+              "label": "Libre de lácteos"
             },
             {
               "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+              "label": "Secador"
             },
             {
               "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+              "label": "Ojo"
             },
             {
               "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+              "label": "Fuego"
             },
             {
               "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+              "label": "Libre de gluten"
             },
             {
               "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+              "label": "Corazón"
             },
             {
               "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+              "label": "Plancha"
             },
             {
               "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+              "label": "Hoja"
             },
             {
               "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+              "label": "Cuero"
             },
             {
               "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+              "label": "Relámpago"
             },
             {
               "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+              "label": "Lápiz labial"
             },
             {
               "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+              "label": "Candado"
             },
             {
               "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+              "label": "Alfiler en mapa"
             },
             {
               "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+              "label": "Libre de nueces"
             },
             {
               "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+              "label": "Pantalones"
             },
             {
               "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+              "label": "Huella de pata"
             },
             {
               "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+              "label": "Pimienta"
             },
             {
               "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+              "label": "Perfume"
             },
             {
               "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+              "label": "Avión"
             },
             {
               "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+              "label": "Planta"
             },
             {
               "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+              "label": "Etiqueta de precio"
             },
             {
               "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+              "label": "Signo de interrogación"
             },
             {
               "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+              "label": "Reciclar"
             },
             {
               "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+              "label": "Devolución"
             },
             {
               "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+              "label": "Regla"
             },
             {
               "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+              "label": "Plato de servir"
             },
             {
               "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+              "label": "Camisa"
             },
             {
               "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+              "label": "Zapato"
             },
             {
               "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+              "label": "Silueta"
             },
             {
               "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+              "label": "Copo de nieve"
             },
             {
               "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+              "label": "Estrella"
             },
             {
               "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+              "label": "Cronómetro"
             },
             {
               "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+              "label": "Camión"
             },
             {
               "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+              "label": "Lavado"
             }
           ],
           "default": "return",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.icon_2.label"
+          "label": "Ícono"
         },
         {
           "type": "image_picker",
           "id": "image_2",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.image_2.label"
+          "label": "Imagen"
         },
         {
           "type": "inline_richtext",
           "id": "heading_2",
-          "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_2.default",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_2.label",
-          "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+          "default": "Encabezado",
+          "label": "Encabezado",
+          "info": "Dejar en blanco para ocultar este emparejamiento"
         },
         {
           "type": "header",
-          "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
+          "content": "Emparejamiento 3"
         },
         {
           "type": "select",
@@ -1895,195 +1895,195 @@
           "options": [
             {
               "value": "none",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__1.label"
+              "label": "Ninguno"
             },
             {
               "value": "apple",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__2.label"
+              "label": "Manzana"
             },
             {
               "value": "banana",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__3.label"
+              "label": "Plátano"
             },
             {
               "value": "bottle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__4.label"
+              "label": "Biberón"
             },
             {
               "value": "box",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__5.label"
+              "label": "Apartado postal"
             },
             {
               "value": "carrot",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__6.label"
+              "label": "Zanahoria"
             },
             {
               "value": "chat_bubble",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__7.label"
+              "label": "Globo de chat"
             },
             {
               "value": "check_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__8.label"
+              "label": "Marca de verificación"
             },
             {
               "value": "clipboard",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__9.label"
+              "label": "Portapapeles"
             },
             {
               "value": "dairy",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__10.label"
+              "label": "Lácteos"
             },
             {
               "value": "dairy_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__11.label"
+              "label": "Libre de lácteos"
             },
             {
               "value": "dryer",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__12.label"
+              "label": "Secador"
             },
             {
               "value": "eye",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
+              "label": "Ojo"
             },
             {
               "value": "fire",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
+              "label": "Fuego"
             },
             {
               "value": "gluten_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
+              "label": "Libre de gluten"
             },
             {
               "value": "heart",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__16.label"
+              "label": "Corazón"
             },
             {
               "value": "iron",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__17.label"
+              "label": "Plancha"
             },
             {
               "value": "leaf",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__18.label"
+              "label": "Hoja"
             },
             {
               "value": "leather",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__19.label"
+              "label": "Cuero"
             },
             {
               "value": "lightning_bolt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__20.label"
+              "label": "Relámpago"
             },
             {
               "value": "lipstick",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__21.label"
+              "label": "Lápiz labial"
             },
             {
               "value": "lock",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__22.label"
+              "label": "Candado"
             },
             {
               "value": "map_pin",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__23.label"
+              "label": "Alfiler en mapa"
             },
             {
               "value": "nut_free",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+              "label": "Libre de nueces"
             },
             {
               "value": "pants",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__25.label"
+              "label": "Pantalones"
             },
             {
               "value": "paw_print",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__26.label"
+              "label": "Huella de pata"
             },
             {
               "value": "pepper",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__27.label"
+              "label": "Pimienta"
             },
             {
               "value": "perfume",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__28.label"
+              "label": "Perfume"
             },
             {
               "value": "plane",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__29.label"
+              "label": "Avión"
             },
             {
               "value": "plant",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__30.label"
+              "label": "Planta"
             },
             {
               "value": "price_tag",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__31.label"
+              "label": "Etiqueta de precio"
             },
             {
               "value": "question_mark",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__32.label"
+              "label": "Signo de interrogación"
             },
             {
               "value": "recycle",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__33.label"
+              "label": "Reciclar"
             },
             {
               "value": "return",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__34.label"
+              "label": "Devolución"
             },
             {
               "value": "ruler",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__35.label"
+              "label": "Regla"
             },
             {
               "value": "serving_dish",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__36.label"
+              "label": "Plato de servir"
             },
             {
               "value": "shirt",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__37.label"
+              "label": "Camisa"
             },
             {
               "value": "shoe",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__38.label"
+              "label": "Zapato"
             },
             {
               "value": "silhouette",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__39.label"
+              "label": "Silueta"
             },
             {
               "value": "snowflake",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__40.label"
+              "label": "Copo de nieve"
             },
             {
               "value": "star",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__41.label"
+              "label": "Estrella"
             },
             {
               "value": "stopwatch",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__42.label"
+              "label": "Cronómetro"
             },
             {
               "value": "truck",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__43.label"
+              "label": "Camión"
             },
             {
               "value": "washing",
-              "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__44.label"
+              "label": "Lavado"
             }
           ],
           "default": "truck",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.icon_3.label"
+          "label": "Ícono"
         },
         {
           "type": "image_picker",
           "id": "image_3",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.image_3.label"
+          "label": "Imagen"
         },
         {
           "type": "inline_richtext",
           "id": "heading_3",
-          "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
-          "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
-          "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+          "default": "Encabezado",
+          "label": "Encabezado",
+          "info": "Dejar en blanco para ocultar este emparejamiento"
         }
       ]
     }
@@ -2093,17 +2093,17 @@
       "type": "checkbox",
       "id": "enable_sticky_info",
       "default": true,
-      "label": "t:sections.main-product.settings.enable_sticky_info.label"
+      "label": "Contenido fijo"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.main-product.settings.header.content"
+      "content": "Multimedia"
     },
     {
       "type": "select",
@@ -2111,25 +2111,25 @@
       "options": [
         {
           "value": "small",
-          "label": "t:sections.main-product.settings.media_size.options__1.label"
+          "label": "Pequeño"
         },
         {
           "value": "medium",
-          "label": "t:sections.main-product.settings.media_size.options__2.label"
+          "label": "Mediano"
         },
         {
           "value": "large",
-          "label": "t:sections.main-product.settings.media_size.options__3.label"
+          "label": "Grande"
         }
       ],
       "default": "large",
-      "label": "t:sections.main-product.settings.media_size.label"
+      "label": "Ancho"
     },
     {
       "type": "checkbox",
       "id": "constrain_to_viewport",
       "default": true,
-      "label": "t:sections.main-product.settings.constrain_to_viewport.label"
+      "label": "Ajustar a la altura de la pantalla"
     },
     {
       "type": "select",
@@ -2137,15 +2137,15 @@
       "options": [
         {
           "value": "contain",
-          "label": "t:sections.main-product.settings.media_fit.options__1.label"
+          "label": "Original"
         },
         {
           "value": "cover",
-          "label": "t:sections.main-product.settings.media_fit.options__2.label"
+          "label": "Rellenar"
         }
       ],
       "default": "contain",
-      "label": "t:sections.main-product.settings.media_fit.label"
+      "label": "Ajustar"
     },
     {
       "type": "select",
@@ -2153,23 +2153,23 @@
       "options": [
         {
           "value": "stacked",
-          "label": "t:sections.main-product.settings.gallery_layout.options__1.label"
+          "label": "Apilado"
         },
         {
           "value": "columns",
-          "label": "t:sections.main-product.settings.gallery_layout.options__2.label"
+          "label": "Dos columnas"
         },
         {
           "value": "thumbnail",
-          "label": "t:sections.main-product.settings.gallery_layout.options__3.label"
+          "label": "Miniaturas"
         },
         {
           "value": "thumbnail_slider",
-          "label": "t:sections.main-product.settings.gallery_layout.options__4.label"
+          "label": "Carrusel de miniaturas"
         }
       ],
       "default": "stacked",
-      "label": "t:sections.main-product.settings.gallery_layout.label"
+      "label": "Diseño"
     },
     {
       "type": "select",
@@ -2177,19 +2177,19 @@
       "options": [
         {
           "value": "columns",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
+          "label": "Dos columnas"
         },
         {
           "value": "show",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
+          "label": "Mostrar miniaturas"
         },
         {
           "value": "hide",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__3.label"
+          "label": "Ocultar miniaturas"
         }
       ],
       "default": "hide",
-      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
+      "label": "Diseño para móviles"
     },
     {
       "type": "select",
@@ -2197,15 +2197,15 @@
       "options": [
         {
           "value": "left",
-          "label": "t:sections.main-product.settings.media_position.options__1.label"
+          "label": "Izquierda"
         },
         {
           "value": "right",
-          "label": "t:sections.main-product.settings.media_position.options__2.label"
+          "label": "Derecha"
         }
       ],
       "default": "left",
-      "label": "t:sections.main-product.settings.media_position.label"
+      "label": "Posición"
     },
     {
       "type": "select",
@@ -2213,35 +2213,35 @@
       "options": [
         {
           "value": "lightbox",
-          "label": "t:sections.main-product.settings.image_zoom.options__1.label"
+          "label": "Abrir Lightbox"
         },
         {
           "value": "hover",
-          "label": "t:sections.main-product.settings.image_zoom.options__2.label"
+          "label": "Hacer clic y pasar sobre el elemento"
         },
         {
           "value": "none",
-          "label": "t:sections.main-product.settings.image_zoom.options__3.label"
+          "label": "Sin zoom"
         }
       ],
       "default": "lightbox",
-      "label": "t:sections.main-product.settings.image_zoom.label"
+      "label": "Ampliar"
     },
     {
       "type": "checkbox",
       "id": "hide_variants",
       "default": false,
-      "label": "t:sections.main-product.settings.hide_variants.label"
+      "label": "Ocultar multimedia de otras variantes"
     },
     {
       "type": "checkbox",
       "id": "enable_video_looping",
       "default": false,
-      "label": "t:sections.main-product.settings.enable_video_looping.label"
+      "label": "Video en bucle"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -2250,7 +2250,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 36
     },
     {
@@ -2260,7 +2260,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 36
     }
   ]

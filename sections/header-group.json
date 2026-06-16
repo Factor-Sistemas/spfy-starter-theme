@@ -1,5 +1,5 @@
 {
-  "name": "t:sections.header.name",
+  "name": "Encabezado",
   "type": "header",
   "sections": {
     "header": {

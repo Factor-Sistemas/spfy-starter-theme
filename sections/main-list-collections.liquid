@@ -49,14 +49,14 @@
 </div>
 {% schema %}
 {
-  "name": "t:sections.main-list-collections.name",
+  "name": "Listado de colecciones",
   "class": "section",
   "settings": [
     {
       "type": "inline_richtext",
       "id": "title",
-      "label": "t:sections.main-list-collections.settings.title.label",
-      "default": "t:sections.main-list-collections.settings.title.default"
+      "label": "Título",
+      "default": "Colecciones"
     },
     {
       "type": "select",
@@ -64,31 +64,31 @@
       "options": [
         {
           "value": "alphabetical",
-          "label": "t:sections.main-list-collections.settings.sort.options__1.label"
+          "label": "Alfabéticamente, A-Z"
         },
         {
           "value": "alphabetical_reversed",
-          "label": "t:sections.main-list-collections.settings.sort.options__2.label"
+          "label": "Alfabéticamente, Z-A"
         },
         {
           "value": "date_reversed",
-          "label": "t:sections.main-list-collections.settings.sort.options__3.label"
+          "label": "Fecha: reciente a antigua"
         },
         {
           "value": "date",
-          "label": "t:sections.main-list-collections.settings.sort.options__4.label"
+          "label": "Fecha: antigua a reciente"
         },
         {
           "value": "products_high",
-          "label": "t:sections.main-list-collections.settings.sort.options__5.label"
+          "label": "Recuento de productos, de mayor a menor"
         },
         {
           "value": "products_low",
-          "label": "t:sections.main-list-collections.settings.sort.options__6.label"
+          "label": "Recuento de productos, de menor a mayor"
         }
       ],
       "default": "alphabetical",
-      "label": "t:sections.main-list-collections.settings.sort.label"
+      "label": "Ordenar colecciones"
     },
     {
       "type": "select",
@@ -96,19 +96,19 @@
       "options": [
         {
           "value": "adapt",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__1.label"
+          "label": "Adaptar a la imagen"
         },
         {
           "value": "portrait",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__2.label"
+          "label": "Retrato"
         },
         {
           "value": "square",
-          "label": "t:sections.main-list-collections.settings.image_ratio.options__3.label"
+          "label": "Cuadrado"
         }
       ],
       "default": "adapt",
-      "label": "t:sections.main-list-collections.settings.image_ratio.label"
+      "label": "Relación de aspecto de imagen"
     },
     {
       "type": "range",
@@ -117,7 +117,7 @@
       "max": 6,
       "step": 1,
       "default": 3,
-      "label": "t:sections.main-list-collections.settings.columns_desktop.label"
+      "label": "Columnas"
     },
     {
       "type": "select",
@@ -125,15 +125,15 @@
       "options": [
         {
           "value": "1",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__1.label"
+          "label": "1"
         },
         {
           "value": "2",
-          "label": "t:sections.main-list-collections.settings.columns_mobile.options__2.label"
+          "label": "2"
         }
       ],
       "default": "2",
-      "label": "t:sections.main-list-collections.settings.columns_mobile.label"
+      "label": "Columnas móviles"
     }
   ]
 }

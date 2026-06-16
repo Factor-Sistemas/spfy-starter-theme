@@ -122,7 +122,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.newsletter.name",
+  "name": "Newsletter",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -131,23 +131,23 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "t:sections.newsletter.settings.paragraph.content"
+      "content": "Suscriptores agregados [perfiles de clientes](https://help.shopify.com/manual/customers/manage-customers)"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-1"
     },
     {
       "type": "checkbox",
       "id": "full_width",
       "default": true,
-      "label": "t:sections.newsletter.settings.full_width.label"
+      "label": "Ancho completo"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -156,7 +156,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 40
     },
     {
@@ -166,21 +166,21 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 52
     }
   ],
   "blocks": [
     {
       "type": "heading",
-      "name": "t:sections.newsletter.blocks.heading.name",
+      "name": "Título",
       "limit": 1,
       "settings": [
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "t:sections.newsletter.blocks.heading.settings.heading.default",
-          "label": "t:sections.newsletter.blocks.heading.settings.heading.label"
+          "default": "Suscribirse a nuestros correos electrónicos",
+          "label": "Título"
         },
         {
           "type": "select",
@@ -188,46 +188,46 @@
           "options": [
             {
               "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
+              "label": "Pequeño"
             },
             {
               "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
+              "label": "Mediano"
             },
             {
               "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
+              "label": "Grande"
             },
             {
               "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
+              "label": "Extra grande"
             },
             {
               "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
+              "label": "Superextragrande"
             }
           ],
           "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+          "label": "Tamaño del título"
         }
       ]
     },
     {
       "type": "paragraph",
-      "name": "t:sections.newsletter.blocks.paragraph.name",
+      "name": "Texto",
       "limit": 1,
       "settings": [
         {
           "type": "richtext",
           "id": "text",
-          "default": "t:sections.newsletter.blocks.paragraph.settings.paragraph.default",
-          "label": "t:sections.newsletter.blocks.paragraph.settings.paragraph.label"
+          "default": "<p>Conoce las nuevas colecciones y las ofertas exclusivas antes que nadie.</p>",
+          "label": "Texto"
         }
       ]
     },
     {
       "type": "email_form",
-      "name": "t:sections.newsletter.blocks.email_form.name",
+      "name": "Formulario",
       "limit": 1
     },
     {
@@ -236,7 +236,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.newsletter.presets.name",
+      "name": "Newsletter",
       "blocks": [
         {
           "type": "heading"

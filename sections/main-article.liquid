@@ -294,7 +294,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-article.name",
+  "name": "Artículo de blog",
   "tag": "section",
   "class": "section",
   "blocks": [
@@ -303,7 +303,7 @@
     },
     {
       "type": "featured_image",
-      "name": "t:sections.main-article.blocks.featured_image.name",
+      "name": "Imagen destacada",
       "limit": 1,
       "settings": [
         {
@@ -312,60 +312,60 @@
           "options": [
             {
               "value": "adapt",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+              "label": "Adaptar a la imagen"
             },
             {
               "value": "small",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+              "label": "Pequeña"
             },
             {
               "value": "medium",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+              "label": "Mediana"
             },
             {
               "value": "large",
-              "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+              "label": "Grande"
             }
           ],
           "default": "adapt",
-          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
+          "label": "Altura de imagen"
         }
       ]
     },
     {
       "type": "title",
-      "name": "t:sections.main-article.blocks.title.name",
+      "name": "Título",
       "limit": 1,
       "settings": [
         {
           "type": "checkbox",
           "id": "blog_show_date",
           "default": true,
-          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+          "label": "Fecha"
         },
         {
           "type": "checkbox",
           "id": "blog_show_author",
           "default": false,
-          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+          "label": "Autor"
         }
       ]
     },
     {
       "type": "content",
-      "name": "t:sections.main-article.blocks.content.name",
+      "name": "Contenido",
       "limit": 1
     },
     {
       "type": "share",
-      "name": "t:sections.main-article.blocks.share.name",
+      "name": "Compartir",
       "limit": 2,
       "settings": [
         {
           "type": "text",
           "id": "share_label",
-          "label": "t:sections.main-article.blocks.share.settings.text.label",
-          "default": "t:sections.main-article.blocks.share.settings.text.default"
+          "label": "texto",
+          "default": "Compartir"
         }
       ]
     }

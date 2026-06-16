@@ -37,7 +37,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.page.name",
+  "name": "Página",
   "tag": "section",
   "class": "section",
   "disabled_on": {
@@ -47,7 +47,7 @@
     {
       "type": "page",
       "id": "page",
-      "label": "t:sections.page.settings.page.label"
+      "label": "Página"
     },
     {
       "type": "select",
@@ -55,37 +55,37 @@
       "options": [
         {
           "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
+          "label": "Pequeño"
         },
         {
           "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
+          "label": "Mediano"
         },
         {
           "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
+          "label": "Grande"
         },
         {
           "value": "hxl",
-          "label": "t:sections.all.heading_size.options__4.label"
+          "label": "Extra grande"
         },
         {
           "value": "hxxl",
-          "label": "t:sections.all.heading_size.options__5.label"
+          "label": "Superextragrande"
         }
       ],
       "default": "h1",
-      "label": "t:sections.all.heading_size.label"
+      "label": "Tamaño del título"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -94,7 +94,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 36
     },
     {
@@ -104,13 +104,13 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 36
     }
   ],
   "presets": [
     {
-      "name": "t:sections.page.presets.name"
+      "name": "Página"
     }
   ]
 }

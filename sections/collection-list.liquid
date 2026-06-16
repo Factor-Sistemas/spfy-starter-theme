@@ -135,7 +135,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.collection-list.name",
+  "name": "Lista de colecciones",
   "tag": "section",
   "class": "section section-collection-list",
   "max_blocks": 15,
@@ -146,8 +146,8 @@
     {
       "type": "inline_richtext",
       "id": "title",
-      "default": "t:sections.collection-list.settings.title.default",
-      "label": "t:sections.collection-list.settings.title.label"
+      "default": "Colecciones",
+      "label": "Título"
     },
     {
       "type": "select",
@@ -155,31 +155,31 @@
       "options": [
         {
           "value": "h2",
-          "label": "t:sections.all.heading_size.options__1.label"
+          "label": "Pequeño"
         },
         {
           "value": "h1",
-          "label": "t:sections.all.heading_size.options__2.label"
+          "label": "Mediano"
         },
         {
           "value": "h0",
-          "label": "t:sections.all.heading_size.options__3.label"
+          "label": "Grande"
         },
         {
           "value": "hxl",
-          "label": "t:sections.all.heading_size.options__4.label"
+          "label": "Extra grande"
         },
         {
           "value": "hxxl",
-          "label": "t:sections.all.heading_size.options__5.label"
+          "label": "Superextragrande"
         }
       ],
       "default": "h1",
-      "label": "t:sections.all.heading_size.label"
+      "label": "Tamaño del título"
     },
     {
       "type": "header",
-      "content": "t:sections.collection-list.settings.header_layout.content"
+      "content": "Diseño"
     },
     {
       "type": "select",
@@ -187,19 +187,19 @@
       "options": [
         {
           "value": "adapt",
-          "label": "t:sections.collection-list.settings.image_ratio.options__1.label"
+          "label": "Adaptar a la imagen"
         },
         {
           "value": "portrait",
-          "label": "t:sections.collection-list.settings.image_ratio.options__2.label"
+          "label": "Retrato"
         },
         {
           "value": "square",
-          "label": "t:sections.collection-list.settings.image_ratio.options__3.label"
+          "label": "Cuadrado"
         }
       ],
       "default": "square",
-      "label": "t:sections.collection-list.settings.image_ratio.label"
+      "label": "Relación de aspecto de imagen"
     },
     {
       "type": "range",
@@ -208,25 +208,25 @@
       "max": 6,
       "step": 1,
       "default": 3,
-      "label": "t:sections.collection-list.settings.columns_desktop.label"
+      "label": "Columnas"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
+      "label": "Esquema de colores",
+      "info": "Para cambiar el esquema de color de la tarjeta, actualiza la configuración del tema.",
       "default": "scheme-1"
     },
     {
       "type": "checkbox",
       "id": "show_view_all",
       "default": false,
-      "label": "t:sections.collection-list.settings.show_view_all.label",
-      "info": "t:sections.collection-list.settings.show_view_all.info"
+      "label": "Botón \"Ver todo\"",
+      "info": "Visible si la lista tiene más colecciones que las que se muestran"
     },
     {
       "type": "header",
-      "content": "t:sections.collection-list.settings.header_mobile.content"
+      "content": "Diseño móvil"
     },
     {
       "type": "select",
@@ -234,25 +234,25 @@
       "options": [
         {
           "value": "1",
-          "label": "t:sections.collection-list.settings.columns_mobile.options__1.label"
+          "label": "1"
         },
         {
           "value": "2",
-          "label": "t:sections.collection-list.settings.columns_mobile.options__2.label"
+          "label": "2"
         }
       ],
       "default": "1",
-      "label": "t:sections.collection-list.settings.columns_mobile.label"
+      "label": "Columnas"
     },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
-      "label": "t:sections.collection-list.settings.swipe_on_mobile.label"
+      "label": "Carrusel"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -261,7 +261,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 36
     },
     {
@@ -271,26 +271,26 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 36
     }
   ],
   "blocks": [
     {
       "type": "featured_collection",
-      "name": "t:sections.collection-list.blocks.featured_collection.name",
+      "name": "Colección",
       "settings": [
         {
           "type": "collection",
           "id": "collection",
-          "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+          "label": "Colección"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.collection-list.presets.name",
+      "name": "Lista de colecciones",
       "blocks": [
         {
           "type": "featured_collection"

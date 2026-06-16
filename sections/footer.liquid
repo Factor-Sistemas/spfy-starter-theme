@@ -323,72 +323,72 @@
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Pie de página",
   "blocks": [
     {
       "type": "@app"
     },
     {
       "type": "link_list",
-      "name": "t:sections.footer.blocks.link_list.name",
+      "name": "Menú",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "t:sections.footer.blocks.link_list.settings.heading.default",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+          "default": "Enlaces rápidos",
+          "label": "Encabezado"
         },
         {
           "type": "link_list",
           "id": "menu",
           "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label"
+          "label": "Menú"
         }
       ]
     },
     {
       "type": "brand_information",
-      "name": "t:sections.footer.blocks.brand_information.name",
+      "name": "Información de marca",
       "settings": [
         {
           "type": "paragraph",
-          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
+          "content": "Gestionar información de marcas en [configuración de tema](/editor?context=theme&category=brand%20information)"
         },
         {
           "type": "checkbox",
           "id": "show_social",
           "default": true,
-          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
-          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+          "label": "Íconos de redes sociales",
+          "info": "[Gestionar cuentas de redes sociales](/editor?context=theme&category=social%20media)"
         }
       ]
     },
     {
       "type": "text",
-      "name": "t:sections.footer.blocks.text.name",
+      "name": "Texto",
       "settings": [
         {
           "type": "inline_richtext",
           "id": "heading",
-          "default": "t:sections.footer.blocks.text.settings.heading.default",
-          "label": "t:sections.footer.blocks.text.settings.heading.label"
+          "default": "Encabezado",
+          "label": "Encabezado"
         },
         {
           "type": "richtext",
           "id": "subtext",
-          "default": "t:sections.footer.blocks.text.settings.subtext.default",
-          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+          "default": "<p>Comparte la información de contacto, los detalles de la tienda y el contenido de la marca con tus clientes.</p>",
+          "label": "Subtexto"
         }
       ]
     },
     {
       "type": "image",
-      "name": "Image",
+      "name": "Imagen",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Imagen"
         },
         {
           "type": "range",
@@ -397,25 +397,25 @@
           "max": 550,
           "step": 5,
           "unit": "px",
-          "label": "Width",
+          "label": "Ancho",
           "default": 100
         },
         {
           "type": "select",
           "id": "alignment",
-          "label": "Alignment",
+          "label": "Alineación",
           "options": [
             {
               "value": "",
-              "label": "Left"
+              "label": "Izquierda"
             },
             {
               "value": "center",
-              "label": "Center"
+              "label": "Centro"
             },
             {
               "value": "right",
-              "label": "Right"
+              "label": "Derecha"
             }
           ],
           "default": "center"
@@ -427,74 +427,74 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__1.content",
-      "info": "t:sections.footer.settings.header__1.info"
+      "content": "Suscriptor de correo electrónico",
+      "info": "Suscriptores agregados [perfiles de clientes](https://help.shopify.com/manual/customers/manage-customers)"
     },
     {
       "type": "checkbox",
       "id": "newsletter_enable",
       "default": true,
-      "label": "t:sections.footer.settings.newsletter_enable.label"
+      "label": "Suscriptor de correo electrónico"
     },
     {
       "type": "inline_richtext",
       "id": "newsletter_heading",
-      "default": "t:sections.footer.settings.newsletter_heading.default",
-      "label": "t:sections.footer.settings.newsletter_heading.label"
+      "default": "Suscribirse a nuestros correos electrónicos",
+      "label": "Encabezado"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__9.content"
+      "content": "Utilidades"
     },
     {
       "type": "checkbox",
       "id": "enable_follow_on_shop",
       "default": true,
-      "label": "t:sections.footer.settings.enable_follow_on_shop.label",
-      "info": "t:sections.footer.settings.enable_follow_on_shop.info"
+      "label": "Seguir en Shop",
+      "info": "Shop Pay debe estar activado. [Más información](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
     },
     {
       "type": "checkbox",
       "id": "show_social",
       "default": true,
-      "label": "t:sections.footer.settings.show_social.label",
-      "info": "t:sections.footer.settings.show_social.info"
+      "label": "Íconos de redes sociales",
+      "info": "[Gestionar cuentas de redes sociales](/editor?context=theme&category=social%20media)"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": true,
-      "label": "t:sections.footer.settings.enable_country_selector.label",
-      "info": "t:sections.footer.settings.enable_country_selector.info"
+      "label": "Selector de país o región",
+      "info": "[Gestionar países o regiones](/admin/settings/markets)"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": true,
-      "label": "t:sections.footer.settings.enable_language_selector.label",
-      "info": "t:sections.footer.settings.enable_language_selector.info"
+      "label": "Selector de idioma",
+      "info": "[Gestionar idiomas](/admin/settings/languages)"
     },
     {
       "type": "checkbox",
       "id": "payment_enable",
       "default": true,
-      "label": "t:sections.footer.settings.payment_enable.label"
+      "label": "Íconos de forma de pago"
     },
     {
       "type": "checkbox",
       "id": "show_policy",
       "default": true,
-      "label": "t:sections.footer.settings.show_policy.label",
-      "info": "t:sections.footer.settings.show_policy.info"
+      "label": "Enlaces a las políticas",
+      "info": "[Gestionar políticas](/admin/settings/legal)"
     },
     {
       "type": "header",
-      "content": "t:sections.all.spacing"
+      "content": "Espaciado"
     },
     {
       "type": "range",
@@ -503,12 +503,12 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.footer.settings.margin_top.label",
+      "label": "Margen superior",
       "default": 0
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -517,7 +517,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 36
     },
     {
@@ -527,7 +527,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 36
     }
   ],

@@ -335,7 +335,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.main-search.name",
+  "name": "Resultados de búsqueda",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -346,27 +346,27 @@
       "max": 6,
       "step": 1,
       "default": 4,
-      "label": "t:sections.main-search.settings.columns_desktop.label"
+      "label": "Columnas"
     },
     {
       "type": "select",
       "id": "columns_mobile",
       "default": "2",
-      "label": "t:sections.main-search.settings.columns_mobile.label",
+      "label": "Columnas móviles",
       "options": [
         {
           "value": "1",
-          "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
+          "label": "1"
         },
         {
           "value": "2",
-          "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
+          "label": "2"
         }
       ]
     },    
     {
       "type": "header",
-      "content": "t:sections.main-search.settings.header__1.content"
+      "content": "Tarjeta de producto"
     },
     {
       "type": "select",
@@ -374,19 +374,19 @@
       "options": [
         {
           "value": "adapt",
-          "label": "t:sections.main-search.settings.image_ratio.options__1.label"
+          "label": "Adaptar a la imagen"
         },
         {
           "value": "portrait",
-          "label": "t:sections.main-search.settings.image_ratio.options__2.label"
+          "label": "Retrato"
         },
         {
           "value": "square",
-          "label": "t:sections.main-search.settings.image_ratio.options__3.label"
+          "label": "Cuadrado"
         }
       ],
       "default": "adapt",
-      "label": "t:sections.main-search.settings.image_ratio.label"
+      "label": "Relación de aspecto de imagen"
     },
     {
       "type": "select",
@@ -394,69 +394,69 @@
       "options": [
         {
           "value": "default",
-          "label": "t:sections.all.image_shape.options__1.label"
+          "label": "Predeterminado"
         },
         {
           "value": "arch",
-          "label": "t:sections.all.image_shape.options__2.label"
+          "label": "Arco"
         },
         {
           "value": "blob",
-          "label": "t:sections.all.image_shape.options__3.label"
+          "label": "Gota"
         },
         {
           "value": "chevronleft",
-          "label": "t:sections.all.image_shape.options__4.label"
+          "label": "Comillas angulares izquierda"
         },
         {
           "value": "chevronright",
-          "label": "t:sections.all.image_shape.options__5.label"
+          "label": "Comillas angulares derecha"
         },
         {
           "value": "diamond",
-          "label": "t:sections.all.image_shape.options__6.label"
+          "label": "Diamante"
         },
         {
           "value": "parallelogram",
-          "label": "t:sections.all.image_shape.options__7.label"
+          "label": "Paralelogramo"
         },
         {
           "value": "round",
-          "label": "t:sections.all.image_shape.options__8.label"
+          "label": "Redonda"
         }
       ],
       "default": "default",
-      "label": "t:sections.all.image_shape.label"
+      "label": "Forma de la imagen"
     },
     {
       "type": "checkbox",
       "id": "show_secondary_image",
       "default": false,
-      "label": "t:sections.main-search.settings.show_secondary_image.label"
+      "label": "Mostrar segunda imagen al pasar el cursor"
     },
     {
       "type": "checkbox",
       "id": "show_vendor",
       "default": false,
-      "label": "t:sections.main-search.settings.show_vendor.label"
+      "label": "Proveedor"
     },
     {
       "type": "checkbox",
       "id": "show_rating",
       "default": false,
-      "label": "t:sections.main-search.settings.show_rating.label",
-      "info": "t:sections.main-search.settings.show_rating.info"
+      "label": "Calificación del producto",
+      "info": "Se requiere una aplicación para las calificaciones de productos. [Más información](https://help.shopify.com/en/manual/online-store/themes/theme-structure/page-types/search-page)"
     },
     {
       "type": "header",
-      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+      "content": "Filtrado y ordenado"
     },
     {
       "type": "checkbox",
       "id": "enable_filtering",
       "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
-      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+      "label": "Filtros",
+      "info": "Personalizar los filtros con la [aplicación Search & Discovery](https://help.shopify.com/manual/online-store/search-and-discovery/filters)"
     },
     {
       "type": "select",
@@ -464,45 +464,45 @@
       "options": [
         {
           "value": "horizontal",
-          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+          "label": "Horizontal"
         },
         {
           "value": "vertical",
-          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+          "label": "Vertical"
         },
         {
           "value": "drawer",
-          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+          "label": "Cajón"
         }
       ],
       "default": "horizontal",
-      "label": "t:sections.main-collection-product-grid.settings.filter_type.label"
+      "label": "Diseño de filtro"
     },
     {
       "type": "checkbox",
       "id": "enable_sorting",
       "default": true,
-      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+      "label": "Ordenación"
     },
     {
       "type": "header",
-      "content": "t:sections.main-search.settings.header__2.content"
+      "content": "Tarjeta de blog"
     },
     {
       "type": "checkbox",
       "id": "article_show_date",
       "default": true,
-      "label": "t:sections.main-search.settings.article_show_date.label"
+      "label": "Fecha"
     },
     {
       "type": "checkbox",
       "id": "article_show_author",
       "default": false,
-      "label": "t:sections.main-search.settings.article_show_author.label"
+      "label": "Autor"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Relleno"
     },
     {
       "type": "range",
@@ -511,7 +511,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
+      "label": "Arriba",
       "default": 36
     },
     {
@@ -521,7 +521,7 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
+      "label": "Abajo",
       "default": 36
     }
   ]

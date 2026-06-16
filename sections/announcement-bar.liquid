@@ -164,7 +164,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
+  "name": "Barra de anuncios",
   "max_blocks": 12,
   "class": "announcement-bar-section",
   "enabled_on": {
@@ -174,7 +174,7 @@
     {
       "type": "checkbox",
       "id": "auto_rotate",
-      "label": "t:sections.announcement-bar.settings.auto_rotate.label",
+      "label": "Rotar los anuncios automáticamente",
       "default": false
     },
     {
@@ -184,73 +184,73 @@
       "max": 10,
       "step": 1,
       "unit": "s",
-      "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
+      "label": "Cambiar cada",
       "default": 5
     },    
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Esquema de colores",
       "default": "scheme-4"
     },  
     {
       "type": "checkbox",
       "id": "show_line_separator",
       "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "label": "Línea separadora"
     },
     {
       "type": "header",
-      "content": "t:sections.announcement-bar.settings.heading_utilities.content"
+      "content": "Utilidades"
     },
     {
       "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
+         "content": "Aparece solo en pantallas grandes"
     },             
     {
       "type": "checkbox",
       "id": "show_social",
       "default": false,
-      "label": "t:sections.announcement-bar.settings.show_social.label",
-      "info": "t:sections.announcement-bar.settings.show_social.info"
+      "label": "Íconos de redes sociales",
+      "info": "[Gestionar cuentas de redes sociales](/editor?context=theme&category=social%20media)"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_country_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_country_selector.info"
+      "label": "Selector de país o región",
+      "info": "[Gestionar países o regiones](/admin/settings/markets)"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": false,
-      "label": "t:sections.announcement-bar.settings.enable_language_selector.label",
-      "info": "t:sections.announcement-bar.settings.enable_language_selector.info"
+      "label": "Selector de idioma",
+      "info": "[Gestionar idiomas](/admin/settings/languages)"
     }
   ],
   "blocks": [
     {
       "type": "announcement",
-      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "name": "Anuncio",
       "settings": [
         {
           "type": "text",
           "id": "text",
-          "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
+          "default": "Te damos la bienvenida a nuestra tienda",
+          "label": "Texto"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
+          "label": "Enlace"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.announcement-bar.presets.name",
+      "name": "Barra de anuncios",
       "blocks": [
         {
           "type": "announcement"
