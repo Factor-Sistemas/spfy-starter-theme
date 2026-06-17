@@ -9,6 +9,7 @@ export default class CartDrawer extends HTMLElement {
 	}
 
 	onQuantityChange(event: Event) {
+		console.log('CartDrawer: onQuantityChange detectado');
 		const input = event.target as HTMLInputElement;
 		if (input && input.classList.contains('quantity__input')) {
 			this.updateQuantity(
@@ -33,15 +34,18 @@ export default class CartDrawer extends HTMLElement {
 					parseInt(button.getAttribute('data-line') || '1'),
 					newValue
 				);
+			} else {
+				console.warn('CartDrawer: input de cantidad no encontrado');
 			}
 		}
 	}
 
 	async updateQuantity(line: number, quantity: number) {
+		console.log(`CartDrawer: updateQuantity llamado para linea ${line}, cantidad ${quantity}`);
 		this.classList.add('opacity-50', 'pointer-events-none');
 
 		try {
-			const response = await fetch(`${(window as any).shopUrl || ''}/cart/change.js`, {
+			const response = await fetch('/cart/change.js', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -67,7 +71,7 @@ export default class CartDrawer extends HTMLElement {
 	}
 
 	async refreshDrawer() {
-		// Obtenemos el ID de la sección actual (normalmente renderizada por el layout)
+		console.log('CartDrawer: Iniciando refresco de drawer');
 		const sectionId = 'fs-header-drawer';
 
 		try {
@@ -81,22 +85,53 @@ export default class CartDrawer extends HTMLElement {
 			if (html) {
 				const parser = new DOMParser();
 				const doc = parser.parseFromString(html, 'text/html');
-				const newCartDrawer = doc.querySelector('#cart-drawer-component');
+				
+				// Buscar el elemento. Si está dentro de una etiqueta <template>, querySelector normal fallará,
+				// por lo que debemos buscar dentro del fragmento .content del template.
+				let newCartDrawer = doc.querySelector('#cart-drawer-component');
+				if (!newCartDrawer) {
+					const templates = doc.querySelectorAll('template');
+					for (const template of Array.from(templates)) {
+						const found = template.content.querySelector('#cart-drawer-component');
+						if (found) {
+							newCartDrawer = found;
+							break;
+						}
+					}
+				}
+				console.log('CartDrawer: Nuevo elemento drawer parseado:', newCartDrawer);
 
 				if (newCartDrawer) {
 					const currentCartDrawer = this.querySelector('#cart-drawer-component') || this;
+					console.log('CartDrawer: Reemplazando innerHTML de', currentCartDrawer);
 					currentCartDrawer.innerHTML = newCartDrawer.innerHTML;
+				} else {
+					console.warn('CartDrawer: No se encontró #cart-drawer-component en el HTML nuevo ni dentro de los templates');
 				}
 
 				// Actualizar el contador del carrito en el header si existe
-				const newActions = doc.querySelector('#menu-actions');
+				let newActions = doc.querySelector('#menu-actions');
+				if (!newActions) {
+					const templates = doc.querySelectorAll('template');
+					for (const template of Array.from(templates)) {
+						const found = template.content.querySelector('#menu-actions');
+						if (found) {
+							newActions = found;
+							break;
+						}
+					}
+				}
+
 				const currentActions = document.querySelector('#menu-actions');
 				if (newActions && currentActions) {
+					console.log('CartDrawer: Actualizando contador de acciones del menú');
 					currentActions.innerHTML = newActions.innerHTML;
 				}
+			} else {
+				console.warn(`CartDrawer: La propiedad del JSON para la sección ${sectionId} vino vacía o indefinida`);
 			}
 		} catch (e) {
-			console.error('Error al refrescar el drawer:', e);
+			console.error('CartDrawer: Error al refrescar el drawer:', e);
 		} finally {
 			this.classList.remove('opacity-50', 'pointer-events-none');
 		}
