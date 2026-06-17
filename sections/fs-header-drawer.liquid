@@ -1,43 +1,50 @@
-<!-- Capa Translúcida para Móvil -->
-<div
-  id="menu-overlay"
-  class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none z-[998] transition-opacity duration-300"
-  @click="toggle"
-></div>
+<template x-teleport="body">
+  <!-- Capa Translúcida para Móvil -->
+  <div
+    id="menu-overlay"
+    class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none z-[998] transition-opacity duration-300"
+    @click="toggle"
+  ></div>
+</template>
 
-<div class="w-full fixed top-0 flex justify-end">
+<div class="w-full fixed top-0 flex justify-end p-4 z-50">
   <button
     @click="toggle"
-    class="header__icon header__icon--menu p-2 text-neutral-900 cursor-pointer"
+    class="p-2 text-neutral-900 cursor-pointer block"
     aria-label="Menú"
   >
-    {{- 'icon-hamburger.svg' | inline_asset_content -}}
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-6 h-6" viewBox="0 0 18 16">
+      <path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/>
+    </svg>
   </button>
 </div>
-<!-- Menú Lateral (Drawer) -->
-<div
-  id="menu-drawer"
-  class="lg:fixed top-0 right-0 h-screen w-[350px] bg-white z-[999] p-6 shadow-2xl flex flex-col will-change-transform"
->
-  <div class="flex justify-between items-center mb-8">
-    <h3 class="text-xl font-bold">Menú</h3>
-    <button
-      @click="toggle"
-      class="p-2 hover:bg-neutral-800 rounded-full transition-colors cursor-pointer bg-red-300"
-      aria-label="Cerrar menú"
-    >
-      <!-- Icono de X simple con SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+
+<template x-teleport="body">
+  <!-- Menú Lateral (Drawer) -->
+  <div
+    id="menu-drawer"
+    class="fixed top-0 right-0 h-screen w-[350px] bg-white z-[999] p-6 shadow-2xl flex flex-col translate-x-full will-change-transform"
+  >
+    <div class="flex justify-between items-center mb-8">
+      <h3 class="text-xl font-bold">Menú</h3>
+      <button
+        @click="toggle"
+        class="p-2 hover:bg-neutral-800 hover:text-white rounded-full transition-colors cursor-pointer bg-neutral-100"
+        aria-label="Cerrar menú"
+      >
+        <!-- Icono de X simple con SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 text-lg text-neutral-800">
+      <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
+      <a href="/collections" class="hover:text-amber-500 transition-colors">Colecciones</a>
+      <a href="/products" class="hover:text-amber-500 transition-colors">Productos</a>
+    </nav>
   </div>
-  <nav class="flex flex-col gap-4 text-lg">
-    <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
-    <a href="/collections" class="hover:text-amber-500 transition-colors">Colecciones</a>
-    <a href="/products" class="hover:text-amber-500 transition-colors">Productos</a>
-  </nav>
-</div>
+</template>
 {% schema %}
 {
   "name": "fs-header-drawr",
