@@ -7,3 +7,5 @@ md:grid-cols-4
 lg:grid-cols-3
 lg:grid-cols-4
 lg:grid-cols-6
+stroke-black
+stroke-white

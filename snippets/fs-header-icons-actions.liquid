@@ -9,13 +9,12 @@
       class="p-2 text-neutral-900 cursor-pointer block relative"
       aria-label="Cart"
     >
-      {%- render 'icons', name: 'shopping-cart', class: 'size-5 stroke-black' -%}
+      {%- render 'icons', name: 'shopping-cart', class: 'size-5 {{ section.settings.color_icono | 'stroke-black' }}' -%}
       {%- if cart != empty -%}
         <div class="absolute -right-1 top-0 bg-black rounded-full text-white size-5 text-[12px]">
           {%- if cart.item_count < 100 -%}
             <span aria-hidden="true">{{ cart.item_count }}</span>
           {%- endif -%}
-          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
         </div>
       {%- endif -%}
     </button>
@@ -25,6 +24,6 @@
     class="p-2 text-neutral-900 cursor-pointer block"
     aria-label="Menú"
   >
-    {%- render 'icons', name: 'menu', class: 'size-5 stroke-black' -%}
+    {%- render 'icons', name: 'menu', class: 'size-5 {{ section.settings.color_icono | 'stroke-black' }}' -%}
   </button>
 </div>

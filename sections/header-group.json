@@ -6,7 +6,8 @@
       "type": "fs-header-drawer",
 	 "settings":{
 		"mostrar_colecciones":true,
-		"mostrar_fondo_header_icons":false
+		"mostrar_fondo_header_icons":false,
+		"color_icono":"stroke-black"
 	 }
 /*       "settings": {
         "color_scheme": "scheme-1",

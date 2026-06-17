@@ -5,9 +5,8 @@
   - index: El índice actual del bucle (basado en 1).
 {% endcomment %}
 
-<!-- Fila de artículo individual del carrito -->
-<div class="border-b border-neutral-100/80 last:border-0 group transition-all duration-300">
-  <div class="space-y-1 min-w-0 flex justify-between">
+<div class="border-b border-neutral-100/80 last:border-0 group transition-all duration-300 ">
+  <div class="space-y-1 min-w-0 flex justify-between mb-3">
     <p class="text-base font-medium text-neutral-900 leading-snug tracking-tight truncate">
       <a href="{{ item.url }}" class="hover:text-amber-600 transition-colors duration-300 decoration-none">
         {{- item.product.title -}}
@@ -19,9 +18,6 @@
       </span>
     {%- endif -%}
   </div>
-  <!-- Contenedor de imagen minimalista -->
-
-  <!-- Área de contenido -->
   <div class="grid grid-cols-6">
     <div class="col-span-2">
       {%- render 'fs-main-cart-item-image', item: item -%}
