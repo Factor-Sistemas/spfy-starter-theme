@@ -20,6 +20,7 @@ yarn-error.log*
 node_modules/
 dist/
 .vite/
+dawn_old_copy/
 *.tsbuildinfo
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
