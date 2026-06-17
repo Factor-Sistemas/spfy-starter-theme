@@ -5,7 +5,8 @@
     "header": {
       "type": "fs-header-drawer",
 	 "settings":{
-		"mostrar_colecciones":true
+		"mostrar_colecciones":true,
+		"mostrar_fondo_header_icons":false
 	 }
 /*       "settings": {
         "color_scheme": "scheme-1",

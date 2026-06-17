@@ -9,7 +9,3 @@
 #menu-drawer {
   will-change: transform;
 }
-
-#menu-overlay {
-  will-change: opacity;
-}
