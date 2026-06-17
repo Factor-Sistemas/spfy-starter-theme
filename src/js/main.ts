@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 Alpine.data('menuSystem', () => ({
   isMenuOpen: false,
   isCartOpen: false,
-  menuWidth: 450, // Ancho de los paneles laterales
+  menuWidth: 450, // Ancho de los paneles laterales en px
 
   init() {
     // Posicionamos ambos paneles fuera de la pantalla (desplazados a la derecha)
