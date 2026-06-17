@@ -1,3 +1,5 @@
+{%- capture icon_class -%}size-{{ section.settings.dim_icono }} {{ section.settings.color_icono }}{%- endcapture -%}
+
 <div
   class="w-full fixed {% if section.settings.mostrar_fondo_header_icons %}bg-white/30 backdrop-blur-md{%- endif -%} top-0 flex justify-end p-4 transition-opacity duration-300 h-18 z-[888] gap-x-5"
   id="menu-actions"
@@ -9,7 +11,7 @@
       class="p-2 text-neutral-900 cursor-pointer block relative"
       aria-label="Cart"
     >
-      {%- render 'icons', name: 'shopping-cart', class: 'size-5 {{ section.settings.color_icono | 'stroke-black' }}' -%}
+      {%- render 'icons', name: 'shopping-cart', class: icon_class -%}
       {%- if cart != empty -%}
         <div class="absolute -right-1 top-0 bg-black rounded-full text-white size-5 text-[12px]">
           {%- if cart.item_count < 100 -%}
@@ -24,6 +26,6 @@
     class="p-2 text-neutral-900 cursor-pointer block"
     aria-label="Menú"
   >
-    {%- render 'icons', name: 'menu', class: 'size-5 {{ section.settings.color_icono | 'stroke-black' }}' -%}
+    {%- render 'icons', name: 'menu', class: icon_class -%}
   </button>
 </div>

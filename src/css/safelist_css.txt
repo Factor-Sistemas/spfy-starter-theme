@@ -9,3 +9,9 @@ lg:grid-cols-4
 lg:grid-cols-6
 stroke-black
 stroke-white
+size-4
+size-5
+size-6
+size-7
+size-8
+

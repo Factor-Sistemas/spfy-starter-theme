@@ -4,10 +4,12 @@
   "sections": {
     "header": {
       "type": "fs-header-drawer",
+	 "name":"Header navegación",
 	 "settings":{
 		"mostrar_colecciones":true,
 		"mostrar_fondo_header_icons":false,
-		"color_icono":"stroke-black"
+		"color_icono":"stroke-white",
+		"dim_icono":5
 	 }
 /*       "settings": {
         "color_scheme": "scheme-1",
