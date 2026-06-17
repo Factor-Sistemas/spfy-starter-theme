@@ -1,105 +1,23 @@
-<template x-teleport="body">
-  <!-- Capa Translúcida para Móvil -->
-  <div
-    id="overlay"
-    class="fixed inset-0 bg-black/30 backdrop-blur-md opacity-0 pointer-events-none z-[998] h-screen w-screen"
-    x-on:click="isMenuOpen ? toggleMenu() : (isCartOpen ? toggleCart() : null)"
-  >
-    &nbsp;
-  </div>
-</template>
+{% comment %}
+  Capa translucida solo para formatos de pantalla < 1024
+{% endcomment %}
+{%- render 'fs-overlay' %}
 
-<div
-  class="w-full fixed {% if section.settings.mostrar_fondo_header_icons %}bg-white/30 backdrop-blur-md{%- endif -%} top-0 flex justify-end p-4 transition-opacity duration-300 h-18 z-[888] gap-x-5"
-  id="menu-actions"
-  x-bind:class="(isMenuOpen || isCartOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100'"
->
-  {%- if section.settings.mostrar_carrito -%}
-    <button
-      x-on:click="toggleCart"
-      class="p-2 text-neutral-900 cursor-pointer block relative"
-      aria-label="Cart"
-    >
-      {%- render 'icons', name: 'shopping-cart', class: 'size-5 stroke-black' -%}
-      {%- if cart != empty -%}
-        <div class="absolute -right-1 top-0 bg-black rounded-full text-white size-5 text-[12px]">
-          {%- if cart.item_count < 100 -%}
-            <span aria-hidden="true">{{ cart.item_count }}</span>
-          {%- endif -%}
-          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-        </div>
-      {%- endif -%}
-    </button>
-  {%- endif -%}
-  <button
-    x-on:click="toggleMenu"
-    class="p-2 text-neutral-900 cursor-pointer block"
-    aria-label="Menú"
-  >
-    {%- render 'icons', name: 'menu', class: 'size-5 stroke-black' -%}
-  </button>
-</div>
+{% comment %}
+  Iconos de la cabecera
+{% endcomment %}
+{%- render 'fs-header-icons-actions', section: section -%}
 
-<template x-teleport="body">
-  <!-- Menú Lateral (Drawer) -->
-  <div
-    id="menu-drawer"
-    class="fixed top-0 right-0 h-screen w-[350px] bg-white/70 backdrop-blur-md lg:bg-white z-[999] p-6 shadow-2xl flex flex-col translate-x-full will-change-transform"
-  >
-    <div class="flex justify-between items-center mb-8">
-      <h3 class="text-xl font-bold">Menú</h3>
-      <button
-        x-on:click="toggleMenu"
-        class="p-2 hover:bg-neutral-800 hover:text-white rounded-full transition-colors cursor-pointer bg-neutral-100"
-        aria-label="Cerrar menú"
-      >
-        <!-- Icono de X simple con SVG -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-    <nav class="flex flex-col gap-4 text-lg text-neutral-800">
-      <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
-      {%- if section.settings.mostrar_colecciones -%}
-        <p>Colecciones</p>
-        <div class="flex flex-col gap-2 pl-4 border-l border-neutral-200 text-base">
-          {% paginate collections by 50 %}
-            {% for collection in collections %}
-              <a href="{{ collection.url }}" class="hover:text-amber-500 transition-colors text-neutral-600">
-                {{- collection.title -}}
-              </a>
-            {% endfor %}
-          {% endpaginate %}
-        </div>
-      {%- endif -%}
-    </nav>
-  </div>
-</template>
+{% comment %}
+  Drawer del menú principal
+{% endcomment %}
+{%- render 'fs-main-menu-drawer', section: section -%}
 
-<template x-teleport="body">
-  <!-- Carrito Lateral (Drawer) -->
-  <div
-    id="cart-drawer"
-    class="fixed top-0 right-0 h-screen w-[350px] bg-white z-[999] p-6 shadow-2xl flex flex-col translate-x-full will-change-transform"
-  >
-    <div class="flex justify-between items-center mb-8">
-      <h3 class="text-xl font-bold">Carrito</h3>
-      <button
-        x-on:click="toggleCart"
-        class="p-2 hover:bg-neutral-800 hover:text-white rounded-full transition-colors cursor-pointer bg-neutral-100"
-        aria-label="Cerrar carrito"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-    <div class="flex-grow flex items-center justify-center text-neutral-400">
-      <p>Carrito (Capa blanca de prueba)</p>
-    </div>
-  </div>
-</template>
+{% comment %}
+  Drawer del shgopping cart
+{% endcomment %}
+{%- render 'fs-main-cart-drawer', section: section -%}
+
 {% schema %}
 {
   "name": "fs-header-drawer",

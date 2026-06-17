@@ -1,0 +1,17 @@
+{% comment %}
+  Renderiza la lista de artículos del carrito o el estado vacío dentro del cajón.
+  Acepta:
+  - cart: El objeto del carrito de Shopify.
+{% endcomment %}
+
+<div class="flex-grow overflow-y-auto px-6 py-6 space-y-5 scrollbar-thin scrollbar-thumb-neutral-200">
+  {%- if cart == empty -%}
+    <!-- Componente de estado vacío con bisel -->
+    {%- render 'fs-main-cart-empty' -%}
+  {%- else -%}
+    <!-- Bucle para renderizar cada artículo -->
+    {%- for item in cart.items -%}
+      {%- render 'fs-main-cart-item', item: item, index: forloop.index -%}
+    {%- endfor -%}
+  {%- endif -%}
+</div>

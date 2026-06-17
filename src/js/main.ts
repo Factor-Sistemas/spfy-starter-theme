@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiendaAprendizaje from './classes/TiendaAprendizaje';
 import ProductRequestForm from './classes/ProductRequestForm';
+import './classes/CartDrawer';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -63,7 +64,7 @@ Alpine.data('menuSystem', () => ({
 
     if (isDesktop) {
       tl.to("#page-wrapper", {
-        width: "calc(100% - 350px)",
+        width: "calc(100% - 450px)",
         borderRadius: "24px",
         boxShadow: "0 20px 50px rgba(0,0,0,0.15)"
       }, 0);
@@ -94,7 +95,7 @@ Alpine.data('menuSystem', () => ({
 
     if (isDesktop) {
       tl.to("#page-wrapper", {
-        width: "calc(100% - 350px)",
+        width: "calc(100% - 450px)",
         borderRadius: "24px",
         boxShadow: "0 20px 50px rgba(0,0,0,0.15)"
       }, 0);

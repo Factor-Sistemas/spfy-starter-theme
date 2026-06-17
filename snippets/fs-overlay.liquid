@@ -1,0 +1,10 @@
+<template x-teleport="body">
+  <!-- Capa Translúcida para Móvil -->
+  <div
+    id="overlay"
+    class="fixed inset-0 bg-black/30 backdrop-blur-md opacity-0 pointer-events-none z-[998] h-screen w-screen"
+    x-on:click="isMenuOpen ? toggleMenu() : (isCartOpen ? toggleCart() : null)"
+  >
+    &nbsp;
+  </div>
+</template>

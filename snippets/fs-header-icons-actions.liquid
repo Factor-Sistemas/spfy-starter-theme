@@ -1,0 +1,30 @@
+<div
+  class="w-full fixed {% if section.settings.mostrar_fondo_header_icons %}bg-white/30 backdrop-blur-md{%- endif -%} top-0 flex justify-end p-4 transition-opacity duration-300 h-18 z-[888] gap-x-5"
+  id="menu-actions"
+  x-bind:class="(isMenuOpen || isCartOpen) ? 'opacity-0 pointer-events-none' : 'opacity-100'"
+>
+  {%- if section.settings.mostrar_carrito -%}
+    <button
+      x-on:click="toggleCart"
+      class="p-2 text-neutral-900 cursor-pointer block relative"
+      aria-label="Cart"
+    >
+      {%- render 'icons', name: 'shopping-cart', class: 'size-5 stroke-black' -%}
+      {%- if cart != empty -%}
+        <div class="absolute -right-1 top-0 bg-black rounded-full text-white size-5 text-[12px]">
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true">{{ cart.item_count }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        </div>
+      {%- endif -%}
+    </button>
+  {%- endif -%}
+  <button
+    x-on:click="toggleMenu"
+    class="p-2 text-neutral-900 cursor-pointer block"
+    aria-label="Menú"
+  >
+    {%- render 'icons', name: 'menu', class: 'size-5 stroke-black' -%}
+  </button>
+</div>
