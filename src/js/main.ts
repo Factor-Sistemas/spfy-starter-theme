@@ -35,7 +35,6 @@ Alpine.data('menuSystem', () => ({
   },
 
   animateOpen(isDesktop: boolean) {
-    document.body.style.overflow = 'hidden';
     const tl = gsap.timeline({ defaults: { duration: 0.5, ease: "power3.out" } });
 
     // 1. Siempre desliza el menú hacia adentro (tanto móvil como desktop)
@@ -57,10 +56,7 @@ Alpine.data('menuSystem', () => ({
 
   animateClose(isDesktop: boolean) {
     const tl = gsap.timeline({
-      defaults: { duration: 0.4, ease: "power3.inOut" },
-      onComplete: () => {
-        document.body.style.overflow = '';
-      }
+      defaults: { duration: 0.4, ease: "power3.inOut" }
     });
 
     // 1. Saca el menú de la pantalla
@@ -72,7 +68,8 @@ Alpine.data('menuSystem', () => ({
         scaleX: 1,
         x: 0,
         borderRadius: "0px",
-        boxShadow: "none"
+        boxShadow: "none",
+        clearProps: "transform,borderRadius,boxShadow"
       }, 0);
     } else {
       tl.to("#menu-overlay", { opacity: 0, pointerEvents: "none" }, 0);
