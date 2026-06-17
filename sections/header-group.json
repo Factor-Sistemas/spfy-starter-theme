@@ -3,8 +3,12 @@
   "type": "header",
   "sections": {
     "header": {
-      "type": "header",
-      "settings": {
+      "type": "fs-header-drawer",
+	 "settings":{
+		"mostrar_colecciones":true,
+		"mostrar_fondo_header_icons":false
+	 }
+/*       "settings": {
         "color_scheme": "scheme-1",
         "logo_position": "middle-left",
         "menu": "main-menu",
@@ -18,7 +22,7 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    }
+ */    }
   },
   "order": [
     "header"

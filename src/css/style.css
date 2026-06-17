@@ -14,9 +14,9 @@
 
 /* 4. CLASES DE UTILIDAD PERSONALIZADAS */
 @import './_utilities.css';
+@import './alpine_main.css';
 
-/* Carga del base.css original de Dawn (al final para no romper las directivas @import anteriores) */
-@import '../../assets/base.css';
+
 
 /* 5. FUENTES Y ESCANEO DE CLASES (TAILWIND) */
 @source "./safelist_css.txt";

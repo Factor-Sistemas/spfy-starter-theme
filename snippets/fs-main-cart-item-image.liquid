@@ -1,0 +1,14 @@
+<div class="size-20 rounded-xl bg-neutral-50 border border-neutral-100/60 p-1 flex-shrink-0 overflow-hidden relative">
+  {% if item.image %}
+    <img
+      src="{{ item.image | image_url: width: 150 }}"
+      alt="{{ item.title | escape }}"
+      class="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+      loading="lazy"
+      width="150"
+      height="150"
+    >
+  {% else %}
+    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-neutral-100 rounded-lg' }}
+  {% endif %}
+</div>

@@ -1,0 +1,34 @@
+{% comment %}
+  Renderiza un único artículo del carrito dentro del cajón.
+  Acepta:
+  - item: El objeto de línea de artículo del carrito.
+  - index: El índice actual del bucle (basado en 1).
+{% endcomment %}
+
+<!-- Fila de artículo individual del carrito -->
+<div class="border-b border-neutral-100/80 last:border-0 group transition-all duration-300">
+  <div class="space-y-1 min-w-0 flex justify-between">
+    <p class="text-base font-medium text-neutral-900 leading-snug tracking-tight truncate">
+      <a href="{{ item.url }}" class="hover:text-amber-600 transition-colors duration-300 decoration-none">
+        {{- item.product.title -}}
+      </a>
+    </p>
+    {%- if item.product.has_only_default_variant == false -%}
+      <span class="inline-block text-[10px] font-semibold tracking-wider text-neutral-400 uppercase bg-neutral-50 px-2 py-0.5 rounded border border-neutral-100">
+        {{ item.variant.title }}
+      </span>
+    {%- endif -%}
+  </div>
+  <!-- Contenedor de imagen minimalista -->
+
+  <!-- Área de contenido -->
+  <div class="grid grid-cols-6">
+    <div class="col-span-2">
+      {%- render 'fs-main-cart-item-image', item: item -%}
+    </div>
+    <div class="col-span-4">
+      {%- render 'fs-main-cart-item-price', item: item -%}
+      {%- render 'fs-main-cart-item-quantity', item: item, index: index -%}
+    </div>
+  </div>
+</div>

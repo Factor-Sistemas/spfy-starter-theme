@@ -1,0 +1,45 @@
+{% comment %}
+  Capa translucida solo para formatos de pantalla < 1024
+{% endcomment %}
+{%- render 'fs-overlay' %}
+
+{% comment %}
+  Iconos de la cabecera
+{% endcomment %}
+{%- render 'fs-header-icons-actions', section: section -%}
+
+{% comment %}
+  Drawer del menú principal
+{% endcomment %}
+{%- render 'fs-main-menu-drawer', section: section -%}
+
+{% comment %}
+  Drawer del shgopping cart
+{% endcomment %}
+{%- render 'fs-main-cart-drawer', section: section -%}
+
+{% schema %}
+{
+  "name": "fs-header-drawer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "mostrar_colecciones",
+      "label": "Mostrar colecciones",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_carrito",
+      "label": "Carrito Compra",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_fondo_header_icons",
+      "label": "Fondo para iconos header",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

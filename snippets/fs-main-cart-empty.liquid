@@ -1,0 +1,16 @@
+{% comment %}
+  Renderiza el estado vacío del cajón del carrito.
+{% endcomment %}
+
+<div class="h-64 flex flex-col items-center justify-center text-center p-6 bg-neutral-50/50 border border-neutral-100 rounded-[2rem]">
+  <!-- Núcleo interior (Doble bisel / Double-Bezel) -->
+  <div class="bg-white border border-neutral-100 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.9)] rounded-[calc(2rem-0.625rem)] p-8 flex flex-col items-center max-w-[260px]">
+    <div class="size-12 rounded-full bg-neutral-50 flex items-center justify-center mb-4 border border-neutral-100">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-neutral-400">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+      </svg>
+    </div>
+    <h4 class="text-sm font-bold text-neutral-800 tracking-tight">Tu carrito está vacío</h4>
+    <p class="text-xs text-neutral-400 mt-1 max-w-[200px]">Añade tus productos favoritos para empezar.</p>
+  </div>
+</div>
