@@ -1,7 +1,7 @@
 /* Estilos estructurales para el efecto Page Shrink / Squeeze */
 .page-wrapper {
   transform-origin: right center; /* La web se encoge hacia la derecha */
-  will-change: transform, border-radius;
+  will-change: border-radius;
   transition: border-radius 0.5s ease;
 }
 
