@@ -6,9 +6,12 @@
 
 <div class="flex justify-between items-center px-6 py-5 border-b border-neutral-100 bg-white z-10 flex-shrink-0">
   <div class="flex items-baseline gap-2">
-    <h3 class="text-lg font-bold tracking-tight text-neutral-900">Carrito</h3>
+    <p class="text-md font-bold tracking-tight text-neutral-900">Carrito</p>
     {% if cart.item_count > 0 %}
-      <span class="text-xs font-semibold text-neutral-400">({{ cart.item_count }} {{ cart.item_count | pluralize: 'ítem', 'ítems' }})</span>
+      <span class="text-xs font-semibold text-neutral-400"
+        >({{ cart.item_count }}
+        {{ cart.item_count | pluralize: 'ítem', 'ítems' }})</span
+      >
     {% endif %}
   </div>
   <button
@@ -17,7 +20,14 @@
     aria-label="Cerrar carrito"
   >
     <!-- Icono de X ultra ligero -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>

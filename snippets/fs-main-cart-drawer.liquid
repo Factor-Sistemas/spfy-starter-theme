@@ -1,29 +1,30 @@
-{% comment %}
-  Renderiza la plantilla principal del cajón del carrito, envuelta en nuestro Web Component personalizado <cart-drawer>.
-  Acepta:
-  - section: El objeto de la sección padre.
-{% endcomment %}
-
 <template x-teleport="body">
-  <!-- Carrito Lateral (Drawer) -->
   <div
     id="cart-drawer"
     class="fixed top-0 right-0 h-screen w-[450px] max-w-full bg-white z-[999] shadow-2xl flex flex-col translate-x-full will-change-transform border-l border-neutral-100"
   >
-    <!-- Web Component personalizado que envuelve el contenido -->
-    <cart-drawer id="cart-drawer-component" class="flex flex-col h-full bg-white overflow-hidden">
-      
-      <!-- 1. Componente de cabecera -->
-      {%- render 'fs-main-cart-header', cart: cart -%}
+    <!--
+      Usamos CSS Grid con "1fr auto" para dividir el cajón:
+      - Fila 1 (1fr): Bloque de cabecera y productos. Ocupa todo el espacio disponible.
+      - Fila 2 (auto): Bloque del footer. Se ajusta a su contenido y se ancla abajo.
+    -->
+    <cart-drawer
+      id="cart-drawer-component"
+      class="grid grid-rows-[1fr_auto] flex-1 h-full bg-white overflow-hidden"
+    >
+      <!-- El contenedor superior se comporta como flexbox para permitir que la lista haga scroll -->
+      <div class="flex flex-col overflow-hidden">
+        {%- render 'fs-main-cart-header', cart: cart -%}
 
-      <!-- 2. Contenido del carrito con scroll -->
-      {%- render 'fs-main-cart-items', cart: cart -%}
+        {%- render 'fs-main-cart-items', cart: cart -%}
+      </div>
 
-      <!-- 3. Componente de pie de página (Total y Checkout) -->
-      {%- if cart != empty -%}
-        {%- render 'fs-main-cart-footer', cart: cart -%}
-      {%- endif -%}
-
+      <!-- El contenedor inferior se posiciona al final gracias a la fila "auto" del Grid -->
+      <div>
+        {%- if cart != empty -%}
+          {%- render 'fs-main-cart-footer', cart: cart -%}
+        {%- endif -%}
+      </div>
     </cart-drawer>
   </div>
 </template>
