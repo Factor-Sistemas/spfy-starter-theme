@@ -1,3 +1,32 @@
+<div
+  class="w-full fixed bg-white/30 backdrop-blur-md top-0 flex justify-end p-4 transition-opacity duration-300 h-18 z-[888] gap-x-5"
+  id="menu-accions"
+>
+  {%- if section.settings.mostrar_carrito -%}
+    <button
+      class="p-2 text-neutral-900 cursor-pointer block relative"
+      aria-label="Cart"
+    >
+      {%- render 'icons', name: 'shopping-cart', class: 'size-5 stroke-black' -%}
+      {%- if cart != empty -%}
+        <div class="absolute -right-1 top-0 bg-black rounded-full text-white size-5 text-[12px]">
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true">{{ cart.item_count }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+        </div>
+      {%- endif -%}
+    </button>
+  {%- endif -%}
+  <button
+    @click="toggle"
+    class="p-2 text-neutral-900 cursor-pointer block"
+    aria-label="Menú"
+  >
+    {%- render 'icons', name: 'menu', class: 'size-5 stroke-black' -%}
+  </button>
+</div>
+
 <template x-teleport="body">
   <!-- Capa Translúcida para Móvil -->
   <div
@@ -27,15 +56,35 @@
       </button>
     </div>
     <nav class="flex flex-col gap-4 text-lg text-neutral-800">
-      <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
-      <a href="/collections" class="hover:text-amber-500 transition-colors">Colecciones</a>
-      <a href="/products" class="hover:text-amber-500 transition-colors">Productos</a>
+      <a href="/" class="hover:text-amber-500 transition-colors">Home</a>
+      {%- if section.settings.mostrar_colecciones -%}
+        {% for collection in collections %}
+          <a href="{{ collection.url }}" class="hover:text-amber-500 transition-colors text-neutral-600">
+            {{- collection.title -}}
+          </a>
+        {% endfor %}
+      {%- else -%}
+        <a href="/collections">Ver familias</a>
+      {%- endif -%}
     </nav>
   </div>
 </template>
 {% schema %}
 {
-  "name": "fs-header-drawr",
-  "settings": []
+  "name": "fs-header-drawer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "mostrar_colecciones",
+      "label": "Mostrar colecciones",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mostrar_carrito",
+      "label": "Carrito Compra",
+      "default": true
+    }
+  ]
 }
 {% endschema %}

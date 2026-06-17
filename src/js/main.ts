@@ -43,10 +43,7 @@ Alpine.data('menuSystem', () => ({
     // 2. Solo encoge la web en pantallas grandes (Desktop >= 1024px)
     if (isDesktop) {
       tl.to("#page-wrapper", {
-        scaleX: 0.92,
-        x: -this.menuWidth,
-        borderRadius: "24px",
-        boxShadow: "0 20px 50px rgba(0,0,0,0.15)"
+        width: "calc(100% - 350px)",
       }, 0);
     } else {
       // En móvil, animamos la opacidad del overlay translúcido (que estará fuera de page-wrapper)
@@ -65,11 +62,8 @@ Alpine.data('menuSystem', () => ({
     // 2. Devuelve la web o el overlay a su estado original
     if (isDesktop) {
       tl.to("#page-wrapper", {
-        scaleX: 1,
-        x: 0,
-        borderRadius: "0px",
-        boxShadow: "none",
-        clearProps: "transform,borderRadius,boxShadow"
+        width: "100%",
+        clearProps: "width,transform,borderRadius,boxShadow"
       }, 0);
     } else {
       tl.to("#menu-overlay", { opacity: 0, pointerEvents: "none" }, 0);

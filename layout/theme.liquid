@@ -60,22 +60,6 @@
         {%- render 'cart-drawer' -%}
       {%- endif -%}
 
-      <div
-        class="w-full fixed bg-white/30 backdrop-blur-md top-0 flex justify-end p-4 transition-opacity duration-300 h-18 z-[888]"
-        id="menu-accions"
-        :class="isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'"
-      >
-        <button
-          @click="toggle"
-          class="p-2 text-neutral-900 cursor-pointer block"
-          aria-label="Menú"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" class="w-5 h-5" viewBox="0 0 18 16">
-            <path fill="currentColor" d="M1 .5a.5.5 0 1 0 0 1h15.71a.5.5 0 0 0 0-1zM.5 8a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1A.5.5 0 0 1 .5 8m0 7a.5.5 0 0 1 .5-.5h15.71a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5"/>
-          </svg>
-        </button>
-      </div>
-
       {% sections 'header-group' %}
 
       <main id="MainContent" role="main" tabindex="-1" class="flex-grow">
