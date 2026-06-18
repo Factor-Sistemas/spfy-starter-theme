@@ -1,11 +1,14 @@
-{% comment %}
-  Renderiza un único artículo del carrito dentro del cajón.
-  Acepta:
-  - item: El objeto de línea de artículo del carrito.
-  - index: El índice actual del bucle (basado en 1).
-{% endcomment %}
+{% doc %}
+  Renderiza un artículo individual dentro del carrito deslizable lateral.
 
-<div class="border-b border-neutral-100/80 last:border-0 group transition-all duration-300 ">
+  @param {object} item - El objeto de línea de artículo (line item) de Shopify.
+  @param {number} index - El índice en base 1 dentro del bucle del carrito (forloop.index).
+
+  @example
+  {% render 'fs-main-cart-item', item: item, index: forloop.index %}
+{% enddoc %}
+
+<div class="bg-white/50 shadow-xs group transition-all duration-300 p-3 rounded-md">
   <div class="space-y-1 min-w-0 flex justify-between mb-3">
     <p class="text-base font-medium text-neutral-900 leading-snug tracking-tight truncate">
       <a href="{{ item.url }}" class="hover:text-amber-600 transition-colors duration-300 decoration-none">

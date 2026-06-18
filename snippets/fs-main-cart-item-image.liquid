@@ -1,3 +1,12 @@
+{% doc %}
+  Renderiza la imagen o un marcador de posición SVG para un artículo específico del carrito.
+
+  @param {object} item - El objeto de línea de artículo (line item) de Shopify.
+
+  @example
+  {% render 'fs-main-cart-item-image', item: item %}
+{% enddoc %}
+
 <div class="size-20 rounded-xl bg-neutral-50 border border-neutral-100/60 p-1 flex-shrink-0 overflow-hidden relative">
   {% if item.image %}
     <img

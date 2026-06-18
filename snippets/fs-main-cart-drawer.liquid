@@ -1,8 +1,29 @@
+{% doc %}
+  Renderiza el componente principal del carrito deslizable lateral (drawer).
+
+  @param {object} cart - El objeto de carrito de Shopify.
+
+  @example
+  {% render 'fs-main-cart-drawer', cart: cart %}
+{% enddoc %}
+
 <template x-teleport="body">
   <div
     id="cart-drawer"
-    class="fixed top-0 right-0 h-screen w-[450px] max-w-full !bg-white/60 !backdrop-blur-md z-[999] shadow-2xl flex flex-col translate-x-full will-change-transform border-l border-neutral-100"
+    class="fixed top-0 right-0 h-screen w-[450px] max-w-full !bg-white/70 !backdrop-blur-md z-[999] shadow-2xl flex flex-col translate-x-full will-change-transform border-l border-neutral-100"
   >
+    <div
+      class="w-full h-full flex flex-1 bg-white/20  absolute left-0 top-0 backdrop-blur-md justify-center items-center z-[9999] hidden"
+      id="capa_carga"
+    >
+      <div class="w-[80px]">
+        <svg fill="#3A3A3AFF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="80px" height="80px">
+                  <path d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" opacity=".25"/>
+           <path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z">
+          <animateTransform attributeName="transform" type="rotate" dur="0.75s" values="0 12 12;360 12 12" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+    </div>
     <!--
       Usamos CSS Grid con "1fr auto" para dividir el cajón:
       - Fila 1 (1fr): Bloque de cabecera y productos. Ocupa todo el espacio disponible.

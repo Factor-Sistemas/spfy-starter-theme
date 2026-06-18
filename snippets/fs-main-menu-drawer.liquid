@@ -1,3 +1,11 @@
+{% doc %}
+  Renderiza el panel lateral de navegación principal (drawer) usando Alpine.js para controlar su visibilidad.
+  Depende de la configuración de la sección padre (section.settings) y del objeto global de colecciones (collections).
+
+  @example
+  {% render 'fs-main-menu-drawer' %}
+{% enddoc %}
+
 <template x-teleport="body">
   <!-- Menú Lateral (Drawer) -->
   <div

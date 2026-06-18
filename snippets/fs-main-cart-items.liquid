@@ -1,4 +1,13 @@
-<div class="overflow-y-auto px-6 py-6 space-y-5 scrollbar-thin scrollbar-thumb-neutral-200">
+{% doc %}
+  Renderiza la lista de artículos del carrito o el estado vacío dentro del carrito deslizable.
+
+  @param {object} cart - El objeto de carrito de Shopify.
+
+  @example
+  {% render 'fs-main-cart-items', cart: cart %}
+{% enddoc %}
+
+<div class="overflow-y-auto px-2 py-2 space-y-5 scrollbar-thin scrollbar-thumb-neutral-200">
   {%- if cart == empty -%}
     {%- render 'fs-main-cart-empty' -%}
   {%- else -%}

@@ -1,3 +1,11 @@
+{% doc %}
+  Renderiza la capa translúcida (overlay) de fondo para los paneles laterales (drawers) del menú y del carrito.
+  Controla los clics para cerrar el panel activo utilizando Alpine.js.
+
+  @example
+  {% render 'fs-overlay' %}
+{% enddoc %}
+
 <template x-teleport="body">
   <!-- Capa Translúcida para Móvil -->
   <div

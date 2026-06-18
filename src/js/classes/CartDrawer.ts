@@ -1,11 +1,16 @@
+import { gsap } from 'gsap';
+
 export default class CartDrawer extends HTMLElement {
+	capaCarga: HTMLElement | null = null;
 	constructor() {
 		super();
+
 	}
 
 	connectedCallback() {
 		this.addEventListener('change', this.onQuantityChange.bind(this));
 		this.addEventListener('click', this.onButtonClick.bind(this));
+		this.capaCarga = document.getElementById('capa_carga');
 	}
 
 	onQuantityChange(event: Event) {
@@ -40,11 +45,35 @@ export default class CartDrawer extends HTMLElement {
 		}
 	}
 
+	mostrarCapa() {
+		if (this.capaCarga) {
+			this.capaCarga.classList.remove('hidden');
+			gsap.fromTo(this.capaCarga, 
+				{ opacity: 0 }, 
+				{ opacity: 1, duration: 0.6, ease: 'power2.out' }
+			);
+		}
+	}
+
+	ocultarCapa() {
+		if (this.capaCarga) {
+			gsap.to(this.capaCarga, {
+				opacity: 0,
+				duration: 0.6,
+				ease: 'power2.inOut',
+				onComplete: () => {
+					this.capaCarga?.classList.add('hidden');
+				}
+			});
+		}
+	}
+
 	async updateQuantity(line: number, quantity: number) {
 		console.log(`CartDrawer: updateQuantity llamado para linea ${line}, cantidad ${quantity}`);
 		this.classList.add('opacity-50', 'pointer-events-none');
 
 		try {
+			this.mostrarCapa();
 			const response = await fetch('/cart/change.js', {
 				method: 'POST',
 				headers: {
@@ -85,7 +114,7 @@ export default class CartDrawer extends HTMLElement {
 			if (html) {
 				const parser = new DOMParser();
 				const doc = parser.parseFromString(html, 'text/html');
-				
+
 				// Buscar el elemento. Si está dentro de una etiqueta <template>, querySelector normal fallará,
 				// por lo que debemos buscar dentro del fragmento .content del template.
 				let newCartDrawer = doc.querySelector('#cart-drawer-component');
@@ -105,6 +134,7 @@ export default class CartDrawer extends HTMLElement {
 					const currentCartDrawer = this.querySelector('#cart-drawer-component') || this;
 					console.log('CartDrawer: Reemplazando innerHTML de', currentCartDrawer);
 					currentCartDrawer.innerHTML = newCartDrawer.innerHTML;
+					this.ocultarCapa()
 				} else {
 					console.warn('CartDrawer: No se encontró #cart-drawer-component en el HTML nuevo ni dentro de los templates');
 				}

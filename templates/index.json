@@ -70,7 +70,6 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,

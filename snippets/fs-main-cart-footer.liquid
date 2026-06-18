@@ -1,8 +1,11 @@
-{% comment %}
-  Renderiza el pie de página del cajón del carrito, que contiene los totales y las acciones de pago.
-  Acepta:
-  - cart: El objeto del carrito de Shopify.
-{% endcomment %}
+{% doc %}
+  Renderiza el pie de página del carrito deslizable, que contiene el subtotal, información de impuestos/envío y el botón de pago.
+
+  @param {object} cart - El objeto de carrito de Shopify.
+
+  @example
+  {% render 'fs-main-cart-footer', cart: cart %}
+{% enddoc %}
 
 <div class="border-t border-neutral-100 p-6 bg-white space-y-4">
   <!-- Fila de subtotal -->

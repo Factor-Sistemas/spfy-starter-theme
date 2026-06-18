@@ -1,3 +1,11 @@
+{% doc %}
+  Renderiza los iconos de acción (carrito de compra, menú de hamburguesa) en el encabezado.
+  Utiliza el objeto de carrito global (cart) y depende de la configuración de la sección padre (contexto de section.settings).
+
+  @example
+  {% render 'fs-header-icons-actions' %}
+{% enddoc %}
+
 {%- capture icon_class -%}size-{{ section.settings.dim_icono }} {{ section.settings.color_icono }}{%- endcapture -%}
 
 <div
