@@ -170,26 +170,6 @@
     "name": "Carrito",
     "settings": [
       {
-        "type": "select",
-        "id": "cart_type",
-        "options": [
-          {
-            "value": "drawer",
-            "label": "Lateral"
-          },
-          {
-            "value": "page",
-            "label": "Página"
-          },
-          {
-            "value": "notification",
-            "label": "Notificación emergente"
-          }
-        ],
-        "default": "notification",
-        "label": "Tipo"
-      },
-      {
         "type": "checkbox",
         "id": "show_vendor",
         "label": "Proveedor",
@@ -207,22 +187,7 @@
         "label": "Mostrar compra en colección",
         "default": true
       },
-      {
-        "type": "header",
-        "content": "Carrito lateral"
-      },
-      {
-        "type": "collection",
-        "id": "cart_drawer_collection",
-        "label": "Colección",
-        "info": "Se muestra cuando el carrito lateral está vacío"
-      },
-      {
-        "type": "color_scheme",
-        "id": "cart_color_scheme",
-        "label": "Esquema de colores",
-        "default": "scheme-1"
-      }
+
     ]
   }
 ]
