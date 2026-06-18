@@ -6,6 +6,7 @@ import ProductRequestForm from './classes/ProductRequestForm';
 import './classes/CartDrawer';
 import './classes/ProductCardBuy';
 import './classes/FsTrackingFields';
+import './classes/FsToast';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -26,12 +27,8 @@ Alpine.data('menuSystem', () => ({
     gsap.set("#menu-drawer", { x: this.menuWidth });
     gsap.set("#cart-drawer", { x: this.menuWidth });
 
-    // Abrir automáticamente el carrito cuando se dispara cart:updated
-    document.addEventListener('cart:updated', () => {
-      if (!this.isCartOpen) {
-        this.toggleCart();
-      }
-    });
+    // El cajón ya no se abre automáticamente para no interrumpir la navegación del usuario (especialmente en móvil).
+    // El contenido se actualiza en segundo plano mediante CartDrawer.ts.
 
     // Escuchar el evento de redimensionado de ventana
     window.addEventListener('resize', () => {

@@ -33,6 +33,7 @@ Cuando crees o modifiques una sección, asegúrate de documentar y enlazar sus d
 | **FsTrackingFields** | [src/js/classes/FsTrackingFields.ts](file:///Volumes/SSD1TB/webServer/Documents/Galeria/shopify/dawn/src/js/classes/FsTrackingFields.ts) | `<fs-tracking-fields>` | Sistema global de captación de atribución de marketing (UTM, FBP, FBC) |
 | **ProductCardBuy** | [src/js/classes/ProductCardBuy.ts](file:///Volumes/SSD1TB/webServer/Documents/Galeria/shopify/dawn/src/js/classes/ProductCardBuy.ts) | `<product-card-buy>` | Control de adición por AJAX y compra rápida desde el listado |
 | **CartDrawer** | [src/js/classes/CartDrawer.ts](file:///Volumes/SSD1TB/webServer/Documents/Galeria/shopify/dawn/src/js/classes/CartDrawer.ts) | `<cart-drawer>` | Gestor AJAX reactivo para refrescar el cajón lateral del carrito |
+| **FsToast** | [src/js/classes/FsToast.ts](file:///Volumes/SSD1TB/webServer/Documents/Galeria/shopify/dawn/src/js/classes/FsToast.ts) | `<fs-toaster>` | Sistema de notificaciones emergentes premium para eventos de feedback (toasts) |
 
 ---
 
