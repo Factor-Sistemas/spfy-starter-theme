@@ -23,9 +23,9 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
+    "show_vendor": true,
+    "comprar_ya_disponible": true,
     "cart_type": "notification",
-    "show_vendor": false,
-    "comprar_ya_disponible": false,
     "cart_drawer_collection": "",
     "color_schemes": {
       "scheme-1": {
