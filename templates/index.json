@@ -74,6 +74,8 @@
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
+        "bagdet_text": "Recién llegados",
+        "bagdet_destacar": true,
         "color_scheme": "scheme-1",
         "show_view_all": false,
         "swipe_on_mobile": false,

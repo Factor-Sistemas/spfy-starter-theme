@@ -124,4 +124,6 @@
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+  /* Dimensiones */
+  --container-8xl: 88rem;
 }
