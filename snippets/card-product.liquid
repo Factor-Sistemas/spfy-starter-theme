@@ -27,11 +27,10 @@
       assign ratio = 1
     endif
   -%}
-  
-  <div class="group relative bg-neutral-50/50 p-2 rounded-[2rem] border border-neutral-100/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 h-full flex flex-col">
+
+  <div class="group relative bg-neutral-50/50 p-2 rounded-[2rem]">
     <!-- Inner Container (Double Bezel / Concentric Core) -->
     <div class="relative bg-white rounded-[calc(2rem-0.5rem)] overflow-hidden border border-neutral-100/60 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.95)] flex flex-col flex-1">
-      
       <!-- Badges -->
       <div class="absolute top-4 left-4 z-20 flex flex-col gap-1.5">
         {%- if card_product.available == false -%}
@@ -72,7 +71,14 @@
           <!-- Premium fallback abstract graphic -->
           <div class="w-full h-full bg-gradient-to-tr from-neutral-50 to-neutral-100/70 flex flex-col items-center justify-center p-6 text-center select-none min-h-[220px]">
             <div class="w-12 h-12 rounded-full bg-neutral-100/80 border border-neutral-200/30 flex items-center justify-center mb-3 text-neutral-400">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.2"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 00-1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
               </svg>
             </div>
@@ -94,16 +100,21 @@
           {%- endif -%}
 
           <!-- Title -->
-          <h3 class="text-sm font-semibold text-neutral-800 leading-snug group-hover:text-amber-500 transition-colors duration-300">
+          <p class="text-sm font-semibold text-neutral-800 leading-snug group-hover:text-amber-500 transition-colors duration-300">
             <a href="{{ card_product.url }}" class="hover:underline decoration-neutral-200">
               {{ card_product.title | escape }}
             </a>
-          </h3>
+          </p>
 
           <!-- Rating -->
           {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
             <div class="flex items-center gap-1 mt-1 text-neutral-400 text-xs">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 text-amber-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-3 h-3 text-amber-400"
+              >
                 <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.6 3.1-1.196 4.658c-.21.82.704 1.485 1.41 1.025l3.96-2.571 3.96 2.571c.707.46 1.62-.205 1.41-1.025l-1.195-4.657 3.6-3.1c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.83-4.4z" clip-rule="evenodd" />
               </svg>
               <span class="font-medium text-neutral-600">{{ card_product.metafields.reviews.rating.value }}</span>
@@ -125,8 +136,18 @@
           </div>
 
           <!-- Action Arrow (CTA Trailing Icon Pattern) -->
-          <a href="{{ card_product.url }}" class="w-8 h-8 rounded-full bg-neutral-50 group-hover:bg-neutral-900 group-hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300 ease-out active:scale-95 border border-neutral-100 group-hover:border-transparent">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5">
+          <a
+            href="{{ card_product.url }}"
+            class="w-8 h-8 rounded-full bg-neutral-50 group-hover:bg-neutral-900 group-hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300 ease-out active:scale-95 border border-neutral-100 group-hover:border-transparent"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+            >
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </a>
@@ -159,7 +180,14 @@
             {{ 1999 | money }}
           </span>
           <div class="w-8 h-8 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-300 border border-neutral-100">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-3.5 h-3.5"
+            >
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </div>
