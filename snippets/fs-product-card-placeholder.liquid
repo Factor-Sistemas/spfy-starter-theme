@@ -1,0 +1,38 @@
+<div class="group relative bg-neutral-50/50 p-2 rounded-[2rem] border border-neutral-100/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 h-full flex flex-col">
+  <div class="relative bg-white rounded-[calc(2rem-0.5rem)] overflow-hidden border border-neutral-100/60 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.95)] flex flex-col flex-1">
+    <div class="relative w-full aspect-square bg-gradient-to-tr from-neutral-50 to-neutral-100/70 flex flex-col items-center justify-center p-6 text-center select-none min-h-[220px]">
+      {%- if placeholder_image -%}
+        {{ placeholder_image | placeholder_svg_tag: 'w-16 h-16 opacity-30' }}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag: 'w-16 h-16 opacity-30' }}
+      {% endif %}
+    </div>
+    <div class="p-5 flex flex-col flex-1 justify-between gap-y-4 bg-white">
+      <div class="space-y-1">
+        <span class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-semibold mb-1">
+          {{ 'products.product.vendor' | t }}
+        </span>
+        <h3 class="text-sm font-semibold text-neutral-800 leading-snug">
+          {{ 'onboarding.product_title' | t }}
+        </h3>
+      </div>
+      <div class="flex items-center justify-between mt-1 pt-3 border-t border-neutral-50">
+        <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none">
+          {{ 1999 | money }}
+        </span>
+        <div class="w-8 h-8 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-300 border border-neutral-100">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-3.5 h-3.5"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

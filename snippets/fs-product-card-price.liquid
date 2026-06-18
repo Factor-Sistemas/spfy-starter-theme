@@ -1,0 +1,10 @@
+<div class="flex flex-row">
+  {%- if card_product.compare_at_price > card_product.price -%}
+    <span class="text-[11px] text-neutral-400 line-through font-medium leading-none mb-1">
+      {{ card_product.compare_at_price | money }}
+    </span>
+  {%- endif -%}
+  <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none">
+    {{ card_product.price | money }}
+  </span>
+</div>

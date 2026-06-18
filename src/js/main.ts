@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiendaAprendizaje from './classes/TiendaAprendizaje';
 import ProductRequestForm from './classes/ProductRequestForm';
 import './classes/CartDrawer';
+import './classes/ProductCardBuy';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -23,6 +24,13 @@ Alpine.data('menuSystem', () => ({
     // Posicionamos ambos paneles fuera de la pantalla (desplazados a la derecha)
     gsap.set("#menu-drawer", { x: this.menuWidth });
     gsap.set("#cart-drawer", { x: this.menuWidth });
+
+    // Abrir automáticamente el carrito cuando se dispara cart:updated
+    document.addEventListener('cart:updated', () => {
+      if (!this.isCartOpen) {
+        this.toggleCart();
+      }
+    });
 
     // Escuchar el evento de redimensionado de ventana
     window.addEventListener('resize', () => {

@@ -1,17 +1,15 @@
 {% comment %}
-  Renders a product card
+  Renderiza la tarjeta de un producto.
 
-  Accepts:
-  - card_product: {Object} Product Liquid object (optional)
-  - media_aspect_ratio: {String} Size of the product image card. Values are "square", "portrait", "adapt". Default is "square" (optional)
-  - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
-  - show_vendor: {Boolean} Show the product vendor. Default: false
-  - show_rating: {Boolean} Show the product rating. Default: false
-  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
-  - section_id: {String} The ID of the section that contains this card.
-  - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
+  Acepta: - card_product: {Object} Objeto de producto de Shopify (opcional). - media_aspect_ratio: {String} Relación de
+  aspecto de la imagen. Valores: "square", "portrait", "adapt". Por defecto es "square" (opcional). -
+  show_secondary_image: {Boolean} Muestra la imagen secundaria al pasar el cursor. Por defecto: false (opcional). -
+  show_vendor: {Boolean} Muestra el proveedor del producto. Por defecto: false. - show_rating: {Boolean} Muestra la
+  valoración del producto. Por defecto: false. - lazy_load: {Boolean} Si la imagen debe cargarse de forma diferida. Por
+  defecto: true (opcional). - section_id: {String} El ID de la sección que contiene esta tarjeta. - placeholder_image:
+  {String} La imagen de marcador de posición cuando no hay producto. Por defecto: 'product-apparel-2' (opcional).
 
-  Usage:
+  Uso:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
@@ -29,116 +27,38 @@
   -%}
 
   <div class="group relative bg-neutral-50/50 p-2 rounded-[2rem]">
-    <!-- Inner Container (Double Bezel / Concentric Core) -->
-    <div class="relative bg-white rounded-[calc(2rem-0.5rem)] overflow-hidden border border-neutral-100/60 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.95)] flex flex-col flex-1">
-      <!-- Badges -->
-      <div class="absolute top-4 left-4 z-20 flex flex-col gap-1.5">
-        {%- if card_product.available == false -%}
-          <span class="bg-neutral-900/90 backdrop-blur-md text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold border border-white/10">
-            {{- 'products.product.sold_out' | t -}}
-          </span>
-        {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-          <span class="bg-amber-500/90 backdrop-blur-md text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold border border-white/10">
-            {{- 'products.product.on_sale' | t -}}
-          </span>
-        {%- endif -%}
-      </div>
+    {% comment %} Contenedor interno (Doble bisel / Núcleo concéntrico) {% endcomment %}
+    <div class="relative bg-white rounded-[calc(2rem-0.5rem)] overflow-hidden border-0 border-red-700 flex flex-col flex-1">
+      {% comment %} Etiquetas / Badges {% endcomment %}
+      {%- render 'fs-product-card-badget', card_product: card_product -%}
+      {% comment %} Área de imagen {% endcomment %}
+      {%- render 'fs-product-card-media', card_product: card_product -%}
 
-      <!-- Media Area -->
-      <div class="relative w-full overflow-hidden flex-shrink-0 bg-neutral-50/50" style="aspect-ratio: {{ ratio }};">
-        {%- if card_product.featured_media -%}
-          <img
-            src="{{ card_product.featured_media | image_url: width: 533 }}"
-            alt="{{ card_product.featured_media.alt | escape }}"
-            loading="{% if lazy_load == false %}eager{% else %}lazy{% endif %}"
-            width="{{ card_product.featured_media.width }}"
-            height="{{ card_product.featured_media.height }}"
-            class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-            sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-          >
-          {%- if card_product.media[1] != null and show_secondary_image -%}
-            <img
-              src="{{ card_product.media[1] | image_url: width: 533 }}"
-              alt="{{ card_product.media[1].alt | escape }}"
-              loading="lazy"
-              width="{{ card_product.media[1].width }}"
-              height="{{ card_product.media[1].height }}"
-              class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              sizes="(min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
-            >
-          {%- endif -%}
-        {%- else -%}
-          <!-- Premium fallback abstract graphic -->
-          <div class="w-full h-full bg-gradient-to-tr from-neutral-50 to-neutral-100/70 flex flex-col items-center justify-center p-6 text-center select-none min-h-[220px]">
-            <div class="w-12 h-12 rounded-full bg-neutral-100/80 border border-neutral-200/30 flex items-center justify-center mb-3 text-neutral-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.2"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 00-1.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-              </svg>
-            </div>
-            <span class="text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-bold mb-1">
-              {% if card_product.vendor != blank %}{{ card_product.vendor }}{% else %}Colección{% endif %}
-            </span>
-          </div>
-        {%- endif -%}
-      </div>
+      {% comment %} Botones de acción rápida en hover {% endcomment %}
+      <product-card-buy 
+        variant-id="{{ card_product.selected_or_first_available_variant.id }}" 
+        class="absolute bottom-[130px] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-30 flex flex-col gap-2"
+      >
+        <button data-action="buy" class="relative w-full bg-neutral-950/95 hover:bg-neutral-900 text-white rounded-full py-2.5 text-[10px] font-bold uppercase tracking-widest shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer border border-white/10 active:scale-98">
+          <span class="btn-label">Comprar ya</span>
+          <span class="btn-spinner absolute opacity-0 scale-75 w-4 h-4 rounded-full border-2 border-white/20 border-t-white animate-spin"></span>
+        </button>
+        <button data-action="add" class="relative w-full bg-white/95 hover:bg-neutral-50 text-neutral-900 rounded-full py-2.5 text-[10px] font-bold uppercase tracking-widest shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer border border-neutral-200 active:scale-98">
+          <span class="btn-label">Añadir</span>
+          <span class="btn-spinner absolute opacity-0 scale-75 w-4 h-4 rounded-full border-2 border-neutral-900/20 border-t-neutral-900 animate-spin"></span>
+        </button>
+      </product-card-buy>
 
-      <!-- Info Area -->
+      {% comment %} Área de información {% endcomment %}
       <div class="p-5 flex flex-col flex-1 justify-between gap-y-4 bg-white">
-        <div class="space-y-1">
-          <!-- Vendor / Category Eyebrow -->
-          {%- if show_vendor or card_product.vendor != blank -%}
-            <span class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-semibold mb-1">
-              {{ card_product.vendor }}
-            </span>
-          {%- endif -%}
+        {%- render 'fs-product-card-title-vendor', card_product: card_product -%}
 
-          <!-- Title -->
-          <p class="text-sm font-semibold text-neutral-800 leading-snug group-hover:text-amber-500 transition-colors duration-300">
-            <a href="{{ card_product.url }}" class="hover:underline decoration-neutral-200">
-              {{ card_product.title | escape }}
-            </a>
-          </p>
-
-          <!-- Rating -->
-          {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
-            <div class="flex items-center gap-1 mt-1 text-neutral-400 text-xs">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-3 h-3 text-amber-400"
-              >
-                <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.6 3.1-1.196 4.658c-.21.82.704 1.485 1.41 1.025l3.96-2.571 3.96 2.571c.707.46 1.62-.205 1.41-1.025l-1.195-4.657 3.6-3.1c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.83-4.4z" clip-rule="evenodd" />
-              </svg>
-              <span class="font-medium text-neutral-600">{{ card_product.metafields.reviews.rating.value }}</span>
-            </div>
-          {%- endif -%}
-        </div>
-
-        <!-- Price & Quick Add -->
+        {% comment %} Precio y compra rápida {% endcomment %}
         <div class="flex items-center justify-between mt-1 pt-3 border-t border-neutral-50">
-          <div class="flex flex-col">
-            {%- if card_product.compare_at_price > card_product.price -%}
-              <span class="text-[11px] text-neutral-400 line-through font-medium leading-none mb-1">
-                {{ card_product.compare_at_price | money }}
-              </span>
-            {%- endif -%}
-            <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none">
-              {{ card_product.price | money }}
-            </span>
-          </div>
-
-          <!-- Action Arrow (CTA Trailing Icon Pattern) -->
+          {%- render 'fs-product-card-price', card_product: %card_product -%}
+          {% comment %} Flecha de acción (Patrón de icono en el botón) {% endcomment %}
           <a
             href="{{ card_product.url }}"
-            class="w-8 h-8 rounded-full bg-neutral-50 group-hover:bg-neutral-900 group-hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300 ease-out active:scale-95 border border-neutral-100 group-hover:border-transparent"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -156,43 +76,5 @@
     </div>
   </div>
 {%- else -%}
-  <!-- Placeholder card -->
-  <div class="group relative bg-neutral-50/50 p-2 rounded-[2rem] border border-neutral-100/60 shadow-[0_4px_12px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1.5 h-full flex flex-col">
-    <div class="relative bg-white rounded-[calc(2rem-0.5rem)] overflow-hidden border border-neutral-100/60 shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.95)] flex flex-col flex-1">
-      <div class="relative w-full aspect-square bg-gradient-to-tr from-neutral-50 to-neutral-100/70 flex flex-col items-center justify-center p-6 text-center select-none min-h-[220px]">
-        {%- if placeholder_image -%}
-          {{ placeholder_image | placeholder_svg_tag: 'w-16 h-16 opacity-30' }}
-        {%- else -%}
-          {{ 'product-apparel-2' | placeholder_svg_tag: 'w-16 h-16 opacity-30' }}
-        {% endif %}
-      </div>
-      <div class="p-5 flex flex-col flex-1 justify-between gap-y-4 bg-white">
-        <div class="space-y-1">
-          <span class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-semibold mb-1">
-            {{ 'products.product.vendor' | t }}
-          </span>
-          <h3 class="text-sm font-semibold text-neutral-800 leading-snug">
-            {{ 'onboarding.product_title' | t }}
-          </h3>
-        </div>
-        <div class="flex items-center justify-between mt-1 pt-3 border-t border-neutral-50">
-          <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none">
-            {{ 1999 | money }}
-          </span>
-          <div class="w-8 h-8 rounded-full bg-neutral-50 flex items-center justify-center text-neutral-300 border border-neutral-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              class="w-3.5 h-3.5"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  {%- render 'fs-product-card-placeholder' -%}
 {%- endif -%}

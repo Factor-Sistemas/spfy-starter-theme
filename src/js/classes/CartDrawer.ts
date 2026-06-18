@@ -10,6 +10,7 @@ export default class CartDrawer extends HTMLElement {
 	connectedCallback() {
 		this.addEventListener('change', this.onQuantityChange.bind(this));
 		this.addEventListener('click', this.onButtonClick.bind(this));
+		document.addEventListener('cart:updated', this.refreshDrawer.bind(this));
 		this.capaCarga = document.getElementById('capa_carga');
 	}
 

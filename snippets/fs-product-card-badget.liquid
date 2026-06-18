@@ -1,0 +1,11 @@
+<div class="absolute top-4 left-4 z-20 flex flex-col gap-1.5">
+  {%- if card_product.available == false -%}
+    <span class="bg-neutral-900/90 backdrop-blur-md text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold border border-white/10">
+      {{- 'products.product.sold_out' | t -}}
+    </span>
+  {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+    <span class="bg-amber-500/90 backdrop-blur-md text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded-full font-bold border border-white/10">
+      {{- 'products.product.on_sale' | t -}}
+    </span>
+  {%- endif -%}
+</div>
