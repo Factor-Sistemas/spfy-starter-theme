@@ -26,6 +26,14 @@ export default class CartDrawer extends HTMLElement {
 	}
 
 	onButtonClick(event: Event) {
+		const removeBtn = (event.target as HTMLElement).closest('.cart-remove-button');
+		if (removeBtn) {
+			event.preventDefault();
+			const line = parseInt(removeBtn.getAttribute('data-line') || '1');
+			this.updateQuantity(line, 0);
+			return;
+		}
+
 		const button = (event.target as HTMLElement).closest('.quantity__button');
 		if (button) {
 			event.preventDefault();

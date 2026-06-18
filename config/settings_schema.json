@@ -197,9 +197,15 @@
       },
       {
         "type": "checkbox",
-        "id": "show_cart_note",
-        "label": "Nota del carrito",
-        "default": false
+        "id": "comprar_ya_disponible",
+        "label": "Comprar ya disponible",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "aniadir_carro_en_coleccion",
+        "label": "Mostrar compra en colección",
+        "default": true
       },
       {
         "type": "header",

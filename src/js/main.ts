@@ -5,6 +5,7 @@ import TiendaAprendizaje from './classes/TiendaAprendizaje';
 import ProductRequestForm from './classes/ProductRequestForm';
 import './classes/CartDrawer';
 import './classes/ProductCardBuy';
+import './classes/FsTrackingFields';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);

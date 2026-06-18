@@ -1,5 +1,30 @@
 import { gsap } from 'gsap';
 
+function getTrackingProperties(): { [key: string]: string } {
+	const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'promotor'];
+	const properties: { [key: string]: string } = {};
+
+	trackingKeys.forEach((key) => {
+		const value = localStorage.getItem(`c_${key}`);
+		if (value) {
+			properties[`_${key}`] = value;
+		}
+	});
+
+	const getCookie = (name: string): string | null => {
+		const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+		return match ? decodeURIComponent(match[2]) : null;
+	};
+
+	const fbc = getCookie('_fbc');
+	if (fbc) properties['_fbc'] = fbc;
+
+	const fbp = getCookie('_fbp');
+	if (fbp) properties['_fbp'] = fbp;
+
+	return properties;
+}
+
 export default class ProductCardBuy extends HTMLElement {
 	constructor() {
 		super();
@@ -30,6 +55,8 @@ export default class ProductCardBuy extends HTMLElement {
 			gsap.to(spinner, { opacity: 1, scale: 1, duration: 0.15 });
 		}
 
+		const properties = getTrackingProperties();
+
 		try {
 			const response = await fetch('/cart/add.js', {
 				method: 'POST',
@@ -39,7 +66,8 @@ export default class ProductCardBuy extends HTMLElement {
 				},
 				body: JSON.stringify({
 					id: parseInt(variantId),
-					quantity: 1
+					quantity: 1,
+					properties: properties
 				})
 			});
 

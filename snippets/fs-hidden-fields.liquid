@@ -1,0 +1,17 @@
+{% doc %}
+  Renderiza los campos ocultos para registrar parámetros de seguimiento UTM y atribución (_fbc, _fbp).
+  Los valores son leídos y rellenados automáticamente en el cliente mediante el Web Component FsTrackingFields.
+
+  Uso:
+  {% render 'fs-hidden-fields' %}
+{% enddoc %}
+<fs-tracking-fields>
+  <input type="hidden" name="properties[_utm_source]" value="">
+  <input type="hidden" name="properties[_utm_medium]" value="">
+  <input type="hidden" name="properties[_utm_campaign]" value="">
+  <input type="hidden" name="properties[_utm_content]" value="">
+  <input type="hidden" name="properties[_utm_term]" value="">
+  <input type="hidden" name="properties[_promotor]" value="">
+  <input type="hidden" name="properties[_fbc]" value="">
+  <input type="hidden" name="properties[_fbp]" value="">
+</fs-tracking-fields>

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Arquitectura/tailwind-tokens.md",
+                "file": "Assets/TS/CartDrawer.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "tailwind-tokens"
+              "title": "CartDrawer"
             }
           }
         ]
@@ -185,8 +185,16 @@
   },
   "active": "f2a7edde98e33f56",
   "lastOpenFiles": [
+    "Assets/TS/ProductCardBuy.md",
+    "Assets/TS/CartDrawer.md",
+    "Componentes/Snippets/fs-main-cart-item-quantity.md",
+    "Componentes/Snippets/fs-product-card-buy-buttons.md",
+    "Assets/TS/FsTrackingFields.md",
+    "Componentes/Snippets/fs-hidden-fields.md",
     "Componentes/Snippets/snippet-product-thumbnail.md",
     "Componentes/Snippets/snippet-card-product.md",
+    "Arquitectura/tailwind-tokens.md",
+    "Assets/TS",
     "Componentes/Snippets",
     "Componentes",
     "Plantillas/template-snippet.md"

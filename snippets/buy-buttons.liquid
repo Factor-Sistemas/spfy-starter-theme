@@ -56,6 +56,8 @@
           class="product-variant-id"
         >
 
+        {%- render 'fs-hidden-fields' -%}
+
         {%- if gift_card_recipient_feature_active -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
