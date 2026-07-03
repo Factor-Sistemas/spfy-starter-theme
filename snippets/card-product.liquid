@@ -1,13 +1,13 @@
 {% comment %}
   Renderiza la tarjeta de un producto.
 
-  Acepta: - card_product: {Object} Objeto de producto de Shopify (opcional). - media_aspect_ratio: {String} Relación de
-  aspecto de la imagen. Valores: "square", "portrait", "adapt". Por defecto es "square" (opcional). -
-  show_secondary_image: {Boolean} Muestra la imagen secundaria al pasar el cursor. Por defecto: false (opcional). -
-  show_vendor: {Boolean} Muestra el proveedor del producto. Por defecto: false. - show_rating: {Boolean} Muestra la
-  valoración del producto. Por defecto: false. - lazy_load: {Boolean} Si la imagen debe cargarse de forma diferida. Por
-  defecto: true (opcional). - section_id: {String} El ID de la sección que contiene esta tarjeta. - placeholder_image:
-  {String} La imagen de marcador de posición cuando no hay producto. Por defecto: 'product-apparel-2' (opcional).
+             Acepta                                                               : - card_product                                                        : {Object} Objeto de producto de Shopify (opcional). - media_aspect_ratio    : {String} Relación de
+  aspecto    de la imagen. Valores                                                : "square",                                                               "portrait",                                                                  "adapt". Por defecto es "square" (opcional). -
+             show_secondary_image                                                 : {Boolean} Muestra la imagen secundaria al pasar el cursor. Por defecto: false (opcional). -
+             show_vendor                                                          : {Boolean} Muestra el proveedor del producto. Por defecto              : false. - show_rating                                                       : {Boolean} Muestra la
+  valoración del producto. Por defecto                                            : false. - lazy_load                                                    : {Boolean} Si la imagen debe cargarse de forma diferida. Por
+             defecto                                                              : true (opcional). - section_id                                         : {String} El ID de la sección que contiene esta tarjeta. - placeholder_image:
+  {String}   La imagen de marcador de posición cuando no hay producto. Por defecto: 'product-apparel-2' (opcional).
 
   Uso:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -55,7 +55,7 @@
               stroke="currentColor"
               class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              <path stroke-linecap = "round" stroke-linejoin = "round" d = "M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
           </a>
         </div>

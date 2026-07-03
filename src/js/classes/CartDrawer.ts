@@ -57,8 +57,8 @@ export default class CartDrawer extends HTMLElement {
 	mostrarCapa() {
 		if (this.capaCarga) {
 			this.capaCarga.classList.remove('hidden');
-			gsap.fromTo(this.capaCarga, 
-				{ opacity: 0 }, 
+			gsap.fromTo(this.capaCarga,
+				{ opacity: 0 },
 				{ opacity: 1, duration: 0.6, ease: 'power2.out' }
 			);
 		}
