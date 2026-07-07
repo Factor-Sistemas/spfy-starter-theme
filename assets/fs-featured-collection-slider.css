@@ -1,0 +1,40 @@
+fs-featured-collection-slider .swiper,
+fs-featured-collection-slider .swiper .swiper-wrapper {
+  overflow: visible !important;
+}
+
+.fs-slider-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fs-slider-nav .swiper-button-prev,
+.fs-slider-nav .swiper-button-next {
+  position: static;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0;
+  border-radius: 9999px;
+  border: 1px solid #e5e5e5;
+  background: white;
+  color: #171717;
+  transition: all 0.2s;
+}
+
+.fs-slider-nav .swiper-button-prev:hover,
+.fs-slider-nav .swiper-button-next:hover {
+  background: #f5f5f5;
+  border-color: #d4d4d4;
+}
+
+.fs-slider-nav .swiper-button-prev::after,
+.fs-slider-nav .swiper-button-next::after {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.fs-slider-nav .swiper-button-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

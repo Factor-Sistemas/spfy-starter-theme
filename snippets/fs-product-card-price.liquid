@@ -1,10 +1,13 @@
-<div class="flex flex-row">
+<div class="flex flex-row" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+  <meta itemprop="availability" content="{% if card_product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}">
+  <meta itemprop="url" content="{{ card_product.url | absolute_url }}">
   {%- if card_product.compare_at_price > card_product.price -%}
     <span class="text-[11px] text-neutral-400 line-through font-medium leading-none mb-1">
       {{ card_product.compare_at_price | money }}
     </span>
   {%- endif -%}
-  <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none">
+  <span class="text-sm font-bold tracking-tight text-neutral-900 leading-none" itemprop="price" content="{{ card_product.price | money_without_currency }}">
     {{ card_product.price | money }}
   </span>
 </div>

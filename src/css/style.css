@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Swiper */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
 /* 1. CONFIGURACIÓN Y VARIABLES (TOKENS) */
 @import './_fonts.css';
 @import './_tokens.css';

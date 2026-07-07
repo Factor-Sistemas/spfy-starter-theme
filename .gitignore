@@ -27,3 +27,12 @@ vite.config.ts.timestamp-*
 
 # IDEs & local agents
 .atl/
+.gitnexus/
+.opencode/
+.agents/
+.vscode/
+.claude/
+AGENTS.md
+CLAUDE.md
+DESIGN.md
+COMPONENTS.md

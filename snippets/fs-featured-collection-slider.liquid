@@ -1,0 +1,43 @@
+{% comment %}
+  Renderiza la colección destacada en modo slider usando Swiper.js.
+
+  Acepta:
+  - collection: {Object} Colección de Shopify (requerido).
+  - products_to_show: {Number} Límite de productos a mostrar (requerido).
+  - section_id: {String} ID de la sección (requerido).
+
+  Uso:
+  {% render 'fs-featured-collection-slider',
+    collection: section.settings.collection,
+    products_to_show: section.settings.products_to_show,
+    section_id: section.id
+  %}
+{% endcomment %}
+
+{%- assign slider_id = 'fs-featured-collection-slider-' | append: section_id -%}
+
+<fs-featured-collection-slider slider-id="{{ slider_id }}">
+  <div
+    class="swiper swiper-container"
+    id="{{ slider_id }}"
+  >
+    <ul class="swiper-wrapper">
+      {%- for product in collection.products limit: products_to_show -%}
+        <li class="swiper-slide h-auto">
+          {% render 'card-product',
+            card_product: product,
+            media_aspect_ratio: 'square',
+            image_shape: 'default',
+            lazy_load: false,
+            show_secondary_image: false,
+            show_vendor: false,
+            show_rating: false,
+            skip_styles: false,
+            section_id: section_id,
+            quick_add: 'none'
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</fs-featured-collection-slider>

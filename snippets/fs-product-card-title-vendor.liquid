@@ -1,14 +1,15 @@
 <div class="space-y-1">
   {% comment %} Proveedor / Categoría {% endcomment %}
   {%- if show_vendor or card_product.vendor != blank -%}
-    <span class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-semibold mb-1">
+    <span class="block text-[9px] uppercase tracking-[0.2em] text-neutral-400 font-semibold mb-1" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+      <meta itemprop="name" content="{{ card_product.vendor | escape }}">
       {{ card_product.vendor }}
     </span>
   {%- endif -%}
 
   {% comment %} Título del producto {% endcomment %}
   <p class="text-sm font-semibold text-neutral-800 leading-snug group-hover:text-amber-500 transition-colors duration-300">
-    <a href="{{ card_product.url }}" class="hover:underline decoration-neutral-200">
+    <a href="{{ card_product.url }}" class="hover:underline decoration-neutral-200" itemprop="name">
       {{ card_product.title | escape }}
     </a>
   </p>

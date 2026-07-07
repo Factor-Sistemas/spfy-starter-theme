@@ -1,0 +1,37 @@
+{%- if section.settings.collection != blank -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": {{ section.settings.title | default: section.settings.collection.title | json }},
+      "description": {{ section.settings.description | default: section.settings.collection.description | json }},
+      "url": {{ section.settings.collection.url | absolute_url | json }},
+      "numberOfItems": {{ section.settings.collection.products.size | json }},
+      "itemListElement": [
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index | json }},
+            "item": {
+              "@type": "Product",
+              "name": {{ product.title | json }},
+              "url": {{ product.url | absolute_url | json }},
+              {%- if product.featured_media -%}
+                "image": {{ product.featured_media | image_url: width: 800 | prepend: 'https:' | json }},
+              {%- endif -%}
+              {%- if product.price -%}
+                "offers": {
+                  "@type": "Offer",
+                  "price": {{ product.price | money_without_currency | json }},
+                  "priceCurrency": {{ shop.currency | json }},
+                  "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+                  "url": {{ product.url | absolute_url | json }}
+                }
+              {%- endif -%}
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}

@@ -7,6 +7,7 @@ import './classes/CartDrawer';
 import './classes/ProductCardBuy';
 import './classes/FsTrackingFields';
 import './classes/FsToast';
+import './classes/FeaturedCollectionSlider';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
