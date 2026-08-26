@@ -50,4 +50,7 @@
   thead {
     @apply bg-gray-100;
   }
+  a.button-scroll {
+    @apply btn btn-primary hover:btn-secondary;
+  }
 }

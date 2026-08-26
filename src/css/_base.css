@@ -74,3 +74,50 @@ a {
 a:hover {
   color: var(--color-brand-accent);
 }
+
+/* 7. BOTONES (Componentes por Rol) */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold text-sm transition-colors duration-200 rounded-[--btn-radius];
+}
+
+/* Main CTA (Principal) */
+.btn--main {
+  background-color: var(--btn-main-bg);
+  color: var(--btn-main-text);
+}
+.btn--main:hover {
+  background-color: var(--btn-main-hover-bg);
+}
+
+/* Secondary (Secundario/Outline) */
+.btn--secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border: 1px solid var(--btn-secondary-border);
+}
+.btn--secondary:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+}
+
+/* Cancel (Cancelar/Ghost) */
+.btn--cancel {
+  background: transparent;
+  color: var(--btn-cancel-text);
+  border: none;
+}
+.btn--cancel:hover {
+  background-color: var(--btn-cancel-hover-bg);
+  color: var(--btn-cancel-hover-text);
+}
+
+/* Destructive (Eliminar) */
+.btn--destructive {
+  background-color: var(--btn-destructive-bg);
+  color: var(--btn-destructive-text);
+}
+
+.btn:disabled {
+  opacity: var(--btn-disabled-opacity);
+  pointer-events: none;
+}

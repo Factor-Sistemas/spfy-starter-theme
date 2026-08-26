@@ -92,7 +92,7 @@
 
   /* 5. PALETA DE COLORES */
   --color-primary: #121212;
-  --color-primary-active: #000000;
+  --color-primary-active: #ffffff;
   --color-primary-disabled: #e5e5e5;
   --color-ink: #121212;
   --color-body: #3a3a3a;
@@ -123,6 +123,33 @@
   --color-success: #22c55e;
   --color-warning: #f59e0b;
   --color-error: #ef4444;
+
+  /* 6. BOTONES (Tokens por Rol) */
+  /* Main CTA (Acción Principal) */
+  --btn-main-bg: var(--color-primary);
+  --btn-main-text: var(--color-on-primary);
+  --btn-main-hover-bg: var(--color-primary-active);
+  
+  /* Secondary (Acción Secundaria) */
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--color-primary);
+  --btn-secondary-border: var(--color-primary);
+  --btn-secondary-hover-bg: var(--color-primary);
+  --btn-secondary-hover-text: var(--color-on-primary);
+  
+  /* Cancel (Cancelar/Cerrar) */
+  --btn-cancel-text: var(--color-muted);
+  --btn-cancel-hover-bg: var(--color-surface-strong);
+  --btn-cancel-hover-text: var(--color-ink);
+  
+  /* Destructive (Eliminar/Peligro) */
+  --btn-destructive-bg: var(--color-error);
+  --btn-destructive-text: var(--color-on-primary);
+  
+  /* Estados globales */
+  --btn-disabled-opacity: 0.5;
+  --btn-radius: var(--radius-sm);
+
   /* Dimensiones */
   --container-8xl: 88rem;
   --container-9xl: 94rem;
