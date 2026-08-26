@@ -51,9 +51,10 @@
         "content": "Email"
       },
       {
-        "type": "image_picker",
-        "id": "footer_email_icon",
-        "label": "Icono"
+        "type": "textarea",
+        "id": "footer_email_svg",
+        "label": "Código SVG",
+        "info": "Pega aquí el código <svg>...</svg>"
       },
       {
         "type": "text",
@@ -70,9 +71,10 @@
         "content": "Teléfono"
       },
       {
-        "type": "image_picker",
-        "id": "footer_phone_icon",
-        "label": "Icono"
+        "type": "textarea",
+        "id": "footer_phone_svg",
+        "label": "Código SVG",
+        "info": "Pega aquí el código <svg>...</svg>"
       },
       {
         "type": "text",
@@ -89,9 +91,10 @@
         "content": "Horario"
       },
       {
-        "type": "image_picker",
-        "id": "footer_schedule_icon",
-        "label": "Icono"
+        "type": "textarea",
+        "id": "footer_schedule_svg",
+        "label": "Código SVG",
+        "info": "Pega aquí el código <svg>...</svg>"
       },
       {
         "type": "text",

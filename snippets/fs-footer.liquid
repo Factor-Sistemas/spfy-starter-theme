@@ -42,8 +42,10 @@
           
           {%- if settings.footer_email_link != blank -%}
             <div class="flex items-start gap-3">
-              {%- if settings.footer_email_icon != blank -%}
-                <img src="{{ settings.footer_email_icon | image_url: width: 24 }}" width="24" height="24" alt="" class="mt-0.5 w-6 h-6">
+              {%- if settings.footer_email_svg != blank -%}
+                <div class="w-6 h-6 shrink-0 mt-0.5">
+                  {{ settings.footer_email_svg }}
+                </div>
               {%- endif -%}
               <div>
                 <p class="font-medium text-gray-900">{{ settings.footer_email_title | default: 'Email' }}</p>
@@ -54,8 +56,10 @@
 
           {%- if settings.footer_phone_link != blank -%}
             <div class="flex items-start gap-3">
-              {%- if settings.footer_phone_icon != blank -%}
-                <img src="{{ settings.footer_phone_icon | image_url: width: 24 }}" width="24" height="24" alt="" class="mt-0.5 w-6 h-6">
+              {%- if settings.footer_phone_svg != blank -%}
+                <div class="w-6 h-6 shrink-0 mt-0.5">
+                  {{ settings.footer_phone_svg }}
+                </div>
               {%- endif -%}
               <div>
                 <p class="font-medium text-gray-900">{{ settings.footer_phone_title | default: 'Teléfono' }}</p>
@@ -66,8 +70,10 @@
 
           {%- if settings.footer_schedule_text != blank -%}
             <div class="flex items-start gap-3">
-              {%- if settings.footer_schedule_icon != blank -%}
-                <img src="{{ settings.footer_schedule_icon | image_url: width: 24 }}" width="24" height="24" alt="" class="mt-0.5 w-6 h-6">
+              {%- if settings.footer_schedule_svg != blank -%}
+                <div class="w-6 h-6 shrink-0 mt-0.5">
+                  {{ settings.footer_schedule_svg }}
+                </div>
               {%- endif -%}
               <div>
                 <p class="font-medium text-gray-900">{{ settings.footer_schedule_title | default: 'Horario' }}</p>
