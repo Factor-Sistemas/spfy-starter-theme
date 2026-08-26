@@ -34,6 +34,18 @@
         </ul>
       </div>
 
+      <!-- Columna Derecha: Menú + Atención al cliente -->
+      <div>
+        <p class="font-semibold text-gray-900 mb-5 text-2xl">Atención al cliente</p>
+        <ul class="space-y-2">
+          {% for link in linklists['men-atenci-n-al-cliente'].links %}
+            <li>
+              <a href="{{ link.url }}" class="hover:text-gray-900 transition-colors">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
       <!-- Bloque Contáctanos -->
       <div>
         <p class="font-semibold text-gray-900 mb-5 text-2xl">Contáctanos</p>

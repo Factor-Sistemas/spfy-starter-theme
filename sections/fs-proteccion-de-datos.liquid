@@ -1,59 +1,6 @@
-{{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
-{%- liquid
-  assign heading_size = section.settings.heading_size | times: settings.heading_base_size | times: 0.000225
--%}
-{%- style -%}
-  .section-padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top_mobile }}px;
-    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-  }
-  @media (min-width: 768px) {
-    .section-padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-  .x-section-page {
-    --max-width-page-container: calc((var(--page-width) + 40px) * {{ section.settings.max_container_page_width }} / 100);
-  }
-{%- endstyle -%}
-{% if settings.advanced_show_breadcrumbs and section.settings.show_breadcrumbs %}
-  {% render 'breadcrumbs'
-    , background_color_light: section.settings.background_color_light
-    , text_color_light: section.settings.text_color_light
-    , textlink_color_light: section.settings.textlink_color_light
-    , background_color_dark: section.settings.background_color_dark
-    , text_color_dark: section.settings.text_color_dark
-    , textlink_color_dark: section.settings.textlink_color_dark
-    , desktop_content_alignment: section.settings.desktop_content_alignment
-    , mobile_content_alignment: section.settings.mobile_content_alignment
-    , full_width_breadcrumb: section.settings.full_width_breadcrumb
-    , show_breadcrumbs_border: section.settings.show_breadcrumbs_border
-    , show_image_banner: false
-  %}
-{% endif %}
 {% if page.content != blank or section.settings.show_heading %}
-  <div class="x-section-page section-padding-{{ section.id }} ltr">
+  <div class="section-padding-{{ section.id }} contenidos-estaticos">
     <div class="page__container ml-auto mr-auto full-width">
-      {% if section.settings.show_heading %}
-        {%- style -%}
-          .page__container .heading--{{ section.id }} {
-            font-size: {{ heading_size | times: 0.6 }}rem;
-          }
-          @media screen and (min-width: 1024px) {
-            .page__container .heading--{{ section.id }} {
-              font-size: {{ heading_size }}rem;
-            }
-          }
-          .contenido-estatico p {
-            margin-bottom: 1.1rem;
-          }
-          .contenido-estatico li {
-            margin-bottom: 0.8rem;
-          }
-        {%- endstyle -%}
-      {% endif %}
-
       <div class="mb-6 md:mb-8">
         <h1 class="text-center text-3xl font-medium">{{ page.title | escape }}</h1>
       </div>
@@ -69,19 +16,29 @@
               <a title="¿Quiénes somos?" href="#dos">¿Quiénes somos?</a>
             </li>
             <li>
-              <a title="¿Quién es el responsable del tratamiento de sus Datos?" href="#tres">¿Quién es el responsable del tratamiento de tus Datos?</a>
+              <a title="¿Quién es el responsable del tratamiento de sus Datos?" href="#tres"
+                >¿Quién es el responsable del tratamiento de tus Datos?</a
+              >
             </li>
             <li>
-              <a title="¿Para qué utilizamos su información personal?" href="#cuatro">¿Para qué utilizamos tu información personal?</a>
+              <a title="¿Para qué utilizamos su información personal?" href="#cuatro"
+                >¿Para qué utilizamos tu información personal?</a
+              >
             </li>
             <li>
-              <a title="¿Cómo hemos obtenido la información sobre usted?" href="#cinco">¿Cómo hemos obtenido la información sobre ti?</a>
+              <a title="¿Cómo hemos obtenido la información sobre usted?" href="#cinco"
+                >¿Cómo hemos obtenido la información sobre ti?</a
+              >
             </li>
             <li>
-              <a title="¿Cuál es la base legal para el tratamiento de sus datos?" href="#seis">¿Cuál es la base legal para el tratamiento de tus datos?</a>
+              <a title="¿Cuál es la base legal para el tratamiento de sus datos?" href="#seis"
+                >¿Cuál es la base legal para el tratamiento de tus datos?</a
+              >
             </li>
             <li>
-              <a title="¿Se comunican sus datos a otros destinatarios?" href="#siete">¿Se comunican tus datos a otros destinatarios?</a>
+              <a title="¿Se comunican sus datos a otros destinatarios?" href="#siete"
+                >¿Se comunican tus datos a otros destinatarios?</a
+              >
             </li>
             <li>
               <a title="Transferencia internacional de datos" href="#ocho">Transferencia internacional de datos</a>
@@ -90,16 +47,22 @@
               <a title="Enlaces a sitios web de terceros" href="#nueve">Enlaces a sitios web de terceros</a>
             </li>
             <li>
-              <a title="Plazo de conservación de su información personal" href="#diez">Plazo de conservación de tu información personal</a>
+              <a title="Plazo de conservación de su información personal" href="#diez"
+                >Plazo de conservación de tu información personal</a
+              >
             </li>
             <li>
               <a title="¿Cómo puede ejercer sus derechos?" href="#once">¿Cómo puede ejercer tus derechos?</a>
             </li>
             <li>
-              <a title="¿Cómo protegemos su información personal?" href="#doce">¿Cómo protegemos tu información personal?</a>
+              <a title="¿Cómo protegemos su información personal?" href="#doce"
+                >¿Cómo protegemos tu información personal?</a
+              >
             </li>
             <li>
-              <a title="Modificaciones a la presente información de protección de datos" href="#trece">Modificaciones a la presente información de protección de datos</a>
+              <a title="Modificaciones a la presente información de protección de datos" href="#trece"
+                >Modificaciones a la presente información de protección de datos</a
+              >
             </li>
             <li>
               <a title="Contacto" href="#catorce">Contacto</a>
@@ -109,827 +72,1560 @@
             <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="uno">1. Introducción.</h2>
             <h3 class="font-medium text-xl lg:text-2xl">Tratamiento de datos de carácter personal</h3>
             <div class="xl:columns-2 gap-6 py-4">
-
-              <p>En el Grupo CIL nos preocupamos por la seguridad y protección de la información personal aportada por nuestros clientes. Por ello, hemos actualizado y adaptado nuestra política de Protección de Datos a la entrada en vigor del Reglamento General de Protección de Datos (conocido como RGPD) UE 2016/679 aprobado por el Consejo y Parlamento Europeo para atender en todo momento tus datos de manera lícita, leal y transparente conforme a la legislación nacional y europea tanto en la recogida como en cualquier tratamiento posterior de tus datos personales.</p>
-              <p>Además de los Principios de legitimidad, lealtad y licitud en el tratamiento de datos personales, esta política de Privacidad prestará especial consideración a los principios de minimización, exactitud, limitación del plazo de conservación al necesario, así como los de integridad y confidencialidad de la información y con carácter general el de responsabilidad proactiva.</p>
-              <p>En este documento queremos explicarte quién es el responsable del tratamiento, con qué finalidad vamos a tratar tu información personal, la legitimación para el tratamiento, es decir, por qué procederemos a tales tratamientos, cómo y por qué recabamos y utilizamos tus datos, los derechos que te asisten y también se explican los procesos que hemos dispuesto para que tu privacidad esté protegida en todo momento. Al facilitarnos tu información personal y utilizar, cuando así sea, nuestros sitios web, entendemos que has leído y comprendido los términos relacionados con la información de protección de datos de carácter personal que se exponen, estamos en todo caso a tu disposición para cualquier aclaración.</p>
+              <p>
+                En el Grupo CIL nos preocupamos por la seguridad y protección de la información personal aportada por
+                nuestros clientes. Por ello, hemos actualizado y adaptado nuestra política de Protección de Datos a la
+                entrada en vigor del Reglamento General de Protección de Datos (conocido como RGPD) UE 2016/679 aprobado
+                por el Consejo y Parlamento Europeo para atender en todo momento tus datos de manera lícita, leal y
+                transparente conforme a la legislación nacional y europea tanto en la recogida como en cualquier
+                tratamiento posterior de tus datos personales.
+              </p>
+              <p>
+                Además de los Principios de legitimidad, lealtad y licitud en el tratamiento de datos personales, esta
+                política de Privacidad prestará especial consideración a los principios de minimización, exactitud,
+                limitación del plazo de conservación al necesario, así como los de integridad y confidencialidad de la
+                información y con carácter general el de responsabilidad proactiva.
+              </p>
+              <p>
+                En este documento queremos explicarte quién es el responsable del tratamiento, con qué finalidad vamos a
+                tratar tu información personal, la legitimación para el tratamiento, es decir, por qué procederemos a
+                tales tratamientos, cómo y por qué recabamos y utilizamos tus datos, los derechos que te asisten y
+                también se explican los procesos que hemos dispuesto para que tu privacidad esté protegida en todo
+                momento. Al facilitarnos tu información personal y utilizar, cuando así sea, nuestros sitios web,
+                entendemos que has leído y comprendido los términos relacionados con la información de protección de
+                datos de carácter personal que se exponen, estamos en todo caso a tu disposición para cualquier
+                aclaración.
+              </p>
             </div>
 
             <p class="text-right">
-              <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
             <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="dos">2. ¿Quiénes somos?</h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>En 1973, el Grupo CIL inició la actividad de Venta a Distancia y empezó a crear y mantener su propia lista de clientes y amigos para comercializar productos por correo, bajo la marca GRATISFILM PHOTOCOLOR CLUB. Comenzaba así la aventura.</p>
-              <p>Con el tiempo, la lista de clientes que confiaba en Gratisfilm fue creciendo, y con ello la gama de productos y servicios también aumentó: empezamos a ofrecer libros, música, coleccionables, artículos para el hogar, joyería, cursos a distancia…</p>
-              <p>Así fueron naciendo nuestras marcas, divididas por líneas de producto, además, puedes haber tenido contacto con CILMD bajo otras marcas de terceros de reconocido prestigio que colaboran con nosotros y que han contado en estos años con nuestra confianza.</p>
+              <p>
+                En 1973, el Grupo CIL inició la actividad de Venta a Distancia y empezó a crear y mantener su propia
+                lista de clientes y amigos para comercializar productos por correo, bajo la marca GRATISFILM PHOTOCOLOR
+                CLUB. Comenzaba así la aventura.
+              </p>
+              <p>
+                Con el tiempo, la lista de clientes que confiaba en Gratisfilm fue creciendo, y con ello la gama de
+                productos y servicios también aumentó: empezamos a ofrecer libros, música, coleccionables, artículos
+                para el hogar, joyería, cursos a distancia…
+              </p>
+              <p>
+                Así fueron naciendo nuestras marcas, divididas por líneas de producto, además, puedes haber tenido
+                contacto con CILMD bajo otras marcas de terceros de reconocido prestigio que colaboran con nosotros y
+                que han contado en estos años con nuestra confianza.
+              </p>
               <p>Las marcas por líneas de producto con las que nos conoces actualmente son:</p>
-
             </div>
             <div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-6 my-6">
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">1. Club Internacional del Libro</h3>
-                <p>Nuestra marca más antigua es también una de las más conocidas y reconocidas del sector en nuestro país. A través de Club Internacional del Libro, comercializamos colecciones de libros, enciclopedias y grandes obras de consulta, DVD, CD de música…</p>
-                <p>Una amplia gama de ofertas de gran calidad que pone al alcance de nuestros clientes obras literarias imprescindibles, ediciones artísticas, facsímiles y obras de gran divulgación que llenan de saber y conocimiento los hogares españoles.</p>
-                <p><img
+                <p>
+                  Nuestra marca más antigua es también una de las más conocidas y reconocidas del sector en nuestro
+                  país. A través de Club Internacional del Libro, comercializamos colecciones de libros, enciclopedias y
+                  grandes obras de consulta, DVD, CD de música…
+                </p>
+                <p>
+                  Una amplia gama de ofertas de gran calidad que pone al alcance de nuestros clientes obras literarias
+                  imprescindibles, ediciones artísticas, facsímiles y obras de gran divulgación que llenan de saber y
+                  conocimiento los hogares españoles.
+                </p>
+                <p>
+                  <img
                     height="59"
                     width="226"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoCIL.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoCIL.svg?v=1776065692"
+                  >
+                </p>
                 <p>&nbsp;</p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">2. Galería del Coleccionista</h3>
-                <p>Detalles originales para tu hogar, muebles decorativos, piezas de coleccionista, exclusivas creaciones de Alta Joyería y Relojería, exquisitas vajillas y servicios de mesa… Cientos de originales ideas y productos en emisión limitada para tu uso personal, para tu casa o para tu familia.</p>
-                <p>El buen gusto, la exclusividad y la alta calidad de los productos de Galería del Coleccionista han hecho de esta marca un verdadero símbolo de excelencia en nuestro país.</p>
-                <p>Asimismo, contamos con una tienda en Madrid, que te permitirá ver y tocar los exclusivos productos de Galería del Coleccionista.</p>
-                <p>Para más información<br><a
+                <p>
+                  Detalles originales para tu hogar, muebles decorativos, piezas de coleccionista, exclusivas creaciones
+                  de Alta Joyería y Relojería, exquisitas vajillas y servicios de mesa… Cientos de originales ideas y
+                  productos en emisión limitada para tu uso personal, para tu casa o para tu familia.
+                </p>
+                <p>
+                  El buen gusto, la exclusividad y la alta calidad de los productos de Galería del Coleccionista han
+                  hecho de esta marca un verdadero símbolo de excelencia en nuestro país.
+                </p>
+                <p>
+                  Asimismo, contamos con una tienda en Madrid, que te permitirá ver y tocar los exclusivos productos de
+                  Galería del Coleccionista.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="www.galeriadelcoleccionista.com"
                     href="http://www.galeriadelcoleccionista.com/"
-                    target="_blank">www.galeriadelcoleccionista.com</a>
+                    target="_blank"
+                    >www.galeriadelcoleccionista.com</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="59"
                     width="231"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoGaleriaColeccionista.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoGaleriaColeccionista.svg?v=1776065692"
+                  >
+                </p>
               </div>
 
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">3. Club Natura</h3>
-                <p>Con la marca Club Natura ofrecemos a nuestros clientes todo tipo de productos relacionados con la calidad de vida. Sillones de masaje, colchones y bases de descanso ergonómicos, aparatos para hacer ejercicio en casa -como bicicletas estáticas o cintas de ejercicio-, aspiradoras anti-ácaros, robots que cocinan sin grasas...</p>
-                <p>La gama es muy amplia, pero siempre está basada en una premisa fundamental: la alta calidad de los productos y nuestro afán por ayudar a mejorar la salud y el bienestar de nuestros clientes.</p>
-                <p>Para más información<br><a
+                <p>
+                  Con la marca Club Natura ofrecemos a nuestros clientes todo tipo de productos relacionados con la
+                  calidad de vida. Sillones de masaje, colchones y bases de descanso ergonómicos, aparatos para hacer
+                  ejercicio en casa -como bicicletas estáticas o cintas de ejercicio-, aspiradoras anti-ácaros, robots
+                  que cocinan sin grasas...
+                </p>
+                <p>
+                  La gama es muy amplia, pero siempre está basada en una premisa fundamental: la alta calidad de los
+                  productos y nuestro afán por ayudar a mejorar la salud y el bienestar de nuestros clientes.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="www.clubnaturasalud.com"
                     href="http://www.clubnaturasalud.com/"
-                    target="_blank">www.clubnaturasalud.com</a>
+                    target="_blank"
+                    >www.clubnaturasalud.com</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="88"
                     width="210"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/clubNatura.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/clubNatura.svg?v=1776065692"
+                  >
+                </p>
               </div>
 
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">4. ESINE</h3>
-                <p>ESINE, Centro de Estudios Técnicos Empresariales, es una de las principales instituciones de enseñanza a distancia de España. Desde su fundación en 1988, su vocación ha sido ofrecer a sus alumnos la máxima calidad en formación a distancia en temas relacionados con la economía y la empresa.</p>
-                <p>Su oferta de cursos es tan amplia que comprende desde Fiscalidad hasta Gestión Inmobiliaria, Turismo o Subastas Judiciales, entre muchos otros.</p>
-                <p>Para más información<br><a
+                <p>
+                  ESINE, Centro de Estudios Técnicos Empresariales, es una de las principales instituciones de enseñanza
+                  a distancia de España. Desde su fundación en 1988, su vocación ha sido ofrecer a sus alumnos la máxima
+                  calidad en formación a distancia en temas relacionados con la economía y la empresa.
+                </p>
+                <p>
+                  Su oferta de cursos es tan amplia que comprende desde Fiscalidad hasta Gestión Inmobiliaria, Turismo o
+                  Subastas Judiciales, entre muchos otros.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="www.campusesine.com"
                     href="http://www.campusesine.com/"
-                    target="_blank">www.campusesine.com</a>
+                    target="_blank"
+                    >www.campusesine.com</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="176"
                     width="216"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoEsine.svg?v=1776065693"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoEsine.svg?v=1776065693"
+                  >
+                </p>
               </div>
               <div>
                 <div>
                   <h3 class="font-medium text-xl lg:text-2xl">5. Escuela Internacional de Estilismo y Moda</h3>
-                  <p>Parte integrante de nuestra división de enseñanza a distancia, la Escuela Internacional de Estilismo y Moda imparte cursos relacionados con el mundo de la moda y la belleza, entre ellos el Curso de Personal Shopper, Decoración, Diseño de Moda o Maquillaje Profesional.</p>
-                  <p>Para más información<br><a
+                  <p>
+                    Parte integrante de nuestra división de enseñanza a distancia, la Escuela Internacional de Estilismo
+                    y Moda imparte cursos relacionados con el mundo de la moda y la belleza, entre ellos el Curso de
+                    Personal Shopper, Decoración, Diseño de Moda o Maquillaje Profesional.
+                  </p>
+                  <p>
+                    Para más información<br>
+                    <a
                       title="www.campusmoda.com"
                       href="http://www.campusmoda.com/"
-                      target="_blank">www.campusmoda.com</a>
+                      target="_blank"
+                      >www.campusmoda.com</a
+                    >
                   </p>
-                  <p><img
+                  <p>
+                    <img
                       height="54"
                       width="235"
                       class="w-[170px] mx-auto block mt-8"
                       alt=""
-                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/escuelaEstilismoModa.svg?v=1776065692"></p>
+                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/escuelaEstilismoModa.svg?v=1776065692"
+                    >
+                  </p>
                 </div>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">6. IPS</h3>
-                <p>IPS, Instituto Profesional de Estudios de la Salud, es una división dentro de nuestra oferta de enseñanza a distancia que está dedicada a cursos relacionados con la salud y el bienestar.</p>
-                <p>Su oferta de cursos incluye Naturopatía, Nutrición y Dietética, Auxiliar de Enfermería y Personal Trainer, entre otros.</p>
-                <p>Para más información<br><a
+                <p>
+                  IPS, Instituto Profesional de Estudios de la Salud, es una división dentro de nuestra oferta de
+                  enseñanza a distancia que está dedicada a cursos relacionados con la salud y el bienestar.
+                </p>
+                <p>
+                  Su oferta de cursos incluye Naturopatía, Nutrición y Dietética, Auxiliar de Enfermería y Personal
+                  Trainer, entre otros.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="www.centroips.com"
                     href="http://www.centroips.com/"
-                    target="_blank">www.centroips.com</a>
+                    target="_blank"
+                    >www.centroips.com</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="117"
                     width="152"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/centroIPS.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/centroIPS.svg?v=1776065692"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">7. Hiperpost</h3>
-                <p>A través de la marca Hiperpost hemos comercializado productos de ajuar doméstico como baterías de cocina, juegos de maletas, centros de planchado o pequeños electrodomésticos.</p>
-                <p>Se trata de productos muy útiles y de gran calidad, pensados para hacerte la vida más fácil y para disfrutar en familia de todas sus ventajas.</p>
-                <p><img
+                <p>
+                  A través de la marca Hiperpost hemos comercializado productos de ajuar doméstico como baterías de
+                  cocina, juegos de maletas, centros de planchado o pequeños electrodomésticos.
+                </p>
+                <p>
+                  Se trata de productos muy útiles y de gran calidad, pensados para hacerte la vida más fácil y para
+                  disfrutar en familia de todas sus ventajas.
+                </p>
+                <p>
+                  <img
                     height="45"
                     width="192"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/hiperpost.svg?v=1776065692"></p>
-
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/hiperpost.svg?v=1776065692"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">8. Vaccaro</h3>
-                <p>Vaccaro es la marca con la que comercializamos creaciones de Alta Bisutería como relojes, anillos, pulseras, collares y broches, además de objetos personales prácticos y elegantes, como plumas estilográficas.</p>
-                <p><img
+                <p>
+                  Vaccaro es la marca con la que comercializamos creaciones de Alta Bisutería como relojes, anillos,
+                  pulseras, collares y broches, además de objetos personales prácticos y elegantes, como plumas
+                  estilográficas.
+                </p>
+                <p>
+                  <img
                     height="53"
                     width="184"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/vaccaro.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/vaccaro.svg?v=1776065692"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">9. 123Fantastic</h3>
-                <p>123Fantastic es la marca con la que comercializamos juguetes especialmente pensados para los más pequeños de la casa. Una selección de juegos de alta calidad cuyo principal objetivo es desarrollar la imaginación de los niños, mostrarles formas emocionantes de aprender cosas nuevas y compartir momentos de diversión en familia.</p>
-                <p>La gama de juguetes incluye productos para niños de edades muy diversas, ¡para que todo el mundo se lo pase en grande!</p>
-                <p>Para más información<br><a
+                <p>
+                  123Fantastic es la marca con la que comercializamos juguetes especialmente pensados para los más
+                  pequeños de la casa. Una selección de juegos de alta calidad cuyo principal objetivo es desarrollar la
+                  imaginación de los niños, mostrarles formas emocionantes de aprender cosas nuevas y compartir momentos
+                  de diversión en familia.
+                </p>
+                <p>
+                  La gama de juguetes incluye productos para niños de edades muy diversas, ¡para que todo el mundo se lo
+                  pase en grande!
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="http://www.123fantastic.es/"
                     href="http://www.123fantastic.es/"
-                    target="_blank">www.123fantastic.es</a>
+                    target="_blank"
+                    >www.123fantastic.es</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="80"
                     width="207"
                     class="w-[170px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo123fantasticOscuro.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo123fantasticOscuro.svg?v=1776065692"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">10. Soyturcurso</h3>
-                <p>Soytucurso es un espacio pensado para la mejora profesional, a través del acceso a Cursos de formación adaptados a tus necesidades. Contamos con una amplia variedad de Cursos de formación a distancia de calidad, una oferta muy completa para todos aquellos que estéis pensando en mejorar vuestras perspectivas laborales.</p>
-                <p>Para más información<br><a
+                <p>
+                  Soytucurso es un espacio pensado para la mejora profesional, a través del acceso a Cursos de formación
+                  adaptados a tus necesidades. Contamos con una amplia variedad de Cursos de formación a distancia de
+                  calidad, una oferta muy completa para todos aquellos que estéis pensando en mejorar vuestras
+                  perspectivas laborales.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     title="https://www.soytucurso.com"
                     href="https://www.soytucurso.com/"
-                    target="_blank">www.soytucurso.com</a>
+                    target="_blank"
+                    >www.soytucurso.com</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     height="46"
                     width="235"
                     class="w-[210px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoSoytuCurso.svg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoSoytuCurso.svg?v=1776065692"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">11. Selecciones de Reader's Digest</h3>
-                <p>Selecciones te presenta una gama muy variada de productos para todas las edades, que informan, divierten, entretienen, emocionan: libros de alta calidad, muy bien ilustrados, obras de referencia, guías diversas, novelas famosas, colecciones de música y vídeos, artículos dedicados al bienestar, productos culinarios, joyas y relojes... y, por supuesto, la famosa Revista Selecciones.</p>
-                <p>Para más información<br><a href="https://www.selecciones.es/" title="Selecciones link">www.selecciones.es</a>
+                <p>
+                  Selecciones te presenta una gama muy variada de productos para todas las edades, que informan,
+                  divierten, entretienen, emocionan: libros de alta calidad, muy bien ilustrados, obras de referencia,
+                  guías diversas, novelas famosas, colecciones de música y vídeos, artículos dedicados al bienestar,
+                  productos culinarios, joyas y relojes... y, por supuesto, la famosa Revista Selecciones.
                 </p>
-                <p><img
+                <p>
+                  Para más información<br>
+                  <a href="https://www.selecciones.es/" title="Selecciones link">www.selecciones.es</a>
+                </p>
+                <p>
+                  <img
                     class="w-[210px] mx-auto block mt-8"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo-selecciones.jpg?v=1776065692" /></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo-selecciones.jpg?v=1776065692"
+                  />
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">12. Konenki</h3>
                 <p class="MsoNormal">
-                  <a name="OLE_LINK1"></a>Konenki engloba nuestra gama de productos para el cuidado integral de la mujer en las diferentes etapas de su vida, cubriendo distintas necesidades, con un enfoque basado en la calidad, la innovación y la evidencia científica.</p>
-                <p>Se trata de productos de tipologías diversas, desde suplementos hasta cremas, orientados a cuidar la salud, el bienestar o la belleza de la mujer, ayudándola a conseguir sus objetivos en cada uno de estos aspectos y a disfrutar de una mayor calidad de vida.</p>
-                <p>Para más información<br><a
+                  <a name="OLE_LINK1"></a>Konenki engloba nuestra gama de productos para el cuidado integral de la mujer
+                  en las diferentes etapas de su vida, cubriendo distintas necesidades, con un enfoque basado en la
+                  calidad, la innovación y la evidencia científica.
+                </p>
+                <p>
+                  Se trata de productos de tipologías diversas, desde suplementos hasta cremas, orientados a cuidar la
+                  salud, el bienestar o la belleza de la mujer, ayudándola a conseguir sus objetivos en cada uno de
+                  estos aspectos y a disfrutar de una mayor calidad de vida.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     rel="noopener"
                     title="https://www.konenki.es"
                     href="https://www.konenki.es/"
-                    target="_blank">www.konenki.es</a>
+                    target="_blank"
+                    >www.konenki.es</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/konenki-logo.jpg?v=1776173014"
                     alt=""
                     width="174"
                     class="w-[210px] mx-auto block mt-8"
-                    height="47"></p>
+                    height="47"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">13. Flashea</h3>
-                <p class="MsoNormal">Flashea es nuestra línea de complementos alimenticios en formato spray oral, con fórmulas funcionales: energía, recuperación, belleza, bienestar, claridad mental, relax, sueño, inmunidad... diseñadas para optimizar la absorción, garantizando así la máxima eficacia. Son la alternativa más práctica y fácil de usar para quienes buscan cuidar su bienestar sin complicaciones, con el respaldo de la ciencia.<span style="font-size: 11.0pt;"></span>
+                <p class="MsoNormal">
+                  Flashea es nuestra línea de complementos alimenticios en formato spray oral, con fórmulas funcionales:
+                  energía, recuperación, belleza, bienestar, claridad mental, relax, sueño, inmunidad... diseñadas para
+                  optimizar la absorción, garantizando así la máxima eficacia. Son la alternativa más práctica y fácil
+                  de usar para quienes buscan cuidar su bienestar sin complicaciones, con el respaldo de la ciencia.<span
+                    style="font-size: 11.0pt;"
+                  ></span>
                 </p>
-                <p>Para más información</p><br><a
+                <p>Para más información</p>
+                <br>
+                <a
                   rel="noopener"
                   title="https://www.flashea.es"
                   href="https://www.flashea.es/"
                   class="w-[210px] mx-auto block mt-8"
-                  target="_blank">www.flashea.es</a>
+                  target="_blank"
+                  >www.flashea.es</a
+                >
 
-                <p><img
+                <p>
+                  <img
                     src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo-flashea.jpg?v=1776173014"
                     alt=""
                     width="172"
                     class="w-[210px] mx-auto block mt-8"
-                    height="49"></p>
+                    height="49"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">14. Fabulosa</h3>
-                <p class="MsoNormal">Con Fabulosa redefinimos la joyería premium para hacerla más cercana y accesible. Piezas con alma, pensadas para mujeres que quieren brillar cada día con estilo. Una nueva forma de disfrutar del lujo cotidiano, con calidad excepcional y precios irresistibles.<span style="font-size: 11.0pt;"></span>
+                <p class="MsoNormal">
+                  Con Fabulosa redefinimos la joyería premium para hacerla más cercana y accesible. Piezas con alma,
+                  pensadas para mujeres que quieren brillar cada día con estilo. Una nueva forma de disfrutar del lujo
+                  cotidiano, con calidad excepcional y precios irresistibles.<span style="font-size: 11.0pt;"></span>
                 </p>
-                <p>Para más información</p><br><a
+                <p>Para más información</p>
+                <br>
+                <a
                   rel="noopener"
                   title="https://www.joyeriafabulosa.com"
                   href="https://www.joyeriafabulosa.com/"
                   class="w-[210px] mx-auto block mt-8"
-                  target="_blank">www.www.joyeriafabulosa.com</a>
+                  target="_blank"
+                  >www.www.joyeriafabulosa.com</a
+                >
 
-                <p><img
+                <p>
+                  <img
                     src="https://cdn.shopify.com/s/files/1/0730/8899/1276/files/logoFabulosa.webp?v=1782746471"
                     alt=""
                     width="172"
                     class="w-[210px] mx-auto block mt-8"
-                    height="49"></p>
+                    height="49"
+                  >
+                </p>
               </div>
             </div>
 
-
-            <p>Igualmente CILMD colabora con terceros para la explotación y comercialización conjunta de otras marcas y portales :</p>
+            <p>
+              Igualmente CILMD colabora con terceros para la explotación y comercialización conjunta de otras marcas y
+              portales :
+            </p>
             <div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-6 my-6">
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">Love Shopping TV</h3>
-                <p>Love Shopping TV es un programa de teletienda y venta directa, emitido en canales de Mediaset España, donde se ofrecen demostraciones de productos variados: hogar, belleza, bienestar, descanso… destacando ofertas especiales y permitiendo la compra inmediata a través de llamadas telefónicas y la web del programa. Con un denominador común: la exclusividad, la calidad, y el mejor servicio.</p>
-                <p>Para más información<br><a
+                <p>
+                  Love Shopping TV es un programa de teletienda y venta directa, emitido en canales de Mediaset España,
+                  donde se ofrecen demostraciones de productos variados: hogar, belleza, bienestar, descanso… destacando
+                  ofertas especiales y permitiendo la compra inmediata a través de llamadas telefónicas y la web del
+                  programa. Con un denominador común: la exclusividad, la calidad, y el mejor servicio.
+                </p>
+                <p>
+                  Para más información<br>
+                  <a
                     rel="noopener"
                     title="https://www.loveshoppingtv.es"
                     href="https://www.loveshoppingtv.es/"
-                    target="_blank">https://www.loveshoppingtv.es/</a>
+                    target="_blank"
+                    >https://www.loveshoppingtv.es/</a
+                  >
                 </p>
-                <p><img
+                <p>
+                  <img
                     src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/loveShoppingLogo.svg?v=1763371730"
                     alt=""
                     width="147"
                     class="w-[140px] mx-auto block"
-                    height="53"></p>
+                    height="53"
+                  >
+                </p>
               </div>
 
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">GEN360</h3>
-                <p>GEN360 es una web con los mejores Cursos Profesionales que te abrirán las puertas del mercado laboral y también con la formación que estabas esperando para impulsar tu Crecimiento Personal.</p>
-                <p>Desde tu casa, a tu ritmo, con la ayuda de los mejores profesores y todo lo que necesitas para hacer de tu pasión, tu profesión.<br></p>
-                <p>Para más información<br><a href="https://www.gen360.es/" title="GEN360 link">https://www.gen360.es/</a>
+                <p>
+                  GEN360 es una web con los mejores Cursos Profesionales que te abrirán las puertas del mercado laboral
+                  y también con la formación que estabas esperando para impulsar tu Crecimiento Personal.
                 </p>
-                <p><img
+                <p>
+                  Desde tu casa, a tu ritmo, con la ayuda de los mejores profesores y todo lo que necesitas para hacer
+                  de tu pasión, tu profesión.<br>
+                </p>
+                <p>
+                  Para más información<br>
+                  <a href="https://www.gen360.es/" title="GEN360 link">https://www.gen360.es/</a>
+                </p>
+                <p>
+                  <img
                     height="39"
                     width="186"
                     alt=""
                     class="w-[140px] mx-auto block"
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/GEN360-logo.jpg?v=1776420812"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/GEN360-logo.jpg?v=1776420812"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">Enphorma</h3>
-                <p>Enphorma es un programa de televisión, emitido en Telecinco y Divinity (Mediaset España), especializado en salud, bienestar y autocuidado personal. A través de su web ofrece cursos donde podrás dedicarte a lo que te gusta sin renunciar a tu pasión por cuidarte y productos con los que podrás sentirte bien tanto mental como físicamente.</p>
-                <p>Para más información<br><a title="Enphorma link" href="https://www.enphorma.es/">https://www.enphorma.es/</a>
+                <p>
+                  Enphorma es un programa de televisión, emitido en Telecinco y Divinity (Mediaset España),
+                  especializado en salud, bienestar y autocuidado personal. A través de su web ofrece cursos donde
+                  podrás dedicarte a lo que te gusta sin renunciar a tu pasión por cuidarte y productos con los que
+                  podrás sentirte bien tanto mental como físicamente.
                 </p>
-                <p><img
+                <p>
+                  Para más información<br>
+                  <a title="Enphorma link" href="https://www.enphorma.es/">https://www.enphorma.es/</a>
+                </p>
+                <p>
+                  <img
                     height="98"
                     width="172"
                     alt=""
                     class="w-[140px] mx-auto block"
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/enphorma-logo.jpg?v=1776420812"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/enphorma-logo.jpg?v=1776420812"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">IUMIUKY</h3>
-                <p>IUMIUKY es un programa de televisión de Mediaset (emitido en Cuatro y plataformas digitales) enfocado en el bienestar, educación y cuidado de mascotas. Ofrece consejos veterinarios, de adiestramiento canino/felino y presenta historias de animales, incluyendo la variante "IUMIUKY Veterinaria". Del programa se han derivado los cursos de IUMIUKY: programas de formación técnica orientados al cuidado y entrenamiento animal. Estos cursos suelen ofrecerse en modalidad online o a distancia y a menudo incluyen material físico enviado a casa.&nbsp;</p>
-                <p>Para más información<br><a title="IUMIUKY link" href="https://www.iumiukycursosveterinaria.com/">https://www.iumiukycursosveterinaria.com/</a><br/>
-                  <a title="Iumiuky adiestramiento link" href="https://www.iumiukycursosadiestramiento.com/">https://www.iumiukycursosadiestramiento.com/</a>
+                <p>
+                  IUMIUKY es un programa de televisión de Mediaset (emitido en Cuatro y plataformas digitales) enfocado
+                  en el bienestar, educación y cuidado de mascotas. Ofrece consejos veterinarios, de adiestramiento
+                  canino/felino y presenta historias de animales, incluyendo la variante "IUMIUKY Veterinaria". Del
+                  programa se han derivado los cursos de IUMIUKY: programas de formación técnica orientados al cuidado y
+                  entrenamiento animal. Estos cursos suelen ofrecerse en modalidad online o a distancia y a menudo
+                  incluyen material físico enviado a casa.&nbsp;
                 </p>
-                <p><img
+                <p>
+                  Para más información<br>
+                  <a title="IUMIUKY link" href="https://www.iumiukycursosveterinaria.com/"
+                    >https://www.iumiukycursosveterinaria.com/</a
+                  ><br />
+                  <a title="Iumiuky adiestramiento link" href="https://www.iumiukycursosadiestramiento.com/"
+                    >https://www.iumiukycursosadiestramiento.com/</a
+                  >
+                </p>
+                <p>
+                  <img
                     alt=""
                     class="w-[140px] mx-auto block"
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/iumiuky-logo.svg?v=1776420811"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/iumiuky-logo.svg?v=1776420811"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">Conectamos Empleo</h3>
-                <p>Conectamos Empleo es un programa de televisión emitido en canales de Mediaset que te ayuda a la búsqueda de empleo, ofreciendo los mejores consejos y últimas novedades del mercado laboral. A través de su web se ofrecen servicios de formación mediante el suministro de cursos a distancia.</p>
-                <p>Para más información<br><a title="Conectamos Empleo link" href="https://www.conectamosempleo.com/">https://www.conectamosempleo.com/</a>
+                <p>
+                  Conectamos Empleo es un programa de televisión emitido en canales de Mediaset que te ayuda a la
+                  búsqueda de empleo, ofreciendo los mejores consejos y últimas novedades del mercado laboral. A través
+                  de su web se ofrecen servicios de formación mediante el suministro de cursos a distancia.
                 </p>
-                <p><img
+                <p>
+                  Para más información<br>
+                  <a title="Conectamos Empleo link" href="https://www.conectamosempleo.com/"
+                    >https://www.conectamosempleo.com/</a
+                  >
+                </p>
+                <p>
+                  <img
                     height="133"
                     width="141"
                     class="w-[140px] mx-auto block"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/conectamos-empleo-logo.jpg?v=1776420811"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/conectamos-empleo-logo.jpg?v=1776420811"
+                  >
+                </p>
               </div>
             </div>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
             <h2>Empresas del Grupo CIL:</h2>
             <div class="grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-6 my-6">
-
               <div>
-                <h3 class="font-medium text-xl lg:text-2xl">Club Internacional del Libro, Marketing Directo, s.l. (CILMD)</h3>
+                <h3 class="font-medium text-xl lg:text-2xl">
+                  Club Internacional del Libro, Marketing Directo, s.l. (CILMD)
+                </h3>
                 <p>Desarrolla su actividad distribuyendo productos y servicios a distancia.</p>
                 <h3 class="font-medium text-xl lg:text-2xl">Global Family Editions, S.A.</h3>
-                <p>Que es la empresa editora de nuestra reconocida revista Selecciones del Reader´s Digest, la revista más leída de Europa.</p>
-                <p><img
+                <p>
+                  Que es la empresa editora de nuestra reconocida revista Selecciones del Reader´s Digest, la revista
+                  más leída de Europa.
+                </p>
+                <p>
+                  <img
                     class="w-[140px] mx-auto block"
                     alt=""
-                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo-selecciones.jpg?v=1776065692"></p>
+                    src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logo-selecciones.jpg?v=1776065692"
+                  >
+                </p>
                 <h3 class="font-medium text-xl lg:text-2xl">Gratisfilm Photocolor Club, S.A.</h3>
                 <p class="margenArriba">Nuestra sociedad matriz.</p>
-                <p class="margenArriba"><img
+                <p class="margenArriba">
+                  <img
                     alt=""
                     src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/Logo-Gratisfilm.jpg?v=1776172606"
-                    class="w-[140px] mx-auto block"></p>
+                    class="w-[140px] mx-auto block"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">S.A De Promoción y Ediciones</h3>
-                <p>Actualmente en su relación con clientes gestiona la cadena de franquicias de venta fuera de establecimiento bajo la marca:</p>
-                <p><img
+                <p>
+                  Actualmente en su relación con clientes gestiona la cadena de franquicias de venta fuera de
+                  establecimiento bajo la marca:
+                </p>
+                <p>
+                  <img
                     alt=""
                     src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/clubNatura.svg?v=1776065692"
-                    class="w-[140px] mx-auto block"></p>
+                    class="w-[140px] mx-auto block"
+                  >
+                </p>
               </div>
               <div>
                 <h3 class="font-medium text-xl lg:text-2xl">Club Internacional del Libro, División Crédito, S.A.</h3>
-                <p>Es la división de venta directa a domicilio, también conocida como venta fuera de establecimiento mercantil de los diversos productos comercializados por el grupo.</p>
+                <p>
+                  Es la división de venta directa a domicilio, también conocida como venta fuera de establecimiento
+                  mercantil de los diversos productos comercializados por el grupo.
+                </p>
                 <div class="grid grid-cols-2 xl:grid-cols-3 gap-6 my-6">
-                  <div><img class="w-[140px] mx-auto block" src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoCIL.svg?v=1776065692"></div>
-                  <div><img
+                  <div>
+                    <img
+                      class="w-[140px] mx-auto block"
+                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoCIL.svg?v=1776065692"
+                    >
+                  </div>
+                  <div>
+                    <img
                       class="w-[140px] mx-auto block"
                       alt=""
-                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoGaleriaColeccionista.svg?v=1776065692"></div>
-                  <div><img
+                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/logoGaleriaColeccionista.svg?v=1776065692"
+                    >
+                  </div>
+                  <div>
+                    <img
                       class="w-[140px] mx-auto block"
                       alt=""
-                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/clubNatura.svg?v=1776065692"></div>
+                      src="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/clubNatura.svg?v=1776065692"
+                    >
+                  </div>
                 </div>
               </div>
             </div>
-            <p>En paralelo a esta diversificación de productos y servicios, iniciamos una diversificación de canales para mantener el contacto con nuestros clientes y amigos: correo postal, anuncios en prensa, gestión de webs de terceros, telemarketing, radio, TV, quioscos…</p>
-            <p>Esta expansión en nuevas áreas de negocio y una profunda filosofía de respeto hacia el consumidor son algunas de las razones por las que seguimos con nuestros clientes desde hace más de 50 años, asumiendo unos altos niveles de compromiso, de calidad y garantía, lo que nos ha permitido satisfacer durante años a clientes con todo tipo de gustos y necesidades.</p>
-            <p>Grupo CIL es socio fundador de Adigital (asociación de empresas innovadoras y transformadoras que creen y trabajan por el desarrollo de la economía basada en Internet, el Medio Digital y las Nuevas Tecnologías) y ya en 1977 fundó la Asociación Española de Venta por Correo.</p>
-            <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+            <p>
+              En paralelo a esta diversificación de productos y servicios, iniciamos una diversificación de canales para
+              mantener el contacto con nuestros clientes y amigos: correo postal, anuncios en prensa, gestión de webs de
+              terceros, telemarketing, radio, TV, quioscos…
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="tres">3. ¿Quién es el responsable del tratamiento de tus Datos?:</h2>
+            <p>
+              Esta expansión en nuevas áreas de negocio y una profunda filosofía de respeto hacia el consumidor son
+              algunas de las razones por las que seguimos con nuestros clientes desde hace más de 50 años, asumiendo
+              unos altos niveles de compromiso, de calidad y garantía, lo que nos ha permitido satisfacer durante años a
+              clientes con todo tipo de gustos y necesidades.
+            </p>
+            <p>
+              Grupo CIL es socio fundador de Adigital (asociación de empresas innovadoras y transformadoras que creen y
+              trabajan por el desarrollo de la economía basada en Internet, el Medio Digital y las Nuevas Tecnologías) y
+              ya en 1977 fundó la Asociación Española de Venta por Correo.
+            </p>
+            <p class="text-right">
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
+            </p>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="tres">
+              3. ¿Quién es el responsable del tratamiento de tus Datos?:
+            </h2>
             <ul>
               <li>Nombre o Razón Social: CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L.</li>
               <li>Domicilio social: Avda. Manoteras 50, 28050 Madrid.</li>
               <li>Teléfono: Atención al Cliente: 910 31 64 32 / 900 30 80 30 .</li>
               <li>C.I.F.: B-85987071.</li>
-              <li>CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L. está inscrita en el registro de Empresas de Venta a Distancia NEVA nº 2012140613286V y en el Registro Mercantil de Madrid al tomo 27900, folio 40, sección 8ª, hoja M-502854.</li>
-              <li>Página web:<span>&nbsp;</span>
+              <li>
+                CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L. está inscrita en el registro de Empresas de Venta
+                a Distancia NEVA nº 2012140613286V y en el Registro Mercantil de Madrid al tomo 27900, folio 40, sección
+                8ª, hoja M-502854.
+              </li>
+              <li>
+                Página web:<span>&nbsp;</span>
                 <a
                   title="www.cilmd.com"
                   href="http://www.cilmd.com/"
-                  target="_blank">www.cilmd.com</a>.</li>
+                  target="_blank"
+                  >www.cilmd.com</a
+                >.
+              </li>
             </ul>
             <p>&nbsp;</p>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cuatro">4. ¿Para qué utilizamos tu información personal?</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cuatro">
+              4. ¿Para qué utilizamos tu información personal?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>En CILMD respetamos la privacidad y la intimidad y por ello tratamos la información que nos facilitan las personas que han manifestado su deseo de recibir información de nuestros productos, de ocio, formación y gran consumo, que han adquirido los mismos o participado en nuestras promociones (en adelante clientes) y ello con el fin de atender sus solicitudes, gestionar el envío de la información y/o productos que nos soliciten, facilitarle ofertas de productos y servicios de nuestro portfolio (ocio, formación y gran consumo) y prestarte el servicio con los niveles de calidad y garantía que esperas de nosotros.</p>
-              <p>En este sentido, tu información personal es tratada para gestionar el contrato con las compras, pedidos o solicitudes que nos realizas por los distintos canales existentes en cada momento en nuestras ofertas, por ejemplo correo, prensa, páginas web o aplicaciones, teléfono, email o en nuestras propias instalaciones o stands, también para canalizar tus sugerencias, dudas y reclamaciones para su gestión y resolución.</p>
-              <p>Elaboramos un perfil comercial en base a tus preferencias y características para ofrecerte, mediante el envío de comunicaciones electrónicas, comerciales o promocionales de nuestros productos y servicios ajustadas a tus preferencias. La creación de tu perfil se realizará a partir de tu historial de cliente que se va generando de acuerdo a tus compras o peticiones de información que hayas realizado, o las vistas que hayas realizado en nuestras webs y apps, en su caso. La realización de esta actividad del tratamiento no conllevará la toma de decisiones automatizadas ni desplegará efectos jurídicos negativos (por ejemplo, la denegación de un servicio o similar).</p>
-              <p>En caso de aplazamiento en tu forma de pago, se consultará información de tu relación con nosotros o en ficheros de solvencia patrimonial. A los efectos de verificación de la titularidad de las cuentas bancarias de pago, CILMD se reserva el derecho de practicar las oportunas validaciones en cumplimiento de sus obligaciones de blanqueo de capitales y evitación del fraude. Estos datos son necesarios, de tal forma que de no ser tratados no se podrá mantener la relación deseada entre las partes o atender sus peticiones.</p>
-              <p>Igualmente, si no se opone, mantendremos tanto por correo postal como por teléfono, sms, email, mensajes push u otros medios electrónicos (incluido por ejemplo whatsapp) la relación comercial contigo para que puedas estar al tanto por dichos medios de ofertas y promociones de productos y servicios de CILMD, así como, en su caso, de su grupo de empresas (www.cilmd.es/grupo). Sólo en los casos en que procedieras conforme a la ley vigente o consintieras inequívocamente, te ofreceríamos información y publicidad de otras empresas que estarían relacionadas con los sectores de telecomunicaciones, financiero, seguros, servicios jurídicos, ocio, formación, vivienda, gran consumo, automoción, energía, agua y ONG. CILMD consultará las listas de exclusión publicitaria en aras de evitar envíos de publicidad no deseada.</p>
-              <p>Podrás solicitar en cualquier momento dejar de recibir envíos publicitarios nuestros o de terceros, en caso de haber sido autorizados. En este caso, y para poder atender tu solicitud, los datos imprescindibles para esa petición serán incorporados en un listado con esa exclusiva finalidad de reducir o suprimir la publicidad que recibes.</p>
-              <p>Con el fin de poder seguir ofreciéndote productos y servicios de acuerdo con tus intereses y mejorar tu experiencia de cliente, elaboraremos un “perfil de cliente”, en base a la información facilitada. No tomamos decisiones individuales basadas únicamente en tratamientos automatizados que puedan suponer efectos jurídicos en ti o te pudieran afectar de forma similar. Así mismo, realizaremos estudios de mercado y prospección comercial, informes de hábitos de consumo, datos estadísticos y tendencias del mercado, con el objeto de renovar nuestro catálogo de productos y servicios que puedan resultar de tu interés.</p>
-              <p>También podremos elaborar perfiles sobre la información que nos facilites, en particular teléfono y/o email así como sobre el resto de datos que nos hayas facilitado, para validarla en su caso, con la información sobre la existencia de cuentas en Redes Sociales asociadas a dichos datos con la finalidad de autorizar el aplazamiento de pagos y para control del fraude. Igualmente comprobaremos los datos bancarios que nos facilites para verificar la titularidad de los mismos. La oposición a dichos tratamientos podrá limitar la concesión de tu financiación.</p>
-              <p>Dicha información se empleará exclusivamente con este fin, o en cumplimiento de obligaciones legales, incluyendo, sin ánimo limitativo y cuando resulte de aplicación, la Ley 10/2010 de Prevención de blanqueo de capitales.</p>
-              <p>En el caso de alumnos de alguno de nuestros cursos de formación, los datos proporcionados en su solicitud de inclusión en la bolsa de trabajo, de realización de prácticas, así como toda la información resultante de la gestión y mantenimiento de las eventuales entrevistas de trabajo, experiencia laboral previa y Currículum Vitae serán objeto de tratamiento con las siguientes finalidades:</p>
+              <p>
+                En CILMD respetamos la privacidad y la intimidad y por ello tratamos la información que nos facilitan
+                las personas que han manifestado su deseo de recibir información de nuestros productos, de ocio,
+                formación y gran consumo, que han adquirido los mismos o participado en nuestras promociones (en
+                adelante clientes) y ello con el fin de atender sus solicitudes, gestionar el envío de la información
+                y/o productos que nos soliciten, facilitarle ofertas de productos y servicios de nuestro portfolio
+                (ocio, formación y gran consumo) y prestarte el servicio con los niveles de calidad y garantía que
+                esperas de nosotros.
+              </p>
+              <p>
+                En este sentido, tu información personal es tratada para gestionar el contrato con las compras, pedidos
+                o solicitudes que nos realizas por los distintos canales existentes en cada momento en nuestras ofertas,
+                por ejemplo correo, prensa, páginas web o aplicaciones, teléfono, email o en nuestras propias
+                instalaciones o stands, también para canalizar tus sugerencias, dudas y reclamaciones para su gestión y
+                resolución.
+              </p>
+              <p>
+                Elaboramos un perfil comercial en base a tus preferencias y características para ofrecerte, mediante el
+                envío de comunicaciones electrónicas, comerciales o promocionales de nuestros productos y servicios
+                ajustadas a tus preferencias. La creación de tu perfil se realizará a partir de tu historial de cliente
+                que se va generando de acuerdo a tus compras o peticiones de información que hayas realizado, o las
+                vistas que hayas realizado en nuestras webs y apps, en su caso. La realización de esta actividad del
+                tratamiento no conllevará la toma de decisiones automatizadas ni desplegará efectos jurídicos negativos
+                (por ejemplo, la denegación de un servicio o similar).
+              </p>
+              <p>
+                En caso de aplazamiento en tu forma de pago, se consultará información de tu relación con nosotros o en
+                ficheros de solvencia patrimonial. A los efectos de verificación de la titularidad de las cuentas
+                bancarias de pago, CILMD se reserva el derecho de practicar las oportunas validaciones en cumplimiento
+                de sus obligaciones de blanqueo de capitales y evitación del fraude. Estos datos son necesarios, de tal
+                forma que de no ser tratados no se podrá mantener la relación deseada entre las partes o atender sus
+                peticiones.
+              </p>
+              <p>
+                Igualmente, si no se opone, mantendremos tanto por correo postal como por teléfono, sms, email, mensajes
+                push u otros medios electrónicos (incluido por ejemplo whatsapp) la relación comercial contigo para que
+                puedas estar al tanto por dichos medios de ofertas y promociones de productos y servicios de CILMD, así
+                como, en su caso, de su grupo de empresas (www.cilmd.es/grupo). Sólo en los casos en que procedieras
+                conforme a la ley vigente o consintieras inequívocamente, te ofreceríamos información y publicidad de
+                otras empresas que estarían relacionadas con los sectores de telecomunicaciones, financiero, seguros,
+                servicios jurídicos, ocio, formación, vivienda, gran consumo, automoción, energía, agua y ONG. CILMD
+                consultará las listas de exclusión publicitaria en aras de evitar envíos de publicidad no deseada.
+              </p>
+              <p>
+                Podrás solicitar en cualquier momento dejar de recibir envíos publicitarios nuestros o de terceros, en
+                caso de haber sido autorizados. En este caso, y para poder atender tu solicitud, los datos
+                imprescindibles para esa petición serán incorporados en un listado con esa exclusiva finalidad de
+                reducir o suprimir la publicidad que recibes.
+              </p>
+              <p>
+                Con el fin de poder seguir ofreciéndote productos y servicios de acuerdo con tus intereses y mejorar tu
+                experiencia de cliente, elaboraremos un “perfil de cliente”, en base a la información facilitada. No
+                tomamos decisiones individuales basadas únicamente en tratamientos automatizados que puedan suponer
+                efectos jurídicos en ti o te pudieran afectar de forma similar. Así mismo, realizaremos estudios de
+                mercado y prospección comercial, informes de hábitos de consumo, datos estadísticos y tendencias del
+                mercado, con el objeto de renovar nuestro catálogo de productos y servicios que puedan resultar de tu
+                interés.
+              </p>
+              <p>
+                También podremos elaborar perfiles sobre la información que nos facilites, en particular teléfono y/o
+                email así como sobre el resto de datos que nos hayas facilitado, para validarla en su caso, con la
+                información sobre la existencia de cuentas en Redes Sociales asociadas a dichos datos con la finalidad
+                de autorizar el aplazamiento de pagos y para control del fraude. Igualmente comprobaremos los datos
+                bancarios que nos facilites para verificar la titularidad de los mismos. La oposición a dichos
+                tratamientos podrá limitar la concesión de tu financiación.
+              </p>
+              <p>
+                Dicha información se empleará exclusivamente con este fin, o en cumplimiento de obligaciones legales,
+                incluyendo, sin ánimo limitativo y cuando resulte de aplicación, la Ley 10/2010 de Prevención de
+                blanqueo de capitales.
+              </p>
+              <p>
+                En el caso de alumnos de alguno de nuestros cursos de formación, los datos proporcionados en su
+                solicitud de inclusión en la bolsa de trabajo, de realización de prácticas, así como toda la información
+                resultante de la gestión y mantenimiento de las eventuales entrevistas de trabajo, experiencia laboral
+                previa y Currículum Vitae serán objeto de tratamiento con las siguientes finalidades:
+              </p>
               <ol class="abecedario">
                 <li>Gestionar la relación entre las empresas demandantes de empleo y el interesado.</li>
-                <li>Consultar, aunque no llegue a concretarse la relación laboral o de prácticas, y promover la participación del alumno en otros procesos de selección desarrollados por la empresa, o aquellas otras empresas que suscriban con ésta convenios de prácticas.</li>
+                <li>
+                  Consultar, aunque no llegue a concretarse la relación laboral o de prácticas, y promover la
+                  participación del alumno en otros procesos de selección desarrollados por la empresa, o aquellas otras
+                  empresas que suscriban con ésta convenios de prácticas.
+                </li>
               </ol>
-              <p>Por último, los datos personales recabados en el Sistema Interno de Información, serán objeto de tratamiento con la finalidad de a) Gestionar cualquier tipo de solicitud, sugerencia, reclamación o petición sobre nuestros servicios profesionales que nos formulen las personas interesadas; efectuando la gestión y traslado, si procede, al departamento encargado para su debida atención y cumplimiento del marco normativo aplicable y b) Gestionar y atender las comunicaciones presentadas por los informantes a través del Sistema Interno de Información, de conformidad con la Ley 2/2023, de 20 de febrero, reguladora de la protección de las personas que informen sobre infracciones normativas y de lucha contra la corrupción.</p>
+              <p>
+                Por último, los datos personales recabados en el Sistema Interno de Información, serán objeto de
+                tratamiento con la finalidad de a) Gestionar cualquier tipo de solicitud, sugerencia, reclamación o
+                petición sobre nuestros servicios profesionales que nos formulen las personas interesadas; efectuando la
+                gestión y traslado, si procede, al departamento encargado para su debida atención y cumplimiento del
+                marco normativo aplicable y b) Gestionar y atender las comunicaciones presentadas por los informantes a
+                través del Sistema Interno de Información, de conformidad con la Ley 2/2023, de 20 de febrero,
+                reguladora de la protección de las personas que informen sobre infracciones normativas y de lucha contra
+                la corrupción.
+              </p>
               <p>
                 <strong>Sistema Interno de Información (SIIF)</strong>
               </p>
-              <p>El Grupo ha implementado un Sistema Interno de Información (SIIF), el cual se configura como un eje fundamental para la supervisión, control y prevención en el ámbito del cumplimiento normativo, contemplando el más alto compromiso, rigor y profesionalidad en materia de seguridad, confidencialidad, protección de datos, experiencia, independencia y conocimiento en el tratamiento de las comunicaciones recibidas.</p>
-              <p>Los canales internos de información integrados en el Sistema se han instrumentado a través de herramientas técnicas, que contemplan todos los requisitos necesarios para aportarles y garantizarles nuestros compromisos anteriores. Asimismo, el SIIF garantiza los principios básicos de anonimato, adecuado registro, conservación y no alteración, prevención de conflictos de interés, protección del informante y prevención de represalias.</p>
-              <p>A través de dicho Sistema, todo informante deberá comunicar de buena fe cualquier indicio, sospecha o evidencia de posibles incumplimientos normativos, delitos, comportamientos no éticos y, en general, el incumplimiento de los protocolos, normas y códigos de conducta del Grupo.</p>
+              <p>
+                El Grupo ha implementado un Sistema Interno de Información (SIIF), el cual se configura como un eje
+                fundamental para la supervisión, control y prevención en el ámbito del cumplimiento normativo,
+                contemplando el más alto compromiso, rigor y profesionalidad en materia de seguridad, confidencialidad,
+                protección de datos, experiencia, independencia y conocimiento en el tratamiento de las comunicaciones
+                recibidas.
+              </p>
+              <p>
+                Los canales internos de información integrados en el Sistema se han instrumentado a través de
+                herramientas técnicas, que contemplan todos los requisitos necesarios para aportarles y garantizarles
+                nuestros compromisos anteriores. Asimismo, el SIIF garantiza los principios básicos de anonimato,
+                adecuado registro, conservación y no alteración, prevención de conflictos de interés, protección del
+                informante y prevención de represalias.
+              </p>
+              <p>
+                A través de dicho Sistema, todo informante deberá comunicar de buena fe cualquier indicio, sospecha o
+                evidencia de posibles incumplimientos normativos, delitos, comportamientos no éticos y, en general, el
+                incumplimiento de los protocolos, normas y códigos de conducta del Grupo.
+              </p>
               <p>El acceso al SIIF se ha habilitado en una sección separada de nuestra página web.</p>
             </div>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cinco">5. ¿Cómo hemos obtenido la información sobre ti?</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cinco">
+              5. ¿Cómo hemos obtenido la información sobre ti?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>Recabamos información personal sobre ti por diferentes medios, fundamentalmente cuando tú has contactado con nosotros facilitando tu información personal porque quieres contratar o informarte sobre un producto o servicio y nos envías un cupón impreso, nos llamas por teléfono, te registras en nuestras webs, nos mandas un correo electrónico, cumplimentas un cuestionario, participas en una de nuestras promociones y sorteos, etc. En cualquier caso, en el momento de la recogida se te informará del responsable del tratamiento, la finalidad y justificación del mismo, los destinatarios de la información, así como la forma de ejercer los derechos que te otorga la legislación vigente en protección de datos.</p>
-              <p>Generalmente, la información personal que tú nos facilitas son sólo: nombre y apellidos, domicilio, DNI, fecha de nacimiento o edad, correo electrónico, teléfonos de contacto y datos de pago.</p>
-              <p>Por la seguridad de las transacciones y a efectos de control de calidad e identificación, cuando las comunicaciones se efectúan de forma telefónica estas pueden ser registradas y almacenadas. Trataremos tu voz a los efectos de confirmar con tu consentimiento, la identificación única de la misma a través del uso de biometría, para la ejecución del contrato entre ambas partes o para la aplicación de medidas precontractuales, así como para la formulación, ejercicio o defensa de reclamaciones o cuando los tribunales actúen en ejercicio de su función judicial.</p>
-              <p>En otras ocasiones, y dependiendo de la finalidad y uso previsto de tus datos, por ejemplo para el seguimiento de cursos formativos o cuando vaya a aplazar tus pagos, se podrán recabar datos de características personales, académicos y profesionales, empleo, información comercial, circunstancias sociales, económica, financiera y de seguros, transferencias de bienes y servicios. Para estas finalidades de aplazamientos de pagos y bolsa de empleo, también podremos recabar información pública de tus redes sociales.</p>
-              <p>Las ofertas promocionales y páginas web del Grupo CIL, no están dirigidas a menores de edad. Si tú eres menor de edad, por favor no intentes registrarse como usuario de nuestros sitios web, aplicaciones o solicitar nuestros productos. Si descubrimos que por error hemos obtenido información personal de un menor, sin la debida autorización, eliminaremos dicha información lo antes posible.</p>
+              <p>
+                Recabamos información personal sobre ti por diferentes medios, fundamentalmente cuando tú has contactado
+                con nosotros facilitando tu información personal porque quieres contratar o informarte sobre un producto
+                o servicio y nos envías un cupón impreso, nos llamas por teléfono, te registras en nuestras webs, nos
+                mandas un correo electrónico, cumplimentas un cuestionario, participas en una de nuestras promociones y
+                sorteos, etc. En cualquier caso, en el momento de la recogida se te informará del responsable del
+                tratamiento, la finalidad y justificación del mismo, los destinatarios de la información, así como la
+                forma de ejercer los derechos que te otorga la legislación vigente en protección de datos.
+              </p>
+              <p>
+                Generalmente, la información personal que tú nos facilitas son sólo: nombre y apellidos, domicilio, DNI,
+                fecha de nacimiento o edad, correo electrónico, teléfonos de contacto y datos de pago.
+              </p>
+              <p>
+                Por la seguridad de las transacciones y a efectos de control de calidad e identificación, cuando las
+                comunicaciones se efectúan de forma telefónica estas pueden ser registradas y almacenadas. Trataremos tu
+                voz a los efectos de confirmar con tu consentimiento, la identificación única de la misma a través del
+                uso de biometría, para la ejecución del contrato entre ambas partes o para la aplicación de medidas
+                precontractuales, así como para la formulación, ejercicio o defensa de reclamaciones o cuando los
+                tribunales actúen en ejercicio de su función judicial.
+              </p>
+              <p>
+                En otras ocasiones, y dependiendo de la finalidad y uso previsto de tus datos, por ejemplo para el
+                seguimiento de cursos formativos o cuando vaya a aplazar tus pagos, se podrán recabar datos de
+                características personales, académicos y profesionales, empleo, información comercial, circunstancias
+                sociales, económica, financiera y de seguros, transferencias de bienes y servicios. Para estas
+                finalidades de aplazamientos de pagos y bolsa de empleo, también podremos recabar información pública de
+                tus redes sociales.
+              </p>
+              <p>
+                Las ofertas promocionales y páginas web del Grupo CIL, no están dirigidas a menores de edad. Si tú eres
+                menor de edad, por favor no intentes registrarse como usuario de nuestros sitios web, aplicaciones o
+                solicitar nuestros productos. Si descubrimos que por error hemos obtenido información personal de un
+                menor, sin la debida autorización, eliminaremos dicha información lo antes posible.
+              </p>
               <p>
                 <strong>.- Información que recabamos de tus visitas en nuestras webs</strong>
               </p>
-              <p>En cada web a la que accedas podrás conocer la política de cookies existente. La información obtenida es totalmente anónima - salvo en el apartado C -, y en ningún caso puede ser asociada a un usuario concreto e identificado.</p>
-              <p>Con carácter general mediante las cookies podremos obtener y almacenar diversa información personal y estadísticas globales no personalizadas.</p>
+              <p>
+                En cada web a la que accedas podrás conocer la política de cookies existente. La información obtenida es
+                totalmente anónima - salvo en el apartado C -, y en ningún caso puede ser asociada a un usuario concreto
+                e identificado.
+              </p>
+              <p>
+                Con carácter general mediante las cookies podremos obtener y almacenar diversa información personal y
+                estadísticas globales no personalizadas.
+              </p>
               <p>En esta web sólo obtenemos y conservamos la siguiente información acerca de sus visitantes:</p>
               <ol class="abecedarioMayus">
-                <li>El nombre de dominio del proveedor (PSI) y/o dirección IP que les da acceso a la red. De esta manera podemos elaborar estadísticas sobre los servidores que visitan con más frecuencia nuestra web.</li>
-                <li>El número de visitantes diarios de cada sección. Ello nos permite conocer las áreas de más éxito y aumentar y mejorar su contenido, con el fin de que los usuarios obtengan un resultado más satisfactorio.</li>
-                <li>Los datos de aquellos visitantes que voluntariamente envíen sus formularios de solicitud de información. El único fin de este registro de información es poder tramitar, dentro de nuestra organización, la solicitud recibida para remitir la información por ti solicitada.</li>
+                <li>
+                  El nombre de dominio del proveedor (PSI) y/o dirección IP que les da acceso a la red. De esta manera
+                  podemos elaborar estadísticas sobre los servidores que visitan con más frecuencia nuestra web.
+                </li>
+                <li>
+                  El número de visitantes diarios de cada sección. Ello nos permite conocer las áreas de más éxito y
+                  aumentar y mejorar su contenido, con el fin de que los usuarios obtengan un resultado más
+                  satisfactorio.
+                </li>
+                <li>
+                  Los datos de aquellos visitantes que voluntariamente envíen sus formularios de solicitud de
+                  información. El único fin de este registro de información es poder tramitar, dentro de nuestra
+                  organización, la solicitud recibida para remitir la información por ti solicitada.
+                </li>
               </ol>
-              <p>Para más detalles sobre la política de cookies accede a esta política en las respectivas webs de la empresa.</p>
+              <p>
+                Para más detalles sobre la política de cookies accede a esta política en las respectivas webs de la
+                empresa.
+              </p>
               <p>
                 <strong>.- Comunicaciones a través de las Redes Sociales</strong>
               </p>
               <p>También podemos contactar contigo por distintas redes sociales en las que estamos presentes.</p>
-              <p>La información que recabamos por medio de las redes sociales a veces incluye información personal que se encuentra disponible online y para el público. Siempre nos aseguramos de que toda la información que utilizamos se encuentra atribuida a su fuente de forma correcta o se hace anónima.</p>
-              <p>Las redes sociales tienen sus propias políticas de privacidad, que te recomendamos revisar antes de compartir en ellas tu información.</p>
+              <p>
+                La información que recabamos por medio de las redes sociales a veces incluye información personal que se
+                encuentra disponible online y para el público. Siempre nos aseguramos de que toda la información que
+                utilizamos se encuentra atribuida a su fuente de forma correcta o se hace anónima.
+              </p>
+              <p>
+                Las redes sociales tienen sus propias políticas de privacidad, que te recomendamos revisar antes de
+                compartir en ellas tu información.
+              </p>
             </div>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="seis">6. ¿Cuál es la base legal para el tratamiento de tus datos?</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="seis">
+              6. ¿Cuál es la base legal para el tratamiento de tus datos?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>La utilización de los datos personales es necesaria para realizar las gestiones derivadas de la relación comercial y/o contractual con los clientes que se han interesado o bien han adquirido alguno de nuestros productos o servicios, sin ella no podríamos atenderles debidamente.</p>
               <p>
-                <strong>Igualmente por interés legítimo de la empresa, utilizamos tus datos, por motivos de seguridad, crédito responsable, prevención del fraude, para mejorar nuestros servicios y productos a través de estudios de mercado, gestionar las solicitudes, consultas o posibles reclamaciones que pudieran surgir.</strong>
+                La utilización de los datos personales es necesaria para realizar las gestiones derivadas de la relación
+                comercial y/o contractual con los clientes que se han interesado o bien han adquirido alguno de nuestros
+                productos o servicios, sin ella no podríamos atenderles debidamente.
               </p>
-              <p>En particular, la oferta prospectiva de productos y servicios está basada también en el Interés legítimo de la compañía en mantener informados a sus clientes de las ofertas, ventajas y promociones de sus productos y servicios. Tú puedes en cualquier momento manifestar tu oposición al uso de tus datos con esta finalidad, sin que en ningún caso dicho ejercicio condicione la ejecución del contrato que hubieras suscrito.</p>
-              <p>También para el cumplimiento de distintas obligaciones legales, con carácter no limitativo, la Ley 10/2010 de Prevención de blanqueo de capitales puesto que CILMD, en determinados supuestos, está obligado a comunicar determinados hechos u operaciones respecto de las que exista indicio o certeza de que está relacionado con el blanqueo de capitales.</p>
-              <p>En el caso de los alumnos de algunos de nuestros cursos de formación, para hacer uso de los servicios de bolsa de trabajo y prácticas en otras empresas recabaremos su consentimiento para estas finalidades.</p>
-              <p>Los datos personales recabados en el Sistema Interno de Información, son recabados de conformidad con la Ley 2/2023, de 20 de febrero, reguladora de la protección de las personas que informen sobre infracciones normativas y de lucha contra la corrupción</p>
-              <p>Si nunca has tenido contacto con nosotros y deseas que te tengamos al corriente de nuestras ofertas, ventajas y promociones puedes solicitárnoslo y concedernos tu consentimiento enviándonos un correo a
+              <p>
+                <strong
+                  >Igualmente por interés legítimo de la empresa, utilizamos tus datos, por motivos de seguridad,
+                  crédito responsable, prevención del fraude, para mejorar nuestros servicios y productos a través de
+                  estudios de mercado, gestionar las solicitudes, consultas o posibles reclamaciones que pudieran
+                  surgir.</strong
+                >
+              </p>
+              <p>
+                En particular, la oferta prospectiva de productos y servicios está basada también en el Interés legítimo
+                de la compañía en mantener informados a sus clientes de las ofertas, ventajas y promociones de sus
+                productos y servicios. Tú puedes en cualquier momento manifestar tu oposición al uso de tus datos con
+                esta finalidad, sin que en ningún caso dicho ejercicio condicione la ejecución del contrato que hubieras
+                suscrito.
+              </p>
+              <p>
+                También para el cumplimiento de distintas obligaciones legales, con carácter no limitativo, la Ley
+                10/2010 de Prevención de blanqueo de capitales puesto que CILMD, en determinados supuestos, está
+                obligado a comunicar determinados hechos u operaciones respecto de las que exista indicio o certeza de
+                que está relacionado con el blanqueo de capitales.
+              </p>
+              <p>
+                En el caso de los alumnos de algunos de nuestros cursos de formación, para hacer uso de los servicios de
+                bolsa de trabajo y prácticas en otras empresas recabaremos su consentimiento para estas finalidades.
+              </p>
+              <p>
+                Los datos personales recabados en el Sistema Interno de Información, son recabados de conformidad con la
+                Ley 2/2023, de 20 de febrero, reguladora de la protección de las personas que informen sobre
+                infracciones normativas y de lucha contra la corrupción
+              </p>
+              <p>
+                Si nunca has tenido contacto con nosotros y deseas que te tengamos al corriente de nuestras ofertas,
+                ventajas y promociones puedes solicitárnoslo y concedernos tu consentimiento enviándonos un correo a
                 <a href="mailto:oficina_estadistica@cilsp.com">oficina_estadistica@cilsp.com</a>
                 o llamando al teléfono de
-                <a title="Atención al cliente" href="/pages/contact">Atención al Cliente</a>.</p>
-            </div>
-            <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
-            </p>
-
-
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="siete">7. ¿Se comunicarán tus datos a otros destinatarios?</h2>
-            <div class="xl:columns-2 gap-6 py-4">
-              <p>Sólo cuando exista causa habilitante para ello o si tú nos has dado tu consentimiento, la información que nos facilitas podrá ser comunicada a las empresas del Grupo CIL (<a title="¿Quiénes somos?" href="https://www.cilmd.com/">www.cilmd.com</a>
-                <a title="¿Quiénes somos?" href="https://www.loveshoppingtv.es/corporativo/proteccion-de-datos#dos"></a>) para tratarla con las finalidades descritas anteriormente. En estos momentos, salvo que te hubieras opuesto a ello, sólo comunicaríamos los datos a otras empresas del grupo con finalidades de prospección comercial, cualquier nueva finalidad te sería informada previamente. No todas las finalidades descritas conllevan una cesión de datos, ya que cabe que los datos se pueden haber recabado directamente por alguna otra de las sociedades del Grupo CIL con las que ya hubieras tenido relación directamente.</p>
-              <p>En algunos casos, para cumplir con nuestras obligaciones contigo, es necesario que comuniquemos la información que nos has proporcionado a terceras partes para poder enviarte el producto o prestarte el servicio solicitado: servicios de logística, transporte y entrega, cobro de sus pagos, instaladores y/o montadores, etc.</p>
-              <p>Asimismo, hay empresas que nos prestan otro tipo de servicios como son: tecnología de la información (almacenamiento y procesamiento de la información), servicios de seguridad, servicios financieros, servicios de auditoría, etc.</p>
-              <p>
-                <strong>Estas terceras empresas actúan como encargados del tratamiento y solo tienen acceso a la información personal que necesitan para llevar a cabo dichos servicios. Se les exige que mantengan en confidencialidad tu información personal y no pueden utilizarla de ninguna otra forma que aquella que les hemos solicitado.</strong>
+                <a title="Atención al cliente" href="/pages/contact">Atención al Cliente</a>.
               </p>
-              <p>En caso de aplazamiento de pago o servicios de facturación periódica, CILMD se reserva el derecho de consultar los ficheros comunes de solvencia patrimonial y, si se produjese el impago en plazo de alguna de las cuotas pactadas, comunicar dicha circunstancia a los referidos ficheros (ASNEF, EXPERIAN) y a las oportunas agencias de gestión de cobro.</p>
-              <p>En todos los casos, las empresas del Grupo CIL asumen la responsabilidad por la información personal que nos facilites, y exigimos a aquellas empresas con los que compartimos tu información personal que apliquen, al menos, el mismo grado de protección de la información que nosotros.</p>
-              <p>Igualmente, tu información personal estará a disposición de las Administraciones públicas, Jueces y Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento.</p>
-
             </div>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="ocho">8. Transferencia internacional de datos</h2>
+
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="siete">
+              7. ¿Se comunicarán tus datos a otros destinatarios?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>En Grupo CIL, tratamos sus datos dentro del Espacio Económico Europeo, y con carácter general contratamos prestadores de servicios ubicados países que han sido declarados con un nivel adecuado de protección.</p>
-              <p>Todos los proveedores que prestan servicios tienen firmados contratos en los que se regulan las obligaciones y medidas de seguridad que deben aplicar en cada tratamiento de datos que se realice.</p>
-              <p>No obstante, si tuviésemos que utilizar proveedores de servicios que realicen tratamientos fuera del Espacio Económico Europeo o en países que no hayan sido declarados con un nivel adecuado de protección, nos aseguraríamos de garantizar la seguridad y legitimidad del tratamiento de sus datos subscribiendo las cláusulas tipo de la UE aprobada por la Comisión recogiendo el principio de responsabilidad proactiva exigido en el RGPD y en la Directiva 2021/914. Puede obtener información adicional dirigiéndose por escrito a
-                <a href="mailto:dpo@cilsp.com" data-ogsc="">dpo@cilsp.com</a>.</p>
-              <p>La consulta de sus datos a través del proveedor Kount INC puede prever una transferencia internacional de datos, que cuenta con los mecanismos para garantizar la seguridad de la transferencia mediante certificación DPF que puede consultar en
+              <p>
+                Sólo cuando exista causa habilitante para ello o si tú nos has dado tu consentimiento, la información
+                que nos facilitas podrá ser comunicada a las empresas del Grupo CIL (<a
+                  title="¿Quiénes somos?"
+                  href="https://www.cilmd.com/"
+                  >www.cilmd.com</a
+                >
+                <a title="¿Quiénes somos?" href="https://www.loveshoppingtv.es/corporativo/proteccion-de-datos#dos"></a
+                >) para tratarla con las finalidades descritas anteriormente. En estos momentos, salvo que te hubieras
+                opuesto a ello, sólo comunicaríamos los datos a otras empresas del grupo con finalidades de prospección
+                comercial, cualquier nueva finalidad te sería informada previamente. No todas las finalidades descritas
+                conllevan una cesión de datos, ya que cabe que los datos se pueden haber recabado directamente por
+                alguna otra de las sociedades del Grupo CIL con las que ya hubieras tenido relación directamente.
+              </p>
+              <p>
+                En algunos casos, para cumplir con nuestras obligaciones contigo, es necesario que comuniquemos la
+                información que nos has proporcionado a terceras partes para poder enviarte el producto o prestarte el
+                servicio solicitado: servicios de logística, transporte y entrega, cobro de sus pagos, instaladores y/o
+                montadores, etc.
+              </p>
+              <p>
+                Asimismo, hay empresas que nos prestan otro tipo de servicios como son: tecnología de la información
+                (almacenamiento y procesamiento de la información), servicios de seguridad, servicios financieros,
+                servicios de auditoría, etc.
+              </p>
+              <p>
+                <strong
+                  >Estas terceras empresas actúan como encargados del tratamiento y solo tienen acceso a la información
+                  personal que necesitan para llevar a cabo dichos servicios. Se les exige que mantengan en
+                  confidencialidad tu información personal y no pueden utilizarla de ninguna otra forma que aquella que
+                  les hemos solicitado.</strong
+                >
+              </p>
+              <p>
+                En caso de aplazamiento de pago o servicios de facturación periódica, CILMD se reserva el derecho de
+                consultar los ficheros comunes de solvencia patrimonial y, si se produjese el impago en plazo de alguna
+                de las cuotas pactadas, comunicar dicha circunstancia a los referidos ficheros (ASNEF, EXPERIAN) y a las
+                oportunas agencias de gestión de cobro.
+              </p>
+              <p>
+                En todos los casos, las empresas del Grupo CIL asumen la responsabilidad por la información personal que
+                nos facilites, y exigimos a aquellas empresas con los que compartimos tu información personal que
+                apliquen, al menos, el mismo grado de protección de la información que nosotros.
+              </p>
+              <p>
+                Igualmente, tu información personal estará a disposición de las Administraciones públicas, Jueces y
+                Tribunales, para la atención de las posibles responsabilidades nacidas del tratamiento.
+              </p>
+            </div>
+            <p class="text-right">
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
+            </p>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="ocho">
+              8. Transferencia internacional de datos
+            </h2>
+            <div class="xl:columns-2 gap-6 py-4">
+              <p>
+                En Grupo CIL, tratamos sus datos dentro del Espacio Económico Europeo, y con carácter general
+                contratamos prestadores de servicios ubicados países que han sido declarados con un nivel adecuado de
+                protección.
+              </p>
+              <p>
+                Todos los proveedores que prestan servicios tienen firmados contratos en los que se regulan las
+                obligaciones y medidas de seguridad que deben aplicar en cada tratamiento de datos que se realice.
+              </p>
+              <p>
+                No obstante, si tuviésemos que utilizar proveedores de servicios que realicen tratamientos fuera del
+                Espacio Económico Europeo o en países que no hayan sido declarados con un nivel adecuado de protección,
+                nos aseguraríamos de garantizar la seguridad y legitimidad del tratamiento de sus datos subscribiendo
+                las cláusulas tipo de la UE aprobada por la Comisión recogiendo el principio de responsabilidad
+                proactiva exigido en el RGPD y en la Directiva 2021/914. Puede obtener información adicional
+                dirigiéndose por escrito a <a href="mailto:dpo@cilsp.com" data-ogsc="">dpo@cilsp.com</a>.
+              </p>
+              <p>
+                La consulta de sus datos a través del proveedor Kount INC puede prever una transferencia internacional
+                de datos, que cuenta con los mecanismos para garantizar la seguridad de la transferencia mediante
+                certificación DPF que puede consultar en
                 <a
                   href="http://www.dataprivacyframework.gov/"
                   data-ogsc=""
                   title="http://www.dataprivacyframework.gov/"
-                  data-outlook-id="312d0892-d974-4067-874b-54b41d278147">www.dataprivacyframework.gov/</a>. Puede ejercer sus derechos ARCO en la Direccion Postal: European Data Protection Officer, Equifax Ltd, PO Box 10036, Leicester, LE3 4FS, Reino Unido. Att Oficina de Protección de Datos, o correo electrónico:
+                  data-outlook-id="312d0892-d974-4067-874b-54b41d278147"
+                  >www.dataprivacyframework.gov/</a
+                >. Puede ejercer sus derechos ARCO en la Direccion Postal: European Data Protection Officer, Equifax
+                Ltd, PO Box 10036, Leicester, LE3 4FS, Reino Unido. Att Oficina de Protección de Datos, o correo
+                electrónico:
                 <a href="mailto:UKDPO@equifax.com" data-ogsc="">UKDPO@equifax.com</a>
               </p>
             </div>
             <p>&nbsp;</p>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="nueve">9. Enlaces a sitios web de terceros</h2>
-            <p>En el caso que suministremos enlaces a sitios web que no son operados ni controlados por las empresas del Grupo CIL, serás puntualmente informado ya que las empresas del Grupo CIL no disponen de control alguno sobre dichos sitios ni tampoco son responsables por el contenido de los mismos, tampoco tienen control sobre la forma en que terceros recaban y usan su información personal ni son responsables ni ofrecen declaración alguna sobre los sitios web de terceros.</p>
-            <p>Normalmente estos sitios web disponen de sus propias políticas de privacidad, mediante las cuales te explicarán cómo utilizan y comparten tu información personal. Te recomendamos revisar detenidamente las políticas de privacidad antes de utilizar estos sitios web para estar seguro de que te encuentras conforme con la forma en la que tu información personal se recopila y comparte.</p>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="nueve">
+              9. Enlaces a sitios web de terceros
+            </h2>
+            <p>
+              En el caso que suministremos enlaces a sitios web que no son operados ni controlados por las empresas del
+              Grupo CIL, serás puntualmente informado ya que las empresas del Grupo CIL no disponen de control alguno
+              sobre dichos sitios ni tampoco son responsables por el contenido de los mismos, tampoco tienen control
+              sobre la forma en que terceros recaban y usan su información personal ni son responsables ni ofrecen
+              declaración alguna sobre los sitios web de terceros.
+            </p>
+            <p>
+              Normalmente estos sitios web disponen de sus propias políticas de privacidad, mediante las cuales te
+              explicarán cómo utilizan y comparten tu información personal. Te recomendamos revisar detenidamente las
+              políticas de privacidad antes de utilizar estos sitios web para estar seguro de que te encuentras conforme
+              con la forma en la que tu información personal se recopila y comparte.
+            </p>
 
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="diez">10. Plazo de conservación de tu información personal</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="diez">
+              10. Plazo de conservación de tu información personal
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>Solo almacenamos tu información personal en la medida en que la necesitamos a fin de poder utilizarla según la finalidad por la que fue recabada, y según la base jurídica del tratamiento de la misma de conformidad con la ley aplicable. Así, mantendremos tu información personal en cualquiera de sus soportes, mientras exista una relación contractual y/o comercial contigo, y a los efectos de mantenerte al corriente de nuestras ofertas, ventajas y promociones (mientras tú no ejerzas tu derecho de supresión, cancelación y/o limitación del tratamiento de tus datos), durante un plazo adicional de dos años, (salvo que el tratamiento se basase en el consentimiento del cliente, en cuyo caso se conservarán hasta que se reciba tal revocación), por lo tanto, los datos no se conservarán más tiempo del necesario para los fines descritos anteriormente, Igualmente a los efectos de los estudios de aplazamientos de pago de cualquier producto o servicio ofertado, se conservarán los datos de las operaciones contractuales o comerciales mantenidas con el cliente durante los mismos plazos de prescripción reconocidos para las obligaciones legales de conservación de la documentación de la última operación comercial (facturación o pago) del cliente, por lo tanto, también en este caso, los datos no se conservarán más tiempo del necesario para los fines descritos.</p>
-              <p>En estos casos, mantendremos la información debidamente bloqueada, sin darle ningún uso, mientras pueda ser necesaria para el ejercicio o defensa de reclamaciones o pueda derivarse algún tipo de responsabilidad judicial, legal o contractual de su tratamiento, que deba ser atendida y para lo cual sea necesaria su recuperación.</p>
-              <p>Asimismo, cuando la solicitud de aplazamiento de pago no haya sido aceptada por CILMD, se conservarán sus datos personales para el cumplimiento de las obligaciones legales y evitar duplicidades en el estudio de dichas solicitudes salvo que transcurridos 6 meses desde la denegación, el cliente solicite su oposición.</p>
-              <p>Respecto al Sistema Interno de Información, los datos personales relativos a las informaciones recibidas y a las investigaciones internas se conservarán durante el período necesario y proporcionado a efectos de cumplir con la Ley de Protección del Informante, en ningún caso superando el período de diez años. Transcurridos tres meses desde su recepción se procederá a la supresión de las comunicaciones, salvo en caso de conservación para acreditar y dejar evidencia de la existencia y funcionamiento del Sistema y/o en base a otros requisitos de cumplimiento normativo a los que esté asociada la información, quedando anonimizada la identidad del informante en un área independiente con las medidas de seguridad adecuadas.</p>
-
+              <p>
+                Solo almacenamos tu información personal en la medida en que la necesitamos a fin de poder utilizarla
+                según la finalidad por la que fue recabada, y según la base jurídica del tratamiento de la misma de
+                conformidad con la ley aplicable. Así, mantendremos tu información personal en cualquiera de sus
+                soportes, mientras exista una relación contractual y/o comercial contigo, y a los efectos de mantenerte
+                al corriente de nuestras ofertas, ventajas y promociones (mientras tú no ejerzas tu derecho de
+                supresión, cancelación y/o limitación del tratamiento de tus datos), durante un plazo adicional de dos
+                años, (salvo que el tratamiento se basase en el consentimiento del cliente, en cuyo caso se conservarán
+                hasta que se reciba tal revocación), por lo tanto, los datos no se conservarán más tiempo del necesario
+                para los fines descritos anteriormente, Igualmente a los efectos de los estudios de aplazamientos de
+                pago de cualquier producto o servicio ofertado, se conservarán los datos de las operaciones
+                contractuales o comerciales mantenidas con el cliente durante los mismos plazos de prescripción
+                reconocidos para las obligaciones legales de conservación de la documentación de la última operación
+                comercial (facturación o pago) del cliente, por lo tanto, también en este caso, los datos no se
+                conservarán más tiempo del necesario para los fines descritos.
+              </p>
+              <p>
+                En estos casos, mantendremos la información debidamente bloqueada, sin darle ningún uso, mientras pueda
+                ser necesaria para el ejercicio o defensa de reclamaciones o pueda derivarse algún tipo de
+                responsabilidad judicial, legal o contractual de su tratamiento, que deba ser atendida y para lo cual
+                sea necesaria su recuperación.
+              </p>
+              <p>
+                Asimismo, cuando la solicitud de aplazamiento de pago no haya sido aceptada por CILMD, se conservarán
+                sus datos personales para el cumplimiento de las obligaciones legales y evitar duplicidades en el
+                estudio de dichas solicitudes salvo que transcurridos 6 meses desde la denegación, el cliente solicite
+                su oposición.
+              </p>
+              <p>
+                Respecto al Sistema Interno de Información, los datos personales relativos a las informaciones recibidas
+                y a las investigaciones internas se conservarán durante el período necesario y proporcionado a efectos
+                de cumplir con la Ley de Protección del Informante, en ningún caso superando el período de diez años.
+                Transcurridos tres meses desde su recepción se procederá a la supresión de las comunicaciones, salvo en
+                caso de conservación para acreditar y dejar evidencia de la existencia y funcionamiento del Sistema y/o
+                en base a otros requisitos de cumplimiento normativo a los que esté asociada la información, quedando
+                anonimizada la identidad del informante en un área independiente con las medidas de seguridad adecuadas.
+              </p>
             </div>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="once">11. ¿Cómo puedes ejercer tus derechos?</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="once">
+              11. ¿Cómo puedes ejercer tus derechos?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-              <p>Tú eres el titular de los derechos de tu información personal y tienes el control sobre dichos datos, así también nos aseguramos de que la misma sea precisa y veraz en todo momento.</p>
+              <p>
+                Tú eres el titular de los derechos de tu información personal y tienes el control sobre dichos datos,
+                así también nos aseguramos de que la misma sea precisa y veraz en todo momento.
+              </p>
               <ul>
                 <li>
-                  <strong>Derecho de acceso</strong>: Cualquier persona tiene derecho a obtener confirmación sobre si en alguna de las empresas del grupo CIL estamos tratando datos personales que les conciernan, o no.</li>
+                  <strong>Derecho de acceso</strong>: Cualquier persona tiene derecho a obtener confirmación sobre si en
+                  alguna de las empresas del grupo CIL estamos tratando datos personales que les conciernan, o no.
+                </li>
                 <li>
-                  <strong>Derecho de rectificación y supresión</strong>: Tú tienes derecho a obtener el acceso a tu información personal, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar la supresión cuando, entre otros motivos, los datos consideres que ya no sean necesarios para los fines que fueron recogidos.</li>
+                  <strong>Derecho de rectificación y supresión</strong>: Tú tienes derecho a obtener el acceso a tu
+                  información personal, así como a solicitar la rectificación de los datos inexactos o, en su caso,
+                  solicitar la supresión cuando, entre otros motivos, los datos consideres que ya no sean necesarios
+                  para los fines que fueron recogidos.
+                </li>
                 <li>
-                  <strong>Derecho de oposición</strong>: En determinadas circunstancias, y por motivos relacionados con tu situación particular, podrás oponerte al tratamiento de tus datos. En su caso, tu información personal dejará de tratarse para aquellas finalidades respecto de las que hayas manifestado tu oposición, salvo que por motivos legítimos imperiosos, o por el ejercicio o defensa de posibles reclamaciones debamos mantenerlos debidamente bloqueados durante los plazos correspondientes en tanto subsistieran las obligaciones legales.</li>
+                  <strong>Derecho de oposición</strong>: En determinadas circunstancias, y por motivos relacionados con
+                  tu situación particular, podrás oponerte al tratamiento de tus datos. En su caso, tu información
+                  personal dejará de tratarse para aquellas finalidades respecto de las que hayas manifestado tu
+                  oposición, salvo que por motivos legítimos imperiosos, o por el ejercicio o defensa de posibles
+                  reclamaciones debamos mantenerlos debidamente bloqueados durante los plazos correspondientes en tanto
+                  subsistieran las obligaciones legales.
+                </li>
                 <li>
-                  <strong>Derecho de Limitación</strong>: De igual forma puedes ejercer el derecho de limitación del tratamiento de tu información personal, solicitándonos la conservación de la misma mientras se comprueba la impugnación de la exactitud o licitud de tus datos, para el ejercicio o defensa por tu parte de reclamaciones o mientras se verifica si los motivos legítimos alegados para el tratamiento prevalecen sobre tus derechos e intereses.</li>
+                  <strong>Derecho de Limitación</strong>: De igual forma puedes ejercer el derecho de limitación del
+                  tratamiento de tu información personal, solicitándonos la conservación de la misma mientras se
+                  comprueba la impugnación de la exactitud o licitud de tus datos, para el ejercicio o defensa por tu
+                  parte de reclamaciones o mientras se verifica si los motivos legítimos alegados para el tratamiento
+                  prevalecen sobre tus derechos e intereses.
+                </li>
                 <li>
-                  <strong>Derecho de oposición al envío de publicidad</strong>: En particular, conforme con la normativa vigente, si no deseas que tus datos sean tratados con la finalidad de prospección comercial, podrás comunicárnoslo llamando al teléfono de
-                  <a title="Atención al cliente" href="/pages/contact">Atención al Cliente</a>, a través del correo electrónico oficina_estadistica@cilsp.com, o bien pinchando en el link de baja que existe en todas nuestras promociones por correo electrónico. CILMD consultará las listas de exclusión comercial para evitar envíos de publicidad no deseada. En todas nuestras comunicaciones te ofrecemos la información para que puedas ejercer tus derechos de forma fácil y sencilla.</li>
+                  <strong>Derecho de oposición al envío de publicidad</strong>: En particular, conforme con la normativa
+                  vigente, si no deseas que tus datos sean tratados con la finalidad de prospección comercial, podrás
+                  comunicárnoslo llamando al teléfono de
+                  <a title="Atención al cliente" href="/pages/contact">Atención al Cliente</a>, a través del correo
+                  electrónico oficina_estadistica@cilsp.com, o bien pinchando en el link de baja que existe en todas
+                  nuestras promociones por correo electrónico. CILMD consultará las listas de exclusión comercial para
+                  evitar envíos de publicidad no deseada. En todas nuestras comunicaciones te ofrecemos la información
+                  para que puedas ejercer tus derechos de forma fácil y sencilla.
+                </li>
                 <li>
-                  <strong>Derecho de portabilidad</strong>: En determinadas circunstancias, podrás solicitar la portabilidad de los datos que nos has facilitado a otro responsable de tratamiento.</li>
+                  <strong>Derecho de portabilidad</strong>: En determinadas circunstancias, podrás solicitar la
+                  portabilidad de los datos que nos has facilitado a otro responsable de tratamiento.
+                </li>
               </ul>
-              <p>En los casos en que hayas otorgado tu consentimiento para cualquiera de los tratamientos podrás retirar el mismo, sin que ello afecte a la licitud del tratamiento basado en dicho consentimiento al suscribir tu contrato y a las consecuencias jurídicas del mismo.</p>
-              <p>Podrás ejercer tus derechos sin coste alguno, y tendrás derecho a recibir una respuesta en los plazos establecidos por la legislación vigente en materia de protección de datos, pudiendo elegir entre los medios siguientes:</p>
+              <p>
+                En los casos en que hayas otorgado tu consentimiento para cualquiera de los tratamientos podrás retirar
+                el mismo, sin que ello afecte a la licitud del tratamiento basado en dicho consentimiento al suscribir
+                tu contrato y a las consecuencias jurídicas del mismo.
+              </p>
+              <p>
+                Podrás ejercer tus derechos sin coste alguno, y tendrás derecho a recibir una respuesta en los plazos
+                establecidos por la legislación vigente en materia de protección de datos, pudiendo elegir entre los
+                medios siguientes:
+              </p>
               <ul>
-                <li>Mediante solicitud escrita y firmada, dirigida por correo postal a Oficina Estadística (Ref. L.O.P.D.) Avda. Manoteras 50, 28050 Madrid, debiendo acreditar de forma suficiente la identidad del solicitante.</li>
-                <li>Enviando solicitud debiendo acreditar de forma suficiente la identidad del solicitante&nbsp;a la dirección de correo electrónico
+                <li>
+                  Mediante solicitud escrita y firmada, dirigida por correo postal a Oficina Estadística (Ref. L.O.P.D.)
+                  Avda. Manoteras 50, 28050 Madrid, debiendo acreditar de forma suficiente la identidad del solicitante.
+                </li>
+                <li>
+                  Enviando solicitud debiendo acreditar de forma suficiente la identidad del solicitante&nbsp;a la
+                  dirección de correo electrónico
                   <a href="mailto:oficina_estadistica@cilsp.com.">oficina_estadistica@cilsp.com.</a>
                 </li>
                 <li>Llamando al teléfono de Atención al Cliente 910316432 o 900 30 80 30.</li>
               </ul>
-              <p>Puedes presentar una reclamación ante la Agencia Española de Protección de Datos, especialmente cuando no estés satisfecho con la respuesta del ejercicio de tus derechos, para más detalle puedes consultar la web
+              <p>
+                Puedes presentar una reclamación ante la Agencia Española de Protección de Datos, especialmente cuando
+                no estés satisfecho con la respuesta del ejercicio de tus derechos, para más detalle puedes consultar la
+                web
                 <a
                   title="www.agpd.es"
                   href="http://www.agpd.es/"
-                  target="_blank">www.agpd.es</a>
+                  target="_blank"
+                  >www.agpd.es</a
+                >
               </p>
-              <p>CILMD se encuentra adherida al
+              <p>
+                CILMD se encuentra adherida al
                 <strong>Código de Conducta de Protección de Datos en la Actividad Publicitaria</strong>
-                de AUTOCONTROL, acreditado por la Agencia Española de Protección de Datos y por tanto, está vinculada a su sistema extrajudicial de tramitación de reclamaciones cuando estén relacionadas con protección de datos y publicidad, disponible para los interesados en el sitio web
+                de AUTOCONTROL, acreditado por la Agencia Española de Protección de Datos y por tanto, está vinculada a
+                su sistema extrajudicial de tramitación de reclamaciones cuando estén relacionadas con protección de
+                datos y publicidad, disponible para los interesados en el sitio web
                 <a
                   title="www.autocontrol.es"
                   href="https://www.autocontrol.es/"
-                  target="_blank">www.autocontrol.es</a>.</p>
+                  target="_blank"
+                  >www.autocontrol.es</a
+                >.
+              </p>
             </div>
             <p>&nbsp;</p>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="doce">12. ¿Cómo protegemos tu información personal?</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="doce">
+              12. ¿Cómo protegemos tu información personal?
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-
-              <p>En CILMD nos comprometemos a proteger tu información personal y tu privacidad utilizando las medidas técnicas y organizativas adecuadas, y revisamos dichas medidas periódicamente. Para una protección adecuada de tu información cuidamos tanto la seguridad física de nuestras instalaciones y servidores como lógica, implementando incluso controles de acceso que restringen y administran la forma en que tu información personal y tus datos personales son procesados, administrados y gestionados. También nos aseguramos de que nuestro personal esté debidamente formado para proteger tu información y tratar la misma sólo en lo necesario. En este sentido y en aras de la privacidad podremos no facilitarte tus propios datos en tanto no tengamos una prueba suficiente de identidad de que efectivamente estamos contactando contigo o con alguien debidamente autorizado por ti.</p>
-              <p>Conforme a nuestra garantía de seguridad y confidencialidad, las transacciones comerciales son realizadas en un entorno de servidor seguro bajo protocolo SSL (Secure Socket Layer).</p>
-              <p>Es posible que el acceso a nuestras webs pueda verse ralentizado o con problemas en función del modelo o versión de tu navegador o a la configuración de las opciones que tengas configuradas. Estamos a tu disposición para ayudarte en lo que podamos.</p>
-              <p>Al igual que tú queremos que la navegación en internet sea segura y para ello en toda transacción de Comercio Electrónico nos aseguramos de que nuestras operaciones cumplan con los principios de:</p>
+              <p>
+                En CILMD nos comprometemos a proteger tu información personal y tu privacidad utilizando las medidas
+                técnicas y organizativas adecuadas, y revisamos dichas medidas periódicamente. Para una protección
+                adecuada de tu información cuidamos tanto la seguridad física de nuestras instalaciones y servidores
+                como lógica, implementando incluso controles de acceso que restringen y administran la forma en que tu
+                información personal y tus datos personales son procesados, administrados y gestionados. También nos
+                aseguramos de que nuestro personal esté debidamente formado para proteger tu información y tratar la
+                misma sólo en lo necesario. En este sentido y en aras de la privacidad podremos no facilitarte tus
+                propios datos en tanto no tengamos una prueba suficiente de identidad de que efectivamente estamos
+                contactando contigo o con alguien debidamente autorizado por ti.
+              </p>
+              <p>
+                Conforme a nuestra garantía de seguridad y confidencialidad, las transacciones comerciales son
+                realizadas en un entorno de servidor seguro bajo protocolo SSL (Secure Socket Layer).
+              </p>
+              <p>
+                Es posible que el acceso a nuestras webs pueda verse ralentizado o con problemas en función del modelo o
+                versión de tu navegador o a la configuración de las opciones que tengas configuradas. Estamos a tu
+                disposición para ayudarte en lo que podamos.
+              </p>
+              <p>
+                Al igual que tú queremos que la navegación en internet sea segura y para ello en toda transacción de
+                Comercio Electrónico nos aseguramos de que nuestras operaciones cumplan con los principios de:
+              </p>
               <ul>
                 <li>Autenticación para garantizar la personalidad jurídica o física con la que nos comunicamos.</li>
-                <li>Integridad, asegurarnos de que el contenido de la comunicación entre ambas partes no pueda ser modificado.</li>
+                <li>
+                  Integridad, asegurarnos de que el contenido de la comunicación entre ambas partes no pueda ser
+                  modificado.
+                </li>
                 <li>Confidencialidad, que nadie no autorizado pueda conocer el contenido de la comunicación.</li>
               </ul>
-
             </div>
             <p>&nbsp;</p>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
-            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="trece">13. Modificaciones a la presente información de protección de datos</h2>
+            <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="trece">
+              13. Modificaciones a la presente información de protección de datos
+            </h2>
             <div class="xl:columns-2 gap-6 py-4">
-
-              <p>Revisaremos y actualizaremos la información de protección de datos periódicamente y en especial cuando se produzcan modificaciones en la legislación o en alguno de los procedimientos de tratamiento de su información personal, indicando la fecha de la última actualización, contenido y fecha.</p>
-              <p>Si tenemos tu dirección de correo electrónico o teléfono móvil, también podremos informarte de dichos cambios mediante un correo electrónico o SMS con información sobre dichos cambios. En caso de ser necesario, podremos pedirte que renueves tu consentimiento para que nos confirmes que estás de acuerdo con estos cambios.</p>
+              <p>
+                Revisaremos y actualizaremos la información de protección de datos periódicamente y en especial cuando
+                se produzcan modificaciones en la legislación o en alguno de los procedimientos de tratamiento de su
+                información personal, indicando la fecha de la última actualización, contenido y fecha.
+              </p>
+              <p>
+                Si tenemos tu dirección de correo electrónico o teléfono móvil, también podremos informarte de dichos
+                cambios mediante un correo electrónico o SMS con información sobre dichos cambios. En caso de ser
+                necesario, podremos pedirte que renueves tu consentimiento para que nos confirmes que estás de acuerdo
+                con estos cambios.
+              </p>
               <p>Esta información de protección de datos fue revisada y actualizada por última vez en julio de 2026.</p>
-
             </div>
 
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
             <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="catorce">14. Contacto</h2>
-            <p>Si tienes cualquier tipo de consulta, comentario o inquietud, o si deseas realizar alguna sugerencia sobre cómo tratamos la información personal, puedes enviarnos una comunicación a Oficina Estadística, Avda Manoteras 50, 28050 Madrid o al correo electrónico<span>&nbsp;</span>
-              <a href="mailto:oficina_estadistica@cilsp.com">oficina_estadistica@cilsp.com</a>. También puedes dirigirte al Delegado de Protección de Datos del Grupo CIL, también en Avda Manoteras 50, 28050 Madrid o en la dirección de correo electrónico
+            <p>
+              Si tienes cualquier tipo de consulta, comentario o inquietud, o si deseas realizar alguna sugerencia sobre
+              cómo tratamos la información personal, puedes enviarnos una comunicación a Oficina Estadística, Avda
+              Manoteras 50, 28050 Madrid o al correo electrónico<span>&nbsp;</span>
+              <a href="mailto:oficina_estadistica@cilsp.com">oficina_estadistica@cilsp.com</a>. También puedes dirigirte
+              al Delegado de Protección de Datos del Grupo CIL, también en Avda Manoteras 50, 28050 Madrid o en la
+              dirección de correo electrónico
               <a href="mailto:dpo@cilsp.com">dpo@cilsp.com</a>
             </p>
             <p class="text-right">
-              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
+              <a href="#indice" class="font-medium inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300"
+                >Volver al índice</a
+              >
             </p>
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 {% endif %}
 
 {% schema %}
-  {
-    "name": "t:sections.section-page.name",
-    "tag": "section",
-    "class": "section x-section x-section-page",
-    "settings": [
-      {
-        "id": "show_heading",
-        "type": "checkbox",
-        "label": "t:sections.main-page.settings.show_heading.label",
-        "info": "t:sections.main-page.settings.show_heading.info",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "heading_size",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "t:sections.all.text.page_heading_size",
-        "default": 170,
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "select",
-        "id": "heading_tag",
-        "default": "h1",
-        "label": "t:sections.all.text.heading_tag",
-        "options": [
-          {
-            "value": "h1",
-            "label": "H1"
-          },
-          {
-            "value": "h2",
-            "label": "H2"
-          },
-          {
-            "value": "h3",
-            "label": "H3"
-          },
-          {
-            "value": "h4",
-            "label": "H4"
-          },
-          {
-            "value": "h5",
-            "label": "H5"
-          },
-          {
-            "value": "h6",
-            "label": "H6"
-          },
-          {
-            "value": "p",
-            "label": "p"
-          }
-        ],
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.breadcrumbs.label"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.show_breadcrumbs"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs_border",
-        "default": false,
-        "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width_breadcrumb",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.full_width",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "desktop_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "mobile_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_light",
-        "default": "#f2f2f2",
-        "label": "t:sections.all.background.background_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_dark",
-        "default": "#313131",
-        "label": "t:sections.all.background.background_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_padding_heading"
-      },
-      {
-        "type": "range",
-        "id": "max_container_page_width",
-        "min": 50,
-        "max": 100,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.layout.page_width",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 28
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_layout_mobile"
-      },
-      {
-        "type": "range",
-        "id": "padding_top_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 20
-      }
-    ]
-  }
+{
+  "name": "t:sections.section-page.name",
+  "tag": "section",
+  "class": "section x-section x-section-page",
+  "settings": [
+    {
+      "id": "show_heading",
+      "type": "checkbox",
+      "label": "t:sections.main-page.settings.show_heading.label",
+      "info": "t:sections.main-page.settings.show_heading.info",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.all.text.page_heading_size",
+      "default": 170,
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "default": "h1",
+      "label": "t:sections.all.text.heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "p"
+        }
+      ],
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.breadcrumbs.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.show_breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs_border",
+      "default": false,
+      "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_breadcrumb",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.full_width",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_light",
+      "default": "#f2f2f2",
+      "label": "t:sections.all.background.background_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_dark",
+      "default": "#313131",
+      "label": "t:sections.all.background.background_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "max_container_page_width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "t:settings_schema.layout.page_width",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_layout_mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ]
+}
 {% endschema %}

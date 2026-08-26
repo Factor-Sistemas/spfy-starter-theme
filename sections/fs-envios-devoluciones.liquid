@@ -1,88 +1,55 @@
-{{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
-{%- liquid
-  assign heading_size = section.settings.heading_size | times: settings.heading_base_size | times: 0.000225
--%}
-{%- style -%}
-  .section-padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top_mobile }}px;
-    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-  }
-  @media (min-width: 768px) {
-    .section-padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-  .x-section-page {
-    --max-width-page-container: calc((var(--page-width) + 40px) * {{ section.settings.max_container_page_width }} / 100);
-  }
-{%- endstyle -%}
-{% if settings.advanced_show_breadcrumbs and section.settings.show_breadcrumbs %}
-  {% render 'breadcrumbs'
-    , background_color_light: section.settings.background_color_light
-    , text_color_light: section.settings.text_color_light
-    , textlink_color_light: section.settings.textlink_color_light
-    , background_color_dark: section.settings.background_color_dark
-    , text_color_dark: section.settings.text_color_dark
-    , textlink_color_dark: section.settings.textlink_color_dark
-    , desktop_content_alignment: section.settings.desktop_content_alignment
-    , mobile_content_alignment: section.settings.mobile_content_alignment
-    , full_width_breadcrumb: section.settings.full_width_breadcrumb
-    , show_breadcrumbs_border: section.settings.show_breadcrumbs_border
-    , show_image_banner: false
-  %}
-{% endif %}
 {% if page.content != blank or section.settings.show_heading %}
-  <div class="x-section-page section-padding-{{ section.id }} ltr">
+  <div class="section-padding-{{ section.id }} contenidos-estaticos">
     <div class="page__container ml-auto mr-auto full-width">
-      {% if section.settings.show_heading %}
-        {%- style -%}
-          .page__container .heading--{{ section.id }} {
-            font-size: {{ heading_size | times: 0.6 }}rem;
-          }
-          @media screen and (min-width: 1024px) {
-            .page__container .heading--{{ section.id }} {
-              font-size: {{ heading_size }}rem;
-            }
-          }
-          .contenido-estatico p {
-            margin-bottom: 1.1rem;
-          }
-          .contenido-estatico li {
-            margin-bottom: 0.8rem;
-          }
-        {%- endstyle -%}
-      {% endif %}
-
       <div class="mb-6 md:mb-8">
         <h1>{{ page.title | escape }}</h1>
       </div>
 
       <div class="prose max-w-none">
         <div class="contenido-estatico">
-
           <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3">Garantía de Satisfacción</h2>
           <div class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3">
-            <p>Tu satisfacción es nuestra prioridad, por eso dispondrás de un plazo de 15 días para examinar tu pedido desde su recepción. Además, lo recibirás cómodamente en la dirección de entrega que elijas y si por lo que sea decides devolverlo (aunque esperamos que te encante, sabemos que estas cosas pasan a veces…), podrás hacerlo si no es de tu agrado.</p>
+            <p>
+              Tu satisfacción es nuestra prioridad, por eso dispondrás de un plazo de 15 días para examinar tu pedido
+              desde su recepción. Además, lo recibirás cómodamente en la dirección de entrega que elijas y si por lo que
+              sea decides devolverlo (aunque esperamos que te encante, sabemos que estas cosas pasan a veces…), podrás
+              hacerlo si no es de tu agrado.
+            </p>
           </div>
 
           <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3">¿Cuándo recibiré mi pedido?</h2>
           <div class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3">
-            <p>Enviamos los pedidos mediante diferentes empresas de transporte de reconocido prestigio nacional e internacional. Con carácter general, todas nuestras entregas se realizan entre 3 y 7 días laborables.</p>
+            <p>
+              Enviamos los pedidos mediante diferentes empresas de transporte de reconocido prestigio nacional e
+              internacional. Con carácter general, todas nuestras entregas se realizan entre 3 y 7 días laborables.
+            </p>
             <p>La fecha de entrega depende de la disponibilidad del producto escogido y de la zona de envío.</p>
           </div>
 
           <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3">¿Cómo puedo devolver mi pedido?</h2>
           <div>
-            <p>En caso de existir cualquier tipo de anomalía en el producto o incidencia en el pedido, puedes contactar con nuestro
+            <p>
+              En caso de existir cualquier tipo de anomalía en el producto o incidencia en el pedido, puedes contactar
+              con nuestro
               <a href="/pages/contact/">Servicio de Atención al Cliente</a>
-              y trataremos de solucionarla cuanto antes.</p>
-            <p>También puedes ejercer tu derecho de desistimiento enviándonos una carta por correo postal o correo electrónico, identificando tu nombre y nº de pedido. Puedes utilizar, si lo consideras oportuno, el Modelo derecho desistimiento disponible:
-              <a href="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/desistimiento.pdf?v=1775805875" target="_blank">Formulario de Desistimiento</a> o el impreso que encontrarás dentro del paquete con tu pedido.</p>
-            <p>Si quieres leer más sobre nuestra política de devoluciones y sobre tu derecho de desistimiento, puedes hacerlo
-              <a href="/pages/terminos-y-condiciones">aquí</a>.</p>
+              y trataremos de solucionarla cuanto antes.
+            </p>
+            <p>
+              También puedes ejercer tu derecho de desistimiento enviándonos una carta por correo postal o correo
+              electrónico, identificando tu nombre y nº de pedido. Puedes utilizar, si lo consideras oportuno, el Modelo
+              derecho desistimiento disponible:
+              <a
+                href="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/desistimiento.pdf?v=1775805875"
+                target="_blank"
+                >Formulario de Desistimiento</a
+              >
+              o el impreso que encontrarás dentro del paquete con tu pedido.
+            </p>
+            <p>
+              Si quieres leer más sobre nuestra política de devoluciones y sobre tu derecho de desistimiento, puedes
+              hacerlo <a href="/pages/terminos-y-condiciones">aquí</a>.
+            </p>
           </div>
-
         </div>
       </div>
     </div>
@@ -90,232 +57,232 @@
 {% endif %}
 
 {% schema %}
-  {
-    "name": "t:sections.section-page.name",
-    "tag": "section",
-    "class": "section x-section x-section-page",
-    "settings": [
-      {
-        "id": "show_heading",
-        "type": "checkbox",
-        "label": "t:sections.main-page.settings.show_heading.label",
-        "info": "t:sections.main-page.settings.show_heading.info",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "heading_size",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "t:sections.all.text.page_heading_size",
-        "default": 170,
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "select",
-        "id": "heading_tag",
-        "default": "h1",
-        "label": "t:sections.all.text.heading_tag",
-        "options": [
-          {
-            "value": "h1",
-            "label": "H1"
-          },
-          {
-            "value": "h2",
-            "label": "H2"
-          },
-          {
-            "value": "h3",
-            "label": "H3"
-          },
-          {
-            "value": "h4",
-            "label": "H4"
-          },
-          {
-            "value": "h5",
-            "label": "H5"
-          },
-          {
-            "value": "h6",
-            "label": "H6"
-          },
-          {
-            "value": "p",
-            "label": "p"
-          }
-        ],
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.breadcrumbs.label"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.show_breadcrumbs"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs_border",
-        "default": false,
-        "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width_breadcrumb",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.full_width",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "desktop_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "mobile_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_light",
-        "default": "#f2f2f2",
-        "label": "t:sections.all.background.background_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_dark",
-        "default": "#313131",
-        "label": "t:sections.all.background.background_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_padding_heading"
-      },
-      {
-        "type": "range",
-        "id": "max_container_page_width",
-        "min": 50,
-        "max": 100,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.layout.page_width",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 28
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_layout_mobile"
-      },
-      {
-        "type": "range",
-        "id": "padding_top_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 20
-      }
-    ]
-  }
+{
+  "name": "t:sections.section-page.name",
+  "tag": "section",
+  "class": "section x-section x-section-page",
+  "settings": [
+    {
+      "id": "show_heading",
+      "type": "checkbox",
+      "label": "t:sections.main-page.settings.show_heading.label",
+      "info": "t:sections.main-page.settings.show_heading.info",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.all.text.page_heading_size",
+      "default": 170,
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "default": "h1",
+      "label": "t:sections.all.text.heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "p"
+        }
+      ],
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.breadcrumbs.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.show_breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs_border",
+      "default": false,
+      "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_breadcrumb",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.full_width",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_light",
+      "default": "#f2f2f2",
+      "label": "t:sections.all.background.background_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_dark",
+      "default": "#313131",
+      "label": "t:sections.all.background.background_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "max_container_page_width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "t:settings_schema.layout.page_width",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_layout_mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ]
+}
 {% endschema %}
