@@ -1,0 +1,492 @@
+{{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
+{%- liquid
+  assign heading_size = section.settings.heading_size | times: settings.heading_base_size | times: 0.000225
+-%}
+{%- style -%}
+  .section-padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 768px) {
+    .section-padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .x-section-page {
+    --max-width-page-container: calc((var(--page-width) + 40px) * {{ section.settings.max_container_page_width }} / 100);
+  }
+{%- endstyle -%}
+{% if settings.advanced_show_breadcrumbs and section.settings.show_breadcrumbs %}
+  {% render 'breadcrumbs'
+    , background_color_light: section.settings.background_color_light
+    , text_color_light: section.settings.text_color_light
+    , textlink_color_light: section.settings.textlink_color_light
+    , background_color_dark: section.settings.background_color_dark
+    , text_color_dark: section.settings.text_color_dark
+    , textlink_color_dark: section.settings.textlink_color_dark
+    , desktop_content_alignment: section.settings.desktop_content_alignment
+    , mobile_content_alignment: section.settings.mobile_content_alignment
+    , full_width_breadcrumb: section.settings.full_width_breadcrumb
+    , show_breadcrumbs_border: section.settings.show_breadcrumbs_border
+    , show_image_banner: false
+  %}
+{% endif %}
+{% if page.content != blank or section.settings.show_heading %}
+  <div class="x-section-page section-padding-{{ section.id }} ltr">
+    <div class="page__container ml-auto mr-auto full-width">
+      {% if section.settings.show_heading %}
+        {%- style -%}
+          .page__container .heading--{{ section.id }} {
+            font-size: {{ heading_size | times: 0.6 }}rem;
+          }
+          @media screen and (min-width: 1024px) {
+            .page__container .heading--{{ section.id }} {
+              font-size: {{ heading_size }}rem;
+            }
+          }
+          .contenido-estatico p {
+            margin-bottom: 1.1rem;
+          }
+          .contenido-estatico li {
+            margin-bottom: 0.8rem;
+          }
+        {%- endstyle -%}
+      {% endif %}
+
+      <div class="tw:mb-6 tw:md:mb-8">
+        <h1>{{ page.title | escape }}</h1>
+      </div>
+
+      <div>
+        <div class="contenido-estatico">
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">Información básica de tratamiento de datos personales de las cookies</h2>
+          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
+            <p>CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L. es el responsable del tratamiento de los datos personales del Interesado y le informa de que estos datos serán tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril de 2016 (GDPR), por lo que se le facilita la siguiente información del tratamiento:</p>
+            <p>
+              <strong>Fines del tratamiento:</strong>
+              según se especifica en este apartado de cookies que se utilizan en este sitio web.</p>
+            <p>
+              <strong>Legitimación del tratamiento:</strong>
+              por consentimiento del interesado (art. 6.1 GDPR).</p>
+            <p>
+              <strong>Criterios de conservación de los datos:</strong>
+              los datos se conservarán por los plazos máximos indicados en cada cookie.</p>
+            <p>
+              <strong>Comunicación de los datos:</strong>
+              no se comunicarán los datos a terceros, excepto en cookies propiedad de terceros o por obligación legal.</p>
+            <p>
+              <strong>Derechos que asisten al Interesado:</strong>
+            </p>
+            <ul>
+              <li>Derecho a retirar el consentimiento en cualquier momento.</li>
+              <li>Derecho de acceso, rectificación, portabilidad y supresión de sus datos y a la limitación u oposición a su tratamiento.</li>
+              <li>Derecho a presentar una reclamación ante la Autoridad de control (www.aepd.es) si considera que el tratamiento no se ajusta a la normativa vigente.</li>
+            </ul>
+            <p>
+              <strong>Datos de contacto para ejercer tus derechos:</strong>
+              Si tienes cualquier tipo de consulta, comentario o inquietud, o si deseas realizar alguna sugerencia sobre cómo tratamos la información personal, puedes enviarnos una comunicación a Oficina Estadística, Avda Manoteras 50, 28050 Madrid o al correo electrónico
+              <a href="mailto:oficina_estadistica@cilsp.com">oficina_estadistica@cilsp.com</a>. También puedes dirigirte al Delegado de Protección de Datos del Grupo CIL, también en Avda Manoteras 50, 28050 Madrid o en la dirección de correo electrónico
+              <a href="mailto:dpo@cilsp.com">dpo@cilsp.com</a>
+            </p>
+            <p>
+              <strong>La presente política tiene como finalidad informarte</strong>
+              de las diferentes cookies que Fabulosa, marca de CIL Marketing Directo S.L, recaba a través de los distintos medios o canales de comunicación, propios o de terceros.</p>
+          </div>
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">Definición y función de las cookies</h2>
+          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
+            <p>
+              <strong>¿Qué son las cookies?</strong>
+              Una cookie es un fichero que se descarga en tu ordenador, tablet, móvil u otro terminal (en adelante, equipo) cuando accedes a nuestra web o ejecutas nuestra aplicación. Las cookies nos permiten almacenar y recuperar información sobre tus hábitos de navegación o del equipo desde donde accedes en general de forma anónima y dependiendo de la información que contengan, si estas registrado previamente, para reconocerte como usuario o cliente.</p>
+            <p>La información que obtienen está relacionada con el número de páginas que visitas, el idioma, el lugar desde el que accedes, el número de nuevos usuarios, la frecuencia y reincidencia de las visitas, el tiempo que dura tu visita, el navegador o el equipo desde el que realizas la visita o ejecutas la aplicación.</p>
+          </div>
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">Tipos de cookies</h2>
+          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
+            <ul>
+              <li>
+                <strong>Cookies propias:</strong>
+                Son aquellas que se envían a tu equipo desde un dominio o equipo gestionado por nosotros.</li>
+              <li>
+                <strong>Cookies de terceros:</strong>
+                Son aquellas que se envían a tu equipo desde un equipo o dominio que no es gestionado por nosotros, sino por otra entidad que trata los datos obtenidos través de las cookies.</li>
+              <li>
+                <strong>Cookies de sesión:</strong>
+                Son un tipo de cookies que caducan al salir de nuestra web o cerrar la aplicación.</li>
+              <li>
+                <strong>Cookies persistentes:</strong>
+                Son un tipo de cookies que siguen almacenadas en tu equipo durante un periodo de tiempo superior, que puede ser desde unos minutos a varios años.</li>
+              <li>
+                <strong>Cookies de análisis:</strong>
+                Son aquellas que bien tratadas por nosotros o por terceros, nos permiten cuantificar el número de visitas y el uso que hacen los usuarios de nuestra aplicación con la finalidad de hacer una medición y análisis estadístico de su utilización para corregir las deficiencias que detectemos y facilitar el uso de nuestra web o aplicación.</li>
+              <li>
+                <strong>Cookies de publicidad:</strong>
+                Al visitar las páginas web, abrir emails o ejecutar una aplicación donde publicamos anuncios de nuestros productos o servicios, para realizar un control y seguimiento de la eficacia de la publicidad se instalan en tu navegador o equipo cookies que nos sirven para medir, por ejemplo, el número de veces que son vistos los anuncios, dónde aparecen, a qué hora se ven, desde dónde o si los has visto anteriormente.</li>
+              <li>
+                <strong>Cookies de publicidad comportamental:</strong>
+                Son un tipo de cookies publicitarias que se emplean para almacenar y recuperar información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrarte publicidad en función del mismo.</li>
+            </ul>
+            <p>Asimismo al visitar páginas web, abrir emails o ejecutar una aplicación donde publicamos anuncios de nuestros productos o servicios se instalan en tu navegador cookies que nos sirven para mostrarte posteriormente publicidad relacionada con la búsqueda que hayas realizado y gestionar las acciones publicitarias.</p>
+          </div>
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">Revocación y eliminación de cookies</h2>
+          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
+            <p>Si lo deseas puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en tu ordenador o desde las opciones de privacidad del equipo desde el que nos visitas, en caso de que no permita la instalación de cookies en tu navegador, es posible que no puedas acceder a alguna de las secciones de nuestra web. Puedes encontrar información sobre cómo hacerlo en el caso que uses como navegador:</p>
+            <ul>
+              <li>
+                <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">Firefox</a>
+              </li>
+              <li>
+                <a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank">Chrome</a>
+              </li>
+              <li>
+                <a href="https://support.microsoft.com/es-es/help/278835/how-to-delete-cookie-files-in-internet-explorer" target="_blank">Explorer</a>
+              </li>
+              <li>
+                <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">Safari</a>
+              </li>
+              <li>
+                <a href="https://help.opera.com/en/latest/web-preferences/#cookies" target="_blank">Opera</a>
+              </li>
+            </ul>
+            <p>Ten en cuenta que si aceptas las cookies de terceros, deberás eliminarlas desde las opciones del navegador.</p>
+            <p>También puedes informarte de las transferencias a terceros países que, en su caso, realizan los terceros identificados en esta política de cookies. Para ello puedes acceder a sus correspondientes políticas.</p>
+            <p>Si lo deseas puedes ver los vídeos desarrollados por la Agencia Española de Protección de Datos con la finalidad de explicar cómo configurar las opciones de privacidad desde diferentes plataformas y equipos
+              <a href="http://www.agpd.es/portalwebAGPD/CanalDelCiudadano/protegetuprivacidad/index-ides-idphp.php" target="_blank">AGPD</a>.</p>
+          </div>
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">Más información sobre protección de datos en el uso de cookies</h2>
+          <div>
+            <p>Respecto a las cookies propias, Fabulosa, en el marco de las relaciones de prestación de servicios o publicidad en su caso que mantiene con los distintos proveedores, actuará como responsable del Tratamiento y los proveedores como Encargados del tratamiento.</p>
+            <p>Además, en relación con las cookies de terceros que aparecen expresamente identificadas como tales más adelante, se recuerda al usuario que estas cookies, o bien se remiten desde un dominio no gestionado por nosotros, sino por el tercero indicado, o bien se envían desde nuestro dominio, pero la información recogida es gestionada directamente por ese tercero.</p>
+            <p>Fabulosa, no realiza transferencia a terceros países en relación con las cookies que utiliza. Respecto a las cookies de terceros, puedes consultar sus políticas de transferencia en sus webs correspondientes.</p>
+            <p>Por último, en los casos en que el usuario consiente el uso de cookies para fines de publicidad comportamental, se almacenará la información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función de los intereses puestos de manifiesto en sus visitas.</p>
+            <p>Si deseas más información sobre el uso de cookies puedes solicitárnosla en
+              <a href="mailto:dpo@cildp.com">dpo@cildp.com</a>
+              o visitar nuestro enlace sobre
+              <a href="/pages/proteccion-de-datos">Política de Privacidad y Protección de Datos</a>.</p>
+          </div>
+
+          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3">¿Qué tipos de cookies utiliza esta página web?</h2>
+
+          <h3 class="tw:font-medium tw:text-xl tw:lg:text-2xl tw:mt-6 tw:mb-3">Cookies necesarias (Técnicas obligatorias)</h3>
+          <p>Las cookies necesarias ayudan a hacer una página web utilizable activando funciones básicas como la navegación en la página y el acceso a áreas seguras de la página web. La página web no puede funcionar adecuadamente sin estas cookies.</p>
+          <p>Son las estrictamente necesarias para prestar un servicio o contenido solicitado por el usuario, así como para permitir al usuario la navegación por la página web, plataformas o aplicación. Se encargan de aspectos técnicos como identificar la sesión y registros, controlar el tráfico y la comunicación de datos, acceder a partes de acceso restringido, gestionar el pago, controlar el fraude vinculado a la seguridad del servicio, realizar la solicitud de inscripción o participación en un evento, utilizar elementos de seguridad durante la navegación, almacenar contenidos para la difusión de vídeos o sonido o habilitar contenidos dinámicos.</p>
+          <p>
+            <a
+              href="https://www.shopify.com/es-es/legal/cookies#tiendas-de-comerciantes"
+              class="tw:font-bold"
+              target="_blank">Cookies necesarias</a>
+            para el funcionamiento de la tienda.</p>
+
+          <h3 class="tw:font-medium tw:text-xl tw:lg:text-2xl tw:mt-6 tw:mb-3">Cookies estadísticas</h3>
+          <p>Las cookies estadísticas ayudan a los propietarios de páginas web a comprender cómo interactúan los visitantes con las páginas web reuniendo y proporcionando información de forma anónima.</p>
+          <p>Permiten el seguimiento y análisis del comportamiento de los usuarios de nuestros sitios web. Recogen la información relativa al uso de la página como la permanencia en la página y los contenidos visitados, así podemos medir de forma anónima el rendimiento, el número de visitas o la actividad. Gracias a ellas podemos mejorar constantemente tu experiencia de navegación.</p>
+
+          <h4 class="tw:font-medium tw:text-lg tw:mt-4 tw:mb-2">Analíticas</h4>
+          <div class="tw:overflow-x-auto tw:my-4">
+            <table class="tw:w-full tw:border-collapse tw:border tw:border-gray-200">
+              <thead>
+                <tr class="tw:bg-gray-100">
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Nombre</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Proveedor</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Propósito</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Caducidad</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">_ga</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Google</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Registra una identificación única que se utiliza para generar datos estadísticos acerca de cómo utiliza el visitante el sitio web.</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">2 años</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">HTTP Cookie</td>
+                </tr>
+                <tr>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">_gat</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Google</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Utilizado por Google Analytics para limitar el porcentaje de solicitudes.</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">1 minuto</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">HTTP Cookie</td>
+                </tr>
+                <tr>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">_gid</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Google</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Registra una identificación única que se utiliza para generar datos estadísticos acerca de cómo utiliza el visitante el sitio web.</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">1 día</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">HTTP Cookie</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 class="tw:font-medium tw:text-lg tw:mt-4 tw:mb-2">Comportamentales</h4>
+          <div class="tw:overflow-x-auto tw:my-4">
+            <table class="tw:w-full tw:border-collapse tw:border tw:border-gray-200">
+              <thead>
+                <tr class="tw:bg-gray-100">
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Nombre</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Proveedor</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Propósito</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Caducidad</th>
+                  <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">ADS, AEC, IDE, NID</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Google</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Cookie asociada a los servicios publicitarios de Google.</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">13 meses</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">HTTP Cookie</td>
+                </tr>
+                <tr>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">APISID, DSID, HSID, SAPSID, SID, SIDCC</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Google</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Cookie asociada a los servicios publicitarios de Google.</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">2 semanas</td>
+                  <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">HTTP Cookie</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "t:sections.section-page.name",
+    "tag": "section",
+    "class": "section x-section x-section-page",
+    "settings": [
+      {
+        "id": "show_heading",
+        "type": "checkbox",
+        "label": "t:sections.main-page.settings.show_heading.label",
+        "info": "t:sections.main-page.settings.show_heading.info",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "t:sections.all.text.page_heading_size",
+        "default": 170,
+        "visible_if": "{{ section.settings.show_heading }}"
+      },
+      {
+        "type": "select",
+        "id": "heading_tag",
+        "default": "h1",
+        "label": "t:sections.all.text.heading_tag",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          },
+          {
+            "value": "h5",
+            "label": "H5"
+          },
+          {
+            "value": "h6",
+            "label": "H6"
+          },
+          {
+            "value": "p",
+            "label": "p"
+          }
+        ],
+        "visible_if": "{{ section.settings.show_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.breadcrumbs.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumbs",
+        "default": true,
+        "label": "t:settings_schema.search_navigation.show_breadcrumbs"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumbs_border",
+        "default": false,
+        "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width_breadcrumb",
+        "default": true,
+        "label": "t:settings_schema.search_navigation.full_width",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_alignment",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "t:sections.all.content_alignment.options__1.label"
+          },
+          {
+            "value": "text-center",
+            "label": "t:sections.all.content_alignment.options__2.label"
+          },
+          {
+            "value": "text-right",
+            "label": "t:sections.all.content_alignment.options__3.label"
+          }
+        ],
+        "default": "text-left",
+        "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "select",
+        "id": "mobile_content_alignment",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "t:sections.all.content_alignment.options__1.label"
+          },
+          {
+            "value": "text-center",
+            "label": "t:sections.all.content_alignment.options__2.label"
+          },
+          {
+            "value": "text-right",
+            "label": "t:sections.all.content_alignment.options__3.label"
+          }
+        ],
+        "default": "text-left",
+        "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "background_color_light",
+        "default": "#f2f2f2",
+        "label": "t:sections.all.background.background_color_light",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "text_color_light",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.all.text.color",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "textlink_color_light",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.main-collection-banner.block.textlink_color_light",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "background_color_dark",
+        "default": "#313131",
+        "label": "t:sections.all.background.background_color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "text_color_dark",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.all.text.color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "textlink_color_dark",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.main-collection-banner.block.textlink_color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "max_container_page_width",
+        "min": 50,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.layout.page_width",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 28
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_layout_mobile"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 20
+      }
+    ]
+  }
+{% endschema %}

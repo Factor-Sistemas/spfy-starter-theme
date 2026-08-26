@@ -1,0 +1,325 @@
+{{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
+{%- liquid
+  assign heading_size = section.settings.heading_size | times: settings.heading_base_size | times: 0.000225
+-%}
+{%- style -%}
+  .section-padding-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 768px) {
+    .section-padding-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .x-section-page {
+    --max-width-page-container: calc((var(--page-width) + 40px) * {{ section.settings.max_container_page_width }} / 100);
+  }
+{%- endstyle -%}
+{% if settings.advanced_show_breadcrumbs and section.settings.show_breadcrumbs %}
+  {% render 'breadcrumbs'
+    , background_color_light: section.settings.background_color_light
+    , text_color_light: section.settings.text_color_light
+    , textlink_color_light: section.settings.textlink_color_light
+    , background_color_dark: section.settings.background_color_dark
+    , text_color_dark: section.settings.text_color_dark
+    , textlink_color_dark: section.settings.textlink_color_dark
+    , desktop_content_alignment: section.settings.desktop_content_alignment
+    , mobile_content_alignment: section.settings.mobile_content_alignment
+    , full_width_breadcrumb: section.settings.full_width_breadcrumb
+    , show_breadcrumbs_border: section.settings.show_breadcrumbs_border
+    , show_image_banner: false
+  %}
+{% endif %}
+{% if page.content != blank or section.settings.show_heading %}
+  <div class="x-section-page section-padding-{{ section.id }} ltr">
+    <div class="page__container ml-auto mr-auto full-width">
+      {% if section.settings.show_heading %}
+        {%- style -%}
+          .page__container .heading--{{ section.id }} {
+            font-size: {{ heading_size | times: 0.6 }}rem;
+          }
+          @media screen and (min-width: 1024px) {
+            .page__container .heading--{{ section.id }} {
+              font-size: {{ heading_size }}rem;
+            }
+          }
+        {%- endstyle -%}
+      {% endif %}
+      <div class="">
+
+        <div class="mb-4 md:mb-6">
+          <h1>{{ page.title | escape }}</h1>
+        </div>
+        <div class="tw:xl:columns-2">
+          <p class="tw:mb-4 tw:ml-0">A los efectos de la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico en su redacción actual se hace constar: Nombre o Razón Social de la empresa que suministra los productos y servicios: CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L. Domicilio social: Avda.</p>
+          <p class="tw:mb-4 tw:ml-0">A los efectos de la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico en su redacción actual se hace constar:</p>
+
+          <ul class="tw:list-disc tw:list-inside tw:mb-4">
+            <li class="tw:mb-2">Nombre o Razón Social de la empresa que suministra los productos y servicios: CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L.</li>
+            <li class="tw:mb-2">Domicilio social: Avda. Manoteras 50, 28050 Madrid.</li>
+            <li class="tw:mb-2">Teléfono Atención al Cliente: 910 31 64 32 / 900 30 80 30</li>
+            <li class="tw:mb-2">C.I.F.: B-85987071.</li>
+            <li class="tw:mb-2">Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el registro de Empresas de Venta a Distancia NEVA nº 2012140613286V.</li>
+            <li class="tw:mb-2">Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el Registro General Sanitario de Empresas Alimentarias y Alimentos de la Comunidad de Madrid con Número de Registro Sanitario 40.054375/M, 39.007634/M y 26.015392/M.</li>
+            <li class="tw:mb-2">Club Internacional del Libro, Marketing Directo, S.L. ha realizado la comunicación de distribución de productos sanitarios prevista en el artículo 24 del Real Decreto 192/2023, de 21 de marzo, por el que se regulan los productos sanitarios, habiéndole correspondido el Nº de Comunicación: 07-1409-00040.8/2024 ante el Área de Control Farmacéutico y Productos Sanitarios de la Dirección General de Inspección y Ordenación Sanitaria, CONSEJERÍA DE SANIDAD de la Comunidad de Madrid.</li>
+            <li class="tw:mb-2">Registro Mercantil de Madrid: Registro Mercantil de Madrid tomo 27.900, folio 40, sección 8ª, hoja M-502854.</li>
+
+
+          </ul>
+
+          <p class="tw:mb-4 tw:ml-0">A efectos de las presentes condiciones se entenderá por usuario o cliente a toda persona que acceda, navegue, utilice o compre cualquiera de los productos publicitados en
+            <a class="tw:font-medium" href="{{ shop.url }}">{{ shop.url }}</a>.</p>
+          <p class="tw:mb-4 tw:ml-0">Enlaces a sitios web de terceros</p>
+
+          <p class="tw:mb-4 tw:ml-0">En el caso que suministremos enlaces a sitios web que no son operados ni controlados por las empresas del Grupo CIL, serás puntualmente informado ya que las empresas del Grupo CIL no disponen de control alguno sobre dichos sitios ni tampoco son responsables por el contenido de los mismos, tampoco tienen control sobre la forma en que terceros recaban y usan tu información personal ni son responsables ni ofrecen declaración alguna sobre los sitios web de terceros.</p>
+
+          <p class="tw:mb-4 tw:ml-0">Normalmente estos sitios web disponen de sus propias políticas de privacidad, mediante las cuales te explicarán cómo utilizan y comparten tu información personal. Te recomendamos revisar detenidamente las políticas de privacidad antes de utilizar estos sitios web para estar seguro de que te encuentras conforme con la forma en la que tu información personal se recopila y comparte.</p>
+
+          <p class="tw:mb-4 tw:ml-0">Propiedad intelectual e industrial</p>
+
+          <p class="tw:mb-4 tw:ml-0">Todo el contenido del portal (ilustraciones, textos, denominaciones, marcas, imágenes, vídeos) es propiedad de CILMD, de sus proveedores o colaboradores, no estando permitido cualquier reproducción parcial o total del contenido mediante cualquier procedimiento y en cualquier soporte.</p>
+
+          <p class="tw:mb-4 tw:ml-0">Todas las informaciones, los contenidos, los archivos y los programas ofrecidos por nuestro servicio están protegidos por las leyes sobre propiedad industrial, intelectual y el copyright.</p>
+
+          <p class="tw:mb-4 tw:ml-0">CILMD no permite ni autoriza la copia, publicación o distribución de todo contenido a terceras personas que no dispongan de derechos de propiedad intelectual. Toda utilización de estos contenidos de manera fraudulenta será considerada como delitos relativos a la propiedad industrial e intelectual sancionados por el Código Penal español.</p>
+
+          <p class="tw:mb-4 tw:ml-0">CILMD no será responsable de las infracciones realizadas por cualquier usuario de la web que afecten a cualquier otro cliente de la misma, o a terceros, incluyendo las que se refieran a derechos de propiedad intelectual, copyrights, marcas, patentes, información confidencial y/o cualquier otro derecho de propiedad intelectual o industrial.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "t:sections.section-page.name",
+    "tag": "section",
+    "class": "section x-section x-section-page",
+    "settings": [
+      {
+        "id": "show_heading",
+        "type": "checkbox",
+        "label": "t:sections.main-page.settings.show_heading.label",
+        "info": "t:sections.main-page.settings.show_heading.info",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "t:sections.all.text.page_heading_size",
+        "default": 170,
+        "visible_if": "{{ section.settings.show_heading }}"
+      },
+      {
+        "type": "select",
+        "id": "heading_tag",
+        "default": "h1",
+        "label": "t:sections.all.text.heading_tag",
+        "options": [
+          {
+            "value": "h1",
+            "label": "H1"
+          },
+          {
+            "value": "h2",
+            "label": "H2"
+          },
+          {
+            "value": "h3",
+            "label": "H3"
+          },
+          {
+            "value": "h4",
+            "label": "H4"
+          },
+          {
+            "value": "h5",
+            "label": "H5"
+          },
+          {
+            "value": "h6",
+            "label": "H6"
+          },
+          {
+            "value": "p",
+            "label": "p"
+          }
+        ],
+        "visible_if": "{{ section.settings.show_heading }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.breadcrumbs.label"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumbs",
+        "default": true,
+        "label": "t:settings_schema.search_navigation.show_breadcrumbs"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_breadcrumbs_border",
+        "default": false,
+        "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "full_width_breadcrumb",
+        "default": true,
+        "label": "t:settings_schema.search_navigation.full_width",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "select",
+        "id": "desktop_content_alignment",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "t:sections.all.content_alignment.options__1.label"
+          },
+          {
+            "value": "text-center",
+            "label": "t:sections.all.content_alignment.options__2.label"
+          },
+          {
+            "value": "text-right",
+            "label": "t:sections.all.content_alignment.options__3.label"
+          }
+        ],
+        "default": "text-left",
+        "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "select",
+        "id": "mobile_content_alignment",
+        "options": [
+          {
+            "value": "text-left",
+            "label": "t:sections.all.content_alignment.options__1.label"
+          },
+          {
+            "value": "text-center",
+            "label": "t:sections.all.content_alignment.options__2.label"
+          },
+          {
+            "value": "text-right",
+            "label": "t:sections.all.content_alignment.options__3.label"
+          }
+        ],
+        "default": "text-left",
+        "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "background_color_light",
+        "default": "#f2f2f2",
+        "label": "t:sections.all.background.background_color_light",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "text_color_light",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.all.text.color",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "textlink_color_light",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.main-collection-banner.block.textlink_color_light",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "background_color_dark",
+        "default": "#313131",
+        "label": "t:sections.all.background.background_color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "text_color_dark",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.all.text.color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "color",
+        "id": "textlink_color_dark",
+        "default": "rgba(0,0,0,0)",
+        "label": "t:sections.main-collection-banner.block.textlink_color_dark",
+        "visible_if": "{{ section.settings.show_breadcrumbs }}"
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "max_container_page_width",
+        "min": 50,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "t:settings_schema.layout.page_width",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 28
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 28
+      },
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_layout_mobile"
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 20
+      }
+    ]
+  }
+{% endschema %}
