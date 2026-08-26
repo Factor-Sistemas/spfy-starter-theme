@@ -1,0 +1,7 @@
+{% if shop.enabled_payment_types != blank %}
+  <div class="payment-icons flex flex-wrap items-center justify-center gap-3 py-3">
+    {% for type in shop.enabled_payment_types %}
+      {{ type | payment_type_svg_tag: class: 'w-10 h-6' }}
+    {% endfor %}
+  </div>
+{% endif %}

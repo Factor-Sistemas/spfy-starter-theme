@@ -1,67 +1,14 @@
-{{ 'page.css' | asset_url | stylesheet_tag: preload: true }}
-{%- liquid
-  assign heading_size = section.settings.heading_size | times: settings.heading_base_size | times: 0.000225
--%}
-{%- style -%}
-  .section-padding-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top_mobile }}px;
-    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-  }
-  @media (min-width: 768px) {
-    .section-padding-{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-  .x-section-page {
-    --max-width-page-container: calc((var(--page-width) + 40px) * {{ section.settings.max_container_page_width }} / 100);
-  }
-{%- endstyle -%}
-{% if settings.advanced_show_breadcrumbs and section.settings.show_breadcrumbs %}
-  {% render 'breadcrumbs'
-    , background_color_light: section.settings.background_color_light
-    , text_color_light: section.settings.text_color_light
-    , textlink_color_light: section.settings.textlink_color_light
-    , background_color_dark: section.settings.background_color_dark
-    , text_color_dark: section.settings.text_color_dark
-    , textlink_color_dark: section.settings.textlink_color_dark
-    , desktop_content_alignment: section.settings.desktop_content_alignment
-    , mobile_content_alignment: section.settings.mobile_content_alignment
-    , full_width_breadcrumb: section.settings.full_width_breadcrumb
-    , show_breadcrumbs_border: section.settings.show_breadcrumbs_border
-    , show_image_banner: false
-  %}
-{% endif %}
 {% if page.content != blank or section.settings.show_heading %}
-  <div class="x-section-page section-padding-{{ section.id }} ltr">
+  <div class="section-padding-{{ section.id }} contenidos-estaticos">
     <div class="page__container ml-auto mr-auto full-width">
-      {% if section.settings.show_heading %}
-        {%- style -%}
-          .page__container .heading--{{ section.id }} {
-            font-size: {{ heading_size | times: 0.6 }}rem;
-          }
-          @media screen and (min-width: 1024px) {
-            .page__container .heading--{{ section.id }} {
-              font-size: {{ heading_size }}rem;
-            }
-          }
-          .contenido-estatico p {
-            margin-bottom: 1.1rem;
-          }
-          .contenido-estatico li {
-            margin-bottom: 0.8rem;
-          }
-        {%- endstyle -%}
-      {% endif %}
-
-      <div class="tw:mb-6 tw:md:mb-8">
+      <div class="mb-6 md:mb-8">
         <h1>{{ page.title | escape }}</h1>
       </div>
 
-      <div class="tw:prose tw:max-w-none">
-        <div class="tw:mb-8">
-          <h2 class="tw:text-center tw:mb-4" id="indice">Indice</h2>
-          <ol class="tw:grid tw:lg:grid-cols-2 tw:gap-y-1.5 tw:list-decimal tw:pl-5">
+      <div>
+        <div class="mb-8">
+          <h2 class="text-center mb-4" id="indice">Indice</h2>
+          <ol class="grid lg:grid-cols-2 gap-y-1.5 list-decimal pl-5">
             <li>
               <a title="Venta a distancia" href="#uno">Venta a distancia</a>
             </li>
@@ -78,7 +25,9 @@
               <a title="Forma, gastos y plazo de envío" href="#cinco">Forma, gastos y plazo de envío</a>
             </li>
             <li>
-              <a title="Derechos del comprador y derecho de desistimiento" href="#seis">Derechos del comprador y derecho de desistimiento</a>
+              <a title="Derechos del comprador y derecho de desistimiento" href="#seis"
+                >Derechos del comprador y derecho de desistimiento</a
+              >
             </li>
             <li>
               <a title="Garantía" href="#siete">Garantía</a>
@@ -105,516 +54,931 @@
         </div>
 
         <div class="contenido-estatico">
-
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="uno">1. Venta a distancia</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>CILMD se dedica a la venta a distancia, entre otros canales por Internet, de productos para el consumo (en adelante, los 'productos').</p>
-            <p>CILMD ofrece a través de dicho portal diversos productos, sujetos a las presentes condiciones generales, que resultan de plena aplicación y que se entienden aceptadas por el cliente desde el momento que el mismo solicite cualquier prestación de esta página.</p>
-            <p>Es requisito imprescindible para solicitar cualquier servicio ser mayor de edad y tener plena capacidad para contratar.</p>
-            <p>Estas condiciones generales de contratación junto con el pedido de compra de los productos solicitados completado por el cliente suponen la formalización del contrato de compra venta entre CILMD y el cliente, reconociendo este haber leído y aceptado las condiciones y declarando reunir los requisitos necesarios para dicha contratación.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="uno">1. Venta a distancia</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              CILMD se dedica a la venta a distancia, entre otros canales por Internet, de productos para el consumo (en
+              adelante, los 'productos').
+            </p>
+            <p>
+              CILMD ofrece a través de dicho portal diversos productos, sujetos a las presentes condiciones generales,
+              que resultan de plena aplicación y que se entienden aceptadas por el cliente desde el momento que el mismo
+              solicite cualquier prestación de esta página.
+            </p>
+            <p>
+              Es requisito imprescindible para solicitar cualquier servicio ser mayor de edad y tener plena capacidad
+              para contratar.
+            </p>
+            <p>
+              Estas condiciones generales de contratación junto con el pedido de compra de los productos solicitados
+              completado por el cliente suponen la formalización del contrato de compra venta entre CILMD y el cliente,
+              reconociendo este haber leído y aceptado las condiciones y declarando reunir los requisitos necesarios
+              para dicha contratación.
+            </p>
             <p>Informamos que existen hojas de reclamación a disposición del Consumidor.</p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="dos">2. Datos</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>A los efectos de la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico en su redacción actual se hace constar:</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="dos">2. Datos</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              A los efectos de la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico en
+              su redacción actual se hace constar:
+            </p>
             <ul>
-              <li>Nombre o Razón Social de la empresa que suministra los productos y servicios: CLUB INTERNACIONAL DEL LIBRO, MARKETING DIRECTO, S.L.</li>
+              <li>
+                Nombre o Razón Social de la empresa que suministra los productos y servicios: CLUB INTERNACIONAL DEL
+                LIBRO, MARKETING DIRECTO, S.L.
+              </li>
               <li>Domicilio social: Avda. Manoteras 50, 28050 Madrid.</li>
               <li>Teléfono Atención al Cliente: 910 31 64 32 / 900 30 80 30.</li>
               <li>C.I.F.: B-85987071.</li>
-              <li>Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el registro de Empresas de Venta a Distancia NEVA nº 2012140613286V.</li>
-              <li>Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el Registro General Sanitario de Empresas Alimentarias y Alimentos de la Comunidad de Madrid con Número de Registro Sanitario 40.054375/M, 39.007634/M y 26.015392/M.</li>
-              <li>Club Internacional del Libro, Marketing Directo, S.L. ha realizado la comunicación de distribución de productos sanitarios prevista en el artículo 24 del Real Decreto 192/2023, de 21 de marzo, por el que se regulan los productos sanitarios, habiéndole correspondido el Nº de Comunicación: 07-1409-00040.8/2024 ante el Área de Control Farmacéutico y Productos Sanitarios de la Dirección General de Inspección y Ordenación Sanitaria, CONSEJERÍA DE SANIDAD de la Comunidad de Madrid.</li>
-              <li>Registro Mercantil de Madrid: Registro Mercantil de Madrid tomo 27.900, folio 40, sección 8ª, hoja M-502854.</li>
+              <li>
+                Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el registro de Empresas de Venta
+                a Distancia NEVA nº 2012140613286V.
+              </li>
+              <li>
+                Club Internacional del Libro, Marketing Directo, S.L. está inscrita en el Registro General Sanitario de
+                Empresas Alimentarias y Alimentos de la Comunidad de Madrid con Número de Registro Sanitario
+                40.054375/M, 39.007634/M y 26.015392/M.
+              </li>
+              <li>
+                Club Internacional del Libro, Marketing Directo, S.L. ha realizado la comunicación de distribución de
+                productos sanitarios prevista en el artículo 24 del Real Decreto 192/2023, de 21 de marzo, por el que se
+                regulan los productos sanitarios, habiéndole correspondido el Nº de Comunicación: 07-1409-00040.8/2024
+                ante el Área de Control Farmacéutico y Productos Sanitarios de la Dirección General de Inspección y
+                Ordenación Sanitaria, CONSEJERÍA DE SANIDAD de la Comunidad de Madrid.
+              </li>
+              <li>
+                Registro Mercantil de Madrid: Registro Mercantil de Madrid tomo 27.900, folio 40, sección 8ª, hoja
+                M-502854.
+              </li>
             </ul>
-            <p>A efectos de las presentes condiciones se entenderá por usuario o cliente a toda persona que acceda, navegue, utilice o compre cualquiera de los productos publicitados en
-              <a href="https://www.joyeriafabulosa.com" target="_blank">www.joyeriafabulosa.com</a>.</p>
+            <p>
+              A efectos de las presentes condiciones se entenderá por usuario o cliente a toda persona que acceda,
+              navegue, utilice o compre cualquiera de los productos publicitados en
+              <a href="https://www.joyeriafabulosa.com" target="_blank">www.joyeriafabulosa.com</a>.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="tres">3. Pedidos</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>Para comprar en nuestro portal, el cliente sólo debe seguir las instrucciones del mismo, pudiendo, según el producto, completar el pedido por internet y tramitar el pedido, empleando el medio de pago que prefiera de entre los existentes. También, en los casos que así se refleje en la oferta promocional, el cliente podrá solicitar más información sobre el producto y completar el pedido llamando por teléfono.</p>
-            <p>CILMD se reserva el derecho de modificar en cualquier momento las ofertas promocionales vigentes atendiendo, en todo caso, los pedidos recibidos hasta dicha modificación en los términos y condiciones en que hubieran sido ofertados.</p>
-            <p>La información y características de los productos ofertados se realiza sobre la base de la información recibida de los proveedores de CILMD.</p>
-            <p>La compra de cierto tipo de artículos puede estar sujeta a algunas condiciones especiales que se indican expresamente en dichas promociones. El ámbito territorial de las ofertas se indicará en cada promoción.</p>
-            <p>El precio de nuestros productos incluye, en todo caso, el Impuesto sobre el Valor Añadido (IVA) y cualquier otro impuesto aplicable.</p>
-            <p>Salvo indicación expresa en otro sentido, los precios no incluyen los gastos de envío que se detallan en cada promoción o ficha de información de cada producto y que deben ser aceptados por el Cliente al realizar el pedido.</p>
-            <p>En los productos en los que así se promocione, el cliente podrá activar una suscripción para recibir el producto de forma periódica, beneficiándose de un descuento especial. Antes de cada renovación de suscripción recibirá un aviso por email. Tras el primer mes, entrando en su área de cliente de la web, este podrá cancelar o pausar su suscripción, sin penalización, en tanto haga la solicitud hasta 5 días antes del envío que tuviera programado, en otro caso, se aplicará su cancelación o suspensión al siguiente envío previsto.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="tres">3. Pedidos</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              Para comprar en nuestro portal, el cliente sólo debe seguir las instrucciones del mismo, pudiendo, según
+              el producto, completar el pedido por internet y tramitar el pedido, empleando el medio de pago que
+              prefiera de entre los existentes. También, en los casos que así se refleje en la oferta promocional, el
+              cliente podrá solicitar más información sobre el producto y completar el pedido llamando por teléfono.
+            </p>
+            <p>
+              CILMD se reserva el derecho de modificar en cualquier momento las ofertas promocionales vigentes
+              atendiendo, en todo caso, los pedidos recibidos hasta dicha modificación en los términos y condiciones en
+              que hubieran sido ofertados.
+            </p>
+            <p>
+              La información y características de los productos ofertados se realiza sobre la base de la información
+              recibida de los proveedores de CILMD.
+            </p>
+            <p>
+              La compra de cierto tipo de artículos puede estar sujeta a algunas condiciones especiales que se indican
+              expresamente en dichas promociones. El ámbito territorial de las ofertas se indicará en cada promoción.
+            </p>
+            <p>
+              El precio de nuestros productos incluye, en todo caso, el Impuesto sobre el Valor Añadido (IVA) y
+              cualquier otro impuesto aplicable.
+            </p>
+            <p>
+              Salvo indicación expresa en otro sentido, los precios no incluyen los gastos de envío que se detallan en
+              cada promoción o ficha de información de cada producto y que deben ser aceptados por el Cliente al
+              realizar el pedido.
+            </p>
+            <p>
+              En los productos en los que así se promocione, el cliente podrá activar una suscripción para recibir el
+              producto de forma periódica, beneficiándose de un descuento especial. Antes de cada renovación de
+              suscripción recibirá un aviso por email. Tras el primer mes, entrando en su área de cliente de la web,
+              este podrá cancelar o pausar su suscripción, sin penalización, en tanto haga la solicitud hasta 5 días
+              antes del envío que tuviera programado, en otro caso, se aplicará su cancelación o suspensión al siguiente
+              envío previsto.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="cuatro">4. Formas de pago</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>Cada promoción indicará las formas de pago aplicables en cada caso. Las condiciones de uso de cada forma de pago on line se pueden consultar en las fichas de información de cada pedido previamente a completar las órdenes de pedido. En el caso de que completes tu pedido telefónicamente a los medios de pago on line previstos podrás añadir en su caso, la domiciliación bancaria.</p>
-            <p>En determinados casos, y por políticas de prevención del fraude y consumo responsable, CILMD se reserva la posibilidad de solicitar una forma de pago concreta en el caso de que no se acredite fehacientemente la identidad y solvencia del comprador.</p>
-            <p>En el caso de pagos con tarjetas de crédito y débito, CILMD se reserva la posibilidad de, en aras de realizar de forma segura pagos en Internet, enlazar con sistemas de Comercio Electrónico Seguro en que el Emisor de la tarjeta (banco o caja de ahorros) identifique al titular de la misma antes de autorizar el pago por Internet.</p>
-            <p>Esta ventana quedaría fuera del control de CILMD, siendo responsabilidad de su Emisor cualquier incidencia que pueda surgir con la misma, debiendo contactar con dicha entidad si se encontrara ante esta situación, si dicha entidad no autorizase el pago, no se podrá continuar con el procedimiento de compra iniciado, quedando automáticamente cancelado el pedido, y entendiéndose como no realizada la compraventa del Producto o Productos solicitados.</p>
-            <p>Podremos ofrecerte así mismo otras formas de financiación o pago a través de terceras entidades colaboradoras: Tarjeta, Bizum, Paypal, Klarna, etc. Podrás acceder directamente a las respectivas plataformas para gestionar tus preferencias de pago o financiación.</p>
-            <p>En los casos en que así se indica, CILMD acepta el pago a través de Bizum, sujeto en todo caso a la disponibilidad de cada entidad bancaria. Para realizar el pago con Bizum podrás iniciar el proceso linkando en esa opción, indicando tu teléfono asociado y siguiendo las instrucciones de tu banco para completar el proceso de pago seguro.</p>
-            <p>En el caso de que la oferta incluya la opción de pagos de forma aplazada, el cliente autoriza a CILMD, con la finalidad de hacer una correcta valoración de riesgos, dotar de una mayor seguridad en la actividad y mejorar la comercialización de los productos y servicios ofrecidos, a solicitar información relativa a sus antecedentes crediticios, para el análisis y decisión de su solicitud de aplazamiento del pago procedente de cualquier persona de las reconocidas en derecho que considere pertinentes, consultando los ficheros de solvencia patrimonial y, en caso de concesión, para el seguimiento del mismo, y en caso de incumplimiento en el pago de cualesquiera de las cuotas pactadas, comunicar dicho incumplimiento con sus datos personales a cualquier registro de información de antecedentes crediticios (Banco de España, Experia, Asnef-Equifax...). El cliente igualmente autoriza a consultar y/o comunicar los antecedentes que del mismo puedan poseer las mercantiles S.A. de Promoción y Ediciones, CIL División Crédito.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cuatro">4. Formas de pago</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              Cada promoción indicará las formas de pago aplicables en cada caso. Las condiciones de uso de cada forma
+              de pago on line se pueden consultar en las fichas de información de cada pedido previamente a completar
+              las órdenes de pedido. En el caso de que completes tu pedido telefónicamente a los medios de pago on line
+              previstos podrás añadir en su caso, la domiciliación bancaria.
+            </p>
+            <p>
+              En determinados casos, y por políticas de prevención del fraude y consumo responsable, CILMD se reserva la
+              posibilidad de solicitar una forma de pago concreta en el caso de que no se acredite fehacientemente la
+              identidad y solvencia del comprador.
+            </p>
+            <p>
+              En el caso de pagos con tarjetas de crédito y débito, CILMD se reserva la posibilidad de, en aras de
+              realizar de forma segura pagos en Internet, enlazar con sistemas de Comercio Electrónico Seguro en que el
+              Emisor de la tarjeta (banco o caja de ahorros) identifique al titular de la misma antes de autorizar el
+              pago por Internet.
+            </p>
+            <p>
+              Esta ventana quedaría fuera del control de CILMD, siendo responsabilidad de su Emisor cualquier incidencia
+              que pueda surgir con la misma, debiendo contactar con dicha entidad si se encontrara ante esta situación,
+              si dicha entidad no autorizase el pago, no se podrá continuar con el procedimiento de compra iniciado,
+              quedando automáticamente cancelado el pedido, y entendiéndose como no realizada la compraventa del
+              Producto o Productos solicitados.
+            </p>
+            <p>
+              Podremos ofrecerte así mismo otras formas de financiación o pago a través de terceras entidades
+              colaboradoras: Tarjeta, Bizum, Paypal, Klarna, etc. Podrás acceder directamente a las respectivas
+              plataformas para gestionar tus preferencias de pago o financiación.
+            </p>
+            <p>
+              En los casos en que así se indica, CILMD acepta el pago a través de Bizum, sujeto en todo caso a la
+              disponibilidad de cada entidad bancaria. Para realizar el pago con Bizum podrás iniciar el proceso
+              linkando en esa opción, indicando tu teléfono asociado y siguiendo las instrucciones de tu banco para
+              completar el proceso de pago seguro.
+            </p>
+            <p>
+              En el caso de que la oferta incluya la opción de pagos de forma aplazada, el cliente autoriza a CILMD, con
+              la finalidad de hacer una correcta valoración de riesgos, dotar de una mayor seguridad en la actividad y
+              mejorar la comercialización de los productos y servicios ofrecidos, a solicitar información relativa a sus
+              antecedentes crediticios, para el análisis y decisión de su solicitud de aplazamiento del pago procedente
+              de cualquier persona de las reconocidas en derecho que considere pertinentes, consultando los ficheros de
+              solvencia patrimonial y, en caso de concesión, para el seguimiento del mismo, y en caso de incumplimiento
+              en el pago de cualesquiera de las cuotas pactadas, comunicar dicho incumplimiento con sus datos personales
+              a cualquier registro de información de antecedentes crediticios (Banco de España, Experia,
+              Asnef-Equifax...). El cliente igualmente autoriza a consultar y/o comunicar los antecedentes que del mismo
+              puedan poseer las mercantiles S.A. de Promoción y Ediciones, CIL División Crédito.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="cinco">5. Forma, gastos y plazo de envío</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>El cliente podrá seleccionar la forma de envío de entre las posibles para su zona de envío. Deberá tener en cuenta que los plazos de entrega, la calidad del servicio, el punto de entrega y el coste pueden ser diferentes para cada forma de transporte. Con carácter general, todas nuestras entregas se realizan entre tres y siete días laborables.</p>
-            <p>CILMD remite los pedidos a sus clientes mediante diferentes agencias de transporte de reconocido prestigio nacional e internacional. La fecha de entrega depende de la disponibilidad del producto escogido y de la zona de envío.</p>
-            <p>Antes de la celebración del contrato se le informará al Cliente sobre los gastos de envío y plazos de transporte que aplican a su pedido en concreto.</p>
-            <p>En los pedidos que contengan artículos con diferentes gastos de envío se aplicarán unos únicos gastos, siendo éstos los de importe más alto.</p>
-            <p>La ficha de información de cada producto o las respectivas promociones referirán los plazos de envío y gastos de envío aplicables. En caso de ausencia, se entenderán gratuitos los gastos de envío.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="cinco">
+            5. Forma, gastos y plazo de envío
+          </h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              El cliente podrá seleccionar la forma de envío de entre las posibles para su zona de envío. Deberá tener
+              en cuenta que los plazos de entrega, la calidad del servicio, el punto de entrega y el coste pueden ser
+              diferentes para cada forma de transporte. Con carácter general, todas nuestras entregas se realizan entre
+              tres y siete días laborables.
+            </p>
+            <p>
+              CILMD remite los pedidos a sus clientes mediante diferentes agencias de transporte de reconocido prestigio
+              nacional e internacional. La fecha de entrega depende de la disponibilidad del producto escogido y de la
+              zona de envío.
+            </p>
+            <p>
+              Antes de la celebración del contrato se le informará al Cliente sobre los gastos de envío y plazos de
+              transporte que aplican a su pedido en concreto.
+            </p>
+            <p>
+              En los pedidos que contengan artículos con diferentes gastos de envío se aplicarán unos únicos gastos,
+              siendo éstos los de importe más alto.
+            </p>
+            <p>
+              La ficha de información de cada producto o las respectivas promociones referirán los plazos de envío y
+              gastos de envío aplicables. En caso de ausencia, se entenderán gratuitos los gastos de envío.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="seis">6. Derechos del comprador y derecho de desistimiento</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>CILMD se compromete a entregar al cliente el producto adquirido completo, independientemente de la forma de pago elegida.</p>
-            <p>En caso de pago aplazado, CILMD se reserva la propiedad de las mercancías hasta su total pago y en ese periodo, el cliente se obliga a comunicar cualquier modificación que se produzca en los datos facilitados. Dicha reserva se basa en los artículos 464, 1089, y 1255 del Código Civil, la ley 7/1998 sobre condiciones generales de contratación, transponiendo la Directiva 93/13 de la Comunidad Europea sobre cláusulas abusivas en los contratos y la Ley 28/1998, Ley de Venta a Plazos de Bienes Muebles.</p>
-            <p>Inmediatamente después de la aceptación por el consumidor de la adquisición del bien o la contratación del servicio, CILMD le remitirá un acuse de recibo de la adquisición o contratación realizada, que contenga los datos relativos al contrato efectuado.</p>
-            <p>El cliente tiene derecho a solicitar y recibir, gratuitamente, la factura en papel o electrónica de los productos o servicios contratados, en este último caso, sólo si así lo hubiese solicitado expresamente.</p>
-            <p>Una vez celebrado el contrato, el cliente tendrá derecho a solicitar información sobre el estado en que se encuentra la entrega del bien o la prestación del servicio contratado, en la medida en que la naturaleza del bien o servicio contratado lo permita.</p>
-            <p>El cliente dispondrá de un plazo máximo de 15 días naturales para examinar el mismo desde su recepción y solicitar su cambio o ejercer su derecho de desistimiento, sin necesidad de justificación, devolviendo todos los elementos de la oferta, dirigiéndose a Fabulosa, Calle de Honduras nº 29 - Pol. Ind. El Descubrimiento, 28806 Alcalá de Henares (Madrid). Salvo promociones acogidas a un plazo más amplio, el plazo de desistimiento expirará a los 15 días naturales del día en que adquiera la posesión material de los bienes. Para ejercer este derecho, deberá notificarnos su decisión de desistir del contrato, identificando su nombre y pedido a través de una declaración inequívoca (por ejemplo, una carta enviada por correo postal o electrónico), también puede utilizar el formulario disponible en la página web o llamar al teléfono de Atención al Cliente. Es responsabilidad del cliente acreditar el ejercicio de su derecho de desistimiento en plazo.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="seis">
+            6. Derechos del comprador y derecho de desistimiento
+          </h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              CILMD se compromete a entregar al cliente el producto adquirido completo, independientemente de la forma
+              de pago elegida.
+            </p>
+            <p>
+              En caso de pago aplazado, CILMD se reserva la propiedad de las mercancías hasta su total pago y en ese
+              periodo, el cliente se obliga a comunicar cualquier modificación que se produzca en los datos facilitados.
+              Dicha reserva se basa en los artículos 464, 1089, y 1255 del Código Civil, la ley 7/1998 sobre condiciones
+              generales de contratación, transponiendo la Directiva 93/13 de la Comunidad Europea sobre cláusulas
+              abusivas en los contratos y la Ley 28/1998, Ley de Venta a Plazos de Bienes Muebles.
+            </p>
+            <p>
+              Inmediatamente después de la aceptación por el consumidor de la adquisición del bien o la contratación del
+              servicio, CILMD le remitirá un acuse de recibo de la adquisición o contratación realizada, que contenga
+              los datos relativos al contrato efectuado.
+            </p>
+            <p>
+              El cliente tiene derecho a solicitar y recibir, gratuitamente, la factura en papel o electrónica de los
+              productos o servicios contratados, en este último caso, sólo si así lo hubiese solicitado expresamente.
+            </p>
+            <p>
+              Una vez celebrado el contrato, el cliente tendrá derecho a solicitar información sobre el estado en que se
+              encuentra la entrega del bien o la prestación del servicio contratado, en la medida en que la naturaleza
+              del bien o servicio contratado lo permita.
+            </p>
+            <p>
+              El cliente dispondrá de un plazo máximo de 15 días naturales para examinar el mismo desde su recepción y
+              solicitar su cambio o ejercer su derecho de desistimiento, sin necesidad de justificación, devolviendo
+              todos los elementos de la oferta, dirigiéndose a Fabulosa, Calle de Honduras nº 29 - Pol. Ind. El
+              Descubrimiento, 28806 Alcalá de Henares (Madrid). Salvo promociones acogidas a un plazo más amplio, el
+              plazo de desistimiento expirará a los 15 días naturales del día en que adquiera la posesión material de
+              los bienes. Para ejercer este derecho, deberá notificarnos su decisión de desistir del contrato,
+              identificando su nombre y pedido a través de una declaración inequívoca (por ejemplo, una carta enviada
+              por correo postal o electrónico), también puede utilizar el formulario disponible en la página web o
+              llamar al teléfono de Atención al Cliente. Es responsabilidad del cliente acreditar el ejercicio de su
+              derecho de desistimiento en plazo.
+            </p>
 
             <p>
               <strong>Consecuencias del desistimiento:</strong>
-              En caso de desistimiento por tu parte,</p>
+              En caso de desistimiento por tu parte,
+            </p>
             <ul>
-              <li>a) Si la oferta era libre de gastos de envío, te devolveremos, caso de haber llegado a producirse, todos los pagos recibidos, asumiendo CILMD los gastos de recogida del producto a través del sistema indicado por CILMD sin ninguna demora indebida y, en todo caso, a más tardar 14 días naturales a partir de la fecha en la que nos informes de tu decisión de desistir del presente contrato. Procederemos a efectuar dicho reembolso utilizando el mismo medio de pago empleado para la transacción inicial, a no ser que se haya dispuesto expresamente lo contrario; en todo caso, no incurrirás en ningún gasto como consecuencia del reembolso.</li>
-              <li>b) En el caso de productos que hayan tenido gastos de envío, deberás asumir el coste directo de devolución de los bienes devolviendo o entregando los bienes a Fabulosa, Calle de Honduras nº 29 - Pol. Ind. El Descubrimiento, 28806 Alcalá de Henares (Madrid), en un plazo máximo de 14 días a partir de la fecha en que nos comuniques tu decisión de desistimiento del contrato y acredites dicha devolución. No se admitirán devoluciones no solicitadas en plazo ni los costes derivados de devoluciones a portes debidos. Si decides tramitar la devolución por tu parte deberás abonar a la agencia de transporte los gastos de devolución. Si optas porque te ayudemos a tramitar la recogida de tu devolución, CILMD deducirá del importe que proceda devolver por tu pedido los gastos de devolución soportados por CILMD. CILMD podrá retener dicha devolución hasta haber recibido los bienes o justificante de devolución de los mismos.</li>
+              <li>
+                a) Si la oferta era libre de gastos de envío, te devolveremos, caso de haber llegado a producirse, todos
+                los pagos recibidos, asumiendo CILMD los gastos de recogida del producto a través del sistema indicado
+                por CILMD sin ninguna demora indebida y, en todo caso, a más tardar 14 días naturales a partir de la
+                fecha en la que nos informes de tu decisión de desistir del presente contrato. Procederemos a efectuar
+                dicho reembolso utilizando el mismo medio de pago empleado para la transacción inicial, a no ser que se
+                haya dispuesto expresamente lo contrario; en todo caso, no incurrirás en ningún gasto como consecuencia
+                del reembolso.
+              </li>
+              <li>
+                b) En el caso de productos que hayan tenido gastos de envío, deberás asumir el coste directo de
+                devolución de los bienes devolviendo o entregando los bienes a Fabulosa, Calle de Honduras nº 29 - Pol.
+                Ind. El Descubrimiento, 28806 Alcalá de Henares (Madrid), en un plazo máximo de 14 días a partir de la
+                fecha en que nos comuniques tu decisión de desistimiento del contrato y acredites dicha devolución. No
+                se admitirán devoluciones no solicitadas en plazo ni los costes derivados de devoluciones a portes
+                debidos. Si decides tramitar la devolución por tu parte deberás abonar a la agencia de transporte los
+                gastos de devolución. Si optas porque te ayudemos a tramitar la recogida de tu devolución, CILMD
+                deducirá del importe que proceda devolver por tu pedido los gastos de devolución soportados por CILMD.
+                CILMD podrá retener dicha devolución hasta haber recibido los bienes o justificante de devolución de los
+                mismos.
+              </li>
             </ul>
-            <p>El cliente será responsable de la disminución de valor de los bienes resultante de una manipulación distinta a la necesaria para establecer la naturaleza, las características y el funcionamiento de los bienes.</p>
-            <p>Se recomienda usar el embalaje original ya que si el producto no se encuentra bien embalado el bien podrá sufrir una depreciación. Deberás devolver en todo caso todos los elementos de la oferta.</p>
-            <p>En el caso de servicios, si se ha solicitado que la prestación de servicios dé comienzo durante el período de desistimiento, se nos abonará un importe proporcional a la parte ya prestada del servicio en el momento en que se nos haya comunicado su desistimiento, en relación con el objeto total del contrato.</p>
+            <p>
+              El cliente será responsable de la disminución de valor de los bienes resultante de una manipulación
+              distinta a la necesaria para establecer la naturaleza, las características y el funcionamiento de los
+              bienes.
+            </p>
+            <p>
+              Se recomienda usar el embalaje original ya que si el producto no se encuentra bien embalado el bien podrá
+              sufrir una depreciación. Deberás devolver en todo caso todos los elementos de la oferta.
+            </p>
+            <p>
+              En el caso de servicios, si se ha solicitado que la prestación de servicios dé comienzo durante el período
+              de desistimiento, se nos abonará un importe proporcional a la parte ya prestada del servicio en el momento
+              en que se nos haya comunicado su desistimiento, en relación con el objeto total del contrato.
+            </p>
 
             <p>
               <strong>No resultará de aplicación el derecho de desistimiento:</strong>
             </p>
             <ol type="a">
-              <li>Contratos de servicios una vez que el servicio haya sido completamente ejecutado cuando la ejecución haya comenzado con previo consentimiento expreso del consumidor y con el reconocimiento por su parte de que es consciente que, una vez que el contrato haya sido completamente ejecutado por el comerciante, habrá perdido su derecho de desistimiento.</li>
-              <li>El suministro de bienes o la prestación de servicios cuyo precio dependa de fluctuaciones del mercado financiero que el comerciante no pueda controlar y que puedan producirse durante el período de desistimiento.</li>
-              <li>El suministro de bienes confeccionados conforme a las especificaciones del consumidor o claramente personalizados.</li>
+              <li>
+                Contratos de servicios una vez que el servicio haya sido completamente ejecutado cuando la ejecución
+                haya comenzado con previo consentimiento expreso del consumidor y con el reconocimiento por su parte de
+                que es consciente que, una vez que el contrato haya sido completamente ejecutado por el comerciante,
+                habrá perdido su derecho de desistimiento.
+              </li>
+              <li>
+                El suministro de bienes o la prestación de servicios cuyo precio dependa de fluctuaciones del mercado
+                financiero que el comerciante no pueda controlar y que puedan producirse durante el período de
+                desistimiento.
+              </li>
+              <li>
+                El suministro de bienes confeccionados conforme a las especificaciones del consumidor o claramente
+                personalizados.
+              </li>
               <li>El suministro de bienes que puedan deteriorarse o caducar con rapidez.</li>
-              <li>El suministro de bienes precintados que no sean aptos para ser devueltos por razones de protección de la salud o de higiene y que hayan sido desprecintados tras la entrega.</li>
-              <li>El suministro de bienes que después de su entrega y teniendo en cuenta su naturaleza se hayan mezclado de forma indisociable con otros bienes.</li>
-              <li>El suministro de bebidas alcohólicas cuyo precio haya sido acordado en el momento de celebrar el contrato de venta y que no puedan ser entregadas antes de 30 días, y cuyo valor real dependa de fluctuaciones del mercado que el comerciante no pueda controlar.</li>
-              <li>Los contratos en los que el consumidor haya solicitado específicamente al comerciante que le visite para efectuar operaciones de reparación o mantenimiento urgente; si, en esa visita, el comerciante presta servicios adicionales a los solicitados específicamente por el consumidor o suministra bienes distintos de las piezas de recambio utilizadas necesariamente para efectuar las operaciones de mantenimiento o reparación, el derecho de desistimiento deberá aplicarse a dichos servicios o bienes adicionales.</li>
-              <li>El suministro de grabaciones sonoras o de vídeo precintadas o de programas informáticos precintados que hayan sido desprecintados por el consumidor después de la entrega.</li>
-              <li>El suministro de prensa diaria, publicaciones periódicas o revistas, con la excepción de los contratos de suscripción para el suministro de tales publicaciones.</li>
-              <li>El suministro de servicios de alojamiento para fines distintos del de servir de vivienda, transporte de bienes, alquiler de vehículos, comida o servicios relacionados con actividades de esparcimiento, si los contratos prevén una fecha o un período de ejecución específicos.</li>
-              <li>El suministro de contenido digital que no se preste en un soporte material cuando la ejecución haya comenzado con el previo consentimiento expreso del consumidor y con el conocimiento por su parte de que en consecuencia pierde su derecho de desistimiento.</li>
+              <li>
+                El suministro de bienes precintados que no sean aptos para ser devueltos por razones de protección de la
+                salud o de higiene y que hayan sido desprecintados tras la entrega.
+              </li>
+              <li>
+                El suministro de bienes que después de su entrega y teniendo en cuenta su naturaleza se hayan mezclado
+                de forma indisociable con otros bienes.
+              </li>
+              <li>
+                El suministro de bebidas alcohólicas cuyo precio haya sido acordado en el momento de celebrar el
+                contrato de venta y que no puedan ser entregadas antes de 30 días, y cuyo valor real dependa de
+                fluctuaciones del mercado que el comerciante no pueda controlar.
+              </li>
+              <li>
+                Los contratos en los que el consumidor haya solicitado específicamente al comerciante que le visite para
+                efectuar operaciones de reparación o mantenimiento urgente; si, en esa visita, el comerciante presta
+                servicios adicionales a los solicitados específicamente por el consumidor o suministra bienes distintos
+                de las piezas de recambio utilizadas necesariamente para efectuar las operaciones de mantenimiento o
+                reparación, el derecho de desistimiento deberá aplicarse a dichos servicios o bienes adicionales.
+              </li>
+              <li>
+                El suministro de grabaciones sonoras o de vídeo precintadas o de programas informáticos precintados que
+                hayan sido desprecintados por el consumidor después de la entrega.
+              </li>
+              <li>
+                El suministro de prensa diaria, publicaciones periódicas o revistas, con la excepción de los contratos
+                de suscripción para el suministro de tales publicaciones.
+              </li>
+              <li>
+                El suministro de servicios de alojamiento para fines distintos del de servir de vivienda, transporte de
+                bienes, alquiler de vehículos, comida o servicios relacionados con actividades de esparcimiento, si los
+                contratos prevén una fecha o un período de ejecución específicos.
+              </li>
+              <li>
+                El suministro de contenido digital que no se preste en un soporte material cuando la ejecución haya
+                comenzado con el previo consentimiento expreso del consumidor y con el conocimiento por su parte de que
+                en consecuencia pierde su derecho de desistimiento.
+              </li>
             </ol>
 
             <p>
               <strong>Recogida de residuos de aparatos eléctricos y electrónicos</strong>
             </p>
-            <p>De conformidad con lo dispuesto en el Real Decreto 110/2015, de 20 de febrero, sobre residuos de aparatos eléctricos y electrónicos, en el caso de que el cliente haya realizado la compra de un aparato eléctrico o electrónico y desee retirar el aparato antiguo sustituido para su correcto reciclaje, puede, en el caso de que no hubiese solicitado la entrega sin gastos en el mismo momento de la recepción del nuevo aparato, solicitar la recogida en su domicilio en un plazo de 30 días desde su compra dirigiendo un mail a
+            <p>
+              De conformidad con lo dispuesto en el Real Decreto 110/2015, de 20 de febrero, sobre residuos de aparatos
+              eléctricos y electrónicos, en el caso de que el cliente haya realizado la compra de un aparato eléctrico o
+              electrónico y desee retirar el aparato antiguo sustituido para su correcto reciclaje, puede, en el caso de
+              que no hubiese solicitado la entrega sin gastos en el mismo momento de la recepción del nuevo aparato,
+              solicitar la recogida en su domicilio en un plazo de 30 días desde su compra dirigiendo un mail a
               <a href="mailto:atencion@cilsp.com">atencion@cilsp.com</a>
               o puede acceder a
-              <a href="https://punto-limpio.info" target="_blank">http://www.punto-limpio.info</a>, para localizar el punto limpio más cercano a su domicilio para proceder de forma sencilla a dicha retirada.</p>
-            <p>Salvo promociones acogidas a un plazo más amplio, el plazo de desistimiento expirará a los 15 días naturales del día en que adquieras la posesión material de los bienes.</p>
+              <a href="https://punto-limpio.info" target="_blank">http://www.punto-limpio.info</a>, para localizar el
+              punto limpio más cercano a su domicilio para proceder de forma sencilla a dicha retirada.
+            </p>
             <p>
-              <a href="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/desistimiento.pdf?v=1775805875" target="_blank">Documento de desistimiento</a>
+              Salvo promociones acogidas a un plazo más amplio, el plazo de desistimiento expirará a los 15 días
+              naturales del día en que adquieras la posesión material de los bienes.
+            </p>
+            <p>
+              <a
+                href="https://cdn.shopify.com/s/files/1/0979/7097/9145/files/desistimiento.pdf?v=1775805875"
+                target="_blank"
+                >Documento de desistimiento</a
+              >
             </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="siete">7. Garantía</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>El Certificado de Garantía que emite CILMD garantiza la calidad del producto que ampara, en los términos legalmente establecidos, durante un periodo de tres años a partir de la fecha de entrega. No se incluyen las deficiencias ocasionadas por negligencias, golpes, uso o manipulaciones indebidas, tensión no idónea, instalación incorrecta no efectuada por el Servicio Técnico autorizado cuando proceda, ni materiales sometidos a desgaste por su uso normal.</p>
-            <p>El Certificado de Garantía que emite CILMD garantiza la calidad del producto que ampara, en los términos legalmente establecidos, durante un periodo de tres años a partir de la fecha de entrega. No se incluyen las deficiencias ocasionadas por negligencias, golpes, uso o manipulaciones indebidas, tensión no idónea, instalación incorrecta no efectuada por el Servicio Técnico autorizado cuando proceda, ni materiales sometidos a desgaste por su uso normal.</p>
-            <p>En aquellas incidencias que justifiquen el uso de la garantía, se optará por la reparación, sustitución del artículo, rebaja o resolución, en los términos legalmente establecidos. Para hacer uso de la garantía puedes contactar con nosotros en el teléfono de Atención al Cliente o enviarnos un e-mail a la siguiente dirección:
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="siete">7. Garantía</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              El Certificado de Garantía que emite CILMD garantiza la calidad del producto que ampara, en los términos
+              legalmente establecidos, durante un periodo de tres años a partir de la fecha de entrega. No se incluyen
+              las deficiencias ocasionadas por negligencias, golpes, uso o manipulaciones indebidas, tensión no idónea,
+              instalación incorrecta no efectuada por el Servicio Técnico autorizado cuando proceda, ni materiales
+              sometidos a desgaste por su uso normal.
+            </p>
+            <p>
+              El Certificado de Garantía que emite CILMD garantiza la calidad del producto que ampara, en los términos
+              legalmente establecidos, durante un periodo de tres años a partir de la fecha de entrega. No se incluyen
+              las deficiencias ocasionadas por negligencias, golpes, uso o manipulaciones indebidas, tensión no idónea,
+              instalación incorrecta no efectuada por el Servicio Técnico autorizado cuando proceda, ni materiales
+              sometidos a desgaste por su uso normal.
+            </p>
+            <p>
+              En aquellas incidencias que justifiquen el uso de la garantía, se optará por la reparación, sustitución
+              del artículo, rebaja o resolución, en los términos legalmente establecidos. Para hacer uso de la garantía
+              puedes contactar con nosotros en el teléfono de Atención al Cliente o enviarnos un e-mail a la siguiente
+              dirección:
               <a href="mailto:atencion@cilsp.com">atencion@cilsp.com</a>
             </p>
             <p>
               <strong>Garantía comercial adicional para las promociones "101 Noches de Prueba":</strong>
-              en los productos sujetos a esta promoción y adicionalmente al Derecho de Desistimiento antes reconocido, el cliente dispondrá, por lo tanto, durante los 101 días siguientes a la recepción del producto, (15 días de derecho de desistimiento y 86 días adicionales) de la posibilidad de devolver el mismo a CILMD si este no resultase de su agrado, siempre que se encuentre al corriente en las obligaciones de pago y que el producto por retirar se encuentre en buen estado y no presente ningún vicio aparente.</p>
-            <p>Para ejercer este derecho "101 Noches de Prueba", el cliente debe contactar con Atención al Cliente (llamando o enviando un email a
-              <a href="mailto:atencion@cilsp.com">atencion@cilsp.com</a>) e informarnos de su decisión antes de que se produzca el vencimiento de esta garantía comercial adicional. El cliente deberá aportar una fotografía del producto, así como identificar la compra efectuada mediante su número de referencia o datos de su pedido inicial.</p>
-            <p>Los gastos de devolución pasados los primeros 15 días de derecho de desistimiento, cuando así aplicase o que no se deriven de productos defectuosos en garantía, serán por cuenta del cliente, a un coste de 49€ IVA incluido por cada producto devuelto. Dicho coste no contempla ningún gasto logístico extraordinario para proceder a la retirada (por ejemplo, grúa, medios especiales, etc.) de los que el cliente se obliga a informar con carácter previo, asumiendo íntegramente dichos costes. Pasados siete (7) días hábiles desde la recepción en nuestros almacenes del producto adquirido, junto con sus regalos en su caso, se devolverá el importe abonado del mismo mediante transferencia bancaria a la cuenta desde la que el cliente hubiera efectuado la compra y tras verificar que los artículos están en buen estado.</p>
-            <p>El cliente solo será responsable de la disminución de valor de los bienes resultante de una manipulación distinta a la necesaria para establecer la naturaleza, las características y el funcionamiento de los Productos adquiridos, en ese caso, dadas las especiales circunstancias de esta garantía, si el producto se encuentra en mal estado y los daños constatados no son responsabilidad de CILMD (vicio aparente) se aplicará una depreciación del 50% sobre el precio de compra del artículo. La presente garantía adicional sólo aplicará en la primera compra efectuada por el cliente de los productos sometidos a esta promoción.</p>
+              en los productos sujetos a esta promoción y adicionalmente al Derecho de Desistimiento antes reconocido,
+              el cliente dispondrá, por lo tanto, durante los 101 días siguientes a la recepción del producto, (15 días
+              de derecho de desistimiento y 86 días adicionales) de la posibilidad de devolver el mismo a CILMD si este
+              no resultase de su agrado, siempre que se encuentre al corriente en las obligaciones de pago y que el
+              producto por retirar se encuentre en buen estado y no presente ningún vicio aparente.
+            </p>
+            <p>
+              Para ejercer este derecho "101 Noches de Prueba", el cliente debe contactar con Atención al Cliente
+              (llamando o enviando un email a <a href="mailto:atencion@cilsp.com">atencion@cilsp.com</a>) e informarnos
+              de su decisión antes de que se produzca el vencimiento de esta garantía comercial adicional. El cliente
+              deberá aportar una fotografía del producto, así como identificar la compra efectuada mediante su número de
+              referencia o datos de su pedido inicial.
+            </p>
+            <p>
+              Los gastos de devolución pasados los primeros 15 días de derecho de desistimiento, cuando así aplicase o
+              que no se deriven de productos defectuosos en garantía, serán por cuenta del cliente, a un coste de 49€
+              IVA incluido por cada producto devuelto. Dicho coste no contempla ningún gasto logístico extraordinario
+              para proceder a la retirada (por ejemplo, grúa, medios especiales, etc.) de los que el cliente se obliga a
+              informar con carácter previo, asumiendo íntegramente dichos costes. Pasados siete (7) días hábiles desde
+              la recepción en nuestros almacenes del producto adquirido, junto con sus regalos en su caso, se devolverá
+              el importe abonado del mismo mediante transferencia bancaria a la cuenta desde la que el cliente hubiera
+              efectuado la compra y tras verificar que los artículos están en buen estado.
+            </p>
+            <p>
+              El cliente solo será responsable de la disminución de valor de los bienes resultante de una manipulación
+              distinta a la necesaria para establecer la naturaleza, las características y el funcionamiento de los
+              Productos adquiridos, en ese caso, dadas las especiales circunstancias de esta garantía, si el producto se
+              encuentra en mal estado y los daños constatados no son responsabilidad de CILMD (vicio aparente) se
+              aplicará una depreciación del 50% sobre el precio de compra del artículo. La presente garantía adicional
+              sólo aplicará en la primera compra efectuada por el cliente de los productos sometidos a esta promoción.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="ocho">8. Certificados de Calidad</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>Todos nuestros productos de joyería, bisutería y relojería van acompañados de sus correspondientes certificados que acreditan la calidad de los materiales y procedimientos empleados.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="ocho">8. Certificados de Calidad</h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              Todos nuestros productos de joyería, bisutería y relojería van acompañados de sus correspondientes
+              certificados que acreditan la calidad de los materiales y procedimientos empleados.
+            </p>
             <p>
               <strong>Joyería:</strong>
-              Certificado que garantiza la calidad y autenticidad de las Piedras Preciosas utilizadas en su creación.</p>
-            <p>Además, cada joya de oro, plata o platino lleva su contraste oficial que garantiza la proporción en peso en que el metal precioso puro entra en una aleación. Se denomina como primera o segunda ley -también se puede expresar en milésimas o quilates fuera de España- y se indica si el análisis ha sido realizado por un Laboratorio de Ensayo y Contraste de Objetos de Metales Preciosos debidamente homologado.</p>
-            <p>En el caso de joyas de Plata chapadas en Oro, éste se aplica mediante una técnica de joyería consistente en cubrir el metal precioso de base con una o varias láminas de Oro y puede realizarse mediante procesos químicos como el electromagnetismo. En este tipo de chapado, en ocasiones, para un mayor brillo y durabilidad, se añade otro metal como el rodio o el bronce. Las joyas chapadas en Oro mediante esta técnica tienen una relación calidad-precio excelente y su belleza resiste mejor el paso del tiempo.</p>
+              Certificado que garantiza la calidad y autenticidad de las Piedras Preciosas utilizadas en su creación.
+            </p>
+            <p>
+              Además, cada joya de oro, plata o platino lleva su contraste oficial que garantiza la proporción en peso
+              en que el metal precioso puro entra en una aleación. Se denomina como primera o segunda ley -también se
+              puede expresar en milésimas o quilates fuera de España- y se indica si el análisis ha sido realizado por
+              un Laboratorio de Ensayo y Contraste de Objetos de Metales Preciosos debidamente homologado.
+            </p>
+            <p>
+              En el caso de joyas de Plata chapadas en Oro, éste se aplica mediante una técnica de joyería consistente
+              en cubrir el metal precioso de base con una o varias láminas de Oro y puede realizarse mediante procesos
+              químicos como el electromagnetismo. En este tipo de chapado, en ocasiones, para un mayor brillo y
+              durabilidad, se añade otro metal como el rodio o el bronce. Las joyas chapadas en Oro mediante esta
+              técnica tienen una relación calidad-precio excelente y su belleza resiste mejor el paso del tiempo.
+            </p>
             <p>
               <strong>Bisutería:</strong>
-              Certificado que avala la calidad de los materiales y acabados empleados en su elaboración.</p>
-            <p>En el caso de las piezas de bisutería doradas mediante baño de Oro, esta técnica consiste en sumergir la joya en Oro y aplicarle una carga eléctrica positiva para atraer y adherir los iones del Oro al metal utilizado como base. La gran ventaja del baño de Oro es que aporta valor a estas piezas, con un considerable ahorro.</p>
+              Certificado que avala la calidad de los materiales y acabados empleados en su elaboración.
+            </p>
+            <p>
+              En el caso de las piezas de bisutería doradas mediante baño de Oro, esta técnica consiste en sumergir la
+              joya en Oro y aplicarle una carga eléctrica positiva para atraer y adherir los iones del Oro al metal
+              utilizado como base. La gran ventaja del baño de Oro es que aporta valor a estas piezas, con un
+              considerable ahorro.
+            </p>
             <p>
               <strong>Relojería:</strong>
-              Certificado de Autenticidad que acredita la calidad de los materiales y acabados utilizados en su creación, además de su Garantía Internacional.</p>
-            <p>En el caso de los modelos dorados mediante baño IPG/IPRG, este acabado consiste en un proceso físico-químico basado en la ionización, mediante el cual se aplica una capa de Oro (IPG) u Oro rosa (IPRG) de la Ley que se refiera sobre el metal de base. En una primera fase, la superficie a recubrir -habitualmente de Acero 304, Acero 316L, Titanio…- se limpia mediante bombardeo iónico. A continuación, el vapor del Oro -amarillo o rosa- se introduce en ella desde una fuente evaporadora con un nuevo bombardeo de iones. Así se forma una segunda capa sobre el material, que se calienta fuertemente durante el procedimiento. Durante el recubrimiento IP se modifican las propiedades de la nueva capa y se mejora notablemente la durabilidad de la pieza.</p>
+              Certificado de Autenticidad que acredita la calidad de los materiales y acabados utilizados en su
+              creación, además de su Garantía Internacional.
+            </p>
+            <p>
+              En el caso de los modelos dorados mediante baño IPG/IPRG, este acabado consiste en un proceso
+              físico-químico basado en la ionización, mediante el cual se aplica una capa de Oro (IPG) u Oro rosa (IPRG)
+              de la Ley que se refiera sobre el metal de base. En una primera fase, la superficie a recubrir
+              -habitualmente de Acero 304, Acero 316L, Titanio…- se limpia mediante bombardeo iónico. A continuación, el
+              vapor del Oro -amarillo o rosa- se introduce en ella desde una fuente evaporadora con un nuevo bombardeo
+              de iones. Así se forma una segunda capa sobre el material, que se calienta fuertemente durante el
+              procedimiento. Durante el recubrimiento IP se modifican las propiedades de la nueva capa y se mejora
+              notablemente la durabilidad de la pieza.
+            </p>
             <p>
               <strong>Metales preciosos:</strong>
-              se entiende por ley la proporción en peso en que el metal precioso puro se encuentra en una aleación. Además de por su ley, se puede expresar en milésimas (1/1000 partes de peso de la aleación) o en quilates (1/24 partes de peso de la aleación).</p>
-            <div class="tw:overflow-x-auto tw:my-4">
-              <table class="tw:w-full tw:border-collapse tw:border tw:border-gray-200">
+              se entiende por ley la proporción en peso en que el metal precioso puro se encuentra en una aleación.
+              Además de por su ley, se puede expresar en milésimas (1/1000 partes de peso de la aleación) o en quilates
+              (1/24 partes de peso de la aleación).
+            </p>
+            <div class="overflow-x-auto my-4">
+              <table class="w-full border-collapse border border-gray-200">
                 <thead>
-                  <tr class="tw:bg-gray-100">
-                    <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Metal</th>
-                    <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Milésimas</th>
-                    <th class="tw:border tw:border-gray-200 tw:px-4 tw:py-2 tw:text-left">Kilates</th>
+                  <tr class="bg-gray-100">
+                    <th class="border border-gray-200 px-4 py-2 text-left">Metal</th>
+                    <th class="border border-gray-200 px-4 py-2 text-left">Milésimas</th>
+                    <th class="border border-gray-200 px-4 py-2 text-left">Kilates</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Platino</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">950</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">&mdash;</td>
+                    <td class="border border-gray-200 px-4 py-2">Platino</td>
+                    <td class="border border-gray-200 px-4 py-2">950</td>
+                    <td class="border border-gray-200 px-4 py-2">&mdash;</td>
                   </tr>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Oro: primera ley</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">750</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">18K</td>
+                    <td class="border border-gray-200 px-4 py-2">Oro: primera ley</td>
+                    <td class="border border-gray-200 px-4 py-2">750</td>
+                    <td class="border border-gray-200 px-4 py-2">18K</td>
                   </tr>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Oro: segunda ley</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">585</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">14K</td>
+                    <td class="border border-gray-200 px-4 py-2">Oro: segunda ley</td>
+                    <td class="border border-gray-200 px-4 py-2">585</td>
+                    <td class="border border-gray-200 px-4 py-2">14K</td>
                   </tr>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Oro</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">375</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">9K</td>
+                    <td class="border border-gray-200 px-4 py-2">Oro</td>
+                    <td class="border border-gray-200 px-4 py-2">375</td>
+                    <td class="border border-gray-200 px-4 py-2">9K</td>
                   </tr>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Plata: primera ley</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">925</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">&mdash;</td>
+                    <td class="border border-gray-200 px-4 py-2">Plata: primera ley</td>
+                    <td class="border border-gray-200 px-4 py-2">925</td>
+                    <td class="border border-gray-200 px-4 py-2">&mdash;</td>
                   </tr>
                   <tr>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">Plata: segunda ley</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">800</td>
-                    <td class="tw:border tw:border-gray-200 tw:px-4 tw:py-2">&mdash;</td>
+                    <td class="border border-gray-200 px-4 py-2">Plata: segunda ley</td>
+                    <td class="border border-gray-200 px-4 py-2">800</td>
+                    <td class="border border-gray-200 px-4 py-2">&mdash;</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="nueve">9. Derechos y obligaciones del cliente</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>El cliente se compromete en todo momento a facilitar información veraz sobre los datos solicitados en los formularios de registro de usuario o de realización del pedido, y a mantenerlos actualizados en todo momento.</p>
-            <p>El cliente se compromete a abonar el importe del producto efectivamente solicitado en la cuantía y forma establecida.</p>
-            <p>El cliente, al formalizar su pedido, acepta todas las disposiciones y condiciones recogidas en las presentes Condiciones Generales de Contratación.</p>
-            <p>Asimismo, caso de haberle sido facilitadas claves de acceso, se compromete a guardar de forma confidencial y con la máxima diligencia las mismas.</p>
-            <p>El cliente se compromete a posibilitar la entrega del pedido solicitado facilitando una dirección de entrega en la que pueda ser entregado el pedido solicitado dentro del horario habitual de entrega de mercancías (de lunes a viernes de 10:00 a 19,00), y a facilitar un teléfono o dirección de email de contacto válido para confirmar la entrega. En caso de incumplimiento por parte del cliente de esta obligación, CILMD no tendrá ninguna responsabilidad sobre el retraso o imposibilidad de entrega del pedido solicitado por el cliente.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="nueve">
+            9. Derechos y obligaciones del cliente
+          </h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              El cliente se compromete en todo momento a facilitar información veraz sobre los datos solicitados en los
+              formularios de registro de usuario o de realización del pedido, y a mantenerlos actualizados en todo
+              momento.
+            </p>
+            <p>
+              El cliente se compromete a abonar el importe del producto efectivamente solicitado en la cuantía y forma
+              establecida.
+            </p>
+            <p>
+              El cliente, al formalizar su pedido, acepta todas las disposiciones y condiciones recogidas en las
+              presentes Condiciones Generales de Contratación.
+            </p>
+            <p>
+              Asimismo, caso de haberle sido facilitadas claves de acceso, se compromete a guardar de forma confidencial
+              y con la máxima diligencia las mismas.
+            </p>
+            <p>
+              El cliente se compromete a posibilitar la entrega del pedido solicitado facilitando una dirección de
+              entrega en la que pueda ser entregado el pedido solicitado dentro del horario habitual de entrega de
+              mercancías (de lunes a viernes de 10:00 a 19,00), y a facilitar un teléfono o dirección de email de
+              contacto válido para confirmar la entrega. En caso de incumplimiento por parte del cliente de esta
+              obligación, CILMD no tendrá ninguna responsabilidad sobre el retraso o imposibilidad de entrega del pedido
+              solicitado por el cliente.
+            </p>
             <p>En todo caso, será responsabilidad del cliente:</p>
             <ul>
-              <li>a) Asumir todos los riesgos de deterioro, menoscabo, daños y pérdida de los productos desde el momento en que estos hubiesen sido puestos a disposición por el tercero, que por cuenta de CILMD, realiza la entrega del producto solicitado.</li>
-              <li>b) Se reconoce el derecho a verificar el buen estado del paquete ante el tercero que, por cuenta de CILMD, realiza la entrega del producto solicitado, pudiendo indicar en el albarán de entrega cualquier anomalía que pudiera detectar en el embalaje.</li>
+              <li>
+                a) Asumir todos los riesgos de deterioro, menoscabo, daños y pérdida de los productos desde el momento
+                en que estos hubiesen sido puestos a disposición por el tercero, que por cuenta de CILMD, realiza la
+                entrega del producto solicitado.
+              </li>
+              <li>
+                b) Se reconoce el derecho a verificar el buen estado del paquete ante el tercero que, por cuenta de
+                CILMD, realiza la entrega del producto solicitado, pudiendo indicar en el albarán de entrega cualquier
+                anomalía que pudiera detectar en el embalaje.
+              </li>
             </ul>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="diez">10. Seguridad, confidencialidad y política de protección de datos</h2>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="diez">
+            10. Seguridad, confidencialidad y política de protección de datos
+          </h2>
           <div>
-            <p>Ver
-              <a href="/pages/proteccion-de-datos">Política de Protección de Datos</a>.</p>
+            <p>Ver <a href="/pages/proteccion-de-datos">Política de Protección de Datos</a>.</p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="once">11. Uso de Cookies</h2>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="once">11. Uso de Cookies</h2>
           <div>
-            <p>Ver
-              <a href="/pages/politica-de-cookies">Política sobre Uso de Cookies</a>.</p>
+            <p>Ver <a href="/pages/politica-de-cookies">Política sobre Uso de Cookies</a>.</p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="doce">12. Propiedad intelectual e industrial</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>Todos los contenidos (ilustraciones, textos, denominaciones, marcas, imágenes, vídeos) son propiedad de CIL MARKETING DIRECTO, de sus proveedores o colaboradores, no estando permitido cualquier reproducción parcial o total del contenido mediante cualquier procedimiento y en cualquier soporte.</p>
-            <p>Todas las informaciones, los archivos y los programas ofrecidos por nuestro servicio están protegidos por las leyes sobre propiedad industrial, intelectual y el copyright.</p>
-            <p>CILMD no permite ni autoriza la copia, publicación o distribución de todo contenido a terceras personas que no dispongan de derechos de propiedad intelectual. Toda utilización de manera fraudulenta será considerada como delitos relativos a la propiedad industrial e intelectual sancionados por el Código Penal español.</p>
-            <p>CILMD no será responsable de las infracciones realizadas por cualquier usuario de la web que afecten a cualquier otro cliente de la misma, o a terceros, incluyendo las que se refieran a derechos de propiedad intelectual, copyrights, marcas, patentes, información confidencial y/o cualquier otro derecho de propiedad intelectual o industrial.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="doce">
+            12. Propiedad intelectual e industrial
+          </h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              Todos los contenidos (ilustraciones, textos, denominaciones, marcas, imágenes, vídeos) son propiedad de
+              CIL MARKETING DIRECTO, de sus proveedores o colaboradores, no estando permitido cualquier reproducción
+              parcial o total del contenido mediante cualquier procedimiento y en cualquier soporte.
+            </p>
+            <p>
+              Todas las informaciones, los archivos y los programas ofrecidos por nuestro servicio están protegidos por
+              las leyes sobre propiedad industrial, intelectual y el copyright.
+            </p>
+            <p>
+              CILMD no permite ni autoriza la copia, publicación o distribución de todo contenido a terceras personas
+              que no dispongan de derechos de propiedad intelectual. Toda utilización de manera fraudulenta será
+              considerada como delitos relativos a la propiedad industrial e intelectual sancionados por el Código Penal
+              español.
+            </p>
+            <p>
+              CILMD no será responsable de las infracciones realizadas por cualquier usuario de la web que afecten a
+              cualquier otro cliente de la misma, o a terceros, incluyendo las que se refieran a derechos de propiedad
+              intelectual, copyrights, marcas, patentes, información confidencial y/o cualquier otro derecho de
+              propiedad intelectual o industrial.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
 
-          <h2 class="tw:border-b-1 tw:border-gray-100 tw:pb-2 tw:text-left tw:mt-6 tw:mb-3" id="trece">13. Legislación aplicable y jurisdicción competente</h2>
-          <div class="tw:xl:columns-2 tw:gap-6 tw:py-4">
-            <p>Quejas y Reclamaciones: cuando una reclamación presentada directamente por el consumidor al vendedor no pueda ser resuelta, según la normativa vigente, el empresario deberá facilitar al consumidor la información relativa a si se encuentra adherido a una entidad de resolución alternativa de litigios de consumo o si está obligado por una norma o código de conducta a participar en el procedimiento ante una concreta entidad. Por lo que, a continuación, te indicamos cómo puedes canalizar adecuadamente tu reclamación.</p>
-            <p>Como usuario o consumidor final ponemos a tu disposición los teléfonos de atención al cliente, el formulario de contacto y la dirección de e-mail
-              <a href="mailto:atencion@flashea.es">atencion@flashea.es</a>, a fin de que puedas interponer cualquier queja o reclamación, que intentaremos resolver en el plazo de tiempo más breve posible dando el oportuno acuse de recibo. Así mismo, también puedes solicitar información sobre los bienes ofertados o contratados a través de nuestra página web.</p>
+          <h2 class="border-b-1 border-gray-100 pb-2 text-left mt-6 mb-3" id="trece">
+            13. Legislación aplicable y jurisdicción competente
+          </h2>
+          <div class="xl:columns-2 gap-6 py-4">
+            <p>
+              Quejas y Reclamaciones: cuando una reclamación presentada directamente por el consumidor al vendedor no
+              pueda ser resuelta, según la normativa vigente, el empresario deberá facilitar al consumidor la
+              información relativa a si se encuentra adherido a una entidad de resolución alternativa de litigios de
+              consumo o si está obligado por una norma o código de conducta a participar en el procedimiento ante una
+              concreta entidad. Por lo que, a continuación, te indicamos cómo puedes canalizar adecuadamente tu
+              reclamación.
+            </p>
+            <p>
+              Como usuario o consumidor final ponemos a tu disposición los teléfonos de atención al cliente, el
+              formulario de contacto y la dirección de e-mail
+              <a href="mailto:atencion@flashea.es">atencion@flashea.es</a>, a fin de que puedas interponer cualquier
+              queja o reclamación, que intentaremos resolver en el plazo de tiempo más breve posible dando el oportuno
+              acuse de recibo. Así mismo, también puedes solicitar información sobre los bienes ofertados o contratados
+              a través de nuestra página web.
+            </p>
             <p>Las compras realizadas con CILMD se someten a la legislación española.</p>
-            <p>Siempre que no se llegue a un acuerdo aceptado por ambas partes para dirimir cuantas controversias o diferencias pudieran surgir del cumplimiento de lo pactado, las partes se someten a la jurisdicción de los juzgados y tribunales del comprador si tiene la condición de consumidor. En otro caso, el fuero será Madrid capital.</p>
-            <p>Nuestra entidad se encuentra adherida a Confianza Online (Asociación sin ánimo de lucro), inscrita en el Registro Nacional de Asociaciones Grupo 1, Sección 1, número nacional 594400, CIF G85804011, Calle de Velázquez 126, 4º-I, 28006, Madrid (España). Para más información:
-              <a href="https://www.confianzaonline.es" target="_blank">www.confianzaonline.es</a>.</p>
-            <p>Estas Condiciones Generales se rigen por la ley española. Así mismo, en cumplimiento de lo dispuesto en la Ley de Resolución Alternativa de Litigios, informamos a los consumidores que, como entidad adherida y en los términos del Código de Conducta, los usuarios podrán acudir a Confianza Online para la resolución alternativa de eventuales controversias (<a href="https://www.confianzaonline.es/como-reclamar/formulario-de-reclamaciones/" target="_blank">Formulario de reclamaciones</a>). Si éstas se refieren a transacciones electrónicas con consumidores, o sobre protección de datos cuando estén relacionadas con este ámbito, las reclamaciones serán resueltas por el Comité de Mediación de Confianza Online, acreditado para la resolución alternativa de litigios en materia de consumo. Si las reclamaciones versan sobre publicidad digital, o sobre protección de datos relacionada con este ámbito, serán sometidas al Jurado de la Publicidad de AUTOCONTROL.</p>
-            <p>Existen hojas de reclamaciones a disposición del consumidor.
-              <a href="https://www.comunidad.madrid/servicios/consumo/solicitud-hojas-reclamaciones-sistema-unificado-reclamaciones-establecimientos-empresarios" target="_blank">Modelo Hoja reclamaciones</a>.</p>
+            <p>
+              Siempre que no se llegue a un acuerdo aceptado por ambas partes para dirimir cuantas controversias o
+              diferencias pudieran surgir del cumplimiento de lo pactado, las partes se someten a la jurisdicción de los
+              juzgados y tribunales del comprador si tiene la condición de consumidor. En otro caso, el fuero será
+              Madrid capital.
+            </p>
+            <p>
+              Nuestra entidad se encuentra adherida a Confianza Online (Asociación sin ánimo de lucro), inscrita en el
+              Registro Nacional de Asociaciones Grupo 1, Sección 1, número nacional 594400, CIF G85804011, Calle de
+              Velázquez 126, 4º-I, 28006, Madrid (España). Para más información:
+              <a href="https://www.confianzaonline.es" target="_blank">www.confianzaonline.es</a>.
+            </p>
+            <p>
+              Estas Condiciones Generales se rigen por la ley española. Así mismo, en cumplimiento de lo dispuesto en la
+              Ley de Resolución Alternativa de Litigios, informamos a los consumidores que, como entidad adherida y en
+              los términos del Código de Conducta, los usuarios podrán acudir a Confianza Online para la resolución
+              alternativa de eventuales controversias (<a
+                href="https://www.confianzaonline.es/como-reclamar/formulario-de-reclamaciones/"
+                target="_blank"
+                >Formulario de reclamaciones</a
+              >). Si éstas se refieren a transacciones electrónicas con consumidores, o sobre protección de datos cuando
+              estén relacionadas con este ámbito, las reclamaciones serán resueltas por el Comité de Mediación de
+              Confianza Online, acreditado para la resolución alternativa de litigios en materia de consumo. Si las
+              reclamaciones versan sobre publicidad digital, o sobre protección de datos relacionada con este ámbito,
+              serán sometidas al Jurado de la Publicidad de AUTOCONTROL.
+            </p>
+            <p>
+              Existen hojas de reclamaciones a disposición del consumidor.
+              <a
+                href="https://www.comunidad.madrid/servicios/consumo/solicitud-hojas-reclamaciones-sistema-unificado-reclamaciones-establecimientos-empresarios"
+                target="_blank"
+                >Modelo Hoja reclamaciones</a
+              >.
+            </p>
           </div>
-          <p class="tw:text-right">
-            <a href="#indice" class="tw:inline-block tw:px-4 tw:py-2 tw:text-sm tw:bg-gray-200 tw:hover:bg-gray-300">Volver al índice</a>
+          <p class="text-right">
+            <a href="#indice" class="inline-block px-4 py-2 text-sm bg-gray-200 hover:bg-gray-300">Volver al índice</a>
           </p>
-
         </div>
       </div>
-
     </div>
   </div>
 {% endif %}
 
 {% schema %}
-  {
-    "name": "t:sections.section-page.name",
-    "tag": "section",
-    "class": "section x-section x-section-page",
-    "settings": [
-      {
-        "id": "show_heading",
-        "type": "checkbox",
-        "label": "t:sections.main-page.settings.show_heading.label",
-        "info": "t:sections.main-page.settings.show_heading.info",
-        "default": true
-      },
-      {
-        "type": "range",
-        "id": "heading_size",
-        "min": 50,
-        "max": 200,
-        "step": 10,
-        "unit": "%",
-        "label": "t:sections.all.text.page_heading_size",
-        "default": 170,
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "select",
-        "id": "heading_tag",
-        "default": "h1",
-        "label": "t:sections.all.text.heading_tag",
-        "options": [
-          {
-            "value": "h1",
-            "label": "H1"
-          },
-          {
-            "value": "h2",
-            "label": "H2"
-          },
-          {
-            "value": "h3",
-            "label": "H3"
-          },
-          {
-            "value": "h4",
-            "label": "H4"
-          },
-          {
-            "value": "h5",
-            "label": "H5"
-          },
-          {
-            "value": "h6",
-            "label": "H6"
-          },
-          {
-            "value": "p",
-            "label": "p"
-          }
-        ],
-        "visible_if": "{{ section.settings.show_heading }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.breadcrumbs.label"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.show_breadcrumbs"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_breadcrumbs_border",
-        "default": false,
-        "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width_breadcrumb",
-        "default": true,
-        "label": "t:settings_schema.search_navigation.full_width",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "desktop_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "select",
-        "id": "mobile_content_alignment",
-        "options": [
-          {
-            "value": "text-left",
-            "label": "t:sections.all.content_alignment.options__1.label"
-          },
-          {
-            "value": "text-center",
-            "label": "t:sections.all.content_alignment.options__2.label"
-          },
-          {
-            "value": "text-right",
-            "label": "t:sections.all.content_alignment.options__3.label"
-          }
-        ],
-        "default": "text-left",
-        "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_light",
-        "default": "#f2f2f2",
-        "label": "t:sections.all.background.background_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_light",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_light",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "background_color_dark",
-        "default": "#313131",
-        "label": "t:sections.all.background.background_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "text_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.all.text.color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "color",
-        "id": "textlink_color_dark",
-        "default": "rgba(0,0,0,0)",
-        "label": "t:sections.main-collection-banner.block.textlink_color_dark",
-        "visible_if": "{{ section.settings.show_breadcrumbs }}"
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_padding_heading"
-      },
-      {
-        "type": "range",
-        "id": "max_container_page_width",
-        "min": 50,
-        "max": 100,
-        "step": 5,
-        "unit": "%",
-        "label": "t:settings_schema.layout.page_width",
-        "default": 100
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 28
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 28
-      },
-      {
-        "type": "header",
-        "content": "t:sections.all.padding.section_layout_mobile"
-      },
-      {
-        "type": "range",
-        "id": "padding_top_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_top",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom_mobile",
-        "min": 0,
-        "max": 100,
-        "step": 4,
-        "unit": "px",
-        "label": "t:sections.all.padding.padding_bottom",
-        "default": 20
-      }
-    ]
-  }
+{
+  "name": "t:sections.section-page.name",
+  "tag": "section",
+  "class": "section x-section x-section-page",
+  "settings": [
+    {
+      "id": "show_heading",
+      "type": "checkbox",
+      "label": "t:sections.main-page.settings.show_heading.label",
+      "info": "t:sections.main-page.settings.show_heading.info",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 50,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.all.text.page_heading_size",
+      "default": 170,
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "default": "h1",
+      "label": "t:sections.all.text.heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "p",
+          "label": "p"
+        }
+      ],
+      "visible_if": "{{ section.settings.show_heading }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.breadcrumbs.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.show_breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs_border",
+      "default": false,
+      "label": "t:settings_schema.search_navigation.show_breadcrumb_borders",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width_breadcrumb",
+      "default": true,
+      "label": "t:settings_schema.search_navigation.full_width",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.desktop_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "text-left",
+          "label": "t:sections.all.content_alignment.options__1.label"
+        },
+        {
+          "value": "text-center",
+          "label": "t:sections.all.content_alignment.options__2.label"
+        },
+        {
+          "value": "text-right",
+          "label": "t:sections.all.content_alignment.options__3.label"
+        }
+      ],
+      "default": "text-left",
+      "label": "t:sections.main-collection-banner.settings.mobile_content_alignment.label",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_light",
+      "default": "#f2f2f2",
+      "label": "t:sections.all.background.background_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_light",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_light",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color_dark",
+      "default": "#313131",
+      "label": "t:sections.all.background.background_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "text_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.all.text.color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "color",
+      "id": "textlink_color_dark",
+      "default": "rgba(0,0,0,0)",
+      "label": "t:sections.main-collection-banner.block.textlink_color_dark",
+      "visible_if": "{{ section.settings.show_breadcrumbs }}"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "max_container_page_width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "t:settings_schema.layout.page_width",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_layout_mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ]
+}
 {% endschema %}

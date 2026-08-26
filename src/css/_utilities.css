@@ -19,3 +19,35 @@
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
+
+.contenidos-estaticos {
+  @apply max-w-9xl mx-auto;
+
+  p {
+    @apply mb-4;
+  }
+  h2 {
+    @apply text-2xl font-semibold mb-4;
+  }
+  h3 {
+    @apply text-xl font-medium mb-3;
+  }
+  ul {
+    @apply list-disc pl-6 mb-4;
+  }
+  li {
+    @apply mb-2;
+  }
+  a {
+  }
+  table {
+    @apply w-full border-collapse my-4;
+  }
+  th,
+  td {
+    @apply border border-gray-200 px-4 py-2 text-left;
+  }
+  thead {
+    @apply bg-gray-100;
+  }
+}

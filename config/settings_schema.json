@@ -8,6 +8,29 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Google Tag Manager",
+    "settings": [
+      {
+        "type": "text",
+        "id": "google_analytics_id",
+        "label": "Id Google Tag Manager",
+        "placeholder": "GTM-XXXXXXXXx",
+        "info": "Introduce tu ID de google tag manager"
+      }
+    ]
+  },
+  {
+    "name": "Contenidos Footer",
+    "settings": [
+      {
+        "label": "Frase copyright",
+        "type": "text",
+        "id": "frase_copyright",
+        "placeholder": "2006 - Alan Byron"
+      }
+    ]
+  },
+  {
     "name": "Logo",
     "settings": [
       {
@@ -253,8 +276,7 @@
         "id": "aniadir_carro_en_coleccion",
         "label": "Mostrar compra en colección",
         "default": true
-      },
-
+      }
     ]
   }
 ]
