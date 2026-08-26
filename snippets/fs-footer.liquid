@@ -26,12 +26,13 @@
 
     <div class="w-1/2 flex flex-wrap md:flex-nowrap justify-between">
       <div>
-        <h2 class="font-semibold text-gray-900 mb-5">RESOURCES</h2>
-        <ul class="text-sm text-gray-500 space-y-2 list-none">
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Tutorials</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Community</a></li>
+        <h2 class="font-semibold text-gray-900 mb-5">Información corporativa</h2>
+        <ul>
+          {% for link in linklists['men-info-corporativa'].links %}
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
       <div>

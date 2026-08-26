@@ -36,9 +36,12 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {%- render 'font-face' -%}
+
     {{ content_for_header }}
 
     {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'dev.css' | asset_url | stylesheet_tag }}
 
     <script>
       if (Shopify.designMode) {

@@ -1,0 +1,19 @@
+{%- style -%}
+  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+  {{ settings.type_menu_font | font_face: font_display: 'swap' }}
+  {{ settings.type_button_font | font_face: font_display: 'swap' }}
+  {{ settings.heading_highlight_font | font_face: font_display: 'swap' }}
+
+  {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
+
+  :root {
+    --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+    --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    --font-menu-family: {{ settings.type_menu_font.family }}, {{ settings.type_menu_font.fallback_families }};
+    --font-button-family: {{ settings.type_button_font.family }}, {{ settings.type_button_font.fallback_families }};
+    --font-highlight-family: {{ settings.heading_highlight_font.family }}, {{ settings.heading_highlight_font.fallback_families }};
+  }
+{%- endstyle -%}

@@ -1,50 +1,9 @@
 /*
   =============================================================================
-  CATEGORÍA: Declaración de Fuentes Locales (@font-face)
+  CATEGORÍA: Fuentes (Generadas automáticamente por Shopify)
   =============================================================================
-  Aquí se declaran las fuentes físicas autohospedadas en formato .woff2.
-  Los archivos de fuentes deben colocarse en la carpeta 'src/fonts/'.
+  Los @font-face se generan ahora mediante el snippet 'font-face.liquid'
+  usando el filtro font_face de Shopify. No declarar @font-face aquí.
+
+  Las fuentes se eligen desde: Theme Editor → Tipografía
 */
-
-/* 1. OUTFIT (Para Títulos y Encabezados) */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/outfit-500.woff2') format('woff2');
-}
-
-/* 2. PLUS JAKARTA SANS (Para Cuerpo de Texto) */
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/plus-jakarta-sans-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/plus-jakarta-sans-500.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../fonts/plus-jakarta-sans-600.woff2') format('woff2');
-}
-
-/* 3. JETBRAINS MONO (Para Datos y Elementos Código) */
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/jetbrains-mono-500.woff2') format('woff2');
-}

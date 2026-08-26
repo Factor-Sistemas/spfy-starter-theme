@@ -167,6 +167,73 @@
     ]
   },
   {
+    "name": "Tipografía",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Encabezados"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "outfit_n5",
+        "label": "Fuente de encabezados"
+      },
+      {
+        "type": "range",
+        "id": "heading_base_size",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Tamaño base de encabezados",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Cuerpo"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "jost_n4",
+        "label": "Fuente del cuerpo"
+      },
+      {
+        "type": "range",
+        "id": "text_base_size",
+        "min": 50,
+        "max": 200,
+        "step": 10,
+        "unit": "%",
+        "label": "Tamaño base del texto",
+        "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Otros"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_menu_font",
+        "default": "jost_n5",
+        "label": "Fuente del menú"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_button_font",
+        "default": "jost_n6",
+        "label": "Fuente de botones"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_highlight_font",
+        "default": "outfit_n6",
+        "label": "Fuente de textos destacados"
+      }
+    ]
+  },
+  {
     "name": "Carrito",
     "settings": [
       {
