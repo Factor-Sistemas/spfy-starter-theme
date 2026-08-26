@@ -23,16 +23,94 @@
     "name": "Contenidos Footer",
     "settings": [
       {
-        "label": "Frase copyright",
-        "type": "text",
-        "id": "frase_copyright",
-        "placeholder": "2006 - Alan Byron"
+        "type": "header",
+        "content": "Marca"
       },
       {
-        "label": "Frase formas de pago",
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "footer_logo_width",
+        "min": 50,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "default": 120,
+        "label": "Ancho logo"
+      },
+      {
+        "type": "textarea",
+        "id": "footer_brand_description",
+        "label": "Descripción"
+      },
+      {
+        "type": "header",
+        "content": "Email"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_email_icon",
+        "label": "Icono"
+      },
+      {
         "type": "text",
-        "id": "frase_forma_pago",
-        "placeholder": "Formas de pago"
+        "id": "footer_email_title",
+        "label": "Título"
+      },
+      {
+        "type": "text",
+        "id": "footer_email_link",
+        "label": "Email / Enlace"
+      },
+      {
+        "type": "header",
+        "content": "Teléfono"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_phone_icon",
+        "label": "Icono"
+      },
+      {
+        "type": "text",
+        "id": "footer_phone_title",
+        "label": "Título"
+      },
+      {
+        "type": "text",
+        "id": "footer_phone_link",
+        "label": "Teléfono / Enlace"
+      },
+      {
+        "type": "header",
+        "content": "Horario"
+      },
+      {
+        "type": "image_picker",
+        "id": "footer_schedule_icon",
+        "label": "Icono"
+      },
+      {
+        "type": "text",
+        "id": "footer_schedule_title",
+        "label": "Título"
+      },
+      {
+        "type": "text",
+        "id": "footer_schedule_text",
+        "label": "Texto Horario"
+      },
+      {
+        "type": "header",
+        "content": "Copyright"
+      },
+      {
+        "type": "text",
+        "id": "frase_copyright",
+        "label": "Texto Copyright"
       }
     ]
   },
