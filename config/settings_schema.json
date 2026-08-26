@@ -27,6 +27,12 @@
         "type": "text",
         "id": "frase_copyright",
         "placeholder": "2006 - Alan Byron"
+      },
+      {
+        "label": "Frase formas de pago",
+        "type": "text",
+        "id": "frase_forma_pago",
+        "placeholder": "Formas de pago"
       }
     ]
   },
