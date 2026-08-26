@@ -24,6 +24,24 @@
     "settings": [
       {
         "type": "header",
+        "content": "Copyright"
+      },
+      {
+        "type": "text",
+        "id": "frase_copyright",
+        "label": "Texto Copyright"
+      },
+      {
+        "type": "header",
+        "content": "Pagos"
+      },
+      {
+        "type": "text",
+        "id": "frase_forma_pago",
+        "label": "Texto formas de pago"
+      },
+      {
+        "type": "header",
         "content": "Marca"
       },
       {
@@ -105,15 +123,6 @@
         "type": "text",
         "id": "footer_schedule_text",
         "label": "Texto Horario"
-      },
-      {
-        "type": "header",
-        "content": "Copyright"
-      },
-      {
-        "type": "text",
-        "id": "frase_copyright",
-        "label": "Texto Copyright"
       }
     ]
   },
