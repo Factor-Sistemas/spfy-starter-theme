@@ -1,0 +1,47 @@
+{%- case dim -%}
+  {%- when 'xs' -%}
+    {%- assign cls = 'size-8' -%}
+    {%- assign w = '32px' -%}
+    {%- assign h = '32px' -%}
+  {%- when 'sm' -%}
+    {%- assign cls = 'size-10' -%}
+    {%- assign w = '40px' -%}
+    {%- assign h = '40px' -%}
+  {%- when 'md' -%}
+    {%- assign cls = 'size-12' -%}
+    {%- assign w = '48px' -%}
+    {%- assign h = '48px' -%}
+  {%- when 'lg' -%}
+    {%- assign cls = 'size-16' -%}
+    {%- assign w = '64px' -%}
+    {%- assign h = '64px' -%}
+  {%- when 'xl' -%}
+    {%- assign cls = 'size-20' -%}
+    {%- assign w = '80px' -%}
+    {%- assign h = '80px' -%}
+  {%- when '2xl' -%}
+    {%- assign cls = 'size-24' -%}
+    {%- assign w = '96px' -%}
+    {%- assign h = '96px' -%}
+  {%- when '3xl' -%}
+    {%- assign cls = 'size-32' -%}
+    {%- assign w = '128px' -%}
+    {%- assign h = '128px' -%}
+  {%- else -%}
+    {%- assign cls = 'size-12' -%}
+    {%- assign w = '48px' -%}
+    {%- assign h = '48px' -%}
+{%- endcase -%}
+
+<div class="{{ cls }}">
+  <svg
+    fill="#000000"
+    width="{{ w }}"
+    height="{{ h }}"
+    viewBox="0 0 32 32"
+    id="icon"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs><style>.cls-1{fill:none;}</style></defs><title>logo--slack</title><path d="M9.0423,19.1661A2.5212,2.5212,0,1,1,6.5212,16.645H9.0423Z"/><path d="M10.3127,19.1661a2.5212,2.5212,0,0,1,5.0423,0v6.3127a2.5212,2.5212,0,1,1-5.0423,0Z"/><path d="M12.8339,9.0423A2.5212,2.5212,0,1,1,15.355,6.5212V9.0423Z"/><path d="M12.8339,10.3127a2.5212,2.5212,0,0,1,0,5.0423H6.5212a2.5212,2.5212,0,1,1,0-5.0423Z"/><path d="M22.9577,12.8339a2.5212,2.5212,0,1,1,2.5211,2.5211H22.9577Z"/><path d="M21.6873,12.8339a2.5212,2.5212,0,0,1-5.0423,0V6.5212a2.5212,2.5212,0,1,1,5.0423,0Z"/><path d="M19.1661,22.9577a2.5212,2.5212,0,1,1-2.5211,2.5211V22.9577Z"/><path d="M19.1661,21.6873a2.5212,2.5212,0,0,1,0-5.0423h6.3127a2.5212,2.5212,0,1,1,0,5.0423Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
+  </svg>
+</div>
