@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -29,18 +38,12 @@
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {}
     },
     "rich_text": {
       "type": "rich-text",
@@ -55,68 +58,46 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
         }
       },
-      "block_order": ["heading", "text"],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {}
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "heading_size": "h2",
         "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
         "modo_visualizacion_productos": "slider",
-        "bagdet_text": "Recién llegados",
+        "products_to_show": 8,
+        "title": "Los más vendidos",
         "bagdet_destacar": true,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36,
-        "title": "Los más vendidos"
+        "bagdet_text": "Recién llegados",
+        "heading_size": "h2",
+        "show_view_all": false
       }
     },
     "featured_collection_b25": {
       "type": "featured-collection",
       "settings": {
-        "heading_size": "h2",
         "collection": "ofertas-de-verano",
         "modo_visualizacion_productos": "grid",
         "products_to_show": 8,
-        "columns_desktop": 4,
+        "title": "Quedan pocas unidades",
         "bagdet_destacar": false,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36,
-        "title": "Quedan pocas unidades"
+        "heading_size": "h2",
+        "show_view_all": false
       }
-    },
+    }
   },
   "order": [
     "image_banner",
     "rich_text",
     "featured_collection",
-    "featured_collection_b25",
+    "featured_collection_b25"
   ]
 }
