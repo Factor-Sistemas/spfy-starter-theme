@@ -75,49 +75,41 @@ a:hover {
   color: var(--color-brand-accent);
 }
 
-/* 7. BOTONES (Componentes por Rol) */
+/* 7. BOTONES (Componentes por Variante) */
 .btn {
-  @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold text-sm transition-colors duration-200 rounded-[--btn-radius];
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold text-sm transition-colors duration-200;
+  border-radius: var(--btn-radius);
 }
 
-/* Main CTA (Principal) */
-.btn--main {
-  background-color: var(--btn-main-bg);
-  color: var(--btn-main-text);
+/* Primary (Solid / CTA) */
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
 }
-.btn--main:hover {
-  background-color: var(--btn-main-hover-bg);
+.btn--primary:hover {
+  background-color: var(--btn-primary-bg-hover);
 }
 
-/* Secondary (Secundario/Outline) */
+/* Secondary (Outline) */
 .btn--secondary {
   background-color: var(--btn-secondary-bg);
   color: var(--btn-secondary-text);
-  border: 1px solid var(--btn-secondary-border);
+  border: 1px solid var(--btn-secondary-text);
 }
 .btn--secondary:hover {
-  background-color: var(--btn-secondary-hover-bg);
-  color: var(--btn-secondary-hover-text);
+  background-color: var(--btn-secondary-bg-hover);
+  color: var(--btn-secondary-text);
 }
 
-/* Cancel (Cancelar/Ghost) */
-.btn--cancel {
-  background: transparent;
-  color: var(--btn-cancel-text);
-  border: none;
-}
-.btn--cancel:hover {
-  background-color: var(--btn-cancel-hover-bg);
-  color: var(--btn-cancel-hover-text);
+/* Estados Disabled */
+.btn--primary:disabled {
+  background-color: var(--btn-primary-disabled);
+  color: var(--btn-primary-text-disabled);
+  pointer-events: none;
 }
 
-/* Destructive (Eliminar) */
-.btn--destructive {
-  background-color: var(--btn-destructive-bg);
-  color: var(--btn-destructive-text);
-}
-
-.btn:disabled {
-  opacity: var(--btn-disabled-opacity);
+.btn--secondary:disabled {
+  border-color: var(--btn-secondary-disabled);
+  color: var(--btn-secondary-text-disabled);
   pointer-events: none;
 }

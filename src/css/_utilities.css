@@ -51,6 +51,14 @@
     @apply bg-gray-100;
   }
   a.button-scroll {
-    @apply btn btn-primary hover:btn-secondary;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold text-sm transition-colors duration-200;
+    
+    border-radius: var(--btn-radius);
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+  }
+
+  a.button-scroll:hover {
+    background-color: var(--btn-primary-bg-hover);
   }
 }

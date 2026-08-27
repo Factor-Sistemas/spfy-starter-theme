@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1600 520"
+     role="img"
+     aria-label="Adrian Byron">
+
+  <rect width="1600" height="520" fill="white"/>
+
+  <!-- Monograma AB -->
+  <g fill="none"
+     stroke="#000"
+     stroke-linecap="square"
+     stroke-linejoin="miter">
+
+    <!-- A estilizada -->
+    <path d="M735 65 L795 265" stroke-width="30"/>
+    <path d="M720 190 L825 190" stroke-width="7"/>
+
+    <!-- B superior e inferior -->
+    <path d="M780 90 H850
+             C920 90 920 190 850 190
+             H780"
+          stroke-width="7"/>
+
+    <path d="M805 190 H850
+             C935 190 935 300 850 300
+             H805"
+          stroke-width="7"/>
+  </g>
+
+  <!-- Texto -->
+  <text x="48"
+        y="484"
+        fill="#000"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="180"
+        font-weight="700"
+        letter-spacing="2">
+    ADRIAN BYRON
+  </text>
+</svg>
