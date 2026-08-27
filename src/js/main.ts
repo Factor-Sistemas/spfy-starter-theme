@@ -8,6 +8,7 @@ import './classes/ProductCardBuy';
 import './classes/FsTrackingFields';
 import './classes/FsToast';
 import './classes/FeaturedCollectionSlider';
+import './classes/ImageBannerSlider';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);

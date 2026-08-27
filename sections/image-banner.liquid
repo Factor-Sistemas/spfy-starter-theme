@@ -1,283 +1,321 @@
 {%- liquid
-  assign full_width = '100vw'
-  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-  assign half_width = '50vw'
-  assign stacked_sizes = '(min-width: 750px) 50vw, 100vw'
+  assign selected_collection = section.settings.collection
+  assign products_limit = section.settings.products_to_show | default: 5
   assign fetch_priority = 'auto'
   if section.index == 1
     assign fetch_priority = 'high'
   endif
 -%}
 
-<div
+{%- style -%}
+  #Banner-{{ section.id }} .banner-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(18, 18, 18, {{ section.settings.overlay_opacity | divided_by: 100.0 | times: 1.2 | at_most: 0.95 }}),
+      rgba(18, 18, 18, {{ section.settings.overlay_opacity | divided_by: 100.0 | times: 0.5 }})
+    );
+  }
+{%- endstyle -%}
+
+<image-banner-slider
   id="Banner-{{ section.id }}"
-  class="relative flex flex-col md:flex-row isolate overflow-hidden
-    md:min-h-[56rem]
-    after:content-[''] after:absolute after:inset-0 after:bg-black after:z-[1] after:opacity-30
-    {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  class="block relative w-full overflow-hidden bg-surface-dark text-on-dark min-h-[520px] sm:min-h-[600px] md:min-h-[700px]"
+  slider-id="{{ section.id }}"
+  autoplay="{{ section.settings.enable_autoplay }}"
+  autoplay-delay="{{ section.settings.autoplay_delay | times: 1000 }}"
+  effect="{{ section.settings.transition_effect }}"
 >
-  {%- if section.settings.image != blank -%}
-    <div class="{% if section.settings.image_2 != blank %}max-md:relative max-md:w-full{% endif %} md:absolute md:inset-0 md:w-full md:h-full{% if section.settings.image_2 != blank %} md:w-1/2{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {%- liquid
-        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
-        if section.settings.image_2 != blank
-          assign sizes = stacked_sizes
-        else
-          assign sizes = full_width
-        endif
-      -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          height: image_height,
-          class: 'max-md:w-full max-md:h-auto md:w-full md:h-full md:object-cover',
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
-    </div>
-  {%- elsif section.settings.image_2 == blank -%}
-    <div class="md:absolute md:inset-0 md:w-full md:h-full{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg max-md:w-full max-md:h-auto md:w-full md:h-full' }}
-    </div>
-  {%- endif -%}
-  {%- if section.settings.image_2 != blank -%}
-    <div class="max-md:relative max-md:w-full md:absolute md:inset-0 md:w-1/2 md:left-auto md:right-0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {%- liquid
-        assign image_height_2 = section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio
-        if section.settings.image != blank
-          assign sizes = stacked_sizes
-        else
-          assign sizes = full_width
-        endif
-      -%}
-      {{
-        section.settings.image_2
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image_2.width,
-          height: image_height_2,
-          class: 'max-md:w-full max-md:h-auto md:w-full md:h-full md:object-cover',
-          sizes: sizes,
-          widths: widths,
-          fetchpriority: fetch_priority
-      }}
-    </div>
-  {%- endif -%}
-  <div class="relative z-[2] flex items-center justify-center w-full p-0 max-w-[var(--page-width)] mx-auto px-4 md:px-20{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    <div class="relative z-10 w-full text-center p-8 md:p-14 max-w-[71rem] md:min-w-[45rem] bg-surface-card border border-hairline rounded-lg">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'heading' -%}
-            <h2
-              class="mt-0 mb-0 {% case block.settings.heading_size %}{% when 'h2' %}text-title-lg{% when 'h1' %}text-display-sm{% when 'h0' %}text-display-md{% when 'hxl' %}text-display-lg{% when 'hxxl' %}text-display-xl{% endcase %}"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.heading }}
-            </h2>
-          {%- when 'text' -%}
-            <div class="mt-4 {% case block.settings.text_style %}{% when 'subtitle' %}text-title-md{% when 'caption-with-letter-spacing' %}text-caption-uppercase{% else %}text-body-md{% endcase %}" {{ block.shopify_attributes }}>
-              <p>{{ block.settings.text }}</p>
-            </div>
-          {%- when 'buttons' -%}
-            <div
-              class="inline-flex flex-wrap gap-4 max-w-[45rem] break-words mt-6{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} [&>*]:grow [&>*]:min-w-[22rem]{% endif %}"
-              {{ block.shopify_attributes }}
-            >
-              {%- if block.settings.button_label_1 != blank -%}
-                <a
-                  {% if block.settings.button_link_1 == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ block.settings.button_link_1 }}"
-                  {% endif %}
-                  class="inline-flex items-center justify-center px-5 py-3 h-11 min-w-[calc(12rem+2px)] no-underline cursor-pointer text-button font-button leading-none rounded-md{% if block.settings.button_style_secondary_1 %} bg-canvas text-ink border border-hairline{% else %} bg-primary text-on-primary{% endif %}"
-                >
-                  {{- block.settings.button_label_1 | escape -}}
-                </a>
+  <div class="swiper w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px]">
+    <div class="swiper-wrapper">
+      {%- if selected_collection != blank and selected_collection.products_count > 0 -%}
+        {%- for product in selected_collection.products limit: products_limit -%}
+          {%- liquid
+            assign product_video = product.media | where: 'media_type', 'video' | first
+            if product_video == blank
+              assign product_video = product.media | where: 'media_type', 'external_video' | first
+            endif
+          -%}
+          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
+            {%- comment -%} FOTO O VÍDEO DE FONDO A PANTALLA COMPLETA {%- endcomment -%}
+            {%- if product_video != blank -%}
+              <div class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+                {{ product_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'w-full h-full object-cover' }}
+              </div>
+            {%- elsif product.featured_media != blank -%}
+              <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
+                {{
+                  product.featured_media
+                  | image_url: width: 3840
+                  | image_tag:
+                    loading: 'lazy',
+                    fetchpriority: fetch_priority,
+                    sizes: '100vw',
+                    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                    class: 'w-full h-full object-cover'
+                }}
+              </div>
+            {%- else -%}
+              <div class="absolute inset-0 w-full h-full z-0 bg-surface-dark flex items-center justify-center">
+                {{ 'hero-apparel-1' | placeholder_svg_tag: 'w-full h-full object-cover opacity-40' }}
+              </div>
+            {%- endif -%}
+
+            {%- comment -%} CAPA DE OSCURECIMIENTO GRADIENTE {%- endcomment -%}
+            <div class="absolute inset-0 z-[1] banner-overlay pointer-events-none"></div>
+
+            {%- comment -%} CONTENIDO PRINCIPAL CENTRADO {%- endcomment -%}
+            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 py-16 flex flex-col items-center text-center">
+              {%- if product.vendor != blank -%}
+                <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
+                  {{ product.vendor }}
+                </span>
               {%- endif -%}
-              {%- if block.settings.button_label_2 != blank -%}
-                <a
-                  {% if block.settings.button_link_2 == blank %}
-                    role="link" aria-disabled="true"
-                  {% else %}
-                    href="{{ block.settings.button_link_2 }}"
-                  {% endif %}
-                  class="inline-flex items-center justify-center px-5 py-3 h-11 min-w-[calc(12rem+2px)] no-underline cursor-pointer text-button font-button leading-none rounded-md{% if block.settings.button_style_secondary_2 %} bg-canvas text-ink border border-hairline{% else %} bg-primary text-on-primary{% endif %}"
-                >
-                  {{- block.settings.button_label_2 | escape -}}
-                </a>
+
+              {%- comment -%} TÍTULO DEL PRODUCTO {%- endcomment -%}
+              <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
+                {{ product.title | escape }}
+              </h2>
+
+              {%- comment -%} TEXTO DE INTRODUCCIÓN (MÓVIL / ESCRITORIO) {%- endcomment -%}
+              {%- assign product_desc = product.description | strip_html | truncatewords: 22 -%}
+              {%- if product_desc != blank -%}
+                <p class="max-w-2xl mx-auto mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                  {{ product_desc }}
+                </p>
               {%- endif -%}
+
+              {%- comment -%} PRECIO Y BOTÓN {%- endcomment -%}
+              <div class="flex flex-col sm:flex-row items-center gap-4">
+                <span class="text-title-lg font-semibold text-white">
+                  {{ product.price | money }}
+                </span>
+                {%- if section.settings.button_label != blank -%}
+                  <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg transition-transform duration-300 hover:scale-105">
+                    {{ section.settings.button_label | escape }}
+                  </span>
+                {%- endif -%}
+              </div>
             </div>
-        {%- endcase -%}
-      {%- endfor -%}
+
+            {%- comment -%} ENLACE INTEGRAL A LA FICHA DEL PRODUCTO {%- endcomment -%}
+            <a
+              href="{{ product.url }}"
+              class="absolute inset-0 z-20 block w-full h-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-white"
+              aria-label="{{ product.title | escape }}"
+            >
+              <span class="sr-only">{{ product.title | escape }}</span>
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} DEMO SLIDES (CUANDO NO HAY COLECCIÓN SELECCIONADA) {%- endcomment -%}
+        {%- for i in (1..3) -%}
+          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-surface-dark">
+            <div class="absolute inset-0 w-full h-full z-0 opacity-30">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'w-full h-full object-cover' }}
+            </div>
+            <div class="absolute inset-0 z-[1] banner-overlay pointer-events-none"></div>
+
+            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 py-16 flex flex-col items-center text-center">
+              <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
+                Colección Destacada
+              </span>
+              <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
+                Producto Demo {{ i }}
+              </h2>
+              <p class="max-w-2xl mx-auto mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                Selecciona una colección desde la configuración de la sección en el editor de Shopify para cargar tus productos automáticamente.
+              </p>
+              <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg">
+                {{ section.settings.button_label | escape }}
+              </span>
+            </div>
+
+            <a href="#" class="absolute inset-0 z-20 block w-full h-full" aria-label="Producto demo {{ i }}">
+              <span class="sr-only">Producto demo {{ i }}</span>
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
+
+    {%- if section.settings.show_pagination -%}
+      <div class="swiper-pagination swiper-pagination-{{ section.id }} !bottom-6 z-30"></div>
+    {%- endif -%}
+
+    {%- if section.settings.show_navigation -%}
+      <button
+        type="button"
+        class="swiper-nav-prev-{{ section.id }} absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-md flex items-center justify-center transition-all cursor-pointer border border-white/20"
+        aria-label="Anterior"
+      >
+        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button
+        type="button"
+        class="swiper-nav-next-{{ section.id }} absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/20 hover:bg-white/40 text-white backdrop-blur-md flex items-center justify-center transition-all cursor-pointer border border-white/20"
+        aria-label="Siguiente"
+      >
+        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    {%- endif -%}
   </div>
-</div>
+</image-banner-slider>
 
 {% schema %}
 {
-  "name": "Banner de imagen",
+  "name": "Banner slider colección",
   "tag": "section",
-  "class": "section",
+  "class": "section section-image-banner",
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Imagen 1"
+      "type": "collection",
+      "id": "collection",
+      "label": "Colección de productos"
     },
     {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Imagen 2"
-    }
-  ],
-  "blocks": [
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 5,
+      "label": "Número de productos a mostrar"
+    },
     {
-      "type": "heading",
-      "name": "Título",
-      "limit": 1,
-      "settings": [
+      "type": "header",
+      "content": "Tipografía y diseño del título"
+    },
+    {
+      "type": "select",
+      "id": "title_font_family",
+      "label": "Tipografía del título del producto",
+      "options": [
         {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "Banner de imagen",
-          "label": "Título"
+          "value": "font-outfit",
+          "label": "Outfit (Display)"
         },
         {
-          "type": "select",
-          "id": "heading_size",
-          "options": [
-            {
-              "value": "h2",
-              "label": "Pequeño"
-            },
-            {
-              "value": "h1",
-              "label": "Mediano"
-            },
-            {
-              "value": "h0",
-              "label": "Grande"
-            },
-            {
-              "value": "hxl",
-              "label": "Extra grande"
-            },
-            {
-              "value": "hxxl",
-              "label": "Superextragrande"
-            }
-          ],
-          "default": "h1",
-          "label": "Tamaño del título"
+          "value": "font-sans",
+          "label": "Sans-serif (Plus Jakarta)"
+        },
+        {
+          "value": "font-serif",
+          "label": "Serif"
+        },
+        {
+          "value": "font-mono",
+          "label": "Monospace"
         }
-      ]
+      ],
+      "default": "font-outfit"
+    },
+    {
+      "type": "select",
+      "id": "title_size_mobile",
+      "label": "Tamaño del título (Móvil)",
+      "options": [
+        { "value": "text-2xl", "label": "Pequeño" },
+        { "value": "text-3xl", "label": "Mediano" },
+        { "value": "text-4xl", "label": "Grande" },
+        { "value": "text-5xl", "label": "Extra Grande" }
+      ],
+      "default": "text-3xl"
+    },
+    {
+      "type": "select",
+      "id": "title_size_desktop",
+      "label": "Tamaño del título (Ordenador)",
+      "options": [
+        { "value": "md:text-4xl", "label": "Pequeño" },
+        { "value": "md:text-5xl", "label": "Mediano" },
+        { "value": "md:text-6xl", "label": "Grande" },
+        { "value": "md:text-7xl", "label": "Extra Grande" },
+        { "value": "md:text-8xl", "label": "Gigante" }
+      ],
+      "default": "md:text-6xl"
+    },
+    {
+      "type": "header",
+      "content": "Introducción del producto"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desc_mobile",
+      "label": "Mostrar descripción en móvil",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desc_desktop",
+      "label": "Mostrar descripción en ordenador",
+      "default": true
     },
     {
       "type": "text",
-      "name": "Texto",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "text",
-          "default": "Ofrece a los clientes información sobre las imágenes del banner o el contenido de la plantilla.",
-          "label": "Texto"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "Cuerpo"
-            },
-            {
-              "value": "subtitle",
-              "label": "Subtítulo"
-            },
-            {
-              "value": "caption-with-letter-spacing",
-              "label": "Mayúscula"
-            }
-          ],
-          "default": "body",
-          "label": "Estilo"
-        }
-      ]
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Ver producto"
     },
     {
-      "type": "buttons",
-      "name": "Botones",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "header",
-          "content": "Botón 1"
-        },
-        {
-          "type": "text",
-          "id": "button_label_1",
-          "default": "Etiqueta de botón",
-          "label": "Etiqueta",
-          "info": "Dejar en blanco para ocultar"
-        },
-        {
-          "type": "url",
-          "id": "button_link_1",
-          "label": "Enlace"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_1",
-          "default": false,
-          "label": "Estilo de contorno"
-        },
-        {
-          "type": "header",
-          "content": "Botón 2"
-        },
-        {
-          "type": "text",
-          "id": "button_label_2",
-          "default": "Etiqueta de botón",
-          "label": "Etiqueta",
-          "info": "Dejar en blanco para ocultar"
-        },
-        {
-          "type": "url",
-          "id": "button_link_2",
-          "label": "Enlace"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_2",
-          "default": false,
-          "label": "Estilo de contorno"
-        }
-      ]
+      "type": "header",
+      "content": "Ajustes de Slider y Animaciones"
+    },
+    {
+      "type": "select",
+      "id": "transition_effect",
+      "label": "Efecto de transición",
+      "options": [
+        { "value": "slide", "label": "Desplazamiento (Slide)" },
+        { "value": "fade", "label": "Fundido (Fade)" }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Activar reproducción automática",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "default": 7,
+      "label": "Tiempo por diapositiva"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 40,
+      "label": "Opacidad del oscurecimiento de fondo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Mostrar flechas de navegación",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination",
+      "label": "Mostrar puntos de paginación",
+      "default": true
     }
   ],
   "presets": [
     {
-      "name": "Banner de imagen",
-      "blocks": [
-        {
-          "type": "heading"
-        },
-        {
-          "type": "text"
-        },
-        {
-          "type": "buttons"
-        }
-      ]
+      "name": "Banner slider colección"
     }
   ]
 }
