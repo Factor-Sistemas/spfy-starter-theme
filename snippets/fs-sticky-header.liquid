@@ -1,7 +1,10 @@
 {%- assign header_height = 'h-24' -%}
-{%- if settings.sticky_header_height == 'h-28' -%} {%- assign header_height = 'h-28' -%}
-{%- elsif settings.sticky_header_height == 'h-32' -%} {%- assign header_height = 'h-32' -%}
-{%- elsif settings.sticky_header_height == 'h-36' -%} {%- assign header_height = 'h-36' -%}
+{%- if settings.sticky_header_height == 'h-28' -%}
+  {%- assign header_height = 'h-28' -%}
+{%- elsif settings.sticky_header_height == 'h-32' -%}
+  {%- assign header_height = 'h-32' -%}
+{%- elsif settings.sticky_header_height == 'h-36' -%}
+  {%- assign header_height = 'h-36' -%}
 {%- endif -%}
 
 {%- assign align_mobile = 'justify-center' -%}
@@ -18,15 +21,14 @@
   id="main-header"
   class="fixed top-0 left-0 w-full z-50 bg-white/30 transition-transform duration-300 ease-out backdrop-blur-md {{ header_height }}"
 >
-  <div class="flex h-full items-center px-4 md:px-6 {{ align_mobile }} {{ align_desktop }}">
+  <div class="flex {{ header_height }} items-center px-4 md:px-6 {{ align_mobile }} {{ align_desktop }}">
     {%- if settings.sticky_header_logo != blank -%}
       <img
         src="{{ settings.sticky_header_logo | image_url: width: 200 }}"
         width="{{ settings.sticky_header_logo.width }}"
         height="{{ settings.sticky_header_logo.height }}"
         alt="{{ shop.name }}"
-        class="h-auto w-auto"
-        style="max-width: {{ settings.sticky_header_logo_width }}px;"
+        class="m-0 py-4 h-full w-auto"
       >
     {%- else -%}
       <p class="text-lg font-bold text-blue-900">{{ shop.name }}</p>
