@@ -108,34 +108,34 @@
             <div class="absolute inset-0 w-full h-full z-10 flex flex-col pointer-events-none {{ mobile_vert_class }} {{ desktop_vert_class }}">
               {%- comment -%} CONTENIDO PRINCIPAL (PADDING TOP RESPETANDO STICKY HEADER) {%- endcomment -%}
               <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 {{ header_pt }} pb-16 flex flex-col pointer-events-auto items-center text-center {{ desktop_horiz_classes }}">
-                {%- comment -%} TARJETA GLOBAL DE CONTENIDO CON FONDO TRASLÚCIDO OPCIONAL {%- endcomment -%}
-                <div class="w-full flex flex-col items-center text-center {{ desktop_horiz_classes }} {% if section.settings.enable_desc_bg %}bg-black/40 backdrop-blur-md border border-white/15 rounded-lg p-6 sm:p-8 md:p-10 shadow-xl max-w-3xl{% else %}max-w-4xl{% endif %}">
+                {%- comment -%} TARJETA GLOBAL DE CONTENIDO (W-AUTO AJUSTADA AL CONTENIDO + BG-WHITE/30 GLASSMORPHISM) {%- endcomment -%}
+                <div class="flex flex-col items-center text-center {{ desktop_horiz_classes }} {% if section.settings.enable_desc_bg %}w-auto w-fit bg-white/30 backdrop-blur-md border border-white/40 rounded-lg p-6 sm:p-8 md:p-10 shadow-xl text-ink{% else %}w-full max-w-4xl text-white{% endif %}">
                   {%- if product.vendor != blank -%}
-                    <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
+                    <span class="inline-block text-caption-uppercase tracking-widest mb-3 uppercase font-semibold {% if section.settings.enable_desc_bg %}text-ink/80{% else %}text-brand-mint{% endif %}">
                       {{ product.vendor }}
                     </span>
                   {%- endif -%}
 
                   {%- comment -%} TÍTULO DEL PRODUCTO {%- endcomment -%}
-                  <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
+                  <h2 class="font-medium tracking-tight mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }} {% if section.settings.enable_desc_bg %}text-ink{% else %}text-white{% endif %}">
                     {{ product.title | escape }}
                   </h2>
 
                   {%- comment -%} TEXTO DE INTRODUCCIÓN (MÓVIL / ESCRITORIO) {%- endcomment -%}
                   {%- assign product_desc = product.description | strip_html | truncatewords: 22 -%}
                   {%- if product_desc != blank -%}
-                    <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                    <p class="max-w-2xl mb-8 text-body-md leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %} {% if section.settings.enable_desc_bg %}text-ink/90{% else %}text-white/90{% endif %}">
                       {{ product_desc }}
                     </p>
                   {%- endif -%}
 
                   {%- comment -%} PRECIO Y BOTÓN {%- endcomment -%}
                   <div class="flex flex-col sm:flex-row items-center gap-4">
-                    <span class="text-title-lg font-semibold text-white">
+                    <span class="text-title-lg font-semibold {% if section.settings.enable_desc_bg %}text-ink{% else %}text-white{% endif %}">
                       {{ product.price | money }}
                     </span>
                     {%- if section.settings.button_label != blank -%}
-                      <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg transition-transform duration-300 hover:scale-105">
+                      <span class="inline-flex items-center justify-center px-6 py-3 text-button font-button rounded-md shadow-lg transition-transform duration-300 hover:scale-105 {% if section.settings.enable_desc_bg %}bg-primary text-on-primary{% else %}bg-white text-ink{% endif %}">
                         {{ section.settings.button_label | escape }}
                       </span>
                     {%- endif -%}
@@ -165,17 +165,17 @@
 
             <div class="absolute inset-0 w-full h-full z-10 flex flex-col pointer-events-none {{ mobile_vert_class }} {{ desktop_vert_class }}">
               <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 {{ header_pt }} pb-16 flex flex-col pointer-events-auto items-center text-center {{ desktop_horiz_classes }}">
-                <div class="w-full flex flex-col items-center text-center {{ desktop_horiz_classes }} {% if section.settings.enable_desc_bg %}bg-black/40 backdrop-blur-md border border-white/15 rounded-lg p-6 sm:p-8 md:p-10 shadow-xl max-w-3xl{% else %}max-w-4xl{% endif %}">
-                  <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
+                <div class="flex flex-col items-center text-center {{ desktop_horiz_classes }} {% if section.settings.enable_desc_bg %}w-auto w-fit bg-white/30 backdrop-blur-md border border-white/40 rounded-lg p-6 sm:p-8 md:p-10 shadow-xl text-ink{% else %}w-full max-w-4xl text-white{% endif %}">
+                  <span class="inline-block text-caption-uppercase tracking-widest mb-3 uppercase font-semibold {% if section.settings.enable_desc_bg %}text-ink/80{% else %}text-brand-mint{% endif %}">
                     Colección Destacada
                   </span>
-                  <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
+                  <h2 class="font-medium tracking-tight mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }} {% if section.settings.enable_desc_bg %}text-ink{% else %}text-white{% endif %}">
                     Producto Demo {{ i }}
                   </h2>
-                  <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                  <p class="max-w-2xl mb-8 text-body-md leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %} {% if section.settings.enable_desc_bg %}text-ink/90{% else %}text-white/90{% endif %}">
                     Selecciona una colección desde la configuración de la sección en el editor de Shopify para cargar tus productos automáticamente.
                   </p>
-                  <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg">
+                  <span class="inline-flex items-center justify-center px-6 py-3 text-button font-button rounded-md shadow-lg {% if section.settings.enable_desc_bg %}bg-primary text-on-primary{% else %}bg-white text-ink{% endif %}">
                     {{ section.settings.button_label | escape }}
                   </span>
                 </div>
@@ -345,8 +345,8 @@
     {
       "type": "checkbox",
       "id": "enable_desc_bg",
-      "label": "Añadir fondo traslúcido al contenido (backdrop-blur)",
-      "info": "Añade una tarjeta oscura semitransparente con desenfoque de cristal (backdrop-blur) con bordes rounded-lg que envuelve todo el bloque del producto",
+      "label": "Añadir fondo blanco traslúcido al contenido (backdrop-blur)",
+      "info": "Añade una tarjeta blanca semitransparente (bg-white/30) ajustada al contenido (w-auto) con desenfoque de cristal (backdrop-blur) y bordes rounded-lg",
       "default": false
     },
     {
