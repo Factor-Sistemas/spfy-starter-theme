@@ -33,6 +33,22 @@
       },
       {
         "type": "header",
+        "content": "Dimensiones"
+      },
+      {
+        "type": "select",
+        "id": "sticky_header_height",
+        "label": "Altura",
+        "options": [
+          { "value": "h-24", "label": "Pequeña (96px)" },
+          { "value": "h-28", "label": "Mediana (112px)" },
+          { "value": "h-32", "label": "Grande (128px)" },
+          { "value": "h-36", "label": "Extra Grande (144px)" }
+        ],
+        "default": "h-24"
+      },
+      {
+        "type": "header",
         "content": "Alineación"
       },
       {

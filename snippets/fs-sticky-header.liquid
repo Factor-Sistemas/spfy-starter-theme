@@ -1,25 +1,32 @@
+{%- assign header_height = 'h-24' -%}
+{%- if settings.sticky_header_height == 'h-28' -%} {%- assign header_height = 'h-28' -%}
+{%- elsif settings.sticky_header_height == 'h-32' -%} {%- assign header_height = 'h-32' -%}
+{%- elsif settings.sticky_header_height == 'h-36' -%} {%- assign header_height = 'h-36' -%}
+{%- endif -%}
+
+{%- assign align_mobile = 'justify-center' -%}
+{%- if settings.sticky_header_align_mobile == 'justify-start' -%}
+  {%- assign align_mobile = 'justify-start' -%}
+{%- endif -%}
+
+{%- assign align_desktop = 'md:justify-start' -%}
+{%- if settings.sticky_header_align_desktop == 'md:justify-center' -%}
+  {%- assign align_desktop = 'md:justify-center' -%}
+{%- endif -%}
+
 <fs-sticky-header
   id="main-header"
-  class="fixed top-0 left-0 w-full h-24 z-50 bg-white/30 transition-transform duration-300 ease-out backdrop-blur-md"
+  class="fixed top-0 left-0 w-full z-50 bg-white/30 transition-transform duration-300 ease-out backdrop-blur-md {{ header_height }}"
 >
-  {%- assign align_mobile = 'justify-center' -%}
-  {%- if settings.sticky_header_align_mobile == 'justify-start' -%}
-    {%- assign align_mobile = 'justify-start' -%}
-  {%- endif -%}
-
-  {%- assign align_desktop = 'md:justify-start' -%}
-  {%- if settings.sticky_header_align_desktop == 'md:justify-center' -%}
-    {%- assign align_desktop = 'md:justify-center' -%}
-  {%- endif -%}
-
   <div class="flex h-full items-center px-4 md:px-6 {{ align_mobile }} {{ align_desktop }}">
     {%- if settings.sticky_header_logo != blank -%}
       <img
-        src="{{ settings.sticky_header_logo | image_url: width: 300, height: 300, crop: 'center' }}"
+        src="{{ settings.sticky_header_logo | image_url: width: 200 }}"
         width="{{ settings.sticky_header_logo.width }}"
         height="{{ settings.sticky_header_logo.height }}"
         alt="{{ shop.name }}"
-        class="h-auto w-auto max-h-14 max-w-[120px]"
+        class="h-auto w-auto"
+        style="max-width: {{ settings.sticky_header_logo_width }}px;"
       >
     {%- else -%}
       <p class="text-lg font-bold text-blue-900">{{ shop.name }}</p>
