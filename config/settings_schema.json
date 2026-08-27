@@ -32,14 +32,28 @@
         "label": "Logo Sticky Header"
       },
       {
-        "type": "range",
-        "id": "sticky_header_logo_width",
-        "min": 50,
-        "max": 300,
-        "step": 5,
-        "unit": "px",
-        "default": 100,
-        "label": "Ancho logo"
+        "type": "header",
+        "content": "Alineación"
+      },
+      {
+        "type": "select",
+        "id": "sticky_header_align_mobile",
+        "label": "Móvil",
+        "options": [
+          { "value": "justify-center", "label": "Centrado" },
+          { "value": "justify-start", "label": "Izquierda" }
+        ],
+        "default": "justify-center"
+      },
+      {
+        "type": "select",
+        "id": "sticky_header_align_desktop",
+        "label": "Escritorio",
+        "options": [
+          { "value": "md:justify-center", "label": "Centrado" },
+          { "value": "md:justify-start", "label": "Izquierda" }
+        ],
+        "default": "md:justify-start"
       }
     ]
   },
