@@ -20,6 +20,30 @@
     ]
   },
   {
+    "name": "Sticky Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "sticky_header_logo",
+        "label": "Logo Sticky Header"
+      },
+      {
+        "type": "range",
+        "id": "sticky_header_logo_width",
+        "min": 50,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "default": 100,
+        "label": "Ancho logo"
+      }
+    ]
+  },
+  {
     "name": "Contenidos Footer",
     "settings": [
       {
@@ -123,30 +147,6 @@
         "type": "text",
         "id": "footer_schedule_text",
         "label": "Texto Horario"
-      }
-    ]
-  },
-  {
-    "name": "Sticky Header",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Logo"
-      },
-      {
-        "type": "image_picker",
-        "id": "sticky_header_logo",
-        "label": "Logo Sticky Header"
-      },
-      {
-        "type": "range",
-        "id": "sticky_header_logo_width",
-        "min": 50,
-        "max": 300,
-        "step": 5,
-        "unit": "px",
-        "default": 100,
-        "label": "Ancho logo"
       }
     ]
   },
