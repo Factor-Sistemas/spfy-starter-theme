@@ -119,10 +119,10 @@
                   {{ product.title | escape }}
                 </h2>
 
-                {%- comment -%} TEXTO DE INTRODUCCIÓN (MÓVIL / ESCRITORIO) {%- endcomment -%}
+                {%- comment -%} TEXTO DE INTRODUCCIÓN CON FONDO TRASLÚCIDO (GLASSMORPHISM) OPCIONAL {%- endcomment -%}
                 {%- assign product_desc = product.description | strip_html | truncatewords: 22 -%}
                 {%- if product_desc != blank -%}
-                  <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                  <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %} {% if section.settings.enable_desc_bg %}bg-black/40 backdrop-blur-md border border-white/15 rounded-lg px-6 py-4 shadow-lg{% endif %}">
                     {{ product_desc }}
                   </p>
                 {%- endif -%}
@@ -168,7 +168,7 @@
                 <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
                   Producto Demo {{ i }}
                 </h2>
-                <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %} {% if section.settings.enable_desc_bg %}bg-black/40 backdrop-blur-md border border-white/15 rounded-lg px-6 py-4 shadow-lg{% endif %}">
                   Selecciona una colección desde la configuración de la sección en el editor de Shopify para cargar tus productos automáticamente.
                 </p>
                 <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg">
@@ -336,6 +336,13 @@
       "id": "show_desc_desktop",
       "label": "Mostrar descripción en ordenador",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_desc_bg",
+      "label": "Añadir fondo traslúcido (backdrop-blur)",
+      "info": "Añade una tarjeta oscura semitransparente con desenfoque de cristal para mejorar la legibilidad sobre la imagen",
+      "default": false
     },
     {
       "type": "text",
