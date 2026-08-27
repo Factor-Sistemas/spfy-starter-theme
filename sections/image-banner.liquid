@@ -5,6 +5,48 @@
   if section.index == 1
     assign fetch_priority = 'high'
   endif
+
+  # Mapeado explícito con assign para que el escáner de Tailwind v4 detecte las clases literales
+  case settings.sticky_header_height
+    when 'h-24'
+      assign header_pt = 'pt-24'
+    when 'h-28'
+      assign header_pt = 'pt-28'
+    when 'h-32'
+      assign header_pt = 'pt-32'
+    when 'h-36'
+      assign header_pt = 'pt-36'
+    else
+      assign header_pt = 'pt-24'
+  endcase
+
+  # Clases de posición en móvil (Horizontal siempre centrado)
+  case section.settings.content_position_mobile
+    when 'bottom'
+      assign mobile_pos_classes = 'justify-end items-center text-center'
+    else
+      assign mobile_pos_classes = 'justify-center items-center text-center'
+  endcase
+
+  # Clases de posición horizontal en ordenador
+  case section.settings.content_align_desktop
+    when 'left'
+      assign desktop_horiz_classes = 'md:items-start md:text-left'
+    when 'right'
+      assign desktop_horiz_classes = 'md:items-end md:text-right'
+    else
+      assign desktop_horiz_classes = 'md:items-center md:text-center'
+  endcase
+
+  # Clases de posición vertical en ordenador
+  case section.settings.content_vertical_desktop
+    when 'top'
+      assign desktop_vert_classes = 'md:justify-start'
+    when 'bottom'
+      assign desktop_vert_classes = 'md:justify-end'
+    else
+      assign desktop_vert_classes = 'md:justify-center'
+  endcase
 -%}
 
 {%- style -%}
@@ -35,7 +77,7 @@
               assign product_video = product.media | where: 'media_type', 'external_video' | first
             endif
           -%}
-          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
+          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex flex-col {{ mobile_pos_classes }} {{ desktop_vert_classes }} overflow-hidden">
             {%- comment -%} FOTO O VÍDEO DE FONDO A PANTALLA COMPLETA {%- endcomment -%}
             {%- if product_video != blank -%}
               <div class="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
@@ -63,8 +105,8 @@
             {%- comment -%} CAPA DE OSCURECIMIENTO GRADIENTE {%- endcomment -%}
             <div class="absolute inset-0 z-[1] banner-overlay pointer-events-none"></div>
 
-            {%- comment -%} CONTENIDO PRINCIPAL CENTRADO {%- endcomment -%}
-            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 py-16 flex flex-col items-center text-center">
+            {%- comment -%} CONTENIDO PRINCIPAL (PADDING TOP RESPETANDO STICKY HEADER) {%- endcomment -%}
+            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 {{ header_pt }} pb-16 flex flex-col {{ mobile_pos_classes }} {{ desktop_horiz_classes }}">
               {%- if product.vendor != blank -%}
                 <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
                   {{ product.vendor }}
@@ -79,7 +121,7 @@
               {%- comment -%} TEXTO DE INTRODUCCIÓN (MÓVIL / ESCRITORIO) {%- endcomment -%}
               {%- assign product_desc = product.description | strip_html | truncatewords: 22 -%}
               {%- if product_desc != blank -%}
-                <p class="max-w-2xl mx-auto mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+                <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
                   {{ product_desc }}
                 </p>
               {%- endif -%}
@@ -110,20 +152,20 @@
       {%- else -%}
         {%- comment -%} DEMO SLIDES (CUANDO NO HAY COLECCIÓN SELECCIONADA) {%- endcomment -%}
         {%- for i in (1..3) -%}
-          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden bg-surface-dark">
+          <div class="swiper-slide relative w-full h-full min-h-[520px] sm:min-h-[600px] md:min-h-[700px] flex flex-col {{ mobile_pos_classes }} {{ desktop_vert_classes }} overflow-hidden bg-surface-dark">
             <div class="absolute inset-0 w-full h-full z-0 opacity-30">
               {{ 'product-' | append: i | placeholder_svg_tag: 'w-full h-full object-cover' }}
             </div>
             <div class="absolute inset-0 z-[1] banner-overlay pointer-events-none"></div>
 
-            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 py-16 flex flex-col items-center text-center">
+            <div class="relative z-10 w-full max-w-[var(--page-width)] mx-auto px-6 sm:px-10 md:px-16 {{ header_pt }} pb-16 flex flex-col {{ mobile_pos_classes }} {{ desktop_horiz_classes }}">
               <span class="inline-block text-caption-uppercase tracking-widest text-brand-mint mb-3 uppercase font-semibold">
                 Colección Destacada
               </span>
               <h2 class="font-medium tracking-tight text-white mb-4 {{ section.settings.title_font_family }} {{ section.settings.title_size_mobile }} {{ section.settings.title_size_desktop }}">
                 Producto Demo {{ i }}
               </h2>
-              <p class="max-w-2xl mx-auto mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
+              <p class="max-w-2xl mb-8 text-body-md text-white/90 leading-relaxed {% if section.settings.show_desc_mobile %}block{% else %}hidden{% endif %} {% if section.settings.show_desc_desktop %}md:block{% else %}md:hidden{% endif %}">
                 Selecciona una colección desde la configuración de la sección en el editor de Shopify para cargar tus productos automáticamente.
               </p>
               <span class="inline-flex items-center justify-center px-6 py-3 bg-white text-ink text-button font-button rounded-md shadow-lg">
@@ -184,6 +226,43 @@
       "step": 1,
       "default": 5,
       "label": "Número de productos a mostrar"
+    },
+    {
+      "type": "header",
+      "content": "Posición del contenido por dispositivo"
+    },
+    {
+      "type": "select",
+      "id": "content_position_mobile",
+      "label": "Posición del contenido (Móvil)",
+      "info": "En horizontal siempre se mantiene centrado en móvil",
+      "options": [
+        { "value": "center", "label": "Centrado" },
+        { "value": "bottom", "label": "Abajo" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_align_desktop",
+      "label": "Alineación horizontal (Ordenador)",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centrado" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_vertical_desktop",
+      "label": "Alineación vertical (Ordenador)",
+      "options": [
+        { "value": "top", "label": "Arriba" },
+        { "value": "center", "label": "Centrado" },
+        { "value": "bottom", "label": "Abajo" }
+      ],
+      "default": "center"
     },
     {
       "type": "header",
