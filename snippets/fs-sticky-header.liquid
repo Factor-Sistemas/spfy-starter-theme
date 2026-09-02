@@ -31,7 +31,13 @@
         class="m-0 py-4 h-full w-auto"
       >
     {%- else -%}
-      <p class="text-lg font-bold text-blue-900">{{ shop.name }}</p>
+      <img
+        src="{{ 'logo_adrian_byron.webp' | asset_url }}"
+        width="120"
+        height="auto"
+        alt="{{ shop.name }}"
+        class="m-0 py-4 h-full w-auto"
+      >
     {%- endif -%}
   </div>
 

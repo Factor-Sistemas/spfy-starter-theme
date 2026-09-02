@@ -1,48 +1,61 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  @media screen and (max-width: 749px) {
-    .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
-    }
-  }
-{%- endstyle -%}
+<div class="max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-6 md:pt-14 md:pb-8">
+  {%- if section.settings.show_collection_image and collection.image -%}
+    {%- comment -%} Layout Hero con Imagen (Double-Bezel Architecture) {%- endcomment -%}
+    <div class="bg-neutral-950/5 dark:bg-white/5 border border-hairline p-2 md:p-3 rounded-3xl">
+      <div class="bg-surface-card rounded-[calc(1.5rem-0.5rem)] overflow-hidden border border-hairline p-6 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="flex-1 flex flex-col gap-4">
+          <span class="w-fit rounded-full px-3.5 py-1 text-[10px] uppercase tracking-[0.2em] font-semibold bg-neutral-900/5 text-neutral-800 border border-neutral-900/10 dark:bg-white/5 dark:text-neutral-200 dark:border-white/10">
+            Colección
+          </span>
+          <h1 class="text-display-xl font-heading text-ink">
+            {{- collection.title | escape -}}
+          </h1>
+          {%- if section.settings.show_collection_description and collection.description != blank -%}
+            <div class="text-body-md text-body opacity-85 leading-relaxed max-w-xl">
+              {{ collection.description }}
+            </div>
+          {%- endif -%}
+        </div>
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+        <div class="w-full md:w-1/2 aspect-[4/3] rounded-2xl overflow-hidden relative border border-hairline shrink-0">
+          <img
+            srcset="
+              {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ collection.image | image_url }} {{ collection.image.width }}w
+            "
+            src="{{ collection.image | image_url: width: 1000 }}"
+            sizes="(min-width: 1200px) 500px, (min-width: 750px) 50vw, 100vw"
+            alt="{{ collection.image.alt | escape }}"
+            width="{{ collection.image.width }}"
+            height="{{ collection.image.height }}"
+            class="w-full h-full object-cover"
+          >
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    {%- comment -%} Layout Hero Editorial Limpio sin Imagen {%- endcomment -%}
+    <div class="flex flex-col gap-4 border-b border-hairline pb-10">
+      <span class="w-fit rounded-full px-3.5 py-1 text-[10px] uppercase tracking-[0.2em] font-semibold bg-neutral-900/5 text-neutral-800 border border-neutral-900/10 dark:bg-white/5 dark:text-neutral-200 dark:border-white/10">
+        Colección
+      </span>
+      <h1 class="text-display-xl font-heading text-ink">
         {{- collection.title | escape -}}
       </h1>
-
-      {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+      {%- if section.settings.show_collection_description and collection.description != blank -%}
+        <div class="text-body-md text-body opacity-80 leading-relaxed max-w-2xl">
+          {{ collection.description }}
+        </div>
       {%- endif -%}
     </div>
-
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
-        <img
-          srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-            {{ collection.image | image_url }} {{ collection.image.width }}w
-          "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-        >
-      </div>
-    {%- endif -%}
-  </div>
+  {%- endif -%}
 </div>
 
 {% schema %}

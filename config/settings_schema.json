@@ -69,7 +69,7 @@
           { "value": "md:justify-center", "label": "Centrado" },
           { "value": "md:justify-start", "label": "Izquierda" }
         ],
-        "default": "md:justify-start"
+        "default": "md:justify-center"
       }
     ]
   },

@@ -12,7 +12,14 @@
           class="h-auto"
         >
       {%- else -%}
-        <p class="text-2xl font-bold text-gray-900">{{ shop.name }}</p>
+        <img
+          src="{{ 'logo_adrian_byron.webp' | asset_url }}"
+          width="{{ settings.footer_logo_width | default: 120 }}"
+          height="auto"
+          loading="lazy"
+          alt="{{ shop.name }}"
+          class="h-auto"
+        >
       {%- endif -%}
 
       {%- if settings.footer_brand_description != blank -%}
