@@ -1,0 +1,138 @@
+{%- comment -%}
+  =============================================================================
+  PRODUCT SPECIFICATIONS
+  =============================================================================
+  Renderiza especificaciones técnicas usando metafields individuales.
+  Cada especificación es un campo plano alimentado por el CRM de Madrid.
+
+  Configuración en Shopify Admin:
+  Settings → Custom data → Products → Add definition
+  - Type: Single line text
+  - Key: custom.{nombre_especificacion}
+
+  Ejemplo de metafields:
+  - custom.spec_box_material
+  - custom.spec_bezel_exterior
+  - custom.spec_dial
+  - custom.spec_movement
+  - custom.spec_water_resistance
+  - custom.spec_dimensions
+  - custom.spec_case
+  - custom.spec_crown_pushers
+  - custom.spec_crystal
+  - custom.spec_strap
+  - custom.spec_engravings
+  - custom.spec_complexities
+  - custom.spec_includes
+{%- endcomment -%}
+<h1>especificaciones</h1>
+{%- assign specs = product.metafields.custom.espec_ -%}
+
+{%- capture specs_output -%}
+  {%- if specs.caja != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Caja:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.caja }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_bezel_exterior != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Bisel exterior:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_bezel_exterior }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_bezel_interior != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Bisel interior:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_bezel_interior }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_dial != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Dial:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_dial }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_hands_indexes != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Agujas e indexes:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_hands_indexes }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_complexities != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Complicaciones:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_complexities }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_crown_pushers != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Corona y pulsadores:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_crown_pushers }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_crystal != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Cristal:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_crystal }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_strap != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Correa:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_strap }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_engravings != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Grabados:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_engravings }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_movement != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Mecanismo:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_movement }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_water_resistance != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Water Resistant:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_water_resistance }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_dimensions != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Medidas caja:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_dimensions }}</span>
+    </div>
+  {%- endif -%}
+
+  {%- if specs.spec_includes != blank -%}
+    <div class="spec-row flex flex-col sm:flex-row sm:items-start py-3 border-b border-gray-100 last:border-0">
+      <span class="spec-label w-36 shrink-0 text-sm font-semibold text-gray-900">Incluye:</span>
+      <span class="spec-value text-sm text-gray-700 sm:ml-4">{{ specs.spec_includes }}</span>
+    </div>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if specs_output != blank -%}
+  <div class="product-specifications mt-8 bg-gray-50 rounded-lg p-6">
+    <h2 class="text-xl font-semibold mb-6 text-gray-900">Especificaciones Técnicas</h2>
+    <div class="space-y-0">
+      {{ specs_output }}
+    </div>
+  </div>
+{%- endif -%}

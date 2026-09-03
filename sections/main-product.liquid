@@ -197,6 +197,10 @@
                     {{ product.description }}
                   </div>
                 {%- endif -%}
+              {%- when 'specifications' -%}
+                <div class="product__specifications quick-add-hidden" {{ block.shopify_attributes }}>
+                  {% render 'fs-product-spec' %}
+                </div>
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -931,6 +935,11 @@
     {
       "type": "description",
       "name": "Descripción",
+      "limit": 1
+    },
+    {
+      "type": "specifications",
+      "name": "Especificaciones técnicas",
       "limit": 1
     },
     {

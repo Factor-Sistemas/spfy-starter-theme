@@ -1,0 +1,87 @@
+{%- comment -%}
+  =============================================================================
+  FS PRODUCT GALLERY WEB COMPONENT (SWIPER + TAILWIND 4)
+  =============================================================================
+{%- endcomment -%}
+
+{%- assign media_items = product.media -%}
+{%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+
+<fs-product-gallery class="block w-full">
+  <div class="flex flex-col-reverse lg:flex-row-reverse items-start gap-4 lg:gap-6 w-full">
+    
+    <!-- MAIN PRODUCT IMAGE SLIDER (RIGHT ON DESKTOP) -->
+    <div class="w-full flex-1 relative overflow-hidden rounded-2xl bg-gray-50 border border-gray-100 shadow-sm">
+      <div class="swiper swiper-main w-full aspect-square">
+        <div class="swiper-wrapper">
+          {%- if media_items.size > 0 -%}
+            {%- for media in media_items -%}
+              <div class="swiper-slide w-full h-full flex items-center justify-center bg-gray-50">
+                <img
+                  src="{{ media | image_url: width: 1200 }}"
+                  alt="{{ media.alt | default: product.title | escape }}"
+                  class="w-full h-full object-cover"
+                  loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                  width="{{ media.width | default: 1200 }}"
+                  height="{{ media.height | default: 1200 }}"
+                >
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            <div class="swiper-slide w-full h-full flex items-center justify-center">
+              {{ 'product-1' | placeholder_svg_tag: 'w-full h-auto aspect-square bg-gray-100' }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <!-- THUMBNAILS SLIDER (LEFT ON DESKTOP) -->
+    {%- if media_items.size > 1 -%}
+      <div class="w-full lg:w-24 shrink-0 flex flex-col items-center relative lg:sticky lg:top-8">
+        
+        <!-- UP SCROLL ARROW (DESKTOP) -->
+        <button
+          type="button"
+          class="thumbs-nav-prev hidden lg:flex items-center justify-center w-full py-1 text-gray-500 hover:text-black transition-colors cursor-pointer"
+          aria-label="Anterior miniatura"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+          </svg>
+        </button>
+
+        <!-- THUMBNAILS SWIPER CONTAINER -->
+        <div class="swiper swiper-thumbs w-full max-h-[520px] py-1">
+          <div class="swiper-wrapper">
+            {%- for media in media_items -%}
+              <div class="swiper-slide !w-16 lg:!w-full !h-16 lg:!h-auto aspect-square shrink-0 rounded-xl overflow-hidden bg-gray-50 border border-gray-200 cursor-pointer transition-all duration-200 [.swiper-slide-thumb-active&]:ring-2 [.swiper-slide-thumb-active&]:ring-black [.swiper-slide-thumb-active&]:border-black">
+                <img
+                  src="{{ media | image_url: width: 200 }}"
+                  alt="{{ media.alt | escape }}"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  width="200"
+                  height="200"
+                >
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <!-- DOWN SCROLL ARROW (DESKTOP) -->
+        <button
+          type="button"
+          class="thumbs-nav-next hidden lg:flex items-center justify-center w-full py-1 text-gray-500 hover:text-black transition-colors cursor-pointer"
+          aria-label="Siguiente miniatura"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+
+      </div>
+    {%- endif -%}
+
+  </div>
+</fs-product-gallery>

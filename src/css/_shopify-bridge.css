@@ -166,6 +166,8 @@ h6 {
   max-width: 14px !important;
   max-height: 14px !important;
   fill: currentColor;
+}
+
 .facets__summary .svg-wrapper svg,
 .facet-filters__field .svg-wrapper svg {
   width: 12px !important;
@@ -258,6 +260,8 @@ h6 {
   border: 1px solid var(--color-hairline);
   accent-color: var(--color-primary);
   cursor: pointer;
+}
+
 .facet-checkbox input[type="checkbox"] {
   width: 16px !important;
   height: 16px !important;
