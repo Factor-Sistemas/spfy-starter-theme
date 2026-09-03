@@ -10,7 +10,7 @@
   {% render 'fs-product-trust-banner' %}
 
   <!-- HERO PRINCIPAL DE PRODUCTO -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container-detalle sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
       <!-- COLUMNA IZQUIERDA: GALERÍA DE IMÁGENES CON SWIPER -->
       <div class="lg:col-span-7">
@@ -25,6 +25,7 @@
 
     <!-- SECCIÓN DE HISTORIA Y ESPECIFICACIONES TÉCNICAS -->
     {% render 'fs-product-story-specs', product: product %}
+    {% render 'fs-imagenes-textos', product: product %}
   </div>
 </product-info>
 
@@ -33,6 +34,72 @@
   "name": "Información de producto",
   "tag": "section",
   "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text",
+      "name": "Texto",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Bloque de texto",
+          "label": "Texto"
+        }
+      ]
+    },
+    {
+      "type": "title",
+      "name": "Título",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "Precio",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "Selector de variante",
+      "limit": 1
+    },
+    {
+      "type": "quantity_selector",
+      "name": "Selector de cantidad",
+      "limit": 1
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Botones de compra",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "Descripción",
+      "limit": 1
+    },
+    {
+      "type": "share",
+      "name": "Compartir",
+      "limit": 1
+    },
+    {
+      "type": "sku",
+      "name": "SKU",
+      "limit": 1
+    },
+    {
+      "type": "inventory",
+      "name": "Inventario",
+      "limit": 1
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Liquid personalizado"
+    }
+  ],
   "settings": [
     {
       "type": "checkbox",

@@ -19,9 +19,11 @@
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
-
+.container-detalle {
+  @apply max-w-7xl mx-auto;
+}
 .contenidos-estaticos {
-  @apply max-w-9xl mx-auto;
+  @apply max-w-7xl mx-auto;
 
   p {
     @apply mb-4;
@@ -52,7 +54,7 @@
   }
   a.button-scroll {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold text-sm transition-colors duration-200;
-    
+
     border-radius: var(--btn-radius);
     background-color: var(--btn-primary-bg);
     color: var(--btn-primary-text);

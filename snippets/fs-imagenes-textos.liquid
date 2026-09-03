@@ -1,0 +1,86 @@
+{%- assign custom = product.metafields.custom -%}
+
+<div class="py-8 space-y-6 lg:space-y-0">
+  {%- comment -%} FILA 1 {%- endcomment -%}
+  {%- if custom.carac_titulo_1 != blank or custom.carac_imagen_1 != blank -%}
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div class="space-y-3 lg:px-12 py-6 lg:py-0">
+        {%- if custom.carac_titulo_1 != blank -%}
+          <h3 class="text-xl font-extrabold uppercase tracking-tight text-gray-900">
+            {{ custom.carac_titulo_1 }}
+          </h3>
+        {%- endif -%}
+        {%- if custom.carac_texto_1 != blank -%}
+          <p class="text-sm text-gray-600 leading-relaxed">
+            {{ custom.carac_texto_1 }}
+          </p>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- if custom.carac_imagen_1 != blank -%}
+          {{
+            custom.carac_imagen_1
+            | image_url: width: 800
+            | image_tag: loading: 'lazy', class: 'w-full h-auto object-cover shadow-sm'
+          }}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} FILA 2 (ALTERNADA) {%- endcomment -%}
+  {%- if custom.carac_titulo_2 != blank or custom.carac_imagen_2 != blank -%}
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div class="lg:order-2 space-y-3 lg:px-6 py-12 lg:py-0">
+        {%- if custom.carac_titulo_2 != blank -%}
+          <h3 class="text-xl font-extrabold uppercase tracking-tight text-gray-900">
+            {{ custom.carac_titulo_2 }}
+          </h3>
+        {%- endif -%}
+        {%- if custom.carac_texto_2 != blank -%}
+          <p class="text-sm text-gray-600 leading-relaxed">
+            {{ custom.carac_texto_2 }}
+          </p>
+        {%- endif -%}
+      </div>
+      <div class="lg:order-1">
+        {%- if custom.carac_imagen_2 != blank -%}
+          {{
+            custom.carac_imagen_2
+            | image_url: width: 800
+            | image_tag: loading: 'lazy', class: 'w-full h-auto object-cover shadow-sm'
+          }}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} FILA 3 {%- endcomment -%}
+  {%- if custom.carac_titulo_3 != blank or custom.carac_imagen_3 != blank -%}
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div class="space-y-3 lg:px-12 py-6 lg:py-0">
+        {%- if custom.carac_titulo_3 != blank -%}
+          <h3 class="text-xl font-extrabold uppercase tracking-tight text-gray-900">
+            {{ custom.carac_titulo_3 }}
+          </h3>
+        {%- endif -%}
+        {%- if custom.carac_texto_3 != blank -%}
+          <p class="text-sm text-gray-600 leading-relaxed">
+            {{ custom.carac_texto_3 }}
+          </p>
+        {%- endif -%}
+      </div>
+      <div>
+        {%- if custom.carac_imagen_3 != blank -%}
+          {{
+            custom.carac_imagen_3
+            | image_url: width: 800
+            | image_tag: loading: 'lazy', class: 'w-full h-auto object-cover shadow-sm'
+          }}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<h2 class="text-xl lg:text-7xl text-black font-extrabold py-12 text-center">{{ custom.titulo_cierre_ficha }}</h2>
