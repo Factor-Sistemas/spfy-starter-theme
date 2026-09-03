@@ -1,0 +1,111 @@
+{%- comment -%}
+  =============================================================================
+  FS PRODUCT BUY AREA
+  =============================================================================
+  Área de compra completa: Título, marca, precio, badges, selector de cantidad,
+  botones de compra y características de confianza.
+{%- endcomment -%}
+
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+<section id="ProductInfo-{{ section.id }}" class="product__info-container space-y-6">
+  <!-- Vendor / Serie -->
+  <div class="space-y-1">
+    <div class="text-xs uppercase tracking-widest font-bold text-gray-500">
+      {{ product.vendor | default: 'THE POLARIS CHRONO ICE' }}
+    </div>
+    <h1 class="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-gray-900 leading-tight">
+      {{ product.title | escape }}
+    </h1>
+  </div>
+
+  <!-- Precio y Badges -->
+  <div class="space-y-4">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl sm:text-3xl font-extrabold text-gray-900">
+        {{ product.selected_or_first_available_variant.price | money }}
+      </span>
+      {%- if product.selected_or_first_available_variant.compare_at_price
+          > product.selected_or_first_available_variant.price
+      -%}
+        <span class="text-lg text-gray-400 line-through">
+          {{ product.selected_or_first_available_variant.compare_at_price | money }}
+        </span>
+      {%- endif -%}
+      <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-800 rounded-md">
+        Nuevo
+      </span>
+      <span class="px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-orange-100 text-orange-800 rounded-md">
+        Popular
+      </span>
+    </div>
+  </div>
+
+  <!-- Selector de Cantidad Stepper Alpine.js -->
+  <div class="flex justify-between"></div>
+  <div class="flex items-center gap-4 py-2">
+    <span class="text-xs font-bold uppercase tracking-wider text-gray-900"> Cantidad: </span>
+    <div class="flex items-center border border-gray-300 bg-white" x-data="{ qty: 1 }">
+      <button
+        type="button"
+        @click="if (qty > 1) qty--"
+        aria-label="Disminuir cantidad"
+        class="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-black transition-colors font-bold text-lg cursor-pointer select-none"
+      >
+        -
+      </button>
+      <input
+        type="number"
+        name="quantity"
+        id="Quantity-{{ section.id }}"
+        min="1"
+        x-model="qty"
+        form="{{ product_form_id }}"
+        class="w-12 h-10 text-center font-bold text-sm text-gray-900 border-x border-gray-300 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      >
+      <button
+        type="button"
+        @click="qty++"
+        aria-label="Aumentar cantidad"
+        class="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-black transition-colors font-bold text-lg cursor-pointer select-none"
+      >
+        +
+      </button>
+    </div>
+    <div>
+      {%- render 'fs-buy-buttons',
+        product: product,
+        product_form_id: product_form_id,
+        section_id: section.id,
+        show_pickup_availability: false
+      -%}
+    </div>
+  </div>
+
+  <!-- Botones de Compra -->
+  <div class="space-y-4 pt-2">
+    <!-- Stock Status -->
+    <div class="flex items-center gap-2 text-xs font-semibold text-emerald-600">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>En stock entrega inmediata</span>
+    </div>
+
+    <!-- Trust Features Grid (3 Columns) -->
+    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-gray-200 text-center">
+      <div class="flex flex-col items-center gap-1.5">
+        <span class="text-xl">✈</span>
+        <p class="text-[10px] font-bold uppercase tracking-wider text-gray-700 leading-tight">
+          FREE SHIPPING WORLDWIDE
+        </p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <span class="text-xl">🔄</span>
+        <p class="text-[10px] font-bold uppercase tracking-wider text-gray-700 leading-tight">30 DAY RETURNS</p>
+      </div>
+      <div class="flex flex-col items-center gap-1.5">
+        <span class="text-xl">🛡</span>
+        <p class="text-[10px] font-bold uppercase tracking-wider text-gray-700 leading-tight">12 MONTH WARRANTY</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,7 @@
 {% comment %}
+  =============================================================================
+  FS BUY BUTTONS
+  =============================================================================
   Renders product buy-buttons.
   Accepts:
   - product: {Object} product object.
@@ -8,7 +11,7 @@
   - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
 
   Usage:
-  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
+  {% render 'fs-buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
 <div {{ block.shopify_attributes }}>
   {%- if product != blank -%}
@@ -62,7 +65,7 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
-        <div class="product-form__buttons">
+        <div>
           {%- liquid
             assign check_against_inventory = true
             if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
@@ -76,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="w-full bg-primary hover:bg-primary-hover-bg text-white font-extrabold py-4 px-6 rounded-none uppercase tracking-wider text-sm sm:text-base shadow-sm transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed my-2"
+            class="w-full bg-primary hover:bg-primary-hover-bg text-white font-extrabold py-2 px-6 rounded-none uppercase tracking-wider text-sm sm:text-base shadow-sm transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed my-2"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -107,7 +110,7 @@
         <button
           type="submit"
           name="add"
-          class="product-form__submit button button--full-width button--primary"
+          class="product-form__submit button button--full-width button--primary rounded-none"
           disabled
         >
           {{ 'products.product.sold_out' | t }}
@@ -117,8 +120,6 @@
   {%- endif -%}
 
   {%- if show_pickup_availability -%}
-    {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
-
     {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
       | where: 'pick_up_enabled', true
     -%}

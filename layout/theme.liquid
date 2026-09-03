@@ -51,7 +51,22 @@
     <div id="page-wrapper" class="page-wrapper bg-white min-h-screen flex flex-col">
       {% sections 'header-group' %}
 
-      <main id="MainContent" role="main" tabindex="-1" class="flex-grow">
+      {%- liquid
+        case settings.sticky_header_height
+          when 'h-24'
+            assign header_padding_top = 'pt-[116px]'
+          when 'h-28'
+            assign header_padding_top = 'pt-[132px]'
+          when 'h-32'
+            assign header_padding_top = 'pt-[148px]'
+          when 'h-36'
+            assign header_padding_top = 'pt-[164px]'
+          else
+            assign header_padding_top = 'pt-[116px]'
+        endcase
+      -%}
+
+      <main id="MainContent" role="main" tabindex="-1" class="flex-grow {{ header_padding_top }}">
         {{ content_for_layout }}
       </main>
 

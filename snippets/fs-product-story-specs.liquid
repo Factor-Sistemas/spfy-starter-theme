@@ -1,0 +1,23 @@
+{%- comment -%}
+  =============================================================================
+  FS PRODUCT STORY & SPECS
+  =============================================================================
+  Sección a 2 columnas con la historia/descripción del producto a la izquierda
+  y la tabla de especificaciones técnicas a la derecha.
+{%- endcomment -%}
+
+<div class="product-editorial-specs py-16 border-t border-gray-200 mt-12">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <!-- Story Column -->
+    <div class="lg:col-span-6 space-y-6">
+      <div class="prose prose-sm text-gray-600 leading-relaxed space-y-4">
+        {{ product.description }}
+      </div>
+    </div>
+
+    <!-- Specifications Column -->
+    <div class="lg:col-span-6">
+      {% render 'fs-product-spec' %}
+    </div>
+  </div>
+</div>
