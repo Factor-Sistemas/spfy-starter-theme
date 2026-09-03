@@ -79,7 +79,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="w-full bg-primary hover:bg-primary-hover-bg text-white font-extrabold py-2 px-6 rounded-none uppercase tracking-wider text-sm sm:text-base shadow-sm transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed my-2"
+            class="relative w-full bg-primary hover:bg-primary-hover-bg text-white font-extrabold py-2 px-6 rounded-none uppercase tracking-wider text-sm sm:text-base shadow-sm transition-all transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed my-2"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -87,7 +87,7 @@
               disabled
             {% endif %}
           >
-            <span>
+            <span class="btn-label">
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
@@ -96,7 +96,9 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-            {%- render 'loading-spinner' -%}
+            <span
+              class="btn-spinner absolute opacity-0 scale-75 w-5 h-5 rounded-full border-2 border-white/20 border-t-white animate-spin pointer-events-none"
+            ></span>
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}

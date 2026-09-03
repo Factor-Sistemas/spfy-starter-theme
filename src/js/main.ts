@@ -10,6 +10,7 @@ import './classes/FsToast';
 import './classes/FeaturedCollectionSlider';
 import './classes/ImageBannerSlider';
 import './classes/FsProductGallery';
+import './classes/FsProductForm';
 
 // Registrar plugins de GSAP
 gsap.registerPlugin(ScrollTrigger);
