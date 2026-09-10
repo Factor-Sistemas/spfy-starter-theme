@@ -44,7 +44,7 @@
 
         {% comment %} Precio y compra rápida {% endcomment %}
         <div class="flex items-center justify-between mt-1 pt-3 border-t border-neutral-50">
-          {%- render 'fs-product-card-price', card_product: %card_product -%}
+          {%- render 'fs-product-card-price', card_product: card_product -%}
           {% comment %} Flecha de acción (Patrón de icono en el botón) {% endcomment %}
           <a
             href="{{ card_product.url }}"
@@ -67,3 +67,13 @@
 {%- else -%}
   {%- render 'fs-product-card-placeholder' -%}
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'fs-product-card-price', card_product: %card_product -%}"
+  to: "{%- render 'fs-product-card-price', card_product: card_product -%}"
+  position: 3360..3426
+{% endcomment %}
